@@ -2,18 +2,26 @@ var mysql = require("mysql");
 
 const express = require("express");
 const app = express();
+var path = require("path");
 app.engine("html", require("ejs").renderFile);
 app.set("view engine", "html");
 const port = 3000;
 const bodyParser = require("body-parser");
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static("."));
+app.use(express.static(path.join(__dirname, "views")));
 app.listen(3000, function () {
   console.log("Example app listening on port 3000!");
 });
 
 app.get("/", function (req, res) {
-  res.sendFile("SchermataPrincipale.html", { root: __dirname });
+  res.sendFile(
+    path.join(
+      __dirname,
+      "../Sistema_Alberghi/views",
+      "SchermataPrincipale.html"
+    )
+  );
 });
 
 var con = mysql.createConnection({
@@ -52,7 +60,22 @@ app.post("/views/PannelloIscrizioneCliente.html/submit", function (req, res) {
     req.body.password +
     "')";
   con.query(sql, function (err) {
-    if (err) throw err;
-    res.sendFile("ConfermaIscrizione.html", { root: __dirname });
+    if (err) {
+      res.sendFile(
+        path.join(
+          __dirname,
+          "../Sistema_Alberghi/views",
+          "NotificaIscrizioneFallita.html"
+        )
+      );
+      return;
+    }
+    res.sendFile(
+      path.join(
+        __dirname,
+        "../Sistema_Alberghi/views",
+        "ConfermaIscrizione.html"
+      )
+    );
   });
 });
