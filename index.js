@@ -7,7 +7,7 @@ app.engine("html", require("ejs").renderFile);
 app.set("view engine", "html");
 const port = 3000;
 const bodyParser = require("body-parser");
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: false }));
 app.use(express.static("."));
 app.use(express.static(path.join(__dirname, "views")));
 app.listen(3000, function () {
@@ -51,13 +51,13 @@ app.post("/views/PannelloIscrizioneCliente.html/submit", function (req, res) {
   console.log(req.body);
   var sql =
     "insert into gestioneAffitti.utenteCliente values('" +
-    req.body.nome +
+    req.body.nome_iscrizioneC +
     "', '" +
-    req.body.cognome +
+    req.body.cognome_iscrizioneC +
     "', '" +
-    req.body.email +
+    req.body.email_iscrizioneC +
     "', '" +
-    req.body.password +
+    req.body.password_iscrizioneC +
     "')";
   con.query(sql, function (err) {
     if (err) {
@@ -77,5 +77,21 @@ app.post("/views/PannelloIscrizioneCliente.html/submit", function (req, res) {
         "ConfermaIscrizione.html"
       )
     );
+  });
+});
+
+app.post("/datiCliente", function (req, res) {
+  console.log(req.body);
+
+  var sql =
+    "SELECT gestioneAffitti.utenteCliente.nome, gestioneAffitti.utenteCliente.cognome, gestioneAffitti.utenteCliente.email FROM gestioneAffitti.utenteCliente WHERE gestioneAffitti.utenteCliente.email = '" +
+    req.body.email_loginC +
+    "' AND gestioneAffitti.utenteCliente.password = '" +
+    req.body.password_loginC +
+    "' ";
+
+  con.query(sql, function (err, results) {
+    console.log(results);
+    res.render("SchermataProfilo.html", { datiCliente: results });
   });
 });
