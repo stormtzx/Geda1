@@ -80,6 +80,39 @@ app.post("/IscrizioneCliente", function (req, res) {
   });
 });
 
+app.post("/IscrizioneProprietario", function (req, res) {
+  console.log(req.body);
+  var sql =
+    "insert into gestioneAffitti.utenteProprietario values('" +
+    req.body.nome_iscrizioneP +
+    "', '" +
+    req.body.cognome_iscrizioneP +
+    "', '" +
+    req.body.email_iscrizioneP +
+    "', '" +
+    req.body.password_iscrizioneP +
+    "')";
+  con.query(sql, function (err) {
+    if (err) {
+      res.sendFile(
+        path.join(
+          __dirname,
+          "../Sistema_Alberghi/views",
+          "NotificaIscrizioneProprietarioFallita.html"
+        )
+      );
+      return;
+    }
+    res.sendFile(
+      path.join(
+        __dirname,
+        "../Sistema_Alberghi/views",
+        "ConfermaIscrizioneProprietario.html"
+      )
+    );
+  });
+});
+
 app.post("/accessoCliente", function (req, res) {
   console.log(req.body);
 
@@ -100,6 +133,34 @@ app.post("/accessoCliente", function (req, res) {
           __dirname,
           "../Sistema_Alberghi/views",
           "NotificaLoginClienteFallito.html"
+        )
+      );
+    }
+  });
+});
+
+app.post("/accessoProprietario", function (req, res) {
+  console.log(req.body);
+
+  var sql =
+    "SELECT gestioneAffitti.utenteProprietario.nome, gestioneAffitti.utenteProprietario.cognome, gestioneAffitti.utenteProprietario.email FROM gestioneAffitti.utenteProprietario WHERE gestioneAffitti.utenteProprietario.email = '" +
+    req.body.email_loginP +
+    "' AND gestioneAffitti.utenteProprietario.password = '" +
+    req.body.password_loginP +
+    "' ";
+
+  con.query(sql, function (err, results) {
+    if (results.length > 0) {
+      console.log(results);
+      res.render("SchermataProfiloProprietario.html", {
+        accessoProprietario: results,
+      });
+    } else {
+      res.sendFile(
+        path.join(
+          __dirname,
+          "../Sistema_Alberghi/views",
+          "NotificaLoginProprietarioFallito.html"
         )
       );
     }
