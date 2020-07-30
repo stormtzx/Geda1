@@ -47,7 +47,7 @@ tables.crea_tableUtenteProprietario();
 tables.crea_tableCasa();
 tables.crea_tablePrenotazione();
 
-app.post("/views/PannelloIscrizioneCliente.html/submit", function (req, res) {
+app.post("/IscrizioneCliente", function (req, res) {
   console.log(req.body);
   var sql =
     "insert into gestioneAffitti.utenteCliente values('" +
@@ -65,7 +65,7 @@ app.post("/views/PannelloIscrizioneCliente.html/submit", function (req, res) {
         path.join(
           __dirname,
           "../Sistema_Alberghi/views",
-          "NotificaIscrizioneFallita.html"
+          "NotificaIscrizioneClienteFallita.html"
         )
       );
       return;
@@ -74,13 +74,13 @@ app.post("/views/PannelloIscrizioneCliente.html/submit", function (req, res) {
       path.join(
         __dirname,
         "../Sistema_Alberghi/views",
-        "ConfermaIscrizione.html"
+        "ConfermaIscrizioneCliente.html"
       )
     );
   });
 });
 
-app.post("/datiCliente", function (req, res) {
+app.post("/accessoCliente", function (req, res) {
   console.log(req.body);
 
   var sql =
@@ -93,13 +93,13 @@ app.post("/datiCliente", function (req, res) {
   con.query(sql, function (err, results) {
     if (results.length > 0) {
       console.log(results);
-      res.render("SchermataProfilo.html", { datiCliente: results });
+      res.render("SchermataProfiloCliente.html", { accessoCliente: results });
     } else {
       res.sendFile(
         path.join(
           __dirname,
           "../Sistema_Alberghi/views",
-          "NotificaLoginFallito.html"
+          "NotificaLoginClienteFallito.html"
         )
       );
     }
