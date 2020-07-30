@@ -91,7 +91,17 @@ app.post("/datiCliente", function (req, res) {
     "' ";
 
   con.query(sql, function (err, results) {
-    console.log(results);
-    res.render("SchermataProfilo.html", { datiCliente: results });
+    if (results.length > 0) {
+      console.log(results);
+      res.render("SchermataProfilo.html", { datiCliente: results });
+    } else {
+      res.sendFile(
+        path.join(
+          __dirname,
+          "../Sistema_Alberghi/views",
+          "NotificaLoginFallito.html"
+        )
+      );
+    }
   });
 });
