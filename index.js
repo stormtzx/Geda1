@@ -2,7 +2,6 @@ var mysql = require("mysql");
 
 const express = require("express");
 const app = express();
-var router = express.Router();
 var path = require("path");
 app.engine("html", require("ejs").renderFile);
 app.set("view engine", "html");
