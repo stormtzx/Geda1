@@ -148,4 +148,51 @@ module.exports = function (app) {
       }
     });
   });
+
+  app.post("/nuovaCasa", function (req, res) {
+    console.log(req.body);
+    var sql =
+      "insert into gestioneAffitti.casa values('" +
+      req.body.indirizzo_nc +
+      "', '" +
+      req.body.tipo_nc +
+      "', '" +
+      req.body.camere_nc +
+      "', '" +
+      req.body.perimetro_nc +
+      "', '" +
+      req.body.tariffa_nc +
+      "', '" +
+      req.body.fasciatoio_nc +
+      "', '" +
+      req.body.segnalatore_fumo_nc +
+      "', '" +
+      req.body.servizi_disabili_nc +
+      "', '" +
+      req.body.animali_nc +
+      "', '" +
+      req.body.cucina_nc +
+      "', '" +
+      req.body.disponibilità_nc +
+      "')";
+    con.query(sql, function (err) {
+      if (err) {
+        res.sendFile(
+          path.join(
+            __dirname,
+            "../Sistema_Alberghi/views",
+            "NotificaNuovaCasaFallita.html"
+          )
+        );
+        return;
+      }
+      res.sendFile(
+        path.join(
+          __dirname,
+          "../Sistema_Alberghi/views",
+          "SchermataGestioneCasa.html"
+        )
+      );
+    });
+  });
 };

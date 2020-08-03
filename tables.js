@@ -26,7 +26,7 @@ function crea_tableUtenteProprietario() {
 
 function crea_tableCasa() {
   var sql =
-    "CREATE TABLE IF NOT EXISTS casa(id_casa CHARACTER(8) NOT NULL, nome VARCHAR(50) NOT NULL, indirizzo VARCHAR(100) NOT NULL, tipo_abitazione boolean NOT NULL, numero_camere int, numero_bagno int, perimetro_casa float NOT NULL, tariffa_giornaliera float NOT NULL, fasciatoio boolean NOT NULL, segnalatori_fumo boolean NOT NULL, servizi_disabili boolean NOT NULL, animali_ammessi boolean NOT NULL, cucina boolean NOT NULL, periodo_disponibilità boolean NOT NULL, proprietario VARCHAR(50) REFERENCES utenteProprietario(email),PRIMARY KEY(id_casa))";
+    "CREATE TABLE IF NOT EXISTS casa(id_casa CHARACTER(8) not null, nome VARCHAR(50) not null, indirizzo VARCHAR(100) not null, tipo_abitazione boolean, numero_camere int, numero_bagno int, perimetro_casa float not null, tariffa_giornaliera float not null, fasciatoio boolean, segnalatori_fumo boolean, servizi_disabili boolean, animali_ammessi boolean, cucina boolean, periodo_disponibilità boolean, proprietario VARCHAR(50) references utenteProprietario(email), PRIMARY KEY(id_casa))";
   con.query(sql, function (err, result) {
     if (err) throw err;
     console.log("Table CASA creata");
