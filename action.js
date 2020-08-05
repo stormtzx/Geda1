@@ -151,13 +151,29 @@ module.exports = function (app) {
 
   app.post("/nuovaCasa", function (req, res) {
     console.log(req.body);
+    if (req.body.beb_nc == undefined) req.body.beb_nc = false;
+    if (req.body.casa_vacanza_nc == undefined) req.body.casa_vacanza_nc = false;
+    if (req.body.fasciatoio_nc == undefined) req.body.fasciatoio_nc = false;
+    if (req.body.segnalatore_fumo_nc == undefined)
+      req.body.segnalatore_fumo_nc = false;
+    if (req.body.servizi_disabili_nc == undefined)
+      req.body.servizi_disabili_nc = false;
+    if (req.body.animali_nc == undefined) req.body.animali_nc = false;
+    if (req.body.cucina_nc == undefined) req.body.cucina_nc = false;
+    if (req.body.disponibilità_nc == undefined)
+      req.body.disponibilità_nc = false;
+
     var sql =
       "insert into gestioneAffitti.casa values('" +
       req.body.indirizzo_nc +
       "', '" +
-      req.body.tipo_nc +
+      req.body.beb_nc +
+      "', '" +
+      req.body.casa_vacanza_nc +
       "', '" +
       req.body.camere_nc +
+      "', '" +
+      req.body.bagni_nc +
       "', '" +
       req.body.perimetro_nc +
       "', '" +
@@ -173,10 +189,13 @@ module.exports = function (app) {
       "', '" +
       req.body.cucina_nc +
       "', '" +
-      req.body.disponibilità_nc +
+      req.body.disponibilita_nc +
+      "', '" +
+      select_query() +
       "')";
     con.query(sql, function (err) {
       if (err) {
+        console.log(err);
         res.sendFile(
           path.join(
             __dirname,
@@ -190,7 +209,7 @@ module.exports = function (app) {
         path.join(
           __dirname,
           "../Sistema_Alberghi/views",
-          "SchermataGestioneCasa.html"
+          "ConfermaAggiuntaCasa.html"
         )
       );
     });
