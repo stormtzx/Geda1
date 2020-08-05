@@ -138,7 +138,6 @@ module.exports = function (app) {
         res.render("SchermataProfiloProprietario.html", {
           accessoProprietario: results,
         });
-        //Vedi riga 195
       } else {
         res.sendFile(
           path.join(

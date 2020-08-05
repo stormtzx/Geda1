@@ -72,7 +72,7 @@ module.exports = function (app) {
       ", " +
       req.body.disponibilita_nc +
       ", '" +
-      req.session.emailP + //Il problema è che questo dovrebbe riportare quanto salvato nella riga 140, ma non succede nulla! Perché? Il Sistema classifica questo valore come "indefinito" quando il form viene compilato.
+      req.session.emailP +
       "')";
     con.query(sql, function (err) {
       if (err) {
