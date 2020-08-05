@@ -3,6 +3,7 @@ var mysql = require("mysql");
 const express = require("express");
 const app = express();
 var path = require("path");
+var session = require("express-session");
 app.engine("html", require("ejs").renderFile);
 app.set("view engine", "html");
 const port = 3000;
@@ -20,8 +21,6 @@ var con = mysql.createConnection({
   password: "unipa",
 });
 
-const action = require("./action")(app);
-
 con.connect(function (err) {
   if (err) throw err;
   console.log("Connesso");
@@ -38,3 +37,13 @@ tables.crea_tableUtenteCliente();
 tables.crea_tableUtenteProprietario();
 tables.crea_tableCasa();
 tables.crea_tablePrenotazione();
+
+app.use(
+  session({
+    secret: "autorizzazione",
+    resave: false,
+    saveUninitialized: true,
+    cookie: { secure: false },
+  })
+);
+const action = require("./action")(app);

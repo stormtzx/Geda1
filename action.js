@@ -137,6 +137,7 @@ module.exports = function (app) {
         res.render("SchermataProfiloProprietario.html", {
           accessoProprietario: results,
         });
+        req.session.emailP = req.body.email_loginP;
       } else {
         res.sendFile(
           path.join(
@@ -166,11 +167,11 @@ module.exports = function (app) {
     var sql =
       "insert into gestioneAffitti.casa values('" +
       req.body.indirizzo_nc +
-      "', '" +
+      "', " +
       req.body.beb_nc +
-      "', '" +
+      ", " +
       req.body.casa_vacanza_nc +
-      "', '" +
+      ", '" +
       req.body.camere_nc +
       "', '" +
       req.body.bagni_nc +
@@ -178,20 +179,20 @@ module.exports = function (app) {
       req.body.perimetro_nc +
       "', '" +
       req.body.tariffa_nc +
-      "', '" +
+      "', " +
       req.body.fasciatoio_nc +
-      "', '" +
+      ", " +
       req.body.segnalatore_fumo_nc +
-      "', '" +
+      ", " +
       req.body.servizi_disabili_nc +
-      "', '" +
+      ", " +
       req.body.animali_nc +
-      "', '" +
+      ", " +
       req.body.cucina_nc +
-      "', '" +
+      ", " +
       req.body.disponibilita_nc +
-      "', '" +
-      select_query() +
+      ", '" +
+      req.session.emailP +
       "')";
     con.query(sql, function (err) {
       if (err) {
