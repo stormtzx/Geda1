@@ -137,8 +137,7 @@ module.exports = function (app) {
         res.render("SchermataProfiloProprietario.html", {
           accessoProprietario: results,
         });
-        req.session.save(function (err) {});
-        req.session.emailP = req.body.email_loginP;
+        req.session.emailP = req.body.email_loginP; //Vedi riga 195
       } else {
         res.sendFile(
           path.join(
@@ -193,7 +192,7 @@ module.exports = function (app) {
       ", " +
       req.body.disponibilita_nc +
       ", '" +
-      req.session.emailP +
+      req.session.emailP + //Il problema è che questo dovrebbe riportare quanto salvato nella riga 140, ma non succede nulla! Perché? Il Sistema classifica questo valore come "indefinito" quando il form viene compilato.
       "')";
     con.query(sql, function (err) {
       if (err) {

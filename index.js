@@ -40,10 +40,10 @@ tables.crea_tablePrenotazione();
 
 app.use(
   session({
-    secret: "autorizzazione",
+    secret: "El segreto",
     resave: false,
     saveUninitialized: true,
-    cookie: { secure: false },
+    cookie: { maxAge: 60000 },
   })
 );
 const action = require("./action")(app);
