@@ -134,10 +134,11 @@ module.exports = function (app) {
     con.query(sql, function (err, results) {
       if (results.length > 0) {
         console.log(results);
+        req.session.emailP = req.body.email_loginP;
         res.render("SchermataProfiloProprietario.html", {
           accessoProprietario: results,
         });
-        req.session.emailP = req.body.email_loginP; //Vedi riga 195
+        //Vedi riga 195
       } else {
         res.sendFile(
           path.join(
@@ -152,6 +153,17 @@ module.exports = function (app) {
 
   app.post("/nuovaCasa", function (req, res) {
     console.log(req.body);
+    if (req.body.beb_nc != undefined) req.body.beb_nc = true;
+    if (req.body.casa_vacanza_nc != undefined) req.body.casa_vacanza_nc = true;
+    if (req.body.fasciatoio_nc != undefined) req.body.fasciatoio_nc = true;
+    if (req.body.segnalatore_fumo_nc != undefined)
+      req.body.segnalatore_fumo_nc = true;
+    if (req.body.servizi_disabili_nc != undefined)
+      req.body.servizi_disabili_nc = true;
+    if (req.body.animali_nc != undefined) req.body.animali_nc = true;
+    if (req.body.cucina_nc != undefined) req.body.cucina_nc = true;
+    if (req.body.disponibilita_nc != undefined)
+      req.body.disponibilita_nc = true;
     if (req.body.beb_nc == undefined) req.body.beb_nc = false;
     if (req.body.casa_vacanza_nc == undefined) req.body.casa_vacanza_nc = false;
     if (req.body.fasciatoio_nc == undefined) req.body.fasciatoio_nc = false;
@@ -161,8 +173,8 @@ module.exports = function (app) {
       req.body.servizi_disabili_nc = false;
     if (req.body.animali_nc == undefined) req.body.animali_nc = false;
     if (req.body.cucina_nc == undefined) req.body.cucina_nc = false;
-    if (req.body.disponibilità_nc == undefined)
-      req.body.disponibilità_nc = false;
+    if (req.body.disponibilita_nc == undefined)
+      req.body.disponibilita_nc = false;
 
     var sql =
       "insert into gestioneAffitti.casa values('" +
