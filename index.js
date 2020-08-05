@@ -47,3 +47,4 @@ app.use(
   })
 );
 const action = require("./action")(app);
+const action2 = require("./action2")(app);
