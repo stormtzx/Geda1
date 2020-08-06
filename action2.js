@@ -48,6 +48,8 @@ module.exports = function (app) {
       "insert into gestioneAffitti.casa values('" +
       req.body.indirizzo_nc +
       "', '" +
+      req.session.citta_nc +
+      "', '" +
       req.session.emailP +
       "', " +
       req.body.beb_nc +
