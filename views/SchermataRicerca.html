@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Risultati Ricerca</title>
+</head>
+<body>
+    <h1>RISULTATI RICERCA</h1>
+    <% for(var i=0; i<ricercaCase.length; i++){ %>
+    <h1><%= ricercaCase[i].indirizzo %></h1>
+    <h3><%= ricercaCase[i].citta %></h3>
+    <% } %>
+</body>
+</html>

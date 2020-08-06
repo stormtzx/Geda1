@@ -29,6 +29,38 @@ module.exports = function (app) {
     );
   });
 
+  app.post("/ricerca", function (req, res) {
+    console.log(req.body);
+    if (req.body.check_in_r == "")
+      req.body.check_in_r >= "gestioneAffitti.casa.prima_data";
+    if (req.body.check_out_r == "")
+      req.body.check_out_r <= "gestioneAffitti.casa.ultima_data";
+
+    var sql =
+      "SELECT * FROM gestioneAffitti.casa WHERE gestioneAffitti.casa.citta = '" +
+      req.body.citta_r +
+      "' AND gestioneAffitti.casa.prima_data <= '" +
+      req.body.check_in_r +
+      "' AND gestioneAffitti.casa.ultima_data >= '" +
+      req.body.check_out_r +
+      "' ";
+
+    con.query(sql, function (err, results) {
+      if (results.length > 0) {
+        console.log(results);
+        res.render("SchermataRicerca.html", { ricercaCase: results });
+      } else {
+        res.sendFile(
+          path.join(
+            __dirname,
+            "../Sistema_Alberghi/views",
+            "NotificaRicercaFallita.html"
+          )
+        );
+      }
+    });
+  });
+
   app.post("/IscrizioneCliente", function (req, res) {
     console.log(req.body);
     var sql =

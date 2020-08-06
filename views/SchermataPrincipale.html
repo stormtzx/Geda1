@@ -7,8 +7,14 @@
   </head>
   <body>
     <h1>BENVENUTO IN GEDA!</h1>
-    <form action="Ricerca">
-      <input type="text" placeholder="Cerca città, indirizzi..." />
+    <form action="/ricerca" method="POST">
+      <input type="text" name="citta_r" placeholder="cerca città" />
+      <br />
+      <label for="check_in_r">Data Check-In</label>
+      <input type="date" name="check_in_r" />
+
+      <label for="check_out_r">Data Check-Out</label>
+      <input type="date" name="check_out_r" />
       <button type="submit">Cerca</button>
     </form>
     <br />
