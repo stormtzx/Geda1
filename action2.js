@@ -30,8 +30,7 @@ module.exports = function (app) {
       req.body.servizi_disabili_nc = true;
     if (req.body.animali_nc != undefined) req.body.animali_nc = true;
     if (req.body.cucina_nc != undefined) req.body.cucina_nc = true;
-    if (req.body.disponibilita_nc != undefined)
-      req.body.disponibilita_nc = true;
+
     if (req.body.beb_nc == undefined) req.body.beb_nc = false;
     if (req.body.casa_vacanza_nc == undefined) req.body.casa_vacanza_nc = false;
     if (req.body.fasciatoio_nc == undefined) req.body.fasciatoio_nc = false;
@@ -41,12 +40,15 @@ module.exports = function (app) {
       req.body.servizi_disabili_nc = false;
     if (req.body.animali_nc == undefined) req.body.animali_nc = false;
     if (req.body.cucina_nc == undefined) req.body.cucina_nc = false;
-    if (req.body.disponibilita_nc == undefined)
-      req.body.disponibilita_nc = false;
+
+    if (req.body.no_last_nc != undefined)
+      req.body.ultima_data_nc = "9999-12-31";
 
     var sql =
       "insert into gestioneAffitti.casa values('" +
       req.body.indirizzo_nc +
+      "', '" +
+      req.session.emailP +
       "', " +
       req.body.beb_nc +
       ", " +
@@ -69,13 +71,13 @@ module.exports = function (app) {
       req.body.animali_nc +
       ", " +
       req.body.cucina_nc +
-      ", " +
-      req.body.disponibilita_nc +
       ", '" +
-      req.session.emailP +
-      "')";
+      req.body.prima_data_nc +
+      "', '" +
+      req.body.ultima_data_nc +
+      "' ) ";
     con.query(sql, function (err) {
-      if (err) {
+      if (err || req.body.ultima_data_nc < req.body.prima_data_nc) {
         console.log(err);
         res.sendFile(
           path.join(
