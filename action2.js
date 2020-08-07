@@ -3,6 +3,7 @@ var mysql = require("mysql");
 const express = require("express");
 const app = express();
 var path = require("path");
+var session = require("express-session");
 app.engine("html", require("ejs").renderFile);
 app.set("view engine", "html");
 
@@ -79,7 +80,11 @@ module.exports = function (app) {
       req.body.ultima_data_nc +
       "' ) ";
     con.query(sql, function (err) {
-      if (err || req.body.ultima_data_nc < req.body.prima_data_nc) {
+      if (
+        err ||
+        req.body.ultima_data_nc < req.body.prima_data_nc ||
+        req.session.emailP == null
+      ) {
         console.log(err);
         res.sendFile(
           path.join(

@@ -199,4 +199,36 @@ module.exports = function (app) {
       }
     });
   });
+
+  app.get("/logoutProprietario", function (req, res) {
+    console.log(req.body);
+    req.session.emailP;
+
+    var sql =
+      "SELECT gestioneAffitti.utenteProprietario.nome, gestioneAffitti.utenteProprietario.cognome, gestioneAffitti.utenteProprietario.email FROM gestioneAffitti.utenteProprietario WHERE gestioneAffitti.utenteProprietario.email = '" +
+      req.session.emailP +
+      "' ";
+
+    con.query(sql, function (err) {
+      if (err) {
+        res.sendFile(
+          path.join(
+            __dirname,
+            "../Sistema_Alberghi/views",
+            "NotificaLogutFallita.html"
+          )
+        );
+        return;
+      } else {
+        req.session.emailP = null;
+        res.sendFile(
+          path.join(
+            __dirname,
+            "../Sistema_Alberghi/views",
+            "LogoutRiuscito.html"
+          )
+        );
+      }
+    });
+  });
 };
