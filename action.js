@@ -225,7 +225,7 @@ module.exports = function (app) {
           path.join(
             __dirname,
             "../Sistema_Alberghi/views",
-            "SchermataPrincipale.html"
+            "LogoutRiuscito.html"
           )
         );
       }
