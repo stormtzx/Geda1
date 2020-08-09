@@ -46,7 +46,9 @@ module.exports = function (app) {
       req.body.ultima_data_nc = "9999-12-31";
 
     var sql =
-      "insert into gestioneAffitti.casa values('" +
+      "insert into gestioneAffitti.casa(nome_casa, indirizzo, citta, proprietario, beb, casa_vacanza, numero_camere, numero_bagno, perimetro_casa, tariffa_giornaliera, fasciatoio, segnalatori_fumo, servizi_disabili, animali_ammessi, cucina, prima_data, ultima_data) values('" +
+      req.body.nome_casa_nc +
+      "', '" +
       req.body.indirizzo_nc +
       "', '" +
       req.body.citta_nc +
