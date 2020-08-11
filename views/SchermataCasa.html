@@ -7,38 +7,52 @@
   </head>
   <body>
     <h1>Informazioni casa</h1>
+    <p>Codice Casa:</p>
+    <p><%= visualizzaCasa[0].id_casa %></p>
+    <br />
+    <p>Nome Casa:</p>
+    <p><%= visualizzaCasa[0].nome_casa %></p>
+    <br />
     <p>Indirizzo:</p>
-    <h3><%= ricercaCase[i].indirizzo %></h3>
-    <p>Città:</p>
-    <h3><%= ricercaCase[i].città %></h3>
-    <p>E-Mail Proprietario:</p>
-    <h4><%= ricercaCase[i].proprietario %></h4>
+    <p><%= visualizzaCasa[0].indirizzo %></p>
+    <p><%= visualizzaCasa[0].citta %></p>
+    <br />
+    <p>Email Proprietario:</p>
+    <p><%= visualizzaCasa[0].proprietario %></p>
+    <br />
     <p>B&B:</p>
-    <h4><%= ricercaCase[i].beb %></h4>
-    <p>Casa Vacanza:</p>
-    <h4><%= ricercaCase[i].casa_vacanza %></h4>
+    <p><%= visualizzaCasa[0].beb %></p>
+    <br />
+    <p>Codice:</p>
+    <p><%= visualizzaCasa[0].casa_vacanza %></p>
+    <br />
     <p>Numero Camere:</p>
-    <h4><%= ricercaCase[i].numero_camere %></h4>
-    <p>NUmero Bagni:</p>
-    <h4><%= ricercaCase[i].numero_bagno %></h4>
-    <p>Perimetro Abitazione:</p>
-    <h4><%= ricercaCase[i].perimetro_casa %></h4>
-    <p>Tariffa Giornaliera:</p>
-    <h4><%= ricercaCase[i].tariffa_giornaliera %></h4>
-    <p>Fasciatoio:</p>
-    <h4><%= ricercaCase[i].fasciatoio %></h4>
-    <p>Sengalatori Fumo:</p>
-    <h4><%= ricercaCase[i].segnalatori_fumo %></h4>
-    <p>Servizi Disabili:</p>
-    <h4><%= ricercaCase[i].servizi_disabili %></h4>
-    <p>Animali Ammessi:</p>
-    <h4><%= ricercaCase[i].animali_ammessi %></h4>
+    <p><%= visualizzaCasa[0].numero_camere %></p>
+    <br />
+    <p>Numero Bagni:</p>
+    <p><%= visualizzaCasa[0].numero_bagno %></p>
+    <br />
     <p>Cucina:</p>
-    <h4><%= ricercaCase[i].cucina %></h4>
-    <p>Prima Data di Disponibilità:</p>
-    <h4><%= ricercaCase[i].prima_data %></h4>
-    <p>Ultima Data di Disponibilità:</p>
-    <h4><%= ricercaCase[i].ultima_data %></h4>
+    <p><%= visualizzaCasa[0].cucina %></p>
+    <br />
+    <p>Servizi Disabili:</p>
+    <p><%= visualizzaCasa[0].servizi_disabili %></p>
+    <br />
+    <p>Faciatoio:</p>
+    <p><%= visualizzaCasa[0].fasciatoio %></p>
+    <br />
+    <p>Perimetro Casa:</p>
+    <p><%= visualizzaCasa[0].perimetro_casa %></p>
+    <br />
+    <p>Tariffa Giornaliera:</p>
+    <p><%= visualizzaCasa[0].tariffa_giornaliera %></p>
+    <br />
+    <p>Animali Ammessi:</p>
+    <p><%= visualizzaCasa[0].animali_ammessi %></p>
+    <br />
+    <p>Segnalatori Fumo:</p>
+    <p><%= visualizzaCasa[0].segnalatori_fumo %></p>
+    <br />
 
     <a href="./views/PannelloPrenotazione.html">Prenota Casa</a>
 

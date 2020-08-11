@@ -7,9 +7,14 @@
 </head>
 <body>
     <h1>RISULTATI RICERCA</h1>
+    <form action="/visualizzaCasa" method="GET" >
     <% for(var i=0; i<ricercaCase.length; i++){ %>
-    <a href="SchermataCasa.html"><%= ricercaCase[i].indirizzo %></a>
+    <a href="visualizzaCasa?id=<%= ricercaCase[i].id_casa %>"><%= ricercaCase[i].id_casa %></a>
+    <h3><%= ricercaCase[i].nome_casa %></h3>
+    <h3><%= ricercaCase[i].indirizzo %></h3>
     <h3><%= ricercaCase[i].citta %></h3>
     <% } %>
+    </form>
+    
 </body>
 </html>

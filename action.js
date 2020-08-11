@@ -79,6 +79,30 @@ module.exports = function (app) {
     });
   });
 
+  app.get("/visualizzaCasa", function (req, res) {
+    var id = req.param("id");
+
+    var sql =
+      "SELECT * FROM gestioneAffitti.casa WHERE gestioneAffitti.casa.id_casa = '" +
+      id +
+      "'";
+    con.query(sql, function (err, results) {
+      if ((results.length = 1)) {
+        console.log(results);
+        res.render("SchermataCasa.html", { visualizzaCasa: results });
+      } else {
+        console.log(err);
+
+        res.sendFile(
+          path.join(
+            __dirname,
+            "../Sistema_Alberghi/views",
+            "NotificaRicercaFallita.html"
+          )
+        );
+      }
+    });
+  });
   app.post("/IscrizioneCliente", function (req, res) {
     console.log(req.body);
     var sql =
@@ -158,6 +182,7 @@ module.exports = function (app) {
     con.query(sql, function (err, results) {
       if (results.length > 0) {
         console.log(results);
+        req.session.emailC = req.body.email_loginC;
         res.render("SchermataProfiloCliente.html", { accessoCliente: results });
       } else {
         res.sendFile(
@@ -205,7 +230,7 @@ module.exports = function (app) {
     req.session.emailP;
 
     var sql =
-      "SELECT gestioneAffitti.utenteProprietario.nome, gestioneAffitti.utenteProprietario.cognome, gestioneAffitti.utenteProprietario.email FROM gestioneAffitti.utenteProprietario WHERE gestioneAffitti.utenteProprietario.email = '" +
+      "SELECT gestioneAffitti.utenteProprietario.email FROM gestioneAffitti.utenteProprietario WHERE gestioneAffitti.utenteProprietario.email = '" +
       req.session.emailP +
       "' ";
 
@@ -215,12 +240,44 @@ module.exports = function (app) {
           path.join(
             __dirname,
             "../Sistema_Alberghi/views",
-            "NotificaLogutFallita.html"
+            "NotificaLogoutFallito.html"
           )
         );
         return;
       } else {
         req.session.emailP = null;
+        res.sendFile(
+          path.join(
+            __dirname,
+            "../Sistema_Alberghi/views",
+            "LogoutRiuscito.html"
+          )
+        );
+      }
+    });
+  });
+
+  app.get("/logoutCliente", function (req, res) {
+    console.log(req.body);
+    req.session.emailC;
+
+    var sql =
+      "SELECT gestioneAffitti.utenteCliente.email FROM gestioneAffitti.utenteCliente WHERE gestioneAffitti.utenteCliente.email = '" +
+      req.session.emailC +
+      "' ";
+
+    con.query(sql, function (err) {
+      if (err) {
+        res.sendFile(
+          path.join(
+            __dirname,
+            "../Sistema_Alberghi/views",
+            "NotificaLogoutFallito.html"
+          )
+        );
+        return;
+      } else {
+        req.session.emailC = null;
         res.sendFile(
           path.join(
             __dirname,
