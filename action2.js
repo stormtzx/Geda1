@@ -106,4 +106,79 @@ module.exports = function (app) {
       );
     });
   });
+
+  app.post("/ricerca", function (req, res) {
+    console.log(req.body);
+    if (req.body.check_in_r == "" && req.body.check_out_r == "") {
+      var sql =
+        "SELECT * FROM gestioneAffitti.casa WHERE gestioneAffitti.casa.citta = '" +
+        req.body.citta_r +
+        "' ";
+    } else if (req.body.check_in_r == "") {
+      sql =
+        "SELECT * FROM gestioneAffitti.casa WHERE gestioneAffitti.casa.citta = '" +
+        req.body.citta_r +
+        "' AND gestioneAffitti.casa.ultima_data >= '" +
+        req.body.check_out_r +
+        "' ";
+    } else if (req.body.check_out_r == "") {
+      sql =
+        "SELECT * FROM gestioneAffitti.casa WHERE gestioneAffitti.casa.citta = '" +
+        req.body.citta_r +
+        "' AND gestioneAffitti.casa.prima_data <= '" +
+        req.body.check_in_r +
+        "' ";
+    } else {
+      sql =
+        "SELECT * FROM gestioneAffitti.casa WHERE gestioneAffitti.casa.citta = '" +
+        req.body.citta_r +
+        "' AND gestioneAffitti.casa.prima_data <= '" +
+        req.body.check_in_r +
+        "' AND gestioneAffitti.casa.ultima_data >= '" +
+        req.body.check_out_r +
+        "' ";
+    }
+
+    con.query(sql, function (err, results) {
+      if (results.length > 0) {
+        console.log(results);
+        res.render("SchermataRicerca.html", { ricercaCase: results });
+      } else {
+        console.log(err);
+
+        res.sendFile(
+          path.join(
+            __dirname,
+            "../Sistema_Alberghi/views",
+            "NotificaRicercaFallita.html"
+          )
+        );
+      }
+    });
+  });
+
+  app.get("/visualizzaCasa", function (req, res) {
+    var id = req.param("id");
+
+    var sql =
+      "SELECT * FROM gestioneAffitti.casa WHERE gestioneAffitti.casa.id_casa = '" +
+      id +
+      "'";
+    con.query(sql, function (err, results) {
+      if ((results.length = 1)) {
+        console.log(results);
+        res.render("SchermataCasa.html", { visualizzaCasa: results });
+      } else {
+        console.log(err);
+
+        res.sendFile(
+          path.join(
+            __dirname,
+            "../Sistema_Alberghi/views",
+            "NotificaRicercaFallita.html"
+          )
+        );
+      }
+    });
+  });
 };
