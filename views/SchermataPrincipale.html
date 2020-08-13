@@ -1,30 +1,83 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>GEDA</title>
-  </head>
-  <body>
-    <h1>BENVENUTO IN GEDA!</h1>
-    <form action="/ricerca" method="POST">
-      <input type="text" name="nome_casa_r" placeholder="Nome Casa..." />
-      <br />
-      <input type="text" name="citta_r" placeholder="Città..." />
-      <br />
-      <label for="check_in_r">Data Check-In</label>
-      <input type="date" name="check_in_r" />
+<!doctype html>
 
-      <label for="check_out_r">Data Check-Out</label>
-      <input type="date" name="check_out_r" />
-      <button type="submit">Cerca</button>
-    </form>
-    <br />
-    <a href="./SchermataAccesso.html">Accedi</a>
-    <p>
-      Non hai un account?
-      <a href="./views/SchermataIscrizione.html">Registrati</a>
-    </p>
-    <br />
-  </body>
+<html lang=”it”>
+<head>
+<meta charset=”utf-8″>
+<title>GEDA B&B</title>
+<link rel="stylesheet" type="text/css" href="css/FoglioDiStile.css">
+<meta name=”description” content=””/>
+<meta name=”keywords” content=””/>
+</head>
+
+<body>
+<header>
+  <h1 class="testo_centrale"> BENVENUTO IN GEDA</h1>   
+     
+<a href="./SchermataPrincipale.html">Home</a> 
+<a href="./SchermataAccesso.html">Accedi</a>
+<a href="./SchermataIscrizione.html">Registrati</a>
+
+<a href="Pagina con info geografiche ed eventuale geolocalizzazine google">Dove siamo</a>
+<a href="Pagina per una panoramica sui servizi offerti">Servizi</a>
+<a href="Pagina con i costi d'affitto,tipologia di camere">Camere e tariffe</a>
+<a href="Pagina con nostri contatti">Contatti</a>
+</header>   
+ 
+
+
+
+
+<h2>Cerca una struttura e prenota una stanza</h2>
+
+<form action="/ricerca" method="POST">
+  <input type="text" name="citta_r" placeholder="cerca città"/>
+</form>
+
+  <br/>
+  <form>
+  
+   
+
+      <h3>Prenota</h3>
+       
+        <div class="testo_nero">
+            <label for="check_in_r">Check In:</label>
+            <input type="date" class="testo_nero" id="data-in">
+            <i class="icon_calendar"></i>
+        </div>
+       
+        <div class="testo_nero">
+            <label for="check_out_r">Check Out:</label>
+            <input type="date" class="testo_nero" id="data-out">
+            <i class="icon_calendar"></i>
+        </div>
+      <div class="testo_nero">
+        <button type="submit">Cerca</button>
+      </div>
+
+</form>
+
+<br />
+<a href="./SchermataAccesso.html">Accedi</a>
+<p>
+  Non hai un account?
+  <div  class="spazio_vuoto_grande">
+  <a  href="./views/SchermataIscrizione.html">Registrati</a>
+</div>
+</p>
+
+ <div class= "footer_bar">
+<footer>
+
+    <small>&copy;GEDA GROUP</small>
+</footer>
+</div>
+
+ <!-- Bootstrap JS -->
+ <script src="js/bootstrap.min.js"></script>
+
+
+</body>
 </html>
+
+ 
