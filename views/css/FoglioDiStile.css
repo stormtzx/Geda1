@@ -1,0 +1,177 @@
+body {
+    border: none;
+   /*  background-image:url('/Users/Daniele/Desktop/Sistema-alberghi/Sistema_Alberghi-master/views/img/Indoor1.jpg'); 
+   */
+    background-color: rgba(116, 78, 21, 0.516);
+    padding: 0;
+    margin: 0em;
+    font-family: 'Roboto', sans-serif;
+}
+header {
+    border: none;
+    margin: 0;
+    padding: 1%;
+    
+}
+.testo_nero{
+    color: rgb(0, 0, 0)
+}
+
+* {  /*La pagina principale è con ogni carattere bianco*/
+    color: rgba(255, 255, 255, 0.9)
+}
+
+.testo_centrale {
+    text-align: center;
+}
+
+.spazio_vuoto_grande {
+ white-space: 400px;
+}
+
+nav {
+    border: none;
+    border-radius: 10px;
+    background-color: rgba(167, 83, 31, 0.845);
+    margin: 1%;
+    padding: 1%;
+}
+main {
+    float: left;
+    border: none;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.9);
+    margin: 0 0 1% 1%;
+    padding: 1%;
+    width: 67%;
+}
+aside {
+    float: right;
+    border: none;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 0, 0.9);
+    margin: 0 1% 1% 1%;
+    padding: 1%;
+    width: 26%;
+    overflow: hidden;
+}
+footer {
+    border: none;
+    border-radius: 10px;
+    background-color: rgba(167, 83, 31, 0.845);
+    clear: both;
+    text-align: center;
+    padding: 1%;
+    width:100%;
+    height: 20px; 
+    /* posizionamento in fondo alla pagina */
+    position: fixed;
+    bottom:0;
+
+}
+
+
+nav ul, aside ul { 
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+nav li {
+    display: inline;
+}
+nav li a, aside li a {
+    border-radius: 10px;
+    padding: 0.5%;
+    font-weight: bold;
+    text-decoration: none;
+}
+nav li a:hover, aside li a:hover {
+    background-color: rgb(255, 255, 255);
+    color: white;
+}
+aside li a {
+    padding: 0.5% 2%;
+}
+
+.menu_nav { 
+    height: 50px; 
+    width: auto; 
+    position: relative; 
+    background: rgba(109, 75, 33, 0.906); 
+    overflow: auto; 
+    z-index: 1; 
+}
+
+
+h1 {
+    scale: 40px;
+  }
+
+  a:link, a:visited {
+    text-decoration: none;
+    color: black;
+    text-align: center;
+  }
+
+  /*immagini*/
+
+  .hero-image1 {
+    background-image: url(https://images.wallpaperscraft.com/image/tourist_cliff_sky_rock_freedom_113926_2560x1080.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    float: left;
+    height: 750px;
+    width: 50%;
+    text-align: center;
+  }
+
+  .hero-text1 {
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    color: white;
+    text-decoration: none;
+  }
+
+  .hero-image2 {
+    background-image: url(https://c1.wallpaperflare.com/preview/661/326/378/black-business-desk-diary.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    float: right;
+    height: 750px;
+    width: 50%;
+    text-align: center; 
+  }
+
+  .hero-text2 {
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    color: white;
+    text-decoration: none;
+  }
+
+  /*bottoni link*/
+
+  .button1 {
+    background-color: transparent;
+    border: solid black;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+    font-size: 8px;
+    cursor: pointer;
+    border-radius: 4px;
+    width: 400px;
+    margin-top: 45%;
+    margin-inline: auto;
+   
+  }
+
+  .button1:hover, .button1:visited {
+    color: gray;
+    background-color: orange;
+    text-decoration: none;
+  }
