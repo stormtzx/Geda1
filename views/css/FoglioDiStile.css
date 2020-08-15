@@ -196,7 +196,7 @@ ul{
 /* lista in orizzontale. inline-block è come inline, ma può avere altezza e larghezza relative occorre per il sottomenu */
 #menu li{
     display:inline-block;
-   
+    position:relative
 }
 
 /* menu. Cambiando center l'oriento a destra o sinistra */
@@ -208,7 +208,6 @@ ul{
     text-align:center;
     font-size:12px;
      
-  
 }
 
 /* link menu. Cambiando 80px posso scrivere voci più lunghe */
@@ -220,9 +219,6 @@ li a{
     font:bold 10px;
     font-family: 'Roboto', sans-serif;
     text-decoration:none;
-    position: relative;
-    top: 5px;
-   
     border-right:1px solid #ccc
 }
 
