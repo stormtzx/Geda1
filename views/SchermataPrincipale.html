@@ -79,26 +79,80 @@
 
      <!--Fine parte centrale della home -->
 
+     <!--Inizio SlideShow -->
+
+<div id="slideshow">
+ 
+  <div>
+    <img src=" ">
+  </div>
+  <div>
+    <!--  <img src="img/Palermo/palermo1.jpg">-->
+  </div>
+
+  <div>
+      <!--<img src="img/Palermo/palermo2.jpg">-->
+  </div>
+
+  <div>
+     <!-- <img src="img/Palermo/palermo3.jpg">-->
+  </div>
+
+
+  <div>
+     <!-- <img src="img/Palermo/palermo4.jpg">-->
+  </div>
+
+</div>
+    <!--Fine SlideShow -->
+
+
+        <!--Script test per SlideShow -->
+<script>
+
+  document.getElementById(slideshow);
+  
+  $("#slideshow > div:gt(0)").hide();
+  
+    setInterval(function() { 
+      $('#slideshow > div:first')
+        .fadeOut(1000)
+        .next()
+        .fadeIn(1000)
+        .end()
+        .appendTo('#slideshow');
+    },  3000);
+    </script>
+
+        <!--Fine Script test per SlideShow -->
 
 
  <!--Inizio footer-->
 
   <div class= "footer">
     <div class="contenitoreFooter">
-        <div class="colonna1">
-        <small>&copy;GEDA GROUP 1</small>
-        </div>
+       
+      
+      <div class="colonna1">
+          <strong><h4>Note legali</h4></strong>
+          <small>&copy;GEDA GROUP</small>
+          <p>Documentazione</p>
+      </div>
    
         <div class="colonna2">
-          <small>&copy;GEDA GROUP 2</small>
+          <strong><h4>Contattaci:</h4></strong>
+          <p> <small>mail@esempio.it</small> </p>
+          <p> <small>091 123456789</small></p>
+          <h4>Dove trovarci:</h4>
+          <p><small> Via diEsempio n1 </small></p>
           </div>
      
 
           <div class="colonna3">
             <h4>Seguici</h4>
-            <a href="#" img src="img/Logo_FB.png" alt="Facebook">Facebook</a>
-            <a href="#" img src="img/Logo_IG.png" alt="Instagram" >Instagram</a>
-            <a href="#" img src="img/Logo_whatsapp.png" alt="Whatsapp" >Whatsapp</a>
+            <a href="#"><img src="img/Logo_FB.png" alt="Facebook" height="30" width="30" >Facebook </a> 
+            <a href="#"><img src="img/Logo_IG.png" alt="Instagram" height="30" width="30">Instagram </a>
+            <a href="#"><img src="img/Logo_whatsapp.png" alt="Whatsapp" height="30" width="30">Whatsapp</a>
             </div>
        
 
