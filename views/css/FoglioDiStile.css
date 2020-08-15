@@ -2,9 +2,9 @@ body {
     border: none;
    /*  background-image:url('/Users/Daniele/Desktop/Sistema-alberghi/Sistema_Alberghi-master/views/img/Indoor1.jpg'); 
    */
-    background-color: rgba(116, 78, 21, 0.516);
+    background-color: rgba(63, 63, 63, 0.516);
     padding: 0;
-    margin: 0em;
+    margin-left: 1%;
     font-family: 'Roboto', sans-serif;
 }
 header {
@@ -26,13 +26,13 @@ header {
 }
 
 .spazio_vuoto_grande {
- white-space: 400px;
+ white-space: 300px;
 }
 
 nav {
     border: none;
     border-radius: 10px;
-    background-color: rgba(167, 83, 31, 0.845);
+    background-color: rgba(0, 0, 0,);
     margin: 1%;
     padding: 1%;
 }
@@ -58,48 +58,17 @@ aside {
 footer {
     border: none;
     border-radius: 10px;
-    background-color: rgba(167, 83, 31, 0.845);
+    background-color:rgba(0, 0, 0, 0);
     clear: both;
     text-align: center;
     padding: 1%;
     width:100%;
     height: 20px; 
-    /* posizionamento in fondo alla pagina */
     position: fixed;
     bottom:0;
+     /* posizionamento in fondo alla pagina */
+    margin-top:2%;
 
-}
-
-
-nav ul, aside ul { 
-    margin: 0;
-    padding: 0;
-    list-style-type: none;
-}
-nav li {
-    display: inline;
-}
-nav li a, aside li a {
-    border-radius: 10px;
-    padding: 0.5%;
-    font-weight: bold;
-    text-decoration: none;
-}
-nav li a:hover, aside li a:hover {
-    background-color: rgb(255, 255, 255);
-    color: white;
-}
-aside li a {
-    padding: 0.5% 2%;
-}
-
-.menu_nav { 
-    height: 50px; 
-    width: auto; 
-    position: relative; 
-    background: rgba(109, 75, 33, 0.906); 
-    overflow: auto; 
-    z-index: 1; 
 }
 
 
@@ -175,3 +144,176 @@ h1 {
     background-color: orange;
     text-decoration: none;
   }
+
+  .button2 {
+    background-color: transparent;
+    border: solid black;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+    font-size: 10px;
+    cursor: pointer;
+    border-radius: 4px;
+    height: 30px;
+    width: 60px;
+    margin-left: 1%;
+    margin-top: 1%;
+    margin-inline: auto;
+   
+  }
+
+  .button2:hover, .button1:visited {
+    color: gray;
+    background-color: orange;
+    text-decoration: none;
+  }
+
+  .top {
+	margin: 20px 20px 0px 20px;
+	padding: 10px;
+	border: 5px solid #ccc;
+	background: #666;
+	height: 100px; /* ie5win fudge begins */
+	voice-family: "\"}\"";
+	voice-family:inherit;
+	height: 70px;
+    }
+    
+
+
+
+   /* Da questa sezione in poi ci sono le regole di stile per il menu di navigazione */
+
+    /* regole di reset */
+ul{
+    margin: 0;
+    padding:0;
+    list-style-type:none;
+}
+
+/*MENU PRINCIPALE*/
+/* lista in orizzontale. inline-block è come inline, ma può avere altezza e larghezza relative occorre per il sottomenu */
+#menu li{
+    display:inline-block;
+   
+}
+
+/* menu. Cambiando center l'oriento a destra o sinistra */
+#menu{
+    width:100%;
+    background-color:rgb(62, 61, 61);
+    border-radius:6px;
+    height:60px;
+    text-align:center;
+    font-size:12px;
+     
+  
+}
+
+/* link menu. Cambiando 80px posso scrivere voci più lunghe */
+li a{
+    display:block;
+    padding:12px 20px;
+    width:50px;
+    color:#fff;
+    font:bold 10px;
+    font-family: 'Roboto', sans-serif;
+    text-decoration:none;
+    position: relative;
+    top: 5px;
+   
+    border-right:1px solid #ccc
+}
+
+/* link menu hover */
+a:hover{
+    background-color: orange;
+}
+
+/* SOTTOMENU PRINCIPALE */
+#menu li .hidden{
+    display:block;
+    position:absolute;
+    top:100px;
+    left:0;
+    background-color:rgb(87, 86, 86);
+    visibility:hidden;
+    margin-left:-5px;
+    border-right:none
+}
+
+/* link sottomenu */
+#menu li .hidden li a{
+    width:50px;
+    border-right:none}
+
+/* animazione per il passaggio sopra agli elementi del menu */
+#menu li:hover .hidden{
+    margin-top:-65px;
+    visibility:visible}
+
+/* TRIGRAMMA */
+/* stile e invisibilità */
+.showMenu{
+    width:40px;
+    border:1px solid black;
+    margin:auto;
+    color:black;
+    text-align:center;
+    font-size:5px;
+    margin-bottom:10px;
+   display:none 
+}
+
+/* invisibilità checkbox
+Il checkbox va nascosto in ogni caso ed il menu comparirà quando esso verrà selezionato tramite click sull’etichetta */
+input[type=checkbox]{display:none}
+
+/* La tilde alt126 permette di selezionare tutti gli elementi B presenti in A; 
+qui sta a significare che dà visibilità al menu quando il checkbox viene selezionato. */
+input[type=checkbox]:checked ~ #menu{display:block}
+
+
+/* MEDIA QUERIES */
+/* rendo il menù responsivo per adattarlo ai dispositivi più piccoli, fino ad una risoluzione massima di 768px */
+@media only screen and (max-width: 768px) {
+  
+#menu{
+    border-radius:0;
+    text-align:center;
+    display:none}
+  
+/* rendo gli elementi dei menu elementi di blocco */  
+ul li{display:block}
+  
+/* imposto la larghezza massima per gli elementi dei menu e i links */  
+#menu li .hidden li,#menu li .hidden li a, ul li,ul li a{
+    padding-right:0;
+    padding-left:0;
+    width:100%;
+    border-right:none
+}
+  
+/* mostro il sottomenu solo al passaggio del mouse */   
+#menu li .hidden li{
+    display:none}
+#menu li:hover .hidden li{display:block}  
+
+/* resetto la posizione degli elementi del menu. static valore di default. Gli elementi sono mostrati in ordine, come appaiono nel flusso del documento */  
+#menu li{position:static}  
+  
+/* resetto la posizione del sottomenu e lo mostro */  
+#menu li .hidden{position: static;visibility:visible}
+  
+/* nessuna animazione al passaggio del mouse */  
+#menu li:hover .hidden{margin:0} 
+  
+/* colore di sfondo agli elementi del menu e del sottomenu */
+#menu li{background-color:#3E3E3E}
+#menu li .hidden li{background-color:rgb(62, 61, 61)}  
+  
+/* mostro il pulsante del menu nella versione mobile*/
+.showMenu{display:block}  
+  
+}
