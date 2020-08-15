@@ -8,10 +8,9 @@ body {
 }
 
 .contenutoHome {
-
-    padding: 0;
-    margin-left: 1%;
-    
+    bottom:25%;
+     padding: 0;
+     
     /*  background-image:url('/Users/Daniele/Desktop/Sistema-alberghi/Sistema_Alberghi-master/views/img/Indoor1.jpg'); 
    */
 }
@@ -30,8 +29,6 @@ header {
 .testo_nero{
     color: rgb(0, 0, 0)
 }
-
-
 
 .testo_centrale {
     text-align: center;
@@ -57,61 +54,74 @@ main {
     padding: 1%;
     width: 67%;
 }
-aside {
-    float: right;
-    border: none;
-    border-radius: 10px;
-    background-color: rgba(255, 255, 0, 0.9);
-    margin: 0 1% 1% 1%;
-    padding: 1%;
-    width: 26%;
-    overflow: hidden;
+ 
+
+/*regole di stile per lo slideshow delle foto*/
+
+#slideshow { 
+    margin: 50px auto; 
+    position: relative; 
+    width: 100%;
+    height: 600px; 
+    padding: 10px; 
+    box-shadow: 0 0 20px rgba(0,0,0,0.4); 
 }
+
+#slideshow > div { 
+    position: absolute; 
+    top: 10px; 
+    left: 10px; 
+    right: 10px; 
+    bottom: 10px; 
+}
+
 
 /*regole di stile per il footer*/
 
- 
-
 .footer {
  /* posizionamento in fondo alla pagina */
- position: fixed;
+ position: relative;
  left: 0;
- bottom: 0;
+ bottom : 0;
+ height:100%;
  width: 100%;
- background-color: black;
+ background-color:rgba(63, 63, 63, 0.516);
  color: white;
  text-align: center;
+ 
 }
 
 #contenitoreFooter { 
- width: 100%;
- position: relative;
+
+width: 100%;
+ height: 100%;
+ position: fixed;
 }
 
  .colonna1{
-
+     
     float: left; 
-    width: 33%;
+    width: 25%;
     margin: 0px;
-    border: 0px solid black;
+    border-right: 1px solid black;
     padding-left: 2px;
     padding-right:2px;
 }
  .colonna2{
 
     float: left; 
-    width: 33%;
+    width: 25%;
     margin: 0px;
-    border: 0px solid black;
     padding-left: 2px;
     padding-right:2px;
 }
- .colonna2{
+ .colonna3{
 
     float: left; 
-    width: 33%;
+    width: 30%;
     margin: 0px;
-    border: 0px solid black;
+    
+     
     padding-left: 2px;
     padding-right:2px;
 }
@@ -119,7 +129,7 @@ aside {
 
 
 .footer, #push {
-height: 100px;
+height: 200px;
 }
 
 
