@@ -1,13 +1,27 @@
+
+ /*Impostazioni generali per la pagina*/
 body {
+    min-height: 100%;
     border: none;
-   /*  background-image:url('/Users/Daniele/Desktop/Sistema-alberghi/Sistema_Alberghi-master/views/img/Indoor1.jpg'); 
-   */
     background-color: rgba(63, 63, 63, 0.516);
-    padding: 0;
-    margin-left: 1%;
     font-family: 'Roboto', sans-serif;
 }
+
+.contenutoHome {
+
+    padding: 0;
+    margin-left: 1%;
+    
+    /*  background-image:url('/Users/Daniele/Desktop/Sistema-alberghi/Sistema_Alberghi-master/views/img/Indoor1.jpg'); 
+   */
+}
+
+* {  /*La pagina principale è con ogni carattere bianco*/
+    color: rgba(255, 255, 255, 0.9)
+}
+
 header {
+
     border: none;
     margin: 0;
     padding: 1%;
@@ -17,9 +31,7 @@ header {
     color: rgb(0, 0, 0)
 }
 
-* {  /*La pagina principale è con ogni carattere bianco*/
-    color: rgba(255, 255, 255, 0.9)
-}
+
 
 .testo_centrale {
     text-align: center;
@@ -55,20 +67,59 @@ aside {
     width: 26%;
     overflow: hidden;
 }
-footer {
-    border: none;
-    border-radius: 10px;
-    background-color:rgba(0, 0, 0, 0);
-    clear: both;
-    text-align: center;
-    padding: 1%;
-    width:100%;
-    height: 20px; 
-    position: fixed;
-    bottom:0;
-     /* posizionamento in fondo alla pagina */
-    margin-top:2%;
 
+/*regole di stile per il footer*/
+
+ 
+
+.footer {
+ /* posizionamento in fondo alla pagina */
+ position: fixed;
+ left: 0;
+ bottom: 0;
+ width: 100%;
+ background-color: black;
+ color: white;
+ text-align: center;
+}
+
+#contenitoreFooter { 
+ width: 100%;
+ position: relative;
+}
+
+ .colonna1{
+
+    float: left; 
+    width: 33%;
+    margin: 0px;
+    border: 0px solid black;
+    padding-left: 2px;
+    padding-right:2px;
+}
+ .colonna2{
+
+    float: left; 
+    width: 33%;
+    margin: 0px;
+    border: 0px solid black;
+    padding-left: 2px;
+    padding-right:2px;
+}
+ .colonna2{
+
+    float: left; 
+    width: 33%;
+    margin: 0px;
+    border: 0px solid black;
+    padding-left: 2px;
+    padding-right:2px;
+}
+
+
+
+.footer, #push {
+height: 100px;
 }
 
 
@@ -182,7 +233,6 @@ h1 {
     
 
 
-
    /* Da questa sezione in poi ci sono le regole di stile per il menu di navigazione */
 
     /* regole di reset */
@@ -242,7 +292,8 @@ a:hover{
 /* link sottomenu */
 #menu li .hidden li a{
     width:50px;
-    border-right:none}
+    border-right:none
+}
 
 /* animazione per il passaggio sopra agli elementi del menu */
 #menu li:hover .hidden{
