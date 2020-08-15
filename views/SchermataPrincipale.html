@@ -11,48 +11,51 @@
 
 <body>
 <header>
-  <h1 class="testo_centrale"> BENVENUTO IN GEDA</h1>   
-     
-<a href="./SchermataPrincipale.html">Home</a> 
-<a href="./SchermataAccesso.html">Accedi</a>
-<a href="./SchermataIscrizione.html">Registrati</a>
 
-<a href="Pagina con info geografiche ed eventuale geolocalizzazine google">Dove siamo</a>
-<a href="Pagina per una panoramica sui servizi offerti">Servizi</a>
-<a href="Pagina con i costi d'affitto,tipologia di camere">Camere e tariffe</a>
-<a href="Pagina con nostri contatti">Contatti</a>
+  <h1 class="testo_centrale"> BENVENUTO IN GEDA</h1>  
+
+ 
+ 
+<ul id="menu"> 
+  <li><a href="#">Home</a></li>
+  <li><a href="#">Entra nel sito<span style="font-size:8px">&nabla;</span></a>
+    <ul class="hidden"> 
+      <li style="border-bottom:1px solid #CCC"><a href="./SchermataAccesso.html">Accedi</a></li>
+      <li><a href="./SchermataIscrizione.html">Registrati</a></li>
+    </ul>
+  </li>
+  <li><a href="#">Dove siamo</a></li>
+  <li><a href="#">Servizi</a></li>
+  <li><a href="#">Camere e tariffe</a></li>
+  <li><a href="#">Contatti</a></li>
+  <li><a href="#" style="border-right:0">Mappa</a></li>
+</ul>
+
+ 
+
 </header>   
  
 
-
-
-
 <h2>Cerca una struttura e prenota una stanza</h2>
-
-<form action="/ricerca" method="POST">
+<div>
+  <form  action="/ricerca" method="POST">
   <input type="text" name="citta_r" placeholder="cerca città"/>
+</div>
 
-
-  <br/>
-  
-  
-   
-
-      <h3>Prenota</h3>
-       
+  <br/>     
         <div class="testo_nero">
             <label for="check_in_r">Check In:</label>
-            <input type="date" class="testo_nero" id="data-in" name="check_in_r" /> 
+            <input type="date" class="testo_nero" id="data-in" name="check_in_r" placeholder="gg/mm/aaaa" /> 
             <i class="icon_calendar"></i>
         </div>
        
         <div class="testo_nero">
             <label for="check_out_r">Check Out:</label>
-            <input type="date" class="testo_nero" id="data-out" name="check_out_r" />
+            <input type="date" class="testo_nero" id="data-out" name="check_out_r" placeholder="gg/mm/aaaa" />
             <i class="icon_calendar"></i>
         </div>
       <div class="testo_nero">
-        <button type="submit">Cerca</button>
+        <button class="button2" type="submit">Cerca</button>
       </div>
 
 </form>
@@ -61,7 +64,7 @@
 <a href="./SchermataAccesso.html">Accedi</a>
 <p>
   Non hai un account?
-  <div  class="spazio_vuoto_grande">
+  <div>
   <a  href="./views/SchermataIscrizione.html">Registrati</a>
 </div>
 </p>
