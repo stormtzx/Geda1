@@ -168,6 +168,7 @@ module.exports = function (app) {
       if ((results.length = 1)) {
         console.log(results);
         res.render("SchermataCasa.html", { visualizzaCasa: results });
+        req.session.id_casa = results.id_casa;
       } else {
         console.log(err);
 
@@ -182,3 +183,43 @@ module.exports = function (app) {
     });
   });
 };
+
+app.post("/calcoloTasse", function (req, res) {
+  console.log(req.body);
+  if (req.body.animali_p != undefined) req.body.animali_p = true;
+  if (req.body.disabilita_p != undefined) req.body.disabilita_p = true;
+  if (req.body.viaggio_lavoro_p != undefined) req.body.viaggio_lavoro_p = true;
+
+  if (req.body.animali_p == undefined) req.body.animali_p = false;
+  if (req.body.disabilita_p == undefined) req.body.disabilita_p = false;
+  if (req.body.viaggio_lavoro_p == undefined) req.body.viaggio_lavoro_p = false;
+
+  var tariffa_giornaliera_p =
+    "SELECT gestioneAffitti.casa.tariffa_giornaliera FROM gestioneAffitti.casa WHERE gestioneAffitti.casa.id_casa == " +
+    req.session.id_casa +
+    "";
+  con.query(sql, function (err) {
+    if (
+      err ||
+      req.body.ultima_data_nc < req.body.prima_data_nc ||
+      req.session.emailP == null
+    ) {
+      console.log(err);
+      res.sendFile(
+        path.join(
+          __dirname,
+          "../Sistema_Alberghi/views",
+          "NotificaPrenotazioneFallita.html"
+        )
+      );
+      return;
+    }
+    res.sendFile(
+      path.join(
+        __dirname,
+        "../Sistema_Alberghi/views",
+        "ConfermaPrenotazioneEffettuata.html"
+      )
+    );
+  });
+});

@@ -7,57 +7,33 @@
   </head>
 
   <body>
-    <form action="/Prenotazione" method="POST">
-      <label for="indirizzo_nc">Indirizzo Casa</label>
-      <input type="text" name="indirizzo_nc" id="" />
+    <form action="/calcoloTasse" method="POST">
+      <label for="numero_ospiti_adulti_p">Numero ospiti adulti</label>
+      <input type="number" name="numero_ospiti_adulti_p" id="" />
       <br />
-      <label for="citta_nc">Città</label>
-      <input type="text" name="citta_nc" id="" />
+      <label for="numero_ospiti_bambini_p">Numero ospiti bambini</label>
+      <input type="number" name="numero_ospiti_bambini_p" id="" />
       <br />
-      <label for="beb_nc">B&B</label>
-      <input type="checkbox" name="beb_nc" id="" />
+      <label for="data_check_in_p">Data Check-In</label>
+      <input type="date" name="data_check_in_p" id="" />
       <br />
-      <label for="casa_vacanza_nc">Casa Vacanza</label>
-      <input type="checkbox" name="casa_vacanza_nc" id="" />
+      <label for="data_check_out_p">Data Check-Out</label>
+      <input type="date" name="data_check_out_p" id="" />
       <br />
-      <label for="camere_nc">Numero Camere</label>
-      <input type="number" name="camere_nc" id="" />
+      <label for="animali_p">Presenza di animali?</label>
+      <input type="checkbox" name="animali_p" id="" />
       <br />
-      <label for="bagni_nc">Numero Bagni</label>
-      <input type="number" name="bagni_nc" id="" />
+      <label for="disabilita_p"
+        >Uno degli ospiti è affetto da disabilità?</label
+      >
+      <input type="checkbox" name="disabilita_p" id="" />
       <br />
-      <label for="perimetro_nc">Perimetro Casa (metri quadri)</label>
-      <input type="number" name="perimetro_nc" id="" />
-      <br />
-      <label for="tariffa_nc">Tariffa Giornaliera (euro)</label>
-      <input type="number" name="tariffa_nc" id="" />
-      <br />
-      <label for="fasciatoio_nc">Fasciatoio</label>
-      <input type="checkbox" name="fasciatoio_nc" id="" />
-      <br />
-      <label for="segnalatore_fumo_nc">Segnalatori Fumo</label>
-      <input type="checkbox" name="segnalatore_fumo_nc" id="" />
-      <br />
-      <label for="servizi_disabili_nc">Servizi Disabili</label>
-      <input type="checkbox" name="servizi_disabili_nc" id="" />
-      <br />
-      <label for="animali_nc">Animali</label>
-      <input type="checkbox" id="" name="animali_nc" id="" />
-      <br />
-      <label for="cucina_nc">Cucina</label>
-      <input type="checkbox" name="cucina_nc" id="" />
-      <br />
-      <label for="prima_data_nc">Primo giorno di disponibilità</label>
-      <input type="date" name="prima_data_nc" id="" />
-      <br />
-      <label for="ultima_data_nc">Ultimo giorno di disponibilità</label>
-      <input type="date" name="ultima_data_nc" id="" />
-      <label for="no_last_nc">Non c'è un ultimo giorno di disponibilità</label>
-      <input type="checkbox" name="no_last_nc" id="" />
-
+      <label for="viaggio_lavoro_p">Viaggio di lavoro?</label>
+      <input type="checkbox" name="" id="viaggio_lavoro_p" />
       <br />
       <br />
-      <button type="submit">Aggiungi Casa</button>
+      <br />
+      <button type="submit">Avanti</button>
     </form>
   </body>
 </html>

@@ -35,7 +35,7 @@ function crea_tableCasa() {
 
 function crea_tablePrenotazione() {
   var sql =
-    "CREATE TABLE IF NOT EXISTS prenotazione(cliente varchar(50) references utenteCliente(email),ref_casa character(50) references casa(indirizzo), data_emissione date not null, check_in date not null, check_out date not null, prezzo float not null, ammontare_tasse float not null, prezzo_totale float not null, primary key(cliente, ref_casa, data_emissione))";
+    "CREATE TABLE IF NOT EXISTS prenotazione(id_prenotazione int auto_increment, ref_casa int references casa(id_casa), ref_nome_casa VARCHAR(50) references casa(nome_casa), nome_cliente varchar(50) references utenteCliente(nome), cognome_cliente varchar(50) references utenteCliente(cognome), email_cliente VARCHAR(50) references utenteCliente(email), numero_ospiti_adulti int not null, numero_ospiti_bambini int, data_emissione date not null, check_in date not null, check_out date not null, animali boolean not null, disabilita boolean not null, viaggio_lavoro boolean not null, prezzo float not null, ammontare_tasse float not null, prezzo_totale float not null, primary key(id_prenotazione))";
   con.query(sql, function (err, result) {
     if (err) throw err;
     console.log("Table PRENOTAZIONE creata");
