@@ -138,6 +138,67 @@ height: 200px;
 }*/
 
 
+
+ /* Stile dei moduli per l'immissione dei dati */
+
+
+.modulo {
+
+margin-left:7%;
+margin-right:-5%;
+margin-top:10%;
+margin-bottom:20%;
+background-color: rgb(198, 191, 123);
+padding: 2%;
+width: 80%;
+border: medium solid black;
+font-family:'Roboto', sans-serif; ;
+color:black;
+
+
+}
+
+.bloccoModulo {
+
+    background-color:rgba(125, 79, 24, 0.632);
+    border: thin dashed rgba(199, 159, 57, 0.598);
+    padding: 2%;
+    color:black;
+
+}
+
+.modulo form {
+ 
+    margin-top:5%;
+    padding-left:20%;
+}
+
+.modulo label {
+    
+    margin-top: 5%;
+    margin-left: -10%;
+    padding-right: 3%;
+}
+
+.modulo input {
+    
+    margin-top: 5%;
+    margin-bottom: 5%;
+    
+}
+
+.bottoneIscrizione {
+
+    width:100%;
+
+}
+
+
+
+
+
+
+
 h1 {
     scale: 40px;
   }
@@ -263,7 +324,7 @@ h1 {
 	margin: 20px 20px 0px 20px;
 	padding: 10px;
 	border: 5px solid #ccc;
-	background: #666;
+	background: #665;
 	height: 100px; /* ie5win fudge begins */
 	voice-family: "\"}\"";
 	voice-family:inherit;
@@ -285,32 +346,35 @@ ul{
 /* lista in orizzontale. inline-block è come inline, ma può avere altezza e larghezza relative occorre per il sottomenu */
 
 #menu{
-    width:34%;
+    width:100%;
     background-color:rgb(62, 61, 61);
     top:0;
-    height:40px;
-    text-align:right;
-    font-size:14px;
-    box-sizing: margin-box;
-    border-radius:6px;
+    height:50px;
+     font-size:14px;
+     border-radius:6px;
     border-style:solid;
     border-color:white;
     border:thin;
-    float:right;
-    margin-top:-30px;
+     margin-top:-30px;
+     margin-right:-5px;
+     float:right;
+    
 }
 
 
 #menu li{
     display:inline-block;
-    position:relative;
+    position:auto;
     box-sizing: margin-box;
      padding:3px 3px 3px 3px;
      border-style:solid;
      border-color:white;
      border:thin;
-     float:left;
-}
+     float:right;
+
+    
+     
+ }
 
 /* menu. Cambiando center l'oriento a destra o sinistra */
 
@@ -320,9 +384,12 @@ li a{
     padding:10px 10px 10px 10px;
     width:auto;
     color:#fff;
-    font:bold 12px;
+    font:bold 14px;
     font-family: 'Roboto', sans-serif;
     text-decoration:none;
+    margin-top:5px;
+    margin-right:-5px;
+    float:right;
      
 }
 
