@@ -88,12 +88,13 @@ main {
  background-color:rgba(63, 63, 63, 0.516);
  color: white;
  text-align: center;
+ box-sizing: margin-box;
  
 }
 
 #contenitoreFooter { 
 
-width: 100%;
+ width: 100%;
  height: 100%;
  position: fixed;
 }
@@ -104,33 +105,32 @@ width: 100%;
     width: 25%;
     margin: 0px;
     border-right: 1px solid black;
-    padding-left: 2px;
-    padding-right:2px;
+    padding-left: 1px;
+    padding-right:1px;
 }
  .colonna2{
 
     float: left; 
     width: 25%;
     margin: 0px;
-    padding-left: 2px;
-    padding-right:2px;
+    padding-left: 1px;
+    padding-right:1px;
 }
  .colonna3{
 
     float: left; 
     width: 30%;
     margin: 0px;
-    
-     
-    padding-left: 2px;
-    padding-right:2px;
+    display:block;
+    padding-left: 1px;
+    padding-right:1px;
 }
 
 
-
+ /* 
 .footer, #push {
 height: 200px;
-}
+}*/
 
 
 h1 {
@@ -256,59 +256,77 @@ ul{
 /* lista in orizzontale. inline-block è come inline, ma può avere altezza e larghezza relative occorre per il sottomenu */
 #menu li{
     display:inline-block;
-    position:relative
+    position:relative;
+    box-sizing: margin-box;
+     padding:3px 3px 3px 3px;
+     border-style:solid;
+     border-color:white;
+     border:thin;
+     float:left;
 }
 
 /* menu. Cambiando center l'oriento a destra o sinistra */
 #menu{
-    width:100%;
+    width:34%;
     background-color:rgb(62, 61, 61);
+    
+    height:40px;
+    text-align:right;
+    font-size:14px;
+    box-sizing: margin-box;
     border-radius:6px;
-    height:60px;
-    text-align:center;
-    font-size:12px;
+    border-style:solid;
+    border-color:white;
+    border:thin;
+    float:right;
      
 }
 
-/* link menu. Cambiando 80px posso scrivere voci più lunghe */
+/* link menu.   */
 li a{
     display:block;
-    padding:12px 20px;
-    width:50px;
+    padding:10px 10px 10px 10px;
+    width:auto;
     color:#fff;
-    font:bold 10px;
+    font:bold 12px;
     font-family: 'Roboto', sans-serif;
     text-decoration:none;
-    border-right:1px solid #ccc
+     
 }
 
 /* link menu hover */
 a:hover{
     background-color: orange;
+    border-radius:6px;
 }
 
 /* SOTTOMENU PRINCIPALE */
 #menu li .hidden{
     display:block;
     position:absolute;
-    top:100px;
-    left:0;
+    top:102px;
+   
     background-color:rgb(87, 86, 86);
     visibility:hidden;
-    margin-left:-5px;
-    border-right:none
+    margin:auto;
+    border-right:none;
+    border-radius:6px;
+    width:auto;
+
 }
 
 /* link sottomenu */
 #menu li .hidden li a{
-    width:50px;
-    border-right:none
+    
+    border-right:none;
+    margin:auto;
 }
 
 /* animazione per il passaggio sopra agli elementi del menu */
 #menu li:hover .hidden{
-    margin-top:-65px;
-    visibility:visible}
+    margin-top:-70px;
+    visibility:visible
+}
 
 /* TRIGRAMMA */
 /* stile e invisibilità */
