@@ -46,7 +46,7 @@ module.exports = function (app) {
       req.body.ultima_data_nc = "9999-12-31";
 
     var sql =
-      "insert into gestioneAffitti.casa(nome_casa, indirizzo, citta, proprietario, beb, casa_vacanza, numero_camere, numero_bagno, perimetro_casa, tariffa_giornaliera, fasciatoio, segnalatori_fumo, servizi_disabili, animali_ammessi, cucina, prima_data, ultima_data) values('" +
+      "insert into gestioneAffitti.casa(nome_casa, indirizzo, citta, proprietario, beb, casa_vacanza, numero_camere, numero_bagno, perimetro_casa, tariffa_giornaliera, ammontare_tasse, fasciatoio, segnalatori_fumo, servizi_disabili, animali_ammessi, cucina, prima_data, ultima_data) values('" +
       req.body.nome_casa_nc +
       "', '" +
       req.body.indirizzo_nc +
@@ -66,6 +66,8 @@ module.exports = function (app) {
       req.body.perimetro_nc +
       ", " +
       req.body.tariffa_nc +
+      ", " +
+      req.body.tasse_nc +
       ", " +
       req.body.fasciatoio_nc +
       ", " +
@@ -168,7 +170,13 @@ module.exports = function (app) {
       if ((results.length = 1)) {
         console.log(results);
         res.render("SchermataCasa.html", { visualizzaCasa: results });
-        req.session.id_casa = results.id_casa;
+        req.session.id_casa = results[0].id_casa;
+        req.session.nome_casa = results[0].nome_casa;
+        req.session.email_proprietario = results[0].proprietario;
+        req.session.tariffa_giornaliera = results[0].tariffa_giornaliera;
+        req.session.ammontare_tasse = results[0].ammontare_tasse;
+        req.session.prima_data = results[0].prima_data;
+        req.session.ultima_data = results[0].ultima_data;
       } else {
         console.log(err);
 
@@ -184,7 +192,7 @@ module.exports = function (app) {
   });
 };
 
-app.post("/calcoloTasse", function (req, res) {
+app.post("/calcoloTasse", function (req, res, err) {
   console.log(req.body);
   if (req.body.animali_p != undefined) req.body.animali_p = true;
   if (req.body.disabilita_p != undefined) req.body.disabilita_p = true;
@@ -193,33 +201,36 @@ app.post("/calcoloTasse", function (req, res) {
   if (req.body.animali_p == undefined) req.body.animali_p = false;
   if (req.body.disabilita_p == undefined) req.body.disabilita_p = false;
   if (req.body.viaggio_lavoro_p == undefined) req.body.viaggio_lavoro_p = false;
-
-  var tariffa_giornaliera_p =
-    "SELECT gestioneAffitti.casa.tariffa_giornaliera FROM gestioneAffitti.casa WHERE gestioneAffitti.casa.id_casa == " +
-    req.session.id_casa +
-    "";
-  con.query(sql, function (err) {
-    if (
-      err ||
-      req.body.ultima_data_nc < req.body.prima_data_nc ||
-      req.session.emailP == null
-    ) {
-      console.log(err);
-      res.sendFile(
-        path.join(
-          __dirname,
-          "../Sistema_Alberghi/views",
-          "NotificaPrenotazioneFallita.html"
-        )
-      );
-      return;
-    }
+  if (
+    err ||
+    req.body.data_check_out_p < req.body.data_check_in_p ||
+    req.body.data_check_in_p < req.session.prima_data ||
+    req.body.data_check_out_p > req.session.ultima_data
+  ) {
+    console.log(err);
     res.sendFile(
       path.join(
         __dirname,
         "../Sistema_Alberghi/views",
-        "ConfermaPrenotazioneEffettuata.html"
+        "NotificaPrenotazioneFallita.html"
       )
     );
-  });
+    return;
+  } else {
+    var giorni = datediff(req.body.data_check_in_p, req.body.data_check_out_p);
+    var prezzo = giorni + req.session.tariffa_giornaliera;
+    if (req.body.viaggio_lavoro_p == false && req.body.disabilita_p == false) {
+      var tasse = req.session.ammontare_tasse;
+    } else {
+      var tasse = req.session.ammontare_tasse / 2;
+    }
+    var totale = prezzo + req.session.ammontare_tasse;
+
+    res.render("SchermataPrezzo.html", {
+      giorni,
+      prezzo,
+      tasse,
+      totale,
+    });
+  }
 });
