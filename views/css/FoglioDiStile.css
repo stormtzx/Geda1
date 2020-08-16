@@ -201,11 +201,36 @@ h1 {
     border-radius: 4px;
     width: 400px;
     margin-top: 45%;
-    margin-inline: auto;
+    margin-left: 17%;
+    margin-right: 22%;
    
   }
 
   .button1:hover, .button1:visited {
+    color: gray;
+    background-color: orange;
+    text-decoration: none;
+  }
+
+  .button3 {
+    background-color: transparent;
+    border: solid black;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+    font-size: 8px;
+    cursor: pointer;
+    border-radius: 4px;
+    width: 400px;
+    margin-top: 45%;
+    margin-left: 23%;
+    margin-right: 25%;
+   
+  }
+
+  .button3:hover, .button3:visited {
     color: gray;
     background-color: orange;
     text-decoration: none;
@@ -224,8 +249,7 @@ h1 {
     height: 30px;
     width: 60px;
     margin-left: 1%;
-    margin-top: 1%;
-    margin-inline: auto;
+    margin-right: 1%;
    
   }
 
