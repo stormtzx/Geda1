@@ -10,35 +10,38 @@
 </head>
 
 
-<body>
-  <div class="contenutoHome">
 
-     <!--Inizio header-->
+  <!--Inizio header-->
 <header>
 
-  <h1 class="testo_centrale"> BENVENUTO IN GEDA</h1>  
-
   <!--menu di navigazione-->
-<ul id="menu"> 
-  <li><a href="#">Home</a></li>
-  <li><a href="#">Entra nel sito<span style="font-size:8px">&nabla;</span></a>
-    <ul class="hidden"> 
-      <li style="border-bottom:1px solid #CCC"><a href="./SchermataAccesso.html">Accedi</a></li>
-      <li><a href="./SchermataIscrizione.html">Registrati</a></li>
-    </ul>
-  </li>
-  <li><a href="#">Dove siamo</a></li>
-  <li><a href="#">Servizi</a></li>
-  <li><a href="#">Camere e tariffe</a></li>
-  <li><a href="#">Contatti</a></li>
-  <li><a href="#"  >Mappa</a></li>
-</ul>
- <!--Fine menu di navigazione-->
-      <!--Fine header-->
-
-
-</header>   
+  <ul id="menu"> 
+    <li><a href="#">Home</a></li>
+    <li><a href="#">Entra nel sito<span style="font-size:8px">&nabla;</span></a>
+      <ul class="hidden"> 
+        <li style="border-bottom:1px solid #CCC"><a href="./SchermataAccesso.html">Accedi</a></li>
+        <li><a href="./SchermataIscrizione.html">Registrati</a></li>
+      </ul>
+    </li>
+    <li><a href="#">Dove siamo</a></li>
+    <li><a href="#">Servizi</a></li>
+    <li><a href="#">Camere e tariffe</a></li>
+    <li><a href="#">Contatti</a></li>
+    <li><a href="#">Mappa</a></li>
+  </ul>
+   <!--Fine menu di navigazione-->
  
+
+
+</header>  
+     <!--Fine header-->
+
+
+<body>
+
+  <div class="contenutoHome">
+  <h1 class="testo_centrale"> BENVENUTO IN GEDA</h1>  
+   
 
      <!--Inizio parte centrale della home -->
 
@@ -78,29 +81,15 @@
 </div>
 
      <!--Fine parte centrale della home -->
-
+      
      <!--Inizio SlideShow -->
 
 <div id="slideshow">
- 
-  <div>
-    <!--  <img src="img/Palermo/palermo1.jpg">-->
-  </div>
-
-  <div>
-      <!--<img src="img/Palermo/palermo2.jpg">-->
-  </div>
-
-  <div>
-     <!-- <img src="img/Palermo/palermo3.jpg">-->
-  </div>
-
-
-  <div>
-     <!-- <img src="img/Palermo/palermo4.jpg">-->
-  </div>
+   
+ <img src="img/Slide/fotoTest.jpg" alt="Foto_stanza" height=600  width=1200  > 
 
 </div>
+
     <!--Fine SlideShow -->
 
 
@@ -109,24 +98,15 @@
 
   document.getElementById(slideshow);
   
-  $("#slideshow > div:gt(0)").hide();
   
-    setInterval(function() { 
-      $('#slideshow > div:first')
-        .fadeOut(1000)
-        .next()
-        .fadeIn(1000)
-        .end()
-        .appendTo('#slideshow');
-    },  3000);
-    </script>
+  </script>
 
         <!--Fine Script test per SlideShow -->
 
 
  <!--Inizio footer-->
 
-  <div class= "footer">
+ 
     <div class="contenitoreFooter">
        
       
@@ -139,9 +119,9 @@
         <div class="colonna2">
           <strong><h4>Contattaci:</h4></strong>
           <p> <small>mail@esempio.it</small> </p>
-          <p> <small>091 123456789</small></p>
+          <p> <small>091 123456789</small></p> 
           <h4>Dove trovarci:</h4>
-          <p><small> Via diEsempio n1 </small></p>
+          <p><small> Via Esempio n1 </small></p>
           </div>
      
 
@@ -154,7 +134,7 @@
        
 
    </div>
-  </div>
+ 
  
 
    <!--Fine footer-->
