@@ -1,20 +1,16 @@
 
  /*Impostazioni generali per la pagina*/
-html,body {
+ html,body {
     min-height: 100%;
     margin:0;
     padding:0;
     background-color: rgba(63, 63, 63, 0.516);
     font-family: 'Roboto', sans-serif;
-    
 }
 
-.contenutoHome  {
-  margin-left: 25px;
-}
  
 
-* {  /*La pagina principale (nel body) è con ogni carattere bianco*/
+* {  /*La pagina principale è con ogni carattere bianco*/
     color: rgba(255, 255, 255, 0.9)
 }
 
@@ -23,15 +19,9 @@ header {
     border: none;
     position: relative;
 	padding: 32px;
-	height: 150px;
-background-color: #292c2f;
+	height: 130px;
+    
 }
-
-header .logoHeader {
-  position: relative;
-  bottom:60px;
-}
-
 .testo_nero{
     color: rgb(0, 0, 0)
 }
@@ -43,7 +33,14 @@ header .logoHeader {
 .spazio_vuoto_grande {
  white-space: 300px;
 }
- 
+
+nav {
+    border: none;
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0,);
+    margin: 1%;
+    padding: 1%;
+}
 main {
     float: left;
     border: none;
@@ -55,232 +52,87 @@ main {
 }
  
 
- /*regole di stile per la barra di navigazione*/
-nav {
-  position: relative;
-  top: 1px;
-  left: 60%;
-  transform: translateX(-50%);
-  display: inline-block;
-  border: 1px solid black;
-  background-color: gray;
-  border-radius: 6px;
-  /*possibilità di animazione-> animation: slideIN 1s ease-out; */
-}
- 
-nav ul {
-  position: relative;
-  display: flex;
-  flex: 1 1 auto;
-  margin: 0;
-  padding: 0 30px;
-  list-style-type: none;
-}
-nav ul li:not(:last-child) {
-  margin-right: 40px;
-}
-nav ul li {
-  border: 2px solid transparent;
-  border-radius: 5px;
-  padding: 10px;
-  transition: background 0.2s;
-}
-nav ul li a {
-  color: rgb(0, 0, 0);
-  text-decoration: none;
-  text-transform: uppercase;
-  transition: color 0.3s;
+/*regole di stile per lo slideshow delle foto*/
+
+#slideshow { 
+    margin: 50px auto; 
+    position: relative; 
+    width: 64%;
+    height: 600px; 
+    padding: 10px; 
+    box-shadow: 0 0 20px rgba(0,0,0,0.4); 
 
 }
-nav ul li ul {
-  visibility: hidden;
-  opacity: 0;
-  position: absolute;
-  display: block;
-  margin: 12px -12px;
-  padding: 0;
-  background: lightgray;
-  border: 2px solid #000000;
-  border-right: 1px solid #000000;
-  border-bottom: 1px solid #000000;
-  border-radius: 5px;
-  transition: opacity 0.2s, visibility 0.2s;
+
+#slideshow > div { 
+    position: absolute; 
+    top: 10px; 
+    left: 10px; 
+    right: 10px; 
+    bottom: 10px; 
 }
-nav ul li ul li {
-  margin: -2px 0 0 -2px;
-  width: calc(100% - 20px);
-  line-height: 1.7;
-}
-nav ul li ul li a {
-  color: rgb(0, 0, 0);
-}
-nav ul li:hover {
-  background: orange;
-  border: 2px solid orange;
-  border-right: 2px solid orange;
-  border-bottom: 2px solid orange;
-}
-nav ul li:hover a {
-  color: gray;
-}
-nav ul li:hover ul {
-  visibility: visible;
-  opacity: 1;
-  box-shadow: 0px 2px 2px 2px orange;
-}
-nav ul li:hover ul li a {
-  color: black;
-}
- 
 
 
 /*regole di stile per il footer*/
+
  
-footer{
-	position: relative;
-	bottom: 0;
-}
-.colonne-footer{
-	background-color: #292c2f;
-	box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
-	box-sizing: border-box;
-	width: 100%;
-	text-align: left;
-	font: bold 16px sans-serif;
-	padding: 55px 50px;
-	margin-top: 80px;
+
+.contenitoreFooter { 
+
+    width: 100%;
+    height: 100%;
+    position: relative;
+    left: 0;
+    bottom : 0;
+    background-color:rgba(63, 63, 63, 0.516);
+    color: white;
+    text-align: center;
+    
  
-}
-
-.colonne-footer .colonna-sinistra,
-.colonne-footer .colonna-centrale,
-.colonne-footer .colonna-destra{
-	display: inline-block;
-	vertical-align: top;
-}
-
-.colonne-footer .colonna-sinistra{
-	width: 30%;
-}
-
-.colonne-footer h3{
-	color:  #ffffff;
-	font: normal 36px 'Cookie', cursive;
-	margin: 0;
-}
-
-.colonne-footer h3 span{
-	color:  rgba(138, 125, 125, 0.947);
-}
-
-
-.colonne-footer .footer-links{
-	color:  #ffffff;
-	margin: 20px 0 12px;
-  padding: 0;
+   }
    
-}
-
-.colonne-footer .footer-links a{
-	display:inline-block;
-	line-height: 1.8;
-	text-decoration: none;
-  color:  inherit;
-  
-  
-}
-
-.colonne-footer .footer-GEDAName{
-	color:  #8f9296;
-	font-size: 14px;
-	font-weight: normal;
-	margin: 0;
-}
-
-
-.colonne-footer .colonna-centrale{
-	width: 30%;
-}
-
-.colonne-footer .colonna-centrale i{
-	background-color:  #33383b;
-	color: #ffffff;
-	font-size: 25px;
-	width: 38px;
-	height: 38px;
-	border-radius: 50%;
-	text-align: center;
-	line-height: 42px;
-	margin: 10px 15px;
-	vertical-align: middle;
-}
-
-.colonne-footer .colonna-centrale i.contatti{
-	font-size: 17px;
-	line-height: 38px;
-}
-
-.colonne-footer .colonna-centrale p{
-	display: inline-block;
-	color: #ffffff;
-	vertical-align: middle;
-	margin:0;
-}
-
-.colonne-footer .colonna-centrale p span{
-	display:block;
-	font-weight: normal;
-	font-size:14px;
-	line-height:2;
-}
-
-.colonne-footer .colonna-centrale p a{
-	color:  rgba(135, 132, 132, 0.947);
-	text-decoration: none;;
-}
-
-.colonne-footer .colonna-destra{
-  width: 33%;
+   .contenitoreFooter .colonna1{
+        
+       float: left; 
+       width: 25%;
+       margin: 0px;
+       border-right: 1px solid black;
+       padding-left: 1px;
+       padding-right:1px;
+   }
+   .contenitoreFooter .colonna2{
    
+       float: left; 
+       width: 25%;
+       margin: 0px;
+       padding-left: 1px;
+       padding-right:1px;
+   }
+   .contenitoreFooter .colonna3{
+   
+       float: right; 
+       width: 30%;
+       margin: 0px;
+       display:block;
+       padding-left: 1px;
+       padding-right:1px;
+   }
+   
+   
+
+
+.colonna3 a {
+
+display:block;
+padding: 4px 4px 4px 4px;
+
 }
 
-.colonne-footer .footer-infoSuDiNoi{
-	line-height: 20px;
-	color:  #92999f;
-	font-size: 13px;
-	font-weight: normal;
-	margin: 0;
-}
+ /* 
+.footer, #push {
+height: 200px;
+}*/
 
-.colonne-footer .footer-infoSuDiNoi span{
-	display: block;
-	color:  #ffffff;
-	font-size: 14px;
-	font-weight: bold;
-	margin-bottom: 20px;
-}
-
-.colonne-footer .icone-social{
-  margin-top: 25px;
-  margin-left:200px;
-}
-
-.colonne-footer .icone-social a{
-	display: block;
-	width: 35px;
-	height: 35px;
-	cursor: pointer;
-	background-color:  #33383b;
-	border-radius: 2px;
-
-	font-size: 20px;
-	color: #ffffff;
-	text-align: center;
-	line-height: 35px;
-
-	margin-right: 3px;
-	margin-bottom: 5px;
-}
 
 
  /* Stile dei moduli per l'immissione dei dati */
@@ -339,6 +191,18 @@ border-radius:6px;
     width:100%;
 
 }
+
+ 
+
+
+
+
+
+
+
+h1 {
+    scale: 40px;
+  }
 
   a:link, a:visited {
     text-decoration: none;
@@ -470,9 +334,114 @@ border-radius:6px;
     
 
 
- 
+   /* Da questa sezione in poi ci sono le regole di stile per il menu di navigazione */
 
-/*  
+    /* regole di reset */
+ul{
+    margin: 0;
+    padding:0;
+    list-style-type:none;
+}
+
+/*MENU PRINCIPALE*/
+/* lista in orizzontale. inline-block è come inline, ma può avere altezza e larghezza relative occorre per il sottomenu */
+
+#menu{
+    width:100%;
+    background-color:rgb(62, 61, 61);
+    top:0;
+    height:50px;
+     font-size:14px;
+     border-radius:6px;
+    border-style:solid;
+    border-color:white;
+    border:thin;
+     margin-top:-30px;
+     margin-right:-5px;
+     float:right;
+    
+}
+
+
+#menu li{
+    display:inline-block;
+    position:auto;
+    box-sizing: margin-box;
+     padding:3px 3px 3px 3px;
+     border-style:solid;
+     border-color:white;
+     border:thin;
+     float:right;
+
+    
+     
+ }
+
+/* menu. Cambiando center l'oriento a destra o sinistra */
+
+/* link menu.   */
+li a{
+    display:block;
+    padding:10px 10px 10px 10px;
+    width:auto;
+    color:#fff;
+    font:bold 14px;
+    font-family: 'Roboto', sans-serif;
+    text-decoration:none;
+    margin-top:5px;
+    margin-right:-5px;
+    float:right;
+     
+}
+
+/* link menu hover */
+a:hover{
+    background-color: orange;
+    border-radius:6px;
+}
+
+/* SOTTOMENU PRINCIPALE */
+#menu li .hidden{
+    display:block;
+    position:absolute;
+    top:102px;
+   
+    background-color:rgb(87, 86, 86);
+    visibility:hidden;
+    margin:auto;
+    border-right:none;
+    border-radius:6px;
+    width:auto;
+
+}
+
+/* link sottomenu */
+#menu li .hidden li a{
+    
+    border-right:none;
+    margin:auto;
+}
+
+/* animazione per il passaggio sopra agli elementi del menu */
+#menu li:hover .hidden{
+    margin-top:-70px;
+    visibility:visible
+}
+
+/* TRIGRAMMA */
+/* stile e invisibilità */
+.showMenu{
+    width:40px;
+    border:1px solid black;
+    margin:auto;
+    color:black;
+    text-align:center;
+    font-size:5px;
+    margin-bottom:10px;
+   display:none 
+}
+
+/* invisibilità checkbox
 Il checkbox va nascosto in ogni caso ed il menu comparirà quando esso verrà selezionato tramite click sull’etichetta */
 input[type=checkbox]{display:none}
 
@@ -521,26 +490,5 @@ ul li{display:block}
   
 /* mostro il pulsante del menu nella versione mobile*/
 .showMenu{display:block}  
-
-
-
-/* media per il footer */
-.colonne-footer{
-  font: bold 14px sans-serif;
-
-}
-
-.colonne-footer .colonna-sinistra,
-.colonne-footer .colonna-centrale ,
-.colonne-footer .colonna-destra{
-  display: block;
-  width: 100%;
-  margin-bottom: 40px;
-  text-align: center;
-}
-
-.colonne-footer .colonna-centrale i{
-  margin-left: 0;
-}
   
 }
