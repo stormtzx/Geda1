@@ -171,12 +171,6 @@ module.exports = function (app) {
         console.log(results);
         res.render("SchermataCasa.html", { visualizzaCasa: results });
         req.session.id_casa = results[0].id_casa;
-        req.session.nome_casa = results[0].nome_casa;
-        req.session.email_proprietario = results[0].proprietario;
-        req.session.tariffa_giornaliera = results[0].tariffa_giornaliera;
-        req.session.ammontare_tasse = results[0].ammontare_tasse;
-        req.session.prima_data = results[0].prima_data;
-        req.session.ultima_data = results[0].ultima_data;
       } else {
         console.log(err);
 
@@ -190,56 +184,73 @@ module.exports = function (app) {
       }
     });
   });
-};
 
-app.post("/calcoloTasse", function (req, res) {
-  console.log(req.body);
-  if (req.body.animali_p != undefined) req.body.animali_p = true;
-  if (req.body.disabilita_p != undefined) req.body.disabilita_p = true;
-  if (req.body.viaggio_lavoro_p != undefined) req.body.viaggio_lavoro_p = true;
+  app.post("/calcoloTasse", function (req, res, err) {
+    console.log(req.body);
+    if (req.body.animali_p != undefined) req.body.animali_p = true;
+    if (req.body.disabilita_p != undefined) req.body.disabilita_p = true;
+    if (req.body.viaggio_lavoro_p != undefined)
+      req.body.viaggio_lavoro_p = true;
 
-  if (req.body.animali_p == undefined) req.body.animali_p = false;
-  if (req.body.disabilita_p == undefined) req.body.disabilita_p = false;
-  if (req.body.viaggio_lavoro_p == undefined) req.body.viaggio_lavoro_p = false;
+    if (req.body.animali_p == undefined) req.body.animali_p = false;
+    if (req.body.disabilita_p == undefined) req.body.disabilita_p = false;
+    if (req.body.viaggio_lavoro_p == undefined)
+      req.body.viaggio_lavoro_p = false;
 
-  con.query(function (err) {
-    if (
-      err ||
-      req.body.data_check_out_p < req.body.data_check_in_p ||
-      req.body.data_check_in_p < req.session.prima_data ||
-      req.body.data_check_out_p > req.session.ultima_data
-    ) {
-      console.log(err);
-      res.sendFile(
-        path.join(
-          __dirname,
-          "../Sistema_Alberghi/views",
-          "NotificaPrenotazioneFallita.html"
-        )
-      );
-      return;
-    } else {
-      var giorni = datediff(
-        "req.body.data_check_in_p",
-        "req.body.data_check_out_p"
-      );
-      var prezzo = giorni * req.session.tariffa_giornaliera;
+    var check_in = new Date(req.body.data_check_in_p).getTime();
+    var check_out = new Date(req.body.data_check_out_p).getTime();
+
+    var sql =
+      "SELECT * FROM gestioneAffitti.casa WHERE gestioneAffitti.casa.id_casa = '" +
+      req.session.id_casa +
+      "'";
+
+    con.query(sql, function (err, results) {
+      console.log(results);
       if (
-        req.body.viaggio_lavoro_p == false &&
-        req.body.disabilita_p == false
+        err ||
+        check_out < check_in ||
+        check_in < results.prima_data ||
+        check_out > results.ultima_data
       ) {
-        var tasse = req.session.ammontare_tasse;
+        console.log(err);
+        res.sendFile(
+          path.join(
+            __dirname,
+            "../Sistema_Alberghi/views",
+            "NotificaPrenotazioneFallita.html"
+          )
+        );
+        return;
       } else {
-        var tasse = req.session.ammontare_tasse / 2;
-      }
-      var totale = prezzo + req.session.ammontare_tasse;
+        var diffTime = check_out - check_in;
+        var days = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+        var giorni = parseInt(days);
+        var tariffa = parseInt(results.tariffa_giornaliera);
 
-      res.render("SchermataPrezzo.html", {
-        datiPrenotazione: giorni,
-        prezzo,
-        tasse,
-        totale,
-      });
-    }
+        var prezzo = giorni * results.tariffa_giornaliera;
+        console.log(giorni + " giorni");
+        console.log(prezzo + " euro");
+        if (
+          req.body.viaggio_lavoro_p == false &&
+          req.body.disabilita_p == false
+        ) {
+          var tasse = results.ammontare_tasse;
+        } else {
+          var tasse = results.ammontare_tasse / 2;
+        }
+
+        var totale = prezzo + results.ammontare_tasse;
+        console.log(tasse);
+        console.log(totale);
+
+        res.render("SchermataPrezzo.html", {
+          datiPrenotazione: giorni,
+          prezzo,
+          tasse,
+          totale,
+        });
+      }
+    });
   });
-});
+};
