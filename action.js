@@ -11,11 +11,23 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.static("."));
 app.use(express.static(path.join(__dirname, "views")));
 
+var nodemailer = require("nodemailer");
+
 var con = mysql.createConnection({
   host: "localhost",
   user: "root",
   password: "unipa",
   database: "gestioneAffitti",
+});
+
+var transporter = nodemailer.createTransport({
+  host: "smtp.gmail.com",
+  port: 465,
+  secure: true,
+  auth: {
+    user: "gedasistemabooking@gmail.com",
+    pass: "unipa2020",
+  },
 });
 
 module.exports = function (app) {
@@ -65,7 +77,7 @@ module.exports = function (app) {
   app.post("/IscrizioneProprietario", function (req, res) {
     console.log(req.body);
     var sql =
-      "insert into gestioneAffitti.utenteProprietario values('" +
+      "insert into gestioneAffitti.utenteCliente values('" +
       req.body.nome_iscrizioneP +
       "', '" +
       req.body.cognome_iscrizioneP +
@@ -126,9 +138,9 @@ module.exports = function (app) {
     console.log(req.body);
 
     var sql =
-      "SELECT gestioneAffitti.utenteProprietario.nome, gestioneAffitti.utenteProprietario.cognome, gestioneAffitti.utenteProprietario.email FROM gestioneAffitti.utenteProprietario WHERE gestioneAffitti.utenteProprietario.email = '" +
+      "SELECT gestioneAffitti.utenteCliente.nome, gestioneAffitti.utenteCliente.cognome, gestioneAffitti.utenteCliente.email FROM gestioneAffitti.utenteCliente WHERE gestioneAffitti.utenteCliente.email = '" +
       req.body.email_loginP +
-      "' AND gestioneAffitti.utenteProprietario.password = '" +
+      "' AND gestioneAffitti.utenteCliente.password = '" +
       req.body.password_loginP +
       "' ";
 
@@ -156,7 +168,7 @@ module.exports = function (app) {
     req.session.emailP;
 
     var sql =
-      "SELECT gestioneAffitti.utenteProprietario.email FROM gestioneAffitti.utenteProprietario WHERE gestioneAffitti.utenteProprietario.email = '" +
+      "SELECT gestioneAffitti.utenteCliente.email FROM gestioneAffitti.utenteCliente WHERE gestioneAffitti.utenteCliente.email = '" +
       req.session.emailP +
       "' ";
 
@@ -209,6 +221,94 @@ module.exports = function (app) {
             __dirname,
             "../Sistema_Alberghi/views",
             "LogoutRiuscito.html"
+          )
+        );
+      }
+    });
+  });
+
+  app.post("/recuperaPasswordProprietario", function (req, res) {
+    console.log(req.body);
+
+    var sql =
+      "SELECT gestioneAffitti.utenteProprietario.email, gestioneAffitti.utenteProprietario.password FROM gestioneAffitti.utenteProprietario WHERE gestioneAffitti.utenteProprietario.email = '" +
+      req.body.email_R +
+      "' ";
+
+    con.query(sql, function (err, results) {
+      if (results.length > 0) {
+        console.log(results);
+        var pwd = new String(results[0].password);
+
+        var mailOptions = {
+          from: "gedasistemabooking@gmail.com",
+          to: req.body.email_R,
+          subject: "Recupero password",
+          text: "La password è: " + pwd,
+        };
+        transporter.sendMail(mailOptions, (error, info) => {
+          if (error) {
+            return console.log(error);
+          }
+          console.log("Message %s sent: %s", info.messageId, info.response);
+        });
+        res.sendFile(
+          path.join(
+            __dirname,
+            "../Sistema_Alberghi/views",
+            "LogoutRiuscito.html"
+          )
+        );
+      } else {
+        res.sendFile(
+          path.join(
+            __dirname,
+            "../Sistema_Alberghi/views",
+            "NotificaLoginProprietarioFallito.html"
+          )
+        );
+      }
+    });
+  });
+
+  app.post("/recuperaPasswordCliente", function (req, res) {
+    console.log(req.body);
+
+    var sql =
+      "SELECT gestioneAffitti.utenteCliente.email, gestioneAffitti.utenteCliente.password FROM gestioneAffitti.utenteCliente WHERE gestioneAffitti.utenteCliente.email = '" +
+      req.body.email_R +
+      "' ";
+
+    con.query(sql, function (err, results) {
+      if (results.length > 0) {
+        console.log(results);
+        var pwd = new String(results[0].password);
+
+        var mailOptions = {
+          from: "gedasistemabooking@gmail.com",
+          to: req.body.email_R,
+          subject: "Recupero password",
+          text: "La password è: " + pwd,
+        };
+        transporter.sendMail(mailOptions, (error, info) => {
+          if (error) {
+            return console.log(error);
+          }
+          console.log("Message %s sent: %s", info.messageId, info.response);
+        });
+        res.sendFile(
+          path.join(
+            __dirname,
+            "../Sistema_Alberghi/views",
+            "LogoutRiuscito.html"
+          )
+        );
+      } else {
+        res.sendFile(
+          path.join(
+            __dirname,
+            "../Sistema_Alberghi/views",
+            "NotificaLoginProprietarioFallito.html"
           )
         );
       }
