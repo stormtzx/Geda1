@@ -192,7 +192,7 @@ module.exports = function (app) {
   });
 };
 
-app.post("/calcoloTasse", function (req, res, err) {
+app.post("/calcoloTasse", function (req, res) {
   console.log(req.body);
   if (req.body.animali_p != undefined) req.body.animali_p = true;
   if (req.body.disabilita_p != undefined) req.body.disabilita_p = true;
@@ -201,36 +201,45 @@ app.post("/calcoloTasse", function (req, res, err) {
   if (req.body.animali_p == undefined) req.body.animali_p = false;
   if (req.body.disabilita_p == undefined) req.body.disabilita_p = false;
   if (req.body.viaggio_lavoro_p == undefined) req.body.viaggio_lavoro_p = false;
-  if (
-    err ||
-    req.body.data_check_out_p < req.body.data_check_in_p ||
-    req.body.data_check_in_p < req.session.prima_data ||
-    req.body.data_check_out_p > req.session.ultima_data
-  ) {
-    console.log(err);
-    res.sendFile(
-      path.join(
-        __dirname,
-        "../Sistema_Alberghi/views",
-        "NotificaPrenotazioneFallita.html"
-      )
-    );
-    return;
-  } else {
-    var giorni = datediff(req.body.data_check_in_p, req.body.data_check_out_p);
-    var prezzo = giorni + req.session.tariffa_giornaliera;
-    if (req.body.viaggio_lavoro_p == false && req.body.disabilita_p == false) {
-      var tasse = req.session.ammontare_tasse;
-    } else {
-      var tasse = req.session.ammontare_tasse / 2;
-    }
-    var totale = prezzo + req.session.ammontare_tasse;
 
-    res.render("SchermataPrezzo.html", {
-      giorni,
-      prezzo,
-      tasse,
-      totale,
-    });
-  }
+  con.query(function (err) {
+    if (
+      err ||
+      req.body.data_check_out_p < req.body.data_check_in_p ||
+      req.body.data_check_in_p < req.session.prima_data ||
+      req.body.data_check_out_p > req.session.ultima_data
+    ) {
+      console.log(err);
+      res.sendFile(
+        path.join(
+          __dirname,
+          "../Sistema_Alberghi/views",
+          "NotificaPrenotazioneFallita.html"
+        )
+      );
+      return;
+    } else {
+      var giorni = datediff(
+        "req.body.data_check_in_p",
+        "req.body.data_check_out_p"
+      );
+      var prezzo = giorni * req.session.tariffa_giornaliera;
+      if (
+        req.body.viaggio_lavoro_p == false &&
+        req.body.disabilita_p == false
+      ) {
+        var tasse = req.session.ammontare_tasse;
+      } else {
+        var tasse = req.session.ammontare_tasse / 2;
+      }
+      var totale = prezzo + req.session.ammontare_tasse;
+
+      res.render("SchermataPrezzo.html", {
+        datiPrenotazione: giorni,
+        prezzo,
+        tasse,
+        totale,
+      });
+    }
+  });
 });

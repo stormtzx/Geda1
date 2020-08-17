@@ -3,10 +3,51 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="css/FoglioDiStile.css">
     <title>Pagina Iscrizione</title>
   </head>
+
+
+    <!--Inizio header-->
+<header>
+
+  <!--menu di navigazione-->
+  <ul id="menu"> 
+    <li><a href="#">Home</a></li>
+    <li><a href="#">Entra nel sito<span style="font-size:8px">&nabla;</span></a>
+      <ul class="hidden"> 
+        <li style="border-bottom:1px solid #CCC"><a href="./SchermataAccesso.html">Accedi</a></li>
+        <li><a href="./SchermataIscrizione.html">Registrati</a></li>
+      </ul>
+    </li>
+    <li><a href="#">Dove siamo</a></li>
+    <li><a href="#">Servizi</a></li>
+    <li><a href="#">Camere e tariffe</a></li>
+    <li><a href="#">Contatti</a></li>
+    <li><a href="#">Mappa</a></li>
+  </ul>
+   <!--Fine menu di navigazione-->
+ 
+
+
+</header>  
+     <!--Fine header-->
+
+
+ 
+
+
   <body>
-    <h1>PANNELLO ISCRIZIONE CLIENTE</h1>
+
+
+    <h1 class="testo_centrale">PANNELLO ISCRIZIONE CLIENTE</h1>
+
+
+    <div class="modulo">
+  
+      <div class="bloccoModulo">
+
+         
     <form action="/IscrizioneCliente" method="POST">
       <label for="nome_iscrizioneC">Nome</label>
       <input type="text" name="nome_iscrizioneC" id="" />
@@ -14,13 +55,61 @@
       <label for="cognome_iscrizioneC">Cognome</label>
       <input type="text" name="cognome_iscrizioneC" id="" />
       <br />
+   
+
+  
       <label for="email_iscrizioneC">E-Mail</label>
       <input type="email" name="email_iscrizioneC" id="" />
       <br />
       <label for="password_iscrizioneC">Password</label>
       <input type="password" name="password_iscrizioneC" id="" />
       <br />
-      <button type="submit">Iscriviti</button>
+      <button id="bottoneIscrizione" class="button2" type="submit">Iscriviti</button>
     </form>
+   
+
+
+  </div>
+  </div>
+    <!--Inizio footer-->
+
+ 
+    <div class="contenitoreFooter">
+       
+      
+      <div class="colonna1">
+          <strong><h4>Note legali</h4></strong>
+          <small>&copy;GEDA GROUP</small>
+          <p>Documentazione</p>
+      </div>
+   
+        <div class="colonna2">
+          <strong><h4>Contattaci:</h4></strong>
+          <p> <small>mail@esempio.it</small> </p>
+          <p> <small>091 123456789</small></p> 
+          <h4>Dove trovarci:</h4>
+          <p><small> Via Esempio n1 </small></p>
+          </div>
+     
+
+          <div class="colonna3">
+            <h4>Seguici</h4>
+            <a href="#"><img src="img/Logo_FB.png" alt="Facebook" height="30" width="30" > Facebook </a> 
+            <a href="#"><img src="img/Logo_IG.png" alt="Instagram" height="30" width="30"> Instagram </a>
+            <a href="#"><img src="img/Logo_whatsapp.png" alt="Whatsapp" height="30" width="30"> Whatsapp </a>
+            </div>
+       
+
+   </div>
+ 
+ 
+
+   <!--Fine footer-->
+
+
+ <!-- Bootstrap JS -->
+ <script src="js/bootstrap.min.js"></script>
+
+ 
   </body>
 </html>
