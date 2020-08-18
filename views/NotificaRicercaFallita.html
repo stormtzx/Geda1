@@ -3,15 +3,92 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="styletmp.css">
     <title>Ricerca Fallita</title>
   </head>
+
+   <!--Inizio header-->
+<header>
+
+  <!--menu di navigazione-->
+  <ul id="menu"> 
+    <li><a href="#">Home</a></li>
+    <li><a href="#">Entra nel sito<span style="font-size:8px">&nabla;</span></a>
+      <ul class="hidden"> 
+        <li style="border-bottom:1px solid #CCC"><a href="./SchermataAccesso.html">Accedi</a></li>
+        <li><a href="./SchermataIscrizione.html">Registrati</a></li>
+      </ul>
+    </li>
+    <li><a href="#">Dove siamo</a></li>
+    <li><a href="#">Servizi</a></li>
+    <li><a href="#">Camere e tariffe</a></li>
+    <li><a href="#">Contatti</a></li>
+    <li><a href="#">Mappa</a></li>
+  </ul>
+   <!--Fine menu di navigazione-->
+ 
+
+
+</header>  
+     <!--Fine header-->
   <body>
-    <h1>Tutto questo è un po' imbarazzante, vero?</h1>
-    <p>Pare che non esista quello che stai cercando</p>
-    <p>
+
+    <div class="testo_centrale">
+        <div class="modulo" style="margin-top: 7%; margin-bottom: 10%;">
+    
+    <h3 style="color: orange; font-size: x-large;">
+     Quello che cerchi non esiste!
+    </h3>
+    <p>E' possibile che tu abbia inserito dati errati</p>
+    <br />
+    <p style="margin-bottom: 5%;">
       Torna alla
-      <a href="SchermataPrincipale.html"> Schermata Principale</a> per
-      effettuare una nuova ricerca
+      <a href="/views/SchermataPrincipale.html"> Schermata Principale</a>
+      per effettuare una nuova ricerca
     </p>
+    </div>
+    </div>
+
+    <!--Inizio footer-->
+
+ 
+    <div class="contenitoreFooter">
+       
+      
+      <div class="colonna1">
+          <strong><h4>Note legali</h4></strong>
+          <small>&copy;GEDA GROUP</small>
+          <p>Documentazione</p>
+      </div>
+   
+        <div class="colonna2">
+          <strong><h4>Contattaci:</h4></strong>
+          <p> <small>mail@esempio.it</small> </p>
+          <p> <small>091 123456789</small></p> 
+          <h4>Dove trovarci:</h4>
+          <p><small> Via Esempio n1 </small></p>
+          </div>
+     
+
+          <div class="colonna3">
+            <h4>Seguici</h4>
+            <a href="#"><img src="img/Logo_FB.png" alt="Facebook" height="30" width="30" > Facebook </a> 
+            <a href="#"><img src="img/Logo_IG.png" alt="Instagram" height="30" width="30"> Instagram </a>
+            <a href="#"><img src="img/Logo_whatsapp.png" alt="Whatsapp" height="30" width="30"> Whatsapp </a>
+            </div>
+       
+
+   </div>
+ 
+ 
+
+   <!--Fine footer-->
+
+
+ <!-- Bootstrap JS -->
+ <script src="js/bootstrap.min.js"></script>
+
+ 
   </body>
 </html>
+
