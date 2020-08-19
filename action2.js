@@ -215,7 +215,7 @@ module.exports = function (app) {
     if (req.body.disabilita_p == undefined) req.body.disabilita_p = false;
     if (req.body.viaggio_lavoro_p == undefined)
       req.body.viaggio_lavoro_p = false;
-    if (req.body.numero_ospiti_bambini_p == 0)
+    if ((req.body.numero_ospiti_bambini_p = 0))
       req.body.numero_ospiti_bambini_p = 0;
 
     var check_in = new Date(req.body.data_check_in_p).getTime();
@@ -354,6 +354,7 @@ module.exports = function (app) {
         );
         return;
       }
+      console.log("Prenotazione Effettuata");
       res.sendFile(
         path.join(
           __dirname,
