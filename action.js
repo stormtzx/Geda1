@@ -120,7 +120,7 @@ module.exports = function (app) {
     con.query(sql, function (err, results) {
       if (results.length > 0) {
         console.log(results);
-        req.session.emailC = req.body.email_loginC;
+        req.session.emailC = results[0].emailC;
         req.session.nomeC = results[0].nomeC;
         req.session.cognomeC = results[0].cognomeC;
         res.render("SchermataProfiloCliente.html", { accessoCliente: results });
@@ -149,7 +149,7 @@ module.exports = function (app) {
     con.query(sql, function (err, results) {
       if ((results.length = 1)) {
         console.log(results);
-        req.session.emailP = req.body.email_loginP;
+        req.session.emailP = results[0].emailP;
         res.render("SchermataProfiloProprietario.html", {
           accessoProprietario: results,
         });

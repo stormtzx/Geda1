@@ -85,13 +85,12 @@ module.exports = function (app) {
       "', '" +
       req.body.ultima_data_nc +
       "' ) ";
-    con.query(sql, function (err) {
+    con.query(sql, function (err, results) {
       if (
         err ||
         req.body.ultima_data_nc < req.body.prima_data_nc ||
-        req.session.emailP == null
+        req.session.emailP == "undefined"
       ) {
-        console.log(err);
         res.sendFile(
           path.join(
             __dirname,
@@ -101,6 +100,7 @@ module.exports = function (app) {
         );
         return;
       }
+      console.log(results);
       res.sendFile(
         path.join(
           __dirname,
