@@ -77,7 +77,7 @@ module.exports = function (app) {
   app.post("/IscrizioneProprietario", function (req, res) {
     console.log(req.body);
     var sql =
-      "insert into gestioneAffitti.utenteCliente values('" +
+      "insert into gestioneAffitti.utenteProprietario values('" +
       req.body.nome_iscrizioneP +
       "', '" +
       req.body.cognome_iscrizioneP +
@@ -111,9 +111,9 @@ module.exports = function (app) {
     console.log(req.body);
 
     var sql =
-      "SELECT gestioneAffitti.utenteCliente.nome, gestioneAffitti.utenteCliente.cognome, gestioneAffitti.utenteCliente.email FROM gestioneAffitti.utenteCliente WHERE gestioneAffitti.utenteCliente.email = '" +
+      "SELECT gestioneAffitti.utenteCliente.nomeC, gestioneAffitti.utenteCliente.cognomeC, gestioneAffitti.utenteCliente.emailC FROM gestioneAffitti.utenteCliente WHERE gestioneAffitti.utenteCliente.emailC = '" +
       req.body.email_loginC +
-      "' AND gestioneAffitti.utenteCliente.password = '" +
+      "' AND gestioneAffitti.utenteCliente.passwordC = '" +
       req.body.password_loginC +
       "' ";
 
@@ -121,8 +121,8 @@ module.exports = function (app) {
       if (results.length > 0) {
         console.log(results);
         req.session.emailC = req.body.email_loginC;
-        req.session.nomeC = results[0].nome;
-        req.session.cognomeC = results[0].cognome;
+        req.session.nomeC = results[0].nomeC;
+        req.session.cognomeC = results[0].cognomeC;
         res.render("SchermataProfiloCliente.html", { accessoCliente: results });
       } else {
         res.sendFile(
@@ -140,9 +140,9 @@ module.exports = function (app) {
     console.log(req.body);
 
     var sql =
-      "SELECT gestioneAffitti.utenteCliente.nome, gestioneAffitti.utenteCliente.cognome, gestioneAffitti.utenteCliente.email FROM gestioneAffitti.utenteCliente WHERE gestioneAffitti.utenteCliente.email = '" +
+      "SELECT gestioneAffitti.utenteProprietario.nomeP, gestioneAffitti.utenteProprietario.cognomeP, gestioneAffitti.utenteProprietario.emailP FROM gestioneAffitti.utenteProprietario WHERE gestioneAffitti.utenteProprietario.emailP = '" +
       req.body.email_loginP +
-      "' AND gestioneAffitti.utenteCliente.password = '" +
+      "' AND gestioneAffitti.utenteProprietario.passwordP = '" +
       req.body.password_loginP +
       "' ";
 
@@ -170,7 +170,7 @@ module.exports = function (app) {
     req.session.emailP;
 
     var sql =
-      "SELECT gestioneAffitti.utenteCliente.email FROM gestioneAffitti.utenteCliente WHERE gestioneAffitti.utenteCliente.email = '" +
+      "SELECT gestioneAffitti.utenteProprietario.emailP FROM gestioneAffitti.utenteProprietario WHERE gestioneAffitti.utenteProprietario.emailP = '" +
       req.session.emailP +
       "' ";
 
@@ -202,7 +202,7 @@ module.exports = function (app) {
     req.session.emailC;
 
     var sql =
-      "SELECT gestioneAffitti.utenteCliente.email FROM gestioneAffitti.utenteCliente WHERE gestioneAffitti.utenteCliente.email = '" +
+      "SELECT gestioneAffitti.utenteCliente.emailC FROM gestioneAffitti.utenteCliente WHERE gestioneAffitti.utenteCliente.emailC = '" +
       req.session.emailC +
       "' ";
 
@@ -233,7 +233,7 @@ module.exports = function (app) {
     console.log(req.body);
 
     var sql =
-      "SELECT gestioneAffitti.utenteProprietario.email, gestioneAffitti.utenteProprietario.password FROM gestioneAffitti.utenteProprietario WHERE gestioneAffitti.utenteProprietario.email = '" +
+      "SELECT gestioneAffitti.utenteProprietario.emailP, gestioneAffitti.utenteProprietario.passwordP FROM gestioneAffitti.utenteProprietario WHERE gestioneAffitti.utenteProprietario.emailP = '" +
       req.body.email_R +
       "' ";
 
@@ -277,7 +277,7 @@ module.exports = function (app) {
     console.log(req.body);
 
     var sql =
-      "SELECT gestioneAffitti.utenteCliente.email, gestioneAffitti.utenteCliente.password FROM gestioneAffitti.utenteCliente WHERE gestioneAffitti.utenteCliente.email = '" +
+      "SELECT gestioneAffitti.utenteCliente.emailC, gestioneAffitti.utenteCliente.passwordC FROM gestioneAffitti.utenteCliente WHERE gestioneAffitti.utenteCliente.emailC = '" +
       req.body.email_R +
       "' ";
 

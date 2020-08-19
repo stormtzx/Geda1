@@ -171,6 +171,9 @@ module.exports = function (app) {
     con.query(sql, function (err, results) {
       if ((results.length = 1)) {
         console.log(results);
+        req.session.id_casa = results[0].id_casa;
+        req.session.nome_casa = results[0].nome_casa;
+        req.session.proprietario = results[0].proprietario;
         req.session.tariffa_giornaliera = results[0].tariffa_giornaliera;
         req.session.prima_data = results[0].prima_data;
         req.session.ultima_data = results[0].ultima_data;
@@ -212,7 +215,7 @@ module.exports = function (app) {
     if (req.body.disabilita_p == undefined) req.body.disabilita_p = false;
     if (req.body.viaggio_lavoro_p == undefined)
       req.body.viaggio_lavoro_p = false;
-    if ((req.body.numero_ospiti_bambini_p = 0))
+    if (req.body.numero_ospiti_bambini_p == 0)
       req.body.numero_ospiti_bambini_p = 0;
 
     var check_in = new Date(req.body.data_check_in_p).getTime();
@@ -221,8 +224,9 @@ module.exports = function (app) {
     var ultima_data = new Date(req.session.ultima_data).getTime();
     var tariffa = parseFloat(req.session.tariffa_giornaliera);
     var tasse = parseFloat(req.session.ammontare_tasse);
-    var numero_ospiti =
-      req.body.numero_ospiti_adulti_p + req.body.numero_ospiti_bambini_p;
+    var ospiti_adulti = parseInt(req.body.numero_ospiti_adulti_p);
+    var ospiti_bambini = parseInt(req.body.numero_ospiti_bambini_p);
+    var numero_ospiti = ospiti_adulti + ospiti_bambini;
 
     var diffTime = check_out - check_in;
     var days = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
@@ -258,6 +262,16 @@ module.exports = function (app) {
       console.log("Ammontare Tasse: " + tasse + " euro");
       console.log("Totale: " + totale + " euro");
 
+      req.session.check_in_p = req.body.data_check_in_p;
+      req.session.check_out_p = req.body.data_check_out_p;
+      req.session.animali_p = req.body.animali_p;
+      req.session.disabilita_p = req.body.disabilita_p;
+      req.session.viaggio_lavoro_p = req.body.viaggio_lavoro_p;
+      req.session.prezzo_p = prezzo;
+      req.session.tasse_p = tasse;
+      req.session.totale_p = totale;
+      req.session.numero_ospiti_adulti_p = ospiti_adulti;
+      req.session.numero_ospiti_bambini_p = ospiti_bambini;
       res.render("SchermataPrezzo.html", {
         nome_cliente_p: req.session.nomeC,
         cognome_cliente_p: req.session.cognomeC,
@@ -280,5 +294,73 @@ module.exports = function (app) {
       );
       return;
     }
+  });
+
+  app.post("/prenota", function (req, res) {
+    var data_corrente = new Date().toISOString().slice(0, 19).replace("T", " ");
+    var sql =
+      "INSERT INTO gestioneAffitti.prenotazione(ref_casa, ref_proprietario, ref_nome_casa, nome_cliente, cognome_cliente, email_cliente, numero_ospiti_adulti, numero_ospiti_bambini, data_emissione, check_in, check_out, animali, disabilita, viaggio_lavoro, prezzo, tasse, prezzo_totale) values (" +
+      req.session.id_casa +
+      ", '" +
+      req.session.proprietario +
+      "', '" +
+      req.session.nome_casa +
+      "', '" +
+      req.session.nomeC +
+      "', '" +
+      req.session.cognomeC +
+      "', '" +
+      req.session.emailC +
+      "', " +
+      req.session.numero_ospiti_adulti_p +
+      ", " +
+      req.session.numero_ospiti_bambini_p +
+      ", '" +
+      data_corrente +
+      "' , '" +
+      req.session.check_in_p +
+      "', '" +
+      req.session.check_out_p +
+      "', " +
+      req.session.animali_p +
+      ", " +
+      req.session.disabilita_p +
+      ", " +
+      req.session.viaggio_lavoro_p +
+      ", " +
+      req.session.prezzo_p +
+      ", " +
+      req.session.tasse_p +
+      ", " +
+      req.session.totale_p +
+      ") ";
+
+    con.query(sql, function (err) {
+      if (
+        err ||
+        req.session.check_in_p == "" ||
+        req.session.check_out_p == "" ||
+        req.session.prezzo_p == null ||
+        req.session.tasse_p == null ||
+        req.session.totale_p == null
+      ) {
+        console.log(err);
+        res.sendFile(
+          path.join(
+            __dirname,
+            "../Sistema_Alberghi/views",
+            "NotificaPrenotazioneFallita.html"
+          )
+        );
+        return;
+      }
+      res.sendFile(
+        path.join(
+          __dirname,
+          "../Sistema_Alberghi/views",
+          "ConfermaPrenotazioneEffettuata.html"
+        )
+      );
+    });
   });
 };
