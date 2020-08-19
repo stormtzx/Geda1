@@ -163,14 +163,17 @@ module.exports = function (app) {
     var id = req.param("id");
 
     var sql =
-      "SELECT * FROM gestioneAffitti.casa WHERE gestioneAffitti.casa.id_casa = '" +
+      "SELECT * FROM gestioneAffitti.casa WHERE gestioneAffitti.casa.id_casa = " +
       id +
-      "'";
+      "";
     con.query(sql, function (err, results) {
       if ((results.length = 1)) {
         console.log(results);
+        req.session.tariffa_giornaliera = results[0].tariffa_giornaliera;
+        req.session.prima_data = results[0].prima_data;
+        req.session.ultima_data = results[0].ultima_data;
+        req.session.ammontare_tasse = results[0].ammontare_tasse;
         res.render("SchermataCasa.html", { visualizzaCasa: results });
-        req.session.id_casa = results[0].id_casa;
       } else {
         console.log(err);
 
@@ -199,58 +202,55 @@ module.exports = function (app) {
 
     var check_in = new Date(req.body.data_check_in_p).getTime();
     var check_out = new Date(req.body.data_check_out_p).getTime();
+    var prima_data = new Date(req.session.prima_data).getTime();
+    var ultima_data = new Date(req.session.ultima_data).getTime();
+    var tariffa = parseFloat(req.session.tariffa_giornaliera);
+    var tasse = parseFloat(req.session.ammontare_tasse);
 
-    var sql =
-      "SELECT * FROM gestioneAffitti.casa WHERE gestioneAffitti.casa.id_casa = '" +
-      req.session.id_casa +
-      "'";
+    if (
+      req.body.data_check_in_p != "" &&
+      req.body.data_check_out_p != "" &&
+      check_out > check_in &&
+      check_in > prima_data &&
+      check_out < ultima_data
+    ) {
+      console.log("Data check-in:" + req.body.data_check_in_p);
+      console.log("Data check-out:" + req.body.data_check_out_p);
 
-    con.query(sql, function (err, results) {
-      console.log(results);
-      if (
-        err ||
-        check_out < check_in ||
-        check_in < results.prima_data ||
-        check_out > results.ultima_data
-      ) {
-        console.log(err);
-        res.sendFile(
-          path.join(
-            __dirname,
-            "../Sistema_Alberghi/views",
-            "NotificaPrenotazioneFallita.html"
-          )
-        );
-        return;
-      } else {
-        var diffTime = check_out - check_in;
-        var days = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-        var giorni = parseInt(days);
-        var tariffa = parseInt(results.tariffa_giornaliera);
+      console.log("Prima data disponibilità:" + req.session.prima_data);
 
-        var prezzo = giorni * results.tariffa_giornaliera;
-        console.log(giorni + " giorni");
-        console.log(prezzo + " euro");
-        if (
-          req.body.viaggio_lavoro_p == false &&
-          req.body.disabilita_p == false
-        ) {
-          var tasse = results.ammontare_tasse;
-        } else {
-          var tasse = results.ammontare_tasse / 2;
-        }
+      console.log("Ultima data disponibilità:" + req.session.ultima_data);
+      console.log("Calcolo prezzi e tasse...");
+      var diffTime = check_out - check_in;
+      var days = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+      var giorni = parseInt(days);
 
-        var totale = prezzo + results.ammontare_tasse;
-        console.log(tasse);
-        console.log(totale);
+      console.log("Tariffa giornaliera:" + tariffa + " euro");
 
-        res.render("SchermataPrezzo.html", {
-          datiPrenotazione: giorni,
-          prezzo,
-          tasse,
-          totale,
-        });
-      }
-    });
+      var prezzo = giorni * tariffa;
+      console.log("Soggiorno: " + giorni + " giorni");
+      console.log("Prezzo: " + prezzo + " euro");
+
+      var totale = prezzo + tasse;
+      console.log("Ammontare Tasse: " + tasse + " euro");
+      console.log("Totale: " + totale + " euro");
+
+      res.render("SchermataPrezzo.html", {
+        giorni_p: giorni,
+        prezzo_p: prezzo,
+        tasse_p: tasse,
+        totale_p: totale,
+      });
+    } else if (err) {
+      console.log(err);
+      res.sendFile(
+        path.join(
+          __dirname,
+          "../Sistema_Alberghi/views",
+          "NotificaPrenotazioneFallita.html"
+        )
+      );
+      return;
+    }
   });
 };
