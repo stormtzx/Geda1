@@ -121,6 +121,8 @@ module.exports = function (app) {
       if (results.length > 0) {
         console.log(results);
         req.session.emailC = req.body.email_loginC;
+        req.session.nomeC = results[0].nome;
+        req.session.cognomeC = results[0].cognome;
         res.render("SchermataProfiloCliente.html", { accessoCliente: results });
       } else {
         res.sendFile(
@@ -145,7 +147,7 @@ module.exports = function (app) {
       "' ";
 
     con.query(sql, function (err, results) {
-      if (results.length > 0) {
+      if ((results.length = 1)) {
         console.log(results);
         req.session.emailP = req.body.email_loginP;
         res.render("SchermataProfiloProprietario.html", {

@@ -46,7 +46,7 @@ module.exports = function (app) {
       req.body.ultima_data_nc = "9999-12-31";
 
     var sql =
-      "insert into gestioneAffitti.casa(nome_casa, indirizzo, citta, proprietario, beb, casa_vacanza, numero_camere, numero_bagno, perimetro_casa, tariffa_giornaliera, ammontare_tasse, fasciatoio, segnalatori_fumo, servizi_disabili, animali_ammessi, cucina, prima_data, ultima_data) values('" +
+      "insert into gestioneAffitti.casa(nome_casa, indirizzo, citta, proprietario, beb, casa_vacanza, numero_camere, numero_bagno, perimetro_casa, tariffa_giornaliera, capienza_max, ammontare_tasse, fasciatoio, segnalatori_fumo, servizi_disabili, animali_ammessi, cucina, prima_data, ultima_data) values('" +
       req.body.nome_casa_nc +
       "', '" +
       req.body.indirizzo_nc +
@@ -66,6 +66,8 @@ module.exports = function (app) {
       req.body.perimetro_nc +
       ", " +
       req.body.tariffa_nc +
+      ", " +
+      req.body.capienza_nc +
       ", " +
       req.body.tasse_nc +
       ", " +
@@ -173,7 +175,18 @@ module.exports = function (app) {
         req.session.prima_data = results[0].prima_data;
         req.session.ultima_data = results[0].ultima_data;
         req.session.ammontare_tasse = results[0].ammontare_tasse;
-        res.render("SchermataCasa.html", { visualizzaCasa: results });
+        req.session.capienza_max = results[0].capienza_max;
+        if (req.session.emailC) {
+          res.render("SchermataCasa.html", { visualizzaCasa: results });
+        } else {
+          res.sendFile(
+            path.join(
+              __dirname,
+              "../Sistema_Alberghi/views",
+              "PannelloLoginCliente.html"
+            )
+          );
+        }
       } else {
         console.log(err);
 
@@ -199,6 +212,8 @@ module.exports = function (app) {
     if (req.body.disabilita_p == undefined) req.body.disabilita_p = false;
     if (req.body.viaggio_lavoro_p == undefined)
       req.body.viaggio_lavoro_p = false;
+    if ((req.body.numero_ospiti_bambini_p = 0))
+      req.body.numero_ospiti_bambini_p = 0;
 
     var check_in = new Date(req.body.data_check_in_p).getTime();
     var check_out = new Date(req.body.data_check_out_p).getTime();
@@ -206,13 +221,21 @@ module.exports = function (app) {
     var ultima_data = new Date(req.session.ultima_data).getTime();
     var tariffa = parseFloat(req.session.tariffa_giornaliera);
     var tasse = parseFloat(req.session.ammontare_tasse);
+    var numero_ospiti =
+      req.body.numero_ospiti_adulti_p + req.body.numero_ospiti_bambini_p;
+
+    var diffTime = check_out - check_in;
+    var days = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+    var giorni = parseInt(days); //calcolo dei giorni che intercorrono fra check-in e check-out
 
     if (
       req.body.data_check_in_p != "" &&
       req.body.data_check_out_p != "" &&
       check_out > check_in &&
       check_in > prima_data &&
-      check_out < ultima_data
+      check_out < ultima_data &&
+      giorni <= 30 &&
+      numero_ospiti <= req.session.capienza_max
     ) {
       console.log("Data check-in:" + req.body.data_check_in_p);
       console.log("Data check-out:" + req.body.data_check_out_p);
@@ -221,9 +244,6 @@ module.exports = function (app) {
 
       console.log("Ultima data disponibilità:" + req.session.ultima_data);
       console.log("Calcolo prezzi e tasse...");
-      var diffTime = check_out - check_in;
-      var days = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-      var giorni = parseInt(days);
 
       console.log("Tariffa giornaliera:" + tariffa + " euro");
 
@@ -231,17 +251,25 @@ module.exports = function (app) {
       console.log("Soggiorno: " + giorni + " giorni");
       console.log("Prezzo: " + prezzo + " euro");
 
+      if (req.body.viaggio_lavoro_p == true || req.body.disabilita_p == true) {
+        tasse = tasse / 2;
+      } //agevolazioni per viaggiatori lavoratori e/o disabili
       var totale = prezzo + tasse;
       console.log("Ammontare Tasse: " + tasse + " euro");
       console.log("Totale: " + totale + " euro");
 
       res.render("SchermataPrezzo.html", {
+        nome_cliente_p: req.session.nomeC,
+        cognome_cliente_p: req.session.cognomeC,
+        numero_ospiti_p: numero_ospiti,
+        check_in_p: req.body.data_check_in_p,
+        check_out_p: req.body.data_check_out_p,
         giorni_p: giorni,
         prezzo_p: prezzo,
         tasse_p: tasse,
         totale_p: totale,
       });
-    } else if (err) {
+    } else {
       console.log(err);
       res.sendFile(
         path.join(
