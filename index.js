@@ -3,6 +3,7 @@ var mysql = require("mysql");
 const express = require("express");
 const app = express();
 var path = require("path");
+const fs = require("fs");
 var session = require("express-session");
 app.engine("html", require("ejs").renderFile);
 app.set("view engine", "html");

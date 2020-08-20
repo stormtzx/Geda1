@@ -6,11 +6,22 @@ var path = require("path");
 var session = require("express-session");
 app.engine("html", require("ejs").renderFile);
 app.set("view engine", "html");
+const fs = require("fs");
 
 const bodyParser = require("body-parser");
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static("."));
 app.use(express.static(path.join(__dirname, "views")));
+
+const multer = require("multer");
+const upload = multer({
+  dest: "../Sistema_Alberghi/upload",
+  // you might also want to set some limits: https://github.com/expressjs/multer#limits
+});
+
+const handleError = (err, res) => {
+  res.status(500).contentType("text/plain").end("Oops! Something went wrong!");
+};
 
 var con = mysql.createConnection({
   host: "localhost",
@@ -98,14 +109,31 @@ module.exports = function (app) {
           )
         );
         return;
+      } else {
+        if (path.extname(req.file.originalname).toLowerCase() === ".png") {
+          fs.rename(tempPath, targetPath, (err) => {
+            if (err) return handleError(err, res);
+
+            res.status(200).contentType("text/plain").end("File uploaded!");
+          });
+        } else {
+          fs.unlink(tempPath, (err) => {
+            if (err) return handleError(err, res);
+
+            res
+              .status(403)
+              .contentType("text/plain")
+              .end("Only .png files are allowed!");
+          });
+        }
+        res.sendFile(
+          path.join(
+            __dirname,
+            "../Sistema_Alberghi/views",
+            "ConfermaAggiuntaCasa.html"
+          )
+        );
       }
-      res.sendFile(
-        path.join(
-          __dirname,
-          "../Sistema_Alberghi/views",
-          "ConfermaAggiuntaCasa.html"
-        )
-      );
     });
   });
 
@@ -183,6 +211,10 @@ module.exports = function (app) {
         );
       }
     });
+  });
+
+  app.get("/image.png", function (req, res) {
+    res.sendFile(path.join(__dirname, "./uploads/image.png"));
   });
 
   app.post("/calcoloTasse", function (req, res, err) {

@@ -7,7 +7,7 @@
   </head>
 
   <body>
-    <form action="/nuovaCasa" method="POST">
+    <form action="/nuovaCasa" enctype="multipart/form-data" method="POST">
       <label for="nome_casa_nc">Nome Casa</label>
       <input type="text" name="nome_casa_nc" id="" />
       <br />
@@ -60,6 +60,7 @@
       <input type="date" name="ultima_data_nc" id="" />
       <label for="no_last_nc">Non c'è un ultimo giorno di disponibilità</label>
       <input type="checkbox" name="no_last_nc" id="" />
+      <input type="file" name="file" />
 
       <br />
       <br />
