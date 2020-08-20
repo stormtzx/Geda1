@@ -8,7 +8,7 @@ app.engine("html", require("ejs").renderFile);
 app.set("view engine", "html");
 const port = 3000;
 const bodyParser = require("body-parser");
-app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: false }));
 app.use(express.static("."));
 app.use(express.static(path.join(__dirname, "views")));
 app.listen(3000, function () {

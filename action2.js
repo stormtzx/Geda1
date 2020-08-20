@@ -20,7 +20,7 @@ var con = mysql.createConnection({
 });
 
 module.exports = function (app) {
-  app.post("/nuovaCasa", function (req, res) {
+  app.post("/nuovaCasa", function (req, res, err) {
     console.log(req.body);
     if (req.body.beb_nc != undefined) req.body.beb_nc = true;
     if (req.body.casa_vacanza_nc != undefined) req.body.casa_vacanza_nc = true;
@@ -45,70 +45,78 @@ module.exports = function (app) {
     if (req.body.no_last_nc != undefined)
       req.body.ultima_data_nc = "9999-12-31";
 
-    var sql =
-      "insert into gestioneAffitti.casa(nome_casa, indirizzo, citta, proprietario, beb, casa_vacanza, numero_camere, numero_bagno, perimetro_casa, tariffa_giornaliera, capienza_max, ammontare_tasse, fasciatoio, segnalatori_fumo, servizi_disabili, animali_ammessi, cucina, prima_data, ultima_data) values('" +
-      req.body.nome_casa_nc +
-      "', '" +
-      req.body.indirizzo_nc +
-      "', '" +
-      req.body.citta_nc +
-      "', '" +
-      req.session.emailP +
-      "', " +
-      req.body.beb_nc +
-      ", " +
-      req.body.casa_vacanza_nc +
-      ", " +
-      req.body.camere_nc +
-      ", " +
-      req.body.bagni_nc +
-      ", " +
-      req.body.perimetro_nc +
-      ", " +
-      req.body.tariffa_nc +
-      ", " +
-      req.body.capienza_nc +
-      ", " +
-      req.body.tasse_nc +
-      ", " +
-      req.body.fasciatoio_nc +
-      ", " +
-      req.body.segnalatore_fumo_nc +
-      ", " +
-      req.body.servizi_disabili_nc +
-      ", " +
-      req.body.animali_nc +
-      ", " +
-      req.body.cucina_nc +
-      ", '" +
-      req.body.prima_data_nc +
-      "', '" +
-      req.body.ultima_data_nc +
-      "' ) ";
-    con.query(sql, function (err, results) {
-      if (
-        err ||
-        req.body.ultima_data_nc < req.body.prima_data_nc ||
-        req.session.emailP == "undefined"
-      ) {
-        res.sendFile(
-          path.join(
-            __dirname,
-            "../Sistema_Alberghi/views",
-            "NotificaNuovaCasaFallita.html"
-          )
-        );
-        return;
-      }
-      console.log(results);
+    if (
+      req.body.ultima_data_nc < req.body.prima_data_nc ||
+      req.session.emailP == ""
+    ) {
+      /*   console.log(err);      
+      console.log(req.body.prima_data_nc);
+      console.log(req.body.ultima_data_nc);
+      console.log(req.body.ultima_data_nc < req.body.prima_data_nc);
+      console.log(req.session.emailP);
+      console.log(req.session.emailP == ""); */
+      console.log("Errore: dati inseriti non validi");
+
       res.sendFile(
         path.join(
           __dirname,
           "../Sistema_Alberghi/views",
-          "ConfermaAggiuntaCasa.html"
+          "NotificaNuovaCasaFallita.html"
         )
       );
-    });
+      return;
+    } else {
+      var sql =
+        "insert into gestioneAffitti.casa(nome_casa, indirizzo, citta, proprietario, beb, casa_vacanza, numero_camere, numero_bagno, perimetro_casa, tariffa_giornaliera, capienza_max, ammontare_tasse, fasciatoio, segnalatori_fumo, servizi_disabili, animali_ammessi, cucina, prima_data, ultima_data) values('" +
+        req.body.nome_casa_nc +
+        "', '" +
+        req.body.indirizzo_nc +
+        "', '" +
+        req.body.citta_nc +
+        "', '" +
+        req.session.emailP +
+        "', " +
+        req.body.beb_nc +
+        ", " +
+        req.body.casa_vacanza_nc +
+        ", " +
+        req.body.camere_nc +
+        ", " +
+        req.body.bagni_nc +
+        ", " +
+        req.body.perimetro_nc +
+        ", " +
+        req.body.tariffa_nc +
+        ", " +
+        req.body.capienza_nc +
+        ", " +
+        req.body.tasse_nc +
+        ", " +
+        req.body.fasciatoio_nc +
+        ", " +
+        req.body.segnalatore_fumo_nc +
+        ", " +
+        req.body.servizi_disabili_nc +
+        ", " +
+        req.body.animali_nc +
+        ", " +
+        req.body.cucina_nc +
+        ", '" +
+        req.body.prima_data_nc +
+        "', '" +
+        req.body.ultima_data_nc +
+        "' ) ";
+      con.query(sql, function (err, results) {
+        console.log("CASA inserita correttamente.");
+        res.sendFile(
+          path.join(
+            __dirname,
+            "../Sistema_Alberghi/views",
+            "ConfermaAggiuntaCasa.html"
+          )
+        );
+      });
+    }
   });
 
   app.post("/ricerca", function (req, res) {
@@ -296,72 +304,91 @@ module.exports = function (app) {
     }
   });
 
-  app.post("/prenota", function (req, res) {
+  app.post("/prenota", function (req, res, err) {
     var data_corrente = new Date().toISOString().slice(0, 19).replace("T", " ");
-    var sql =
-      "INSERT INTO gestioneAffitti.prenotazione(ref_casa, ref_proprietario, ref_nome_casa, nome_cliente, cognome_cliente, email_cliente, numero_ospiti_adulti, numero_ospiti_bambini, data_emissione, check_in, check_out, animali, disabilita, viaggio_lavoro, prezzo, tasse, prezzo_totale) values (" +
-      req.session.id_casa +
-      ", '" +
-      req.session.proprietario +
-      "', '" +
-      req.session.nome_casa +
-      "', '" +
-      req.session.nomeC +
-      "', '" +
-      req.session.cognomeC +
-      "', '" +
-      req.session.emailC +
-      "', " +
-      req.session.numero_ospiti_adulti_p +
-      ", " +
-      req.session.numero_ospiti_bambini_p +
-      ", '" +
-      data_corrente +
-      "' , '" +
-      req.session.check_in_p +
-      "', '" +
-      req.session.check_out_p +
-      "', " +
-      req.session.animali_p +
-      ", " +
-      req.session.disabilita_p +
-      ", " +
-      req.session.viaggio_lavoro_p +
-      ", " +
-      req.session.prezzo_p +
-      ", " +
-      req.session.tasse_p +
-      ", " +
-      req.session.totale_p +
-      ") ";
-
-    con.query(sql, function (err) {
-      if (
-        err ||
-        req.session.check_in_p == "" ||
-        req.session.check_out_p == "" ||
-        req.session.prezzo_p == null ||
-        req.session.tasse_p == null ||
-        req.session.totale_p == null
-      ) {
-        console.log(err);
-        res.sendFile(
-          path.join(
-            __dirname,
-            "../Sistema_Alberghi/views",
-            "NotificaPrenotazioneFallita.html"
-          )
-        );
-        return;
-      }
-      console.log("Prenotazione Effettuata");
+    if (
+      req.session.check_in_p == "" ||
+      req.session.check_out_p == "" ||
+      req.session.prezzo_p == null ||
+      req.session.tasse_p == null ||
+      req.session.totale_p == null
+    ) {
+      console.log(
+        "Errore. E' possibile che non tutti i campi siano stati compilati correttamente."
+      );
+      console.log(err);
       res.sendFile(
         path.join(
           __dirname,
           "../Sistema_Alberghi/views",
-          "ConfermaPrenotazioneEffettuata.html"
+          "NotificaPrenotazioneFallita.html"
         )
       );
-    });
+      return;
+    } else {
+      console.log(
+        "Dati inseriti correttamente. Si procede all'inserimento nella table PRENOTAZIONE...."
+      );
+      var sql =
+        "INSERT INTO gestioneAffitti.prenotazione(ref_casa, ref_proprietario, ref_nome_casa, nome_cliente, cognome_cliente, email_cliente, numero_ospiti_adulti, numero_ospiti_bambini, data_emissione, check_in, check_out, animali, disabilita, viaggio_lavoro, prezzo, tasse, prezzo_totale) values (" +
+        req.session.id_casa +
+        ", '" +
+        req.session.proprietario +
+        "', '" +
+        req.session.nome_casa +
+        "', '" +
+        req.session.nomeC +
+        "', '" +
+        req.session.cognomeC +
+        "', '" +
+        req.session.emailC +
+        "', " +
+        req.session.numero_ospiti_adulti_p +
+        ", " +
+        req.session.numero_ospiti_bambini_p +
+        ", '" +
+        data_corrente +
+        "' , '" +
+        req.session.check_in_p +
+        "', '" +
+        req.session.check_out_p +
+        "', " +
+        req.session.animali_p +
+        ", " +
+        req.session.disabilita_p +
+        ", " +
+        req.session.viaggio_lavoro_p +
+        ", " +
+        req.session.prezzo_p +
+        ", " +
+        req.session.tasse_p +
+        ", " +
+        req.session.totale_p +
+        ") ";
+
+      con.query(sql, function (err) {
+        if (err) {
+          console.log("Errore.");
+          console.log(err);
+          res.sendFile(
+            path.join(
+              __dirname,
+              "../Sistema_Alberghi/views",
+              "NotificaPrenotazioneFallita.html"
+            )
+          );
+          return;
+        } else {
+          console.log("PRENOTAZIONE effettuata correttamente");
+          res.sendFile(
+            path.join(
+              __dirname,
+              "../Sistema_Alberghi/views",
+              "ConfermaPrenotazioneEffettuata.html"
+            )
+          );
+        }
+      });
+    }
   });
 };
