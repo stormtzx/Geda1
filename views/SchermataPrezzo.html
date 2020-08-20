@@ -3,11 +3,42 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Schermata Prezzo</title>
+    <title>Conferma Prenotazione</title>
   </head>
   <body>
-    <h2>Prezzo:</h2>
-    <p><%= datiPrenotazione[0] %></p>
+    <h1>Conferma la Prenotazione:</h1>
+    <h2>Nome richiedente:</h2>
+    <p><%= nome_cliente_p %></p>
+    <h2>Cognome Richiedente:</h2>
+    <p><%= cognome_cliente_p %></p>
+    <h3>Numero Ospiti:</h3>
+    <p><%= numero_ospiti_p %></p>
+
+    <h2>Check-In:</h2>
+    <p><%= check_in_p %></p>
+
+    <h2>Check-Out:</h2>
+    <p><%= check_out_p %></p>
     <br />
+
+    <h3>Durata soggiorno:</h3>
+    <p><%= giorni_p %></p>
+    <br />
+
+    <h2>Prezzo soggiorno:</h2>
+    <p><%= prezzo_p %></p>
+    <br />
+
+    <h2>Tasse di soggiorno:</h2>
+    <p><%= tasse_p %></p>
+    <br />
+
+    <h2>Totale:</h2>
+    <p><%= totale_p %></p>
+    <br />
+
+    <form action="/prenota" method="POST">
+      <button type="submit">Conferma Prenotazione</button>
+    </form>
   </body>
 </html>

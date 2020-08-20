@@ -3,22 +3,107 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="css/FoglioDiStile.css">
     <title>Pannello Login</title>
   </head>
+  <!--Inizio header-->
+<header>
+
+
+
+  <!--menu di navigazione-->
+<nav>
+  <ul>
+    <li><a href="#">Home</a></li>
+    <li><a href="#">Entra nel sito<span style="font-size:8px">&nabla;</span></a>
+      <ul> 
+        <li style="border-bottom:1px solid #CCC"><a href="./SchermataAccesso.html">Accedi</a></li>
+        <li  ><a href="./SchermataIscrizione.html">Registrati</a></li>
+      </ul>
+    </li>
+    <li><a href="#">Dove siamo</a></li>
+    <li><a href="#">Servizi</a></li>
+    <li><a href="#">Camere e tariffe</a></li>
+    <li><a href="#">Contatti</a></li>
+    <li><a href="#">Mappa</a></li>
+  </nav>
+  </ul>
+   <!--Fine menu di navigazione-->
+  
+</header>  
+     <!--Fine header-->
+
   <body>
-    <h1>ACCEDI</h1>
+    <div class="modulo">
+    <h1 class="testo_centrale">ACCEDI</h1>
     <form action="/accessoCliente" method="POST">
       <label for="email_loginC">E-Mail</label>
-      <input type="email" name="email_loginC" id="" />
+      <input class="testo_nero" type="email" name="email_loginC" id="" />
       <br />
       <label for="password_loginC">Password</label>
-      <input type="password" name="password_loginC" id="" />
+      <input class="testo_nero" type="password" name="password_loginC" id="" />
       <br />
-      <button type="submit">Accedi</button>
+      <button class="button2" type="submit">Accedi</button>
     </form>
+    </div> 
+
+    
+    <p class="testo_centrale">Non hai un account? <a href="SchermataIscrizione.html">Registrati</a></p>
     <br />
-    <p>Non hai un account? <a href="SchermataIscrizione.html">Registrati</a></p>
-    <br />
-    <p><a href="forgotten_password.html">Password dimenticata</a></p>
+    <p class="testo_centrale"><a href="forgotten_password.html">Password dimenticata</a></p>
+
+    <!--Inizio footer-->
+   
+ <footer>
+       
+  <div class="colonne-footer">    
+  
+    <div class="colonna-sinistra">
+        
+      <div class="footer-GEDAName">
+      <strong><h4>Note legali</h4></strong>
+        <small>&copy;GEDA GROUP</small>
+      </div>
+        <p>Documentazione</p>
+      </div>
+  
+  
+    <div class="colonna-centrale">
+      <div class="contatti">
+        <strong><h4>Contattaci:</h4></strong>
+        <p> <a href="mail@esempio.it">mail@esempio.it</a> </p>
+      </div>
+  
+     <div class="footer-infoSuDiNoi">
+       <span>
+        <p> 091 123456789 </p> 
+        <br><br>
+        <p>Dove trovarci:</p>
+        <br>
+        <p> Via Esempio n1 </p>
+      </span>
+      </div>
+    </div>
+   
+  
+        <div class="colonna-destra">
+          <div class="icone-social">
+          <h4>Seguici</h4>
+          <a href="#"><i> <img src="img/Logo_FB.png" alt="Facebook" height="30" width="30" >  </i></a> 
+          <a href="#"><i><img src="img/Logo_IG.png" alt="Instagram" height="30" width="30">   </i></a>
+          <a href="#"><i><img src="img/Logo_whatsapp.png" alt="Whatsapp" height="30" width="30">   </i></a>
+        </div> 
+        </div>
+     
+      </div> 
+       
+    </footer>
+     <!--Fine footer-->
+
+
+ <!-- Bootstrap JS -->
+ <script src="js/bootstrap.min.js"></script>
+
+
   </body>
 </html>

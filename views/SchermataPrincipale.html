@@ -17,8 +17,10 @@
 
 
   <!--menu di navigazione-->
-<nav>
+<nav>     
   <ul>
+    <li><input class="barraDiRicerca" type="search" placeholder="Cerca sul sito"><button class="bottoneRicerca" type="submit">Cerca</button></li>
+    
     <li><a href="#">Home</a></li>
     <li><a href="#">Entra nel sito<span style="font-size:8px">&nabla;</span></a>
       <ul> 
@@ -35,30 +37,28 @@
   </ul>
    <!--Fine menu di navigazione-->
  
+   <!-- --
    <div class="logoHeader" >
-
-    <img src="img/B&B_LOGO.jpg" alt="B&B Logo" height="180" width="180"  >    
-   
-   
+    <img src="img/B&B_LOGO.jpg" alt="B&B Logo" height="180" width="180">    
    </div>
-
+  !-- -->
+  <h1 class="benvenuto">BENVENUTO IN GEDA</h1>  
 </header>  
      <!--Fine header-->
 
 <body>
 
   <div class="contenutoHome">
-  <h1 class="testo_centrale"> BENVENUTO IN GEDA</h1>  
-   
-
      <!--Inizio parte centrale della home -->
-
+ 
+   <div class="menu">
+     <div class="boxMenu">
+       <div  class="contenutoBoxMenu">
 <h2>Cerca una struttura e prenota una stanza</h2>
-<div>
+
   <form  action="/ricerca" method="POST">
   <input type="text" name="citta_r" placeholder="cerca città"/>
-</div>
-
+ 
   <br/>     
         <div class="testo_nero">
             <label for="check_in_r">Check In:</label>
@@ -87,19 +87,25 @@
 </div>
 </p>
 
+
+
 </div>
+  </div>
+</div>
+</div>
+ 
 
      <!--Fine parte centrale della home -->
       
-     <!--Inizio SlideShow -->
+     <!--Inizio SlideShow (id per il contenitore da riscrivere) --
 
-<div id="slideshow">
+<div id="slideshow"> 
    
- <img src="img/Slide/fotoTest.jpg" alt="Foto_stanza" height=600  width=900  > 
+ <img src="img/Slide/fotoTest.jpg" alt="Foto_stanza" height=800  width=1440  > 
 
 </div>
 
-    <!--Fine SlideShow -->
+    !--Fine SlideShow -->
 
 
         <!--Script test per SlideShow -->

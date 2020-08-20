@@ -42,85 +42,144 @@ module.exports = function (app) {
   });
 
   app.post("/IscrizioneCliente", function (req, res) {
+    console.log("Dati di iscrizione: ");
     console.log(req.body);
-    var sql =
-      "insert into gestioneAffitti.utenteCliente values('" +
-      req.body.nome_iscrizioneC +
-      "', '" +
-      req.body.cognome_iscrizioneC +
-      "', '" +
-      req.body.email_iscrizioneC +
-      "', '" +
-      req.body.password_iscrizioneC +
-      "')";
-    con.query(sql, function (err) {
-      if (err) {
+    if (
+      req.body.nome_iscrizioneC != "" &&
+      req.body.cognome_iscrizioneC != "" &&
+      req.body.email_iscrizioneC != "" &&
+      req.body.password_iscrizioneC != ""
+    ) {
+      console.log(
+        "Campi compilati. Si procede all'inserimento nella table utenteCliente..."
+      );
+      var sql =
+        "insert into gestioneAffitti.utenteCliente values('" +
+        req.body.nome_iscrizioneC +
+        "', '" +
+        req.body.cognome_iscrizioneC +
+        "', '" +
+        req.body.email_iscrizioneC +
+        "', '" +
+        req.body.password_iscrizioneC +
+        "')";
+      con.query(sql, function (err) {
+        if (err) {
+          console.log(
+            "Errore. Qualcosa è andato storto nell''inserimento dei dati nella tabl utenteCliente."
+          );
+          console.log(
+            "E' possibile che l'Utente abbia inserito un indirizzo e-mail già in uso nel Sistema."
+          );
+          res.sendFile(
+            path.join(
+              __dirname,
+              "../Sistema_Alberghi/views",
+              "NotificaIscrizioneClienteFallita.html"
+            )
+          );
+          return;
+        }
+        console.log("Iscrizione effettuata correttamente.");
         res.sendFile(
           path.join(
             __dirname,
             "../Sistema_Alberghi/views",
-            "NotificaIscrizioneClienteFallita.html"
+            "ConfermaIscrizioneCliente.html"
           )
         );
-        return;
-      }
+      });
+    } else {
+      console.log("Non tutti i campi sono stati compilati.");
+
       res.sendFile(
         path.join(
           __dirname,
           "../Sistema_Alberghi/views",
-          "ConfermaIscrizioneCliente.html"
+          "NotificaIscrizioneClienteFallita.html"
         )
       );
-    });
+    }
   });
 
   app.post("/IscrizioneProprietario", function (req, res) {
     console.log(req.body);
-    var sql =
-      "insert into gestioneAffitti.utenteCliente values('" +
-      req.body.nome_iscrizioneP +
-      "', '" +
-      req.body.cognome_iscrizioneP +
-      "', '" +
-      req.body.email_iscrizioneP +
-      "', '" +
-      req.body.password_iscrizioneP +
-      "')";
-    con.query(sql, function (err) {
-      if (err) {
+    if (
+      req.body.nome_iscrizioneP != "" &&
+      req.body.cognome_iscrizioneP != "" &&
+      req.body.email_iscrizioneP != "" &&
+      req.body.password_iscrizioneP != ""
+    ) {
+      console.log(
+        "Campi compilati. Si procede all'inserimento nella table utenteProprietario..."
+      );
+      var sql =
+        "insert into gestioneAffitti.utenteProprietario values('" +
+        req.body.nome_iscrizioneP +
+        "', '" +
+        req.body.cognome_iscrizioneP +
+        "', '" +
+        req.body.email_iscrizioneP +
+        "', '" +
+        req.body.password_iscrizioneP +
+        "')";
+      con.query(sql, function (err) {
+        if (err) {
+          console.log(
+            "Errore. Qualcosa è andato storto nell'inserimento dei dati nella tabl utenteProprietario."
+          );
+          console.log(
+            "E' possibile che l'Utente abbia inserito un indirizzo e-mail già in uso nel Sistema."
+          );
+          res.sendFile(
+            path.join(
+              __dirname,
+              "../Sistema_Alberghi/views",
+              "NotificaIscrizioneProprietarioFallita.html"
+            )
+          );
+          return;
+        }
+        console.log("Iscrizione effettuata correttamente");
         res.sendFile(
           path.join(
             __dirname,
             "../Sistema_Alberghi/views",
-            "NotificaIscrizioneProprietarioFallita.html"
+            "ConfermaIscrizioneProprietario.html"
           )
         );
-        return;
-      }
+      });
+    } else {
+      console.log("Non tutti i campi sono stati compilati.");
       res.sendFile(
         path.join(
           __dirname,
           "../Sistema_Alberghi/views",
-          "ConfermaIscrizioneProprietario.html"
+          "NotificaIscrizioneProprietarioFallita.html"
         )
       );
-    });
+    }
   });
 
   app.post("/accessoCliente", function (req, res) {
     console.log(req.body);
 
     var sql =
-      "SELECT gestioneAffitti.utenteCliente.nome, gestioneAffitti.utenteCliente.cognome, gestioneAffitti.utenteCliente.email FROM gestioneAffitti.utenteCliente WHERE gestioneAffitti.utenteCliente.email = '" +
+      "SELECT gestioneAffitti.utenteCliente.nomeC, gestioneAffitti.utenteCliente.cognomeC, gestioneAffitti.utenteCliente.emailC FROM gestioneAffitti.utenteCliente WHERE gestioneAffitti.utenteCliente.emailC = '" +
       req.body.email_loginC +
-      "' AND gestioneAffitti.utenteCliente.password = '" +
+      "' AND gestioneAffitti.utenteCliente.passwordC = '" +
       req.body.password_loginC +
       "' ";
 
     con.query(sql, function (err, results) {
       if (results.length > 0) {
         console.log(results);
-        req.session.emailC = req.body.email_loginC;
+        req.session.emailC = results[0].emailC;
+        req.session.nomeC = results[0].nomeC;
+        req.session.cognomeC = results[0].cognomeC;
+        console.log(
+          req.session.emailC + " ha effettuato l'accesso correttamente."
+        );
         res.render("SchermataProfiloCliente.html", { accessoCliente: results });
       } else {
         res.sendFile(
@@ -138,16 +197,19 @@ module.exports = function (app) {
     console.log(req.body);
 
     var sql =
-      "SELECT gestioneAffitti.utenteCliente.nome, gestioneAffitti.utenteCliente.cognome, gestioneAffitti.utenteCliente.email FROM gestioneAffitti.utenteCliente WHERE gestioneAffitti.utenteCliente.email = '" +
+      "SELECT * FROM gestioneAffitti.utenteProprietario WHERE gestioneAffitti.utenteProprietario.emailP = '" +
       req.body.email_loginP +
-      "' AND gestioneAffitti.utenteCliente.password = '" +
+      "' AND gestioneAffitti.utenteProprietario.passwordP = '" +
       req.body.password_loginP +
       "' ";
 
     con.query(sql, function (err, results) {
-      if (results.length > 0) {
+      if ((results.length = 1)) {
         console.log(results);
-        req.session.emailP = req.body.email_loginP;
+        req.session.emailP = results[0].emailP;
+        console.log(
+          req.session.emailP + " ha effettuato l'accesso correttamente."
+        );
         res.render("SchermataProfiloProprietario.html", {
           accessoProprietario: results,
         });
@@ -168,7 +230,7 @@ module.exports = function (app) {
     req.session.emailP;
 
     var sql =
-      "SELECT gestioneAffitti.utenteCliente.email FROM gestioneAffitti.utenteCliente WHERE gestioneAffitti.utenteCliente.email = '" +
+      "SELECT gestioneAffitti.utenteProprietario.emailP FROM gestioneAffitti.utenteProprietario WHERE gestioneAffitti.utenteProprietario.emailP = '" +
       req.session.emailP +
       "' ";
 
@@ -200,7 +262,7 @@ module.exports = function (app) {
     req.session.emailC;
 
     var sql =
-      "SELECT gestioneAffitti.utenteCliente.email FROM gestioneAffitti.utenteCliente WHERE gestioneAffitti.utenteCliente.email = '" +
+      "SELECT gestioneAffitti.utenteCliente.emailC FROM gestioneAffitti.utenteCliente WHERE gestioneAffitti.utenteCliente.emailC = '" +
       req.session.emailC +
       "' ";
 
@@ -231,7 +293,7 @@ module.exports = function (app) {
     console.log(req.body);
 
     var sql =
-      "SELECT gestioneAffitti.utenteProprietario.email, gestioneAffitti.utenteProprietario.password FROM gestioneAffitti.utenteProprietario WHERE gestioneAffitti.utenteProprietario.email = '" +
+      "SELECT gestioneAffitti.utenteProprietario.emailP, gestioneAffitti.utenteProprietario.passwordP FROM gestioneAffitti.utenteProprietario WHERE gestioneAffitti.utenteProprietario.emailP = '" +
       req.body.email_R +
       "' ";
 
@@ -275,7 +337,7 @@ module.exports = function (app) {
     console.log(req.body);
 
     var sql =
-      "SELECT gestioneAffitti.utenteCliente.email, gestioneAffitti.utenteCliente.password FROM gestioneAffitti.utenteCliente WHERE gestioneAffitti.utenteCliente.email = '" +
+      "SELECT gestioneAffitti.utenteCliente.emailC, gestioneAffitti.utenteCliente.passwordC FROM gestioneAffitti.utenteCliente WHERE gestioneAffitti.utenteCliente.emailC = '" +
       req.body.email_R +
       "' ";
 

@@ -30,7 +30,7 @@ con.connect(function (err) {
     result
   ) {
     if (err) throw err;
-    console.log("Database creato");
+    console.log("Database GESTIONE AFFITTI creato");
   });
 });
 const tables = require("./tables");
