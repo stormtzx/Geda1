@@ -455,6 +455,26 @@ border-radius:6px;
     text-decoration: none;
   }
 
+  .hero-image3 {
+    background-image: url(https://images.pexels.com/photos/2577274/pexels-photo-2577274.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260);
+    background-size: cover;
+    background-repeat: no-repeat;
+    float: left;
+    height: 750px;
+    width: 50%;
+    text-align: center;
+  }
+
+  .hero-image4 {
+    background-image: url(https://images.pexels.com/photos/7357/startup-photos.jpg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260);
+    background-size: cover;
+    background-repeat: no-repeat;
+    float: left;
+    height: 750px;
+    width: 50%;
+    text-align: center;
+  }
+
   /*bottoni link*/
 
   .button1 {
