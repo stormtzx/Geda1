@@ -267,7 +267,7 @@ module.exports = function (app) {
         tasse = tasse / 2;
       } //agevolazioni per viaggiatori lavoratori e/o disabili
       var totale = prezzo + tasse;
-      console.log("Ammontare Tasse: " + tasse + " euro");
+      console.log("Tasse di soggiorno: " + tasse + " euro");
       console.log("Totale: " + totale + " euro");
 
       req.session.check_in_p = req.body.data_check_in_p;
