@@ -306,9 +306,6 @@ module.exports = function (app) {
         req.body.data_check_in_p,
         req.body.data_check_out_p
       );
-      console.log("Lista date occupate dal Cliente: ");
-      console.log(ListaDate);
-      console.log(ListaDate.length);
 
       req.session.ListaDate = ListaDate;
 
@@ -346,10 +343,12 @@ module.exports = function (app) {
     }
   });
   function occupaDate(req) {
+    console.log("Lista date occupate dal Cliente: ");
     console.log(req.session.ListaDate);
+    console.log("Lunghezza soggiorno: ");
     console.log(req.session.ListaDate.length);
-    var i;
-    for (i = 0; i < req.session.ListaDate.length; i++) {
+
+    for (var i = 0; i < req.session.ListaDate.length; i++) {
       var sql =
         "INSERT INTO gestioneAffitti.data(data_soggiorno, ref_casa_o, disponibilita) values ('" +
         req.session.ListaDate[i] +
@@ -358,21 +357,19 @@ module.exports = function (app) {
         ", " +
         1 +
         ")";
-    }
 
-    con.query(sql, function (err) {
-      if (err) {
-        throw err;
-        console.log(err);
-      } else {
-        console.log(
-          req.session.nome_casa +
-            ", nelle date fra il check-in e il check-out specificati da " +
-            req.session.nomeC +
-            " risulteranno occupate a Utenti che volessero prenotarla"
-        );
-      }
-    });
+      con.query(sql, function (err) {
+        if (err) {
+          throw err;
+        }
+      });
+      console.log(
+        req.session.nome_casa +
+          " occupata in data " +
+          req.session.ListaDate[i] +
+          "."
+      );
+    }
   }
 
   app.post("/prenota", function (req, res, err) {

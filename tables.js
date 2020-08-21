@@ -44,7 +44,7 @@ function crea_tablePrenotazione() {
 
 function crea_tableData() {
   var sql =
-    "CREATE TABLE IF NOT EXISTS data(data_soggiorno date not null, ref_casa_o int references casa(id_casa), disponibilita boolean, primary key (data_soggiorno, ref_casa_o))";
+    "CREATE TABLE IF NOT EXISTS data(id_data int auto_increment, data_soggiorno date not null, ref_casa_o int references casa(id_casa), disponibilita boolean, primary key (id_data))";
   con.query(sql, function (err, result) {
     if (err) throw err;
     console.log("Table DATA creata");
