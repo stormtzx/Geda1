@@ -19,7 +19,7 @@
   <!--menu di navigazione-->
 <nav>     
   <ul>
-    <li><input class="barraDiRicerca" type="search" placeholder="Cerca sul sito"><button class="bottoneRicerca" type="submit">Cerca</button></li>
+    <li><input class="barraDiRicerca" type="search" placeholder="Cerca nel sito"><button class="bottoneRicerca" type="submit">Cerca</button></li>
     
     <li><a href="#">Home</a></li>
     <li><a href="#">Entra nel sito<span style="font-size:8px">&nabla;</span></a>
@@ -52,13 +52,15 @@
      <!--Inizio parte centrale della home -->
  
    <div class="menu">
-     <div class="boxMenu">
+     <div class="boxMenu"></div>  <!--NB:E' corretto che sia chiuso,boxMenu serve solo a disegnare il riquadro,il contenuto non deve essere figlio altrimenti eredita l'opacita-->
        <div  class="contenutoBoxMenu">
 <h2>Cerca una struttura e prenota una stanza</h2>
 
+<div clss="cercaCittà">
   <form  action="/ricerca" method="POST">
-  <input class="testo_nero" type="text" name="citta_r" placeholder="cerca città"/>
- 
+  <input type="text" name="citta_r" placeholder="cerca città"/>
+</div>
+
   <br/>     
         <div class="testo_nero">
             <label for="check_in_r">Check In:</label>
@@ -77,14 +79,15 @@
 
 </form>
 
-<br />
+<br /><br>
 <a href="./SchermataAccesso.html">Accedi</a>
 <p>
-  Non hai un account?
   <a  href="./views/SchermataRecuperoPassword.html">Ti sei dimenticato della password?</a>
-  <div>
+</p>
+
+<p>
+  Non hai un account?
   <a  href="./views/SchermataIscrizione.html">Registrati</a>
-</div>
 </p>
 
 
@@ -115,8 +118,55 @@
   
   
   </script>
-
         <!--Fine Script test per SlideShow -->
+
+<!--Inizio parte 2 home-->
+
+
+<div class="home2">
+
+
+
+
+  <div class="colonna1">
+<h1 >Test1</h1>
+
+</div>
+
+
+
+
+<div class="colonna2">
+  <h1 >Test2</h1>
+
+
+</div>
+
+
+
+<div class="colonna3">
+  <h1 >Test3</h1>
+
+
+
+</div>
+
+
+
+<div class="colonna4">
+
+  <h1 >Test4</h1>
+
+
+</div>
+
+
+
+
+
+</div>
+
+<!--fine parte 2 home-->
 
  <!--Inizio footer-->
    
