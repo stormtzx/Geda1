@@ -90,29 +90,109 @@ color: black;
 .menu {
   
   background-image: url("/Users/Daniele/Desktop/Sistema_alberghi/views/img/Slide/room.jpg");
-  text-align:right;
-   height: 1000px;
+  position:relative;
+  top:200px;
+   height: 900px;
   width:auto;
-   
+
 }
 
 
 .menu .boxMenu {
-  align-content:right;
-  width: 30%;
-  height:30%;
+  position:absolute;
+  top:100px;
+  right:100px;
+  width: 600px;
+  height:650px;
   background-color: #292c2f;
 	box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
   box-sizing: border-box;
-  opacity: 0.6;
+  opacity: 0.7;
 }
 
 .contenutoBoxMenu {
   opacity: 100%;
+  box-sizing: border-box;
+  position:absolute;
+  top:100px;
+  right:80px;
+  width: 600px;
+  height:650px;
+  
+}
+
+.contenutoBoxMenu label {
 
 }
 
+
+.contenutoBoxMenu input {
+  
+position:relative;
+border-radius:6px;
+width:300px;
+height:35px;
+margin-left:50px;
+margin-top:60px;
+margin bottom:20px;
+font-size:16px;
+
+}
+
+.contenutoBoxMenu button {
+  
+  position:relative;
+  margin-top:25px;
+  left:180px;
+  width:100px;
+
+}
+.contenutoBoxMenu .cercaCittà input {
+  position:relative;
+  width:600px;
+
+}
+
+/*da qui in poi le regole di stile per la parte secondaria della home*/
  
+
+.contenutoHome .home2 {
+  
+  position:relative;
+  margin-top:100px;
+  display:inline;
+  border:2px solid black;
+
+}
+
+.contenutoHome .home2 .colonna1 {
+
+width:20%;
+
+}
+
+.contenutoHome .home2 .colonna2 {
+
+  width:20%;
+
+
+
+}
+
+.contenutoHome .home2 .colonna3 {
+
+  width:20%;
+
+
+
+}
+
+.contenutoHome .home2 .colonna4 {
+
+  width:20%;
+
+
+}
 
  /*regole di stile per la barra di navigazione*/
 nav {
@@ -209,7 +289,9 @@ nav ul li:hover ul li a {
 footer{
 	position: relative;
   bottom: 0;
-  color:white
+  top:1000px;
+  color:white;
+  
 }
 .colonne-footer{
 	background-color: #292c2f;
