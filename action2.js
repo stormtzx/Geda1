@@ -285,6 +285,47 @@ module.exports = function (app) {
       console.log("Tasse di soggiorno: " + tasse + " euro");
       console.log("Totale: " + totale + " euro");
 
+      function generateDateList(from, to) {
+        var getDate = function (date) {
+          var m = date.getMonth(),
+            d = date.getDate();
+          return (
+            date.getFullYear() +
+            "-" +
+            (m < 10 ? "0" + m : m) +
+            "-" +
+            (d < 10 ? "0" + d : d)
+          );
+        };
+        var fs = from.split("-"),
+          startDate = new Date(fs[0], fs[1], fs[2]),
+          result = [getDate(startDate)],
+          start = startDate.getTime(),
+          ts,
+          end;
+
+        if (typeof to == "undefined") {
+          end = new Date().getTime();
+        } else {
+          ts = to.split("-");
+          end = new Date(ts[0], ts[1], ts[2]).getTime();
+        }
+        while (start < end) {
+          start += 86400000;
+          startDate.setTime(start);
+          result.push(getDate(startDate));
+        }
+        return result;
+      }
+      var ListaDate = generateDateList(
+        req.body.data_check_in_p,
+        req.body.data_check_out_p
+      );
+      console.log("Lista date occupate dal Cliente: ");
+      console.log(ListaDate);
+
+      req.session.ListaDate = ListaDate;
+
       req.session.check_in_p = req.body.data_check_in_p;
       req.session.check_out_p = req.body.data_check_out_p;
       req.session.animali_p = req.body.animali_p;
@@ -318,9 +359,39 @@ module.exports = function (app) {
       return;
     }
   });
+  function occupaDate(req) {
+    console.log(req.session.ListaDate);
+    var i;
+    for (i = 0; (i = req.session.ListaDate.length); i++) {
+      var dataOccupata = req.session.ListaDate[i];
+      var sql =
+        "INSERT INTO gestioneAffitti.data(data_soggiorno, ref_casa_o, disponibilita) values ('" +
+        dataOccupata +
+        "', " +
+        req.session.id_casa +
+        ", " +
+        1 +
+        ")";
+    }
+
+    con.query(sql, function (err) {
+      if (err) {
+        throw err;
+        console.log(err);
+      } else {
+        console.log(
+          req.session.nome_casa +
+            ", nelle date fra il check-in e il check-out specificati da " +
+            req.session.nomeC +
+            " risulteranno occupate a Utenti che volessero prenotarla"
+        );
+      }
+    });
+  }
 
   app.post("/prenota", function (req, res, err) {
     var data_corrente = new Date().toISOString().slice(0, 19).replace("T", " ");
+
     if (
       req.session.check_in_p == "" ||
       req.session.check_out_p == "" ||
@@ -402,6 +473,7 @@ module.exports = function (app) {
               "ConfermaPrenotazioneEffettuata.html"
             )
           );
+          occupaDate(req);
         }
       });
     }

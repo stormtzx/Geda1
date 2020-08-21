@@ -38,6 +38,7 @@ tables.crea_tableUtenteCliente();
 tables.crea_tableUtenteProprietario();
 tables.crea_tableCasa();
 tables.crea_tablePrenotazione();
+tables.crea_tableData();
 
 app.use(
   session({

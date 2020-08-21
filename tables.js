@@ -42,9 +42,19 @@ function crea_tablePrenotazione() {
   });
 }
 
+function crea_tableData() {
+  var sql =
+    "CREATE TABLE IF NOT EXISTS data(data_soggiorno date not null, ref_casa_o int references casa(id_casa), disponibilita boolean, primary key (data_soggiorno, ref_casa_o))";
+  con.query(sql, function (err, result) {
+    if (err) throw err;
+    console.log("Table DATA creata");
+  });
+}
+
 module.exports = {
   crea_tableUtenteCliente,
   crea_tableUtenteProprietario,
   crea_tableCasa,
   crea_tablePrenotazione,
+  crea_tableData,
 };
