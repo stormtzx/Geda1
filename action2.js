@@ -348,9 +348,10 @@ module.exports = function (app) {
     console.log(req.session.ListaDate);
     var i;
     for (i = 0; (i = req.session.ListaDate.length); i++) {
+      var dataOccupata = req.session.ListaDate[i];
       var sql =
         "INSERT INTO gestioneAffitti.data(data_soggiorno, ref_casa_o, disponibilita) values ('" +
-        req.session.ListaDate[i] +
+        dataOccupata +
         "', " +
         req.session.id_casa +
         ", " +
