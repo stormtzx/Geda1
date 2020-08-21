@@ -308,6 +308,7 @@ module.exports = function (app) {
       );
       console.log("Lista date occupate dal Cliente: ");
       console.log(ListaDate);
+      console.log(ListaDate.length);
 
       req.session.ListaDate = ListaDate;
 
@@ -346,12 +347,12 @@ module.exports = function (app) {
   });
   function occupaDate(req) {
     console.log(req.session.ListaDate);
+    console.log(req.session.ListaDate.length);
     var i;
-    for (i = 0; (i = req.session.ListaDate.length); i++) {
-      var dataOccupata = req.session.ListaDate[i];
+    for (i = 0; i < req.session.ListaDate.length; i++) {
       var sql =
         "INSERT INTO gestioneAffitti.data(data_soggiorno, ref_casa_o, disponibilita) values ('" +
-        dataOccupata +
+        req.session.ListaDate[i] +
         "', " +
         req.session.id_casa +
         ", " +
