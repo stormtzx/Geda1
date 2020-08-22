@@ -8,6 +8,7 @@ app.engine("html", require("ejs").renderFile);
 app.set("view engine", "html");
 
 const bodyParser = require("body-parser");
+const { Console } = require("console");
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static("."));
 app.use(express.static(path.join(__dirname, "views")));
@@ -212,6 +213,101 @@ module.exports = function (app) {
     });
   });
 
+  function controllaDate(check_in, check_out, casa) {
+    var dateOccupate = 0;
+    var sql =
+      "SELECT data_soggiorno FROM gestioneAffitti.data WHERE ref_casa_o = " +
+      casa +
+      "";
+
+    var ControlloListaDate = generateDateList(check_in, check_out);
+    console.log(
+      "Si procede al controllo della disponibilità della casa fra la data del Check-In e la data del Check-Out specificate dall'Utente...."
+    );
+
+    con.query(sql, function (err, results) {
+      if (err) {
+        console.log(err);
+      }
+      console.log(results);
+      /* console.log(results);
+      console.log(ControlloListaDate[0]);
+      console.log(typeof ControlloListaDate[0]);
+      console.log(results[0].data_soggiorno);
+      console.log(typeof results[0].data_soggiorno);
+      console.log(results[0].data_soggiorno);*/
+      var risultati = [];
+      var date_da_occupare = [];
+      for (
+        var x = 0, y = 0;
+        x < results.length, y < ControlloListaDate.length;
+        x++, y++
+      ) {
+        risultati.push(new Date(results[x].data_soggiorno).getTime());
+        date_da_occupare.push(new Date(ControlloListaDate[y]).getTime());
+      }
+
+      console.log(date_da_occupare[0]);
+      console.log(typeof date_da_occupare[0]);
+
+      console.log(risultati[0]);
+      console.log(typeof risultati[0]);
+
+      for (var i = 0; i < date_da_occupare.length; i++) {
+        for (var j = 0; j < risultati.length; j++) {
+          if (date_da_occupare[i] == risultati[j]) {
+            ++dateOccupate;
+            console.log(
+              "La casa è già stata prenotata per il giorno " +
+                ControlloListaDate[i]
+            );
+          }
+        }
+      }
+    });
+    if (dateOccupate != 0) {
+      return false;
+    } else if (dateOccupate == 0) {
+      console.log(
+        "La casa è disponibile in tutte le date fra check-in e check-out"
+      );
+      return true;
+    }
+  }
+
+  function generateDateList(from, to) {
+    var getDate = function (date) {
+      var m = date.getMonth(),
+        d = date.getDate();
+      return (
+        date.getFullYear() +
+        "-" +
+        (m < 10 ? "0" + m : m) +
+        "-" +
+        (d < 10 ? "0" + d : d)
+      );
+    };
+    var fs = from.split("-"),
+      startDate = new Date(fs[0], fs[1], fs[2]),
+      result = [getDate(startDate)],
+      start = startDate.getTime(),
+      ts,
+      end;
+
+    if (typeof to == "undefined") {
+      end = new Date().getTime();
+    } else {
+      ts = to.split("-");
+      end = new Date(ts[0], ts[1], ts[2]).getTime();
+    }
+    while (start < end) {
+      start += 86400000;
+      startDate.setTime(start);
+      result.push(getDate(startDate));
+    }
+    return result;
+  }
+
   app.post("/calcoloTasse", function (req, res, err) {
     console.log(req.body);
     if (req.body.animali_p != undefined) req.body.animali_p = true;
@@ -247,7 +343,12 @@ module.exports = function (app) {
       check_in > prima_data &&
       check_out < ultima_data &&
       giorni <= 30 &&
-      numero_ospiti <= req.session.capienza_max
+      numero_ospiti <= req.session.capienza_max &&
+      controllaDate(
+        req.body.data_check_in_p,
+        req.body.data_check_out_p,
+        req.session.id_casa
+      )
     ) {
       console.log("Data check-in:" + req.body.data_check_in_p);
       console.log("Data check-out:" + req.body.data_check_out_p);
@@ -270,43 +371,10 @@ module.exports = function (app) {
       console.log("Tasse di soggiorno: " + tasse + " euro");
       console.log("Totale: " + totale + " euro");
 
-      function generateDateList(from, to) {
-        var getDate = function (date) {
-          var m = date.getMonth(),
-            d = date.getDate();
-          return (
-            date.getFullYear() +
-            "-" +
-            (m < 10 ? "0" + m : m) +
-            "-" +
-            (d < 10 ? "0" + d : d)
-          );
-        };
-        var fs = from.split("-"),
-          startDate = new Date(fs[0], fs[1], fs[2]),
-          result = [getDate(startDate)],
-          start = startDate.getTime(),
-          ts,
-          end;
-
-        if (typeof to == "undefined") {
-          end = new Date().getTime();
-        } else {
-          ts = to.split("-");
-          end = new Date(ts[0], ts[1], ts[2]).getTime();
-        }
-        while (start < end) {
-          start += 86400000;
-          startDate.setTime(start);
-          result.push(getDate(startDate));
-        }
-        return result;
-      }
       var ListaDate = generateDateList(
         req.body.data_check_in_p,
         req.body.data_check_out_p
       );
-
       req.session.ListaDate = ListaDate;
 
       req.session.check_in_p = req.body.data_check_in_p;
@@ -459,7 +527,7 @@ module.exports = function (app) {
             )
           );
           var sql2 =
-            "SELECT id_prenotazione FROM gestioneAffitti.prenotazione WHERE id_prenotazione >= ALL (SELECT id_prenotazione FROM gestioneAffitti.prenotazione)";
+            "SELECT id_prenotazione FROM gestioneAffitti.prenotazione WHERE id_prenotazione >= ALL (SELECT id_prenotazione FROM gestioneAffitti.prenotazione)"; //Viene selezionata la PRENOTAZIONE appena effettuata, il suo identificativo auto-generatosi in sql, e il parametro viene passato nella funziona occupaDate: il riferimento alla prenotazione nelle tuple di DATA consentirà al Cliente che intende cancellare la sua prenotazione di liberare le date precedentemente occupate.
           con.query(sql2, function (err, results) {
             if (results.length != 1 || err) {
               console.log("Errore durante l'inserimento ");
