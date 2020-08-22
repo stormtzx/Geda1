@@ -342,7 +342,7 @@ module.exports = function (app) {
       return;
     }
   });
-  function occupaDate(req) {
+  function occupaDate(req, ref_prenotazione) {
     console.log("Lista date occupate dal Cliente: ");
     console.log(req.session.ListaDate);
     console.log("Lunghezza soggiorno: ");
@@ -350,10 +350,12 @@ module.exports = function (app) {
 
     for (var i = 0; i < req.session.ListaDate.length; i++) {
       var sql =
-        "INSERT INTO gestioneAffitti.data(data_soggiorno, ref_casa_o, disponibilita) values ('" +
+        "INSERT INTO gestioneAffitti.data(data_soggiorno, ref_casa_o, ref_prenotazione, disponibilita) values ('" +
         req.session.ListaDate[i] +
         "', " +
         req.session.id_casa +
+        ", " +
+        ref_prenotazione +
         ", " +
         1 +
         ")";
@@ -456,7 +458,16 @@ module.exports = function (app) {
               "ConfermaPrenotazioneEffettuata.html"
             )
           );
-          occupaDate(req);
+          var sql2 =
+            "SELECT id_prenotazione FROM gestioneAffitti.prenotazione WHERE id_prenotazione >= ALL (SELECT id_prenotazione FROM gestioneAffitti.prenotazione)";
+          con.query(sql2, function (err, results) {
+            if (results.length != 1 || err) {
+              console.log("Errore durante l'inserimento ");
+              console.log(err);
+            } else {
+              occupaDate(req, results[0].id_prenotazione);
+            }
+          });
         }
       });
     }
