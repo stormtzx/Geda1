@@ -4,11 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" type="text/css" href="css/FoglioDiStile.css">
-    <title>Pagina Iscrizione</title>
+    <title>Schermata Profilo Proprietario</title>
   </head>
-
-
-    <!--Inizio header-->
+  <!--Inizio header-->
 <header>
 
 
@@ -42,49 +40,30 @@
 </header>  
      <!--Fine header-->
 
-
- 
-
-
   <body>
 
 
-  
-<div class="contenutoPaginaImmissioneDati">
-
-  <h1 class="testo_centrale">PANNELLO ISCRIZIONE PROPRIETARIO</h1>
+  <div class="contenutoPaginaVisualizzaDati" >
     <div class="modulo">
-  
-      <div class="bloccoModulo">
+      <h1 style="color:orange"  >Riepilogo Dati Personali</h1>
+    <p style="color: black; margin-left: 5%;">Nome:</p>
+    <h3 style="margin-left: 5%;"><%= accessoProprietario[0].nomeP %></h3>
+    <p style="color: black; margin-left: 5%;">Cognome:</p>
+    <h3 style="margin-left: 5%;"><%= accessoProprietario[0].cognomeP %></h3>
+    <p style="color: black; margin-left: 5%;">E-Mail:</p>
+    <h4 style="margin-left: 5%;"><%= accessoProprietario[0].emailP %></h4>
 
-         
-    <form action="/IscrizioneProprietario" method="POST">
-      <label for="nome_iscrizioneP">Nome</label>
-      <input class="testo_nero" type="text" name="nome_iscrizioneP" id="" />
-      <br />
-      <label for="cognome_iscrizioneP">Cognome</label>
-      <input class="testo_nero" type="text" name="cognome_iscrizioneP" id="" />
-      <br />
-   
+    <a class="button2" style="margin-left: 5%; border-color: solid black; background-color: white;" 
+     href="./views/PannelloNuovaCasa.html">Aggiungi Casa</a>
+    <a class="button2" style="margin-left: 5%; text-align: center; border-color: solid black; background-color: white; line-height: 30px;"
+     href="./views/PannelloLogout.html">Esci</a>
 
-  
-      <label for="email_iscrizioneP">E-Mail</label>
-      <input class="testo_nero" type="email" name="email_iscrizioneP" id="" />
-      <br />
-      <label for="password_iscrizioneP">Password</label>
-      <input class="testo_nero" type="password" name="password_iscrizioneP" id="" />
-      <br />
-      <button id="bottoneIscrizione" class="button2" type="submit">Iscriviti</button>
-    </form>
-   
-
-
+    <br />
+    </div>
   </div>
-  </div>
-</div>
 
 
-   <!--Inizio footer-->
+    <!--Inizio footer-->
    
  <footer>
        
@@ -131,10 +110,8 @@
        
     </footer>
      <!--Fine footer-->
-    
+
      <script src="https://unpkg.com/ionicons@5.1.2/dist/ionicons.js"></script>
 
-
- 
   </body>
 </html>

@@ -45,20 +45,19 @@
 
   <div class="contenutoPaginaVisualizzaDati" >
     <div class="modulo">
-      <h1 style="color:orange"  >Riepilogo Dati Personali</h1>
-    <p style="color: black; margin-left: 5%;">Nome:</p>
+      <h1 style="color:orange">Riepilogo Dati Personali</h1>
+    <p>Nome:</p>
     <h3 style="margin-left: 5%;"><%= accessoProprietario[0].nomeP %></h3>
-    <p style="color: black; margin-left: 5%;">Cognome:</p>
-    <h3 style="margin-left: 5%;"><%= accessoProprietario[0].cognomeP %></h3>
-    <p style="color: black; margin-left: 5%;">E-Mail:</p>
-    <h4 style="margin-left: 5%;"><%= accessoProprietario[0].emailP %></h4>
+    <p>Cognome:</p>
+    <h3><%= accessoProprietario[0].cognomeP %></h3>
+    <p>E-Mail:</p>
+    <h4><%= accessoProprietario[0].emailP %></h4>
 
-    <a class="button2" style="margin-left: 5%; border-color: solid black; background-color: white;" 
-     href="./views/PannelloNuovaCasa.html">Aggiungi Casa</a>
-    <a class="button2" style="margin-left: 5%; text-align: center; border-color: solid black; background-color: white; line-height: 30px;"
-     href="./views/PannelloLogout.html">Esci</a>
-
+    <button id="btnPannello"><a href="./views/PannelloNuovaCasa.html">Aggiungi Casa</a></button>
     <br />
+    <button id="btnPannello"> <a href="./views/PannelloLogout.html">Esci</a></button>
+    <br />
+
     </div>
   </div>
 

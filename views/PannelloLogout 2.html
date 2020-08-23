@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" type="text/css" href="css/FoglioDiStile.css">
-    <title>Conferma casa</title>
+    <title>Pannello Logout</title>
   </head>
   <!--Inizio header-->
 <header>
@@ -31,79 +31,24 @@
    <!--Fine menu di navigazione-->
   
 </header>  
-
+     <!--Fine header-->
 
   <body>
-  
-  
-  <div class="contenutoPaginaVisualizzaDati">
 
-    <div class="modulo">
-
-    <h1>Informazioni casa</h1>
-    <p>Codice Casa:</p>
-    <p><%= visualizzaCasa[0].id_casa %></p>
-    <br />
-    <p>Nome Casa:</p>
-    <p><%= visualizzaCasa[0].nome_casa %></p>
-    <br />
-    <p>Indirizzo:</p>
-    <p><%= visualizzaCasa[0].indirizzo %></p>
-    <p><%= visualizzaCasa[0].citta %></p>
-    <br />
-    <p>Email Proprietario:</p>
-    <p><%= visualizzaCasa[0].proprietario %></p>
-    <br />
-    <p>B&B:</p>
-    <p><%= visualizzaCasa[0].beb %></p>
-    <br />
-    <p>Codice:</p>
-    <p><%= visualizzaCasa[0].casa_vacanza %></p>
-    <br />
-    <p>Numero Camere:</p>
-    <p><%= visualizzaCasa[0].numero_camere %></p>
-    <br />
-    <p>Numero Bagni:</p>
-    <p><%= visualizzaCasa[0].numero_bagno %></p>
-    <br />
-    <p>Cucina:</p>
-    <p><%= visualizzaCasa[0].cucina %></p>
-    <br />
-    <p>Servizi Disabili:</p>
-    <p><%= visualizzaCasa[0].servizi_disabili %></p>
-    <br />
-    <p>Faciatoio:</p>
-    <p><%= visualizzaCasa[0].fasciatoio %></p>
-    <br />
-    <p>Perimetro Casa:</p>
-    <p><%= visualizzaCasa[0].perimetro_casa %></p>
-    <br />
-    <p>Tariffa Giornaliera:</p>
-    <p><%= visualizzaCasa[0].tariffa_giornaliera %></p>
-    <br />
-    <p>Ammontare Tasse:</p>
-    <p><%= visualizzaCasa[0].ammontare_tasse %></p>
-    <br />
-    <p>Massimo numero di ospiti:</p>
-    <p><%= visualizzaCasa[0].capienza_max %></p>
-    <br />
-    <p>Animali Ammessi:</p>
-    <p><%= visualizzaCasa[0].animali_ammessi %></p>
-    <br />
-    <p>Segnalatori Fumo:</p>
-    <p><%= visualizzaCasa[0].segnalatori_fumo %></p>
-    <br />
-
-
-   <button id="btnPannello"><a  href="./views/PannelloPrenotazione.html">Prenota Casa</a></button> 
-
-    <br />
+<div class="contenutoPaginaImmissioneDati" style= " margin-top:0px; padding-top:25px;">
+  <div class="modulo" style="margin-top:20px; padding-top:20px;"> 
+    <h1>Premi qui per scollegarti</h1>
+    <form action="/logoutProprietario" method="GET">
+      <button id="btnLogout" type="submit" name="exit">
+        Logout
+      </button>
+    </form>
   </div>
 </div>
 
-
     <!--Inizio footer-->
-   
+
+
     <footer>
        
       <div class="colonne-footer">    
@@ -152,7 +97,7 @@
     
     
          <script src="https://unpkg.com/ionicons@5.1.2/dist/ionicons.js"></script>
-    
+
     
     
       </body>
