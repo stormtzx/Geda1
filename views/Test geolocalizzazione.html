@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="css/FoglioDiStile.css">
+    <title>Schermata Profilo Cliente</title>
+  </head>
+
+  <!--Inizio header-->
+<header>
+
+
+
+  <!--menu di navigazione-->
+<nav>     
+  <ul>
+    <li><input class="barraDiRicerca" type="search" placeholder="Cerca sul sito"><button class="bottoneRicerca" type="submit">Cerca</button></li>
+    
+    <li><a href="#">Home</a></li>
+    <li><a href="#">Entra nel sito<span style="font-size:8px">&nabla;</span></a>
+      <ul> 
+        <li style="border-bottom:1px solid #CCC"><a href="./SchermataAccesso.html">Accedi</a></li>
+        <li><a href="./SchermataIscrizione.html">Registrati</a></li>
+      </ul>
+    </li>
+    <li><a href="#">Dove siamo</a></li>
+    <li><a href="#">Servizi</a></li>
+    <li><a href="#">Camere e tariffe</a></li>
+    <li><a href="#">Contatti</a></li>
+    <li><a href="#">Mappa</a></li>
+  </nav>
+  </ul>
+
+   <!--Test per la geolocalizzazione del browser-->
+ 
+   <script>
+   if (navigator.geolocation) {
+    // browser HTML5-ready con supporto per la geolocalizzazione
+  }else{
+    // nessun supporto alla geolocalizzazione
+  }
+</script>
+
+ <!--fine Test per la geolocalizzazione-->
+  
+</header>  
+     <!--Fine header-->
+
+   
+   
+
+
+
+
+     
+
+    <!--Inizio footer-->
+   
+ <footer>
+       
+  <div class="colonne-footer">    
+  
+    <div class="colonna-sinistra">
+        
+      <div class="footer-GEDAName">
+      <strong><h4>Note legali</h4></strong>
+        <small>&copy;GEDA GROUP</small>
+      </div>
+        <p>Documentazione</p>
+      </div>
+  
+  
+    <div class="colonna-centrale">
+      <div class="contatti">
+        <strong><h4>Contattaci:</h4></strong>
+        <p> <a href="mail@esempio.it">mail@esempio.it</a> </p>
+      </div>
+  
+     <div class="footer-infoSuDiNoi">
+       <span>
+        <p> 091 123456789 </p> 
+        <br><br>
+        <p>Dove trovarci:</p>
+        <br>
+        <p> Via Esempio n1 </p>
+      </span>
+      </div>
+    </div>
+   
+  
+        <div class="colonna-destra">
+          <div class="icone-social">
+          <h4>Seguici</h4>
+          <a href="#"><i> <img src="img/Logo_FB.png" alt="Facebook" height="30" width="30" >  </i></a> 
+          <a href="#"><i><img src="img/Logo_IG.png" alt="Instagram" height="30" width="30">   </i></a>
+          <a href="#"><i><img src="img/Logo_whatsapp.png" alt="Whatsapp" height="30" width="30">   </i></a>
+        </div> 
+        </div>
+     
+      </div> 
+       
+    </footer>
+     <!--Fine footer-->
+
+     <script src="https://unpkg.com/ionicons@5.1.2/dist/ionicons.js"></script>
+
+
+  </body>
+</html>
