@@ -99,6 +99,10 @@ font-size: xx-large;
 color:black;
    } 
 
+   .contenutoErrore  p a {
+text-decoration:underline;
+color:gray;
+   } 
    
  .contenutoErrore img {
 
@@ -584,6 +588,131 @@ footer{
  /* Stile dei moduli per l'immissione dei dati */
 
 
+ .contenutoPannelli {
+
+
+  color:black;
+  background-color:lightgray;
+  margin-top:0px;
+  margin-bottom:-80px;
+  padding-bottom:25px;
+  padding-top:35px;
+  align-content:right;
+ 
+ }
+
+ #btnPannello {
+
+  
+  height:40px;
+  width:100px;
+  
+  color:black;
+ } 
+ 
+ .contenutoPannelli .modulo  {
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: black;
+  margin-left:22%;
+  margin-right:-5%;
+   background-color: rgb(85, 85, 85);
+   width: 60%;
+  height:120%;
+  border: medium solid black;
+  font-family:'Roboto', sans-serif; ;
+  color:black;
+  border-radius: 10px;
+  box-shadow: 0 0.6px 0.6px rgba(128, 128, 128, 0.109),
+    0 2px 2px rgba(128, 128, 128, 0.155),
+    0 3.1px 3.1px rgba(128, 128, 128, 0.195),
+    0 5.4px 5.4px rgba(128, 128, 128, 0.241),
+    0 14px 14px rgba(128, 128, 128, 0.35);
+  
+ }
+
+
+.contenutoPannelli h1 {
+
+  color:black;
+  padding-top:15px;
+  font-family:'Georgia';
+  text-shadow:  1px 1px 3px black;
+  font-weight: bold;
+  font-size:30px;
+  text-align:center;
+
+}
+
+.contenutoPannelli form {
+
+margin-bottom:20px;
+margin-left:-250px;
+}
+
+.contenutoPannelli input {
+
+  padding:15px auto 25px 0px;
+}
+
+ 
+ .contenutoPaginaVisualizzaDati {
+
+  color:black;
+ background-color:lightgray;
+ margin-top:0px;
+ margin-bottom:-80px;
+ padding-bottom:25px;
+ padding-top:35px;
+
+
+
+}
+
+.contenutoPaginaVisualizzaDati h1 {
+
+  color:black;
+  padding-top:15px;
+  font-family:'Georgia';
+  text-shadow:  1px 1px 3px black;
+  font-weight: bold;
+  font-size:36px;
+  text-align:center;
+
+}
+
+.contenutoPaginaVisualizzaDati .modulo {
+
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: black;
+  
+  margin-left:22%;
+  margin-right:-5%;
+  background-color: rgb(85, 85, 85);
+  
+  padding: 2%;
+  width: 50%;
+  height:60%;
+  
+  border: medium solid black;
+  font-family:'Roboto', sans-serif; ;
+  color:black;
+  border-radius: 10px;
+  box-shadow: 0 0.6px 0.6px rgba(128, 128, 128, 0.109),
+    0 2px 2px rgba(128, 128, 128, 0.155),
+    0 3.1px 3.1px rgba(128, 128, 128, 0.195),
+    0 5.4px 5.4px rgba(128, 128, 128, 0.241),
+    0 14px 14px rgba(128, 128, 128, 0.35);
+  
+  }
+  
+
+
 .contenutoPaginaImmissioneDati {
 
    color:black;
@@ -610,40 +739,75 @@ footer{
 
 
 }
+
+ .boxTrasparente {
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: black;
+  
+  margin-left:22%;
+  margin-right:-5%;
+  background-color: rgb(85, 85, 85);
+  opacity:0.6;
+  padding: 2%;
+  width: 50%;
+  height:60%;
+  
+ 
+  font-family:'Roboto', sans-serif; ;
+  color:black;
+  border-radius: 10px;
+
+}
+
 .contenutoPaginaImmissioneDati .modulo {
+
+
+display: flex;
+flex-direction: column;
+align-items: center;
+color: black;
 
 margin-left:22%;
 margin-right:-5%;
+background-color: rgb(85, 85, 85);
 
-background-color: rgb(69, 67, 56);
 padding: 2%;
 width: 50%;
 height:60%;
+
 border: medium solid black;
 font-family:'Roboto', sans-serif; ;
 color:black;
-border-radius:6px;
+border-radius: 10px;
+box-shadow: 0 0.6px 0.6px rgba(128, 128, 128, 0.109),
+  0 2px 2px rgba(128, 128, 128, 0.155),
+  0 3.1px 3.1px rgba(128, 128, 128, 0.195),
+  0 5.4px 5.4px rgba(128, 128, 128, 0.241),
+  0 14px 14px rgba(128, 128, 128, 0.35);
 
 }
 
-.contenutoPaginaImmissioneDati .bloccoModulo {
+.modulo .h1 {
 
-    background-color: rgba(75, 101, 97, 0.694);
-    border: thin dashed rgba(75, 101, 97, 0.694);
-    padding: 2%;
-    color:black;
-    border-radius:6px;
+  margin: 0 0 24px 0;
 
 }
+
+ 
 
 .contenutoPaginaImmissioneDati .modulo form {
  
     margin-top:5%;
     padding-left:20%;
+    color:black;
 }
 
 .modulo label {
-    
+  color:black;
+
     margin-top: 5%;
     margin-left: -10%;
     padding-right: 3%;
@@ -652,7 +816,8 @@ border-radius:6px;
 
 
 .modulo input {
-    
+  color:black;
+
     margin-top: 5%;
     margin-bottom: 3%;
     
@@ -661,7 +826,23 @@ border-radius:6px;
 .bottoneIscrizione {
 
     width:100%;
+    margin: 18px 0 9px 0;
+}
 
+
+#btnLogout {
+
+  height:40px;
+  width:100px;
+  margin-right:130px;
+  color:black;
+
+}
+
+.btnLogout:hover, .btnLogout:visited {
+  color: gray;
+  background-color: orange;
+  text-decoration: none;
 }
 
   a:link, a:visited {
