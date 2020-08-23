@@ -214,7 +214,6 @@ module.exports = function (app) {
   });
 
   function controllaDate(check_in, check_out, casa) {
-    var dateOccupate = 0;
     var sql =
       "SELECT data_soggiorno FROM gestioneAffitti.data WHERE ref_casa_o = " +
       casa +
@@ -229,6 +228,8 @@ module.exports = function (app) {
       if (err) {
         console.log(err);
       }
+      var dateOccupate = 0;
+      console.log(typeof dateOccupate);
       console.log(results);
       /* console.log(results);
       console.log(ControlloListaDate[0]);
@@ -243,7 +244,7 @@ module.exports = function (app) {
         x < results.length, y < ControlloListaDate.length;
         x++, y++
       ) {
-        risultati.push(new Date(results[x].data_soggiorno).getTime());
+        risultati.push(new Date(results[x].data_soggiorno).getTime() + 7200000); //le date provenienti dalle due var sono in formato diverso e la loro conversione genera dei Number con una discrepanza di 7200000, che viene eliminata con la somma.
         date_da_occupare.push(new Date(ControlloListaDate[y]).getTime());
       }
 
@@ -253,26 +254,36 @@ module.exports = function (app) {
       console.log(risultati[0]);
       console.log(typeof risultati[0]);
 
+      console.log(date_da_occupare[1]);
+      console.log(risultati[1]);
+
       for (var i = 0; i < date_da_occupare.length; i++) {
         for (var j = 0; j < risultati.length; j++) {
           if (date_da_occupare[i] == risultati[j]) {
-            ++dateOccupate;
+            console.log(date_da_occupare[i] == risultati[j]);
+            dateOccupate = dateOccupate + 1;
             console.log(
               "La casa è già stata prenotata per il giorno " +
                 ControlloListaDate[i]
             );
+          } else {
+            continue;
           }
         }
+        console.log("Date già occupate: " + dateOccupate);
+      }
+
+      console.log(dateOccupate);
+
+      if (dateOccupate != 0) {
+        console.log("false");
+      } else if (dateOccupate == 0) {
+        console.log(
+          "La casa è disponibile in tutte le date fra check-in e check-out"
+        );
+        console.log("true");
       }
     });
-    if (dateOccupate != 0) {
-      return false;
-    } else if (dateOccupate == 0) {
-      console.log(
-        "La casa è disponibile in tutte le date fra check-in e check-out"
-      );
-      return true;
-    }
   }
 
   function generateDateList(from, to) {
@@ -336,6 +347,14 @@ module.exports = function (app) {
     var days = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
     var giorni = parseInt(days); //calcolo dei giorni che intercorrono fra check-in e check-out
 
+    var checkDateOccupate = controllaDate(
+      req.body.data_check_in_p,
+      req.body.data_check_out_p,
+      req.session.id_casa
+    );
+
+    console.log("Questo è il risultato: " + checkDateOccupate);
+
     if (
       req.body.data_check_in_p != "" &&
       req.body.data_check_out_p != "" &&
@@ -344,11 +363,7 @@ module.exports = function (app) {
       check_out < ultima_data &&
       giorni <= 30 &&
       numero_ospiti <= req.session.capienza_max &&
-      controllaDate(
-        req.body.data_check_in_p,
-        req.body.data_check_out_p,
-        req.session.id_casa
-      )
+      checkDateOccupate == true
     ) {
       console.log("Data check-in:" + req.body.data_check_in_p);
       console.log("Data check-out:" + req.body.data_check_out_p);
