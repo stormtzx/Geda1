@@ -246,6 +246,22 @@ module.exports = function (app) {
     return result;
   }
 
+  function convertiData(data) {
+    date = new Date(data);
+    year = date.getFullYear();
+    month = date.getMonth() + 1;
+    dt = date.getDate();
+
+    if (dt < 10) {
+      dt = "0" + dt;
+    }
+    if (month < 10) {
+      month = "0" + month;
+    }
+
+    return (year + "-" + month + "-" + dt).toString();
+  }
+
   app.post("/calcoloTasse", function (req, res, err) {
     console.log(req.body);
     if (req.body.animali_p != undefined) req.body.animali_p = true;
@@ -283,6 +299,9 @@ module.exports = function (app) {
       req.body.data_check_in_p,
       req.body.data_check_out_p
     );
+
+    console.log(ControlloListaDate[0]);
+    console.log(typeof ControlloListaDate[0]);
     console.log(
       "Si procede al controllo della disponibilità della casa fra la data del Check-In e la data del Check-Out specificate dall'Utente...."
     );
@@ -294,15 +313,17 @@ module.exports = function (app) {
       var dateOccupate = 0; //contatore
       console.log("Date già occupate per la casa: ");
       console.log(results);
+      console.log(convertiData(results[0].data_soggiorno));
+      console.log(typeof convertiData(results[0].data_soggiorno));
 
       var risultati = [];
       var date_da_occupare = [];
-      for (
-        var x = 0, y = 0;
-        x < results.length, y < ControlloListaDate.length;
-        x++, y++
-      ) {
-        risultati.push(new Date(results[x].data_soggiorno).getTime() + 7200000); //le date provenienti dalle due var sono in formato diverso e la loro conversione genera dei Number con una discrepanza di 7200000, che viene eliminata con la somma.
+      for (var x = 0; x < results.length; x++) {
+        risultati.push(
+          new Date(convertiData(results[x].data_soggiorno)).getTime()
+        );
+      }
+      for (y = 0; y < ControlloListaDate.length; y++) {
         date_da_occupare.push(new Date(ControlloListaDate[y]).getTime());
       }
 
