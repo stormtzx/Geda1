@@ -311,8 +311,6 @@ module.exports = function (app) {
       if (results != undefined) {
         console.log("Date già occupate per la casa: ");
         console.log(results);
-        console.log(convertiData(results[0].data_soggiorno));
-        console.log(typeof convertiData(results[0].data_soggiorno));
 
         var risultati = [];
         var date_da_occupare = [];
