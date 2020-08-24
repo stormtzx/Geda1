@@ -955,7 +955,7 @@ box-shadow: 0 0.6px 0.6px rgba(128, 128, 128, 0.109),
   /*bottoni link*/
 
   .button1 {
-    background-color: transparent;
+    background-color: lightcyan;
     border: solid black;
     color: white;
     padding: 10px 20px;
@@ -965,21 +965,21 @@ box-shadow: 0 0.6px 0.6px rgba(128, 128, 128, 0.109),
     font-size: 8px;
     cursor: pointer;
     border-radius: 4px;
-    width: 400px;
+    width: 250px;
     margin-top: 45%;
-    margin-left: 17%;
+    margin-left: 28%;
     margin-right: 22%;
    
   }
 
-  .button1:hover, .button1:visited {
+  .button1:hover {
     color: gray;
     background-color: orange;
     text-decoration: none;
   }
 
   .button3 {
-    background-color: transparent;
+    background-color: lightcyan;
     border: solid black;
     color: white;
     padding: 10px 20px;
@@ -989,14 +989,14 @@ box-shadow: 0 0.6px 0.6px rgba(128, 128, 128, 0.109),
     font-size: 8px;
     cursor: pointer;
     border-radius: 4px;
-    width: 400px;
+    width: 250px;
     margin-top: 45%;
-    margin-left: 23%;
-    margin-right: 25%;
+    margin-left: 33.5%;
+    margin-right: 22%;
    
   }
 
-  .button3:hover, .button3:visited {
+  .button3:hover {
     color: gray;
     background-color: orange;
     text-decoration: none;
