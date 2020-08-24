@@ -213,79 +213,6 @@ module.exports = function (app) {
     });
   });
 
-  function controllaDate(check_in, check_out, casa) {
-    var sql =
-      "SELECT data_soggiorno FROM gestioneAffitti.data WHERE ref_casa_o = " +
-      casa +
-      "";
-
-    var ControlloListaDate = generateDateList(check_in, check_out);
-    console.log(
-      "Si procede al controllo della disponibilità della casa fra la data del Check-In e la data del Check-Out specificate dall'Utente...."
-    );
-
-    con.query(sql, function (err, results) {
-      if (err) {
-        console.log(err);
-      }
-      var dateOccupate = 0;
-      console.log(typeof dateOccupate);
-      console.log(results);
-      /* console.log(results);
-      console.log(ControlloListaDate[0]);
-      console.log(typeof ControlloListaDate[0]);
-      console.log(results[0].data_soggiorno);
-      console.log(typeof results[0].data_soggiorno);
-      console.log(results[0].data_soggiorno);*/
-      var risultati = [];
-      var date_da_occupare = [];
-      for (
-        var x = 0, y = 0;
-        x < results.length, y < ControlloListaDate.length;
-        x++, y++
-      ) {
-        risultati.push(new Date(results[x].data_soggiorno).getTime() + 7200000); //le date provenienti dalle due var sono in formato diverso e la loro conversione genera dei Number con una discrepanza di 7200000, che viene eliminata con la somma.
-        date_da_occupare.push(new Date(ControlloListaDate[y]).getTime());
-      }
-
-      console.log(date_da_occupare[0]);
-      console.log(typeof date_da_occupare[0]);
-
-      console.log(risultati[0]);
-      console.log(typeof risultati[0]);
-
-      console.log(date_da_occupare[1]);
-      console.log(risultati[1]);
-
-      for (var i = 0; i < date_da_occupare.length; i++) {
-        for (var j = 0; j < risultati.length; j++) {
-          if (date_da_occupare[i] == risultati[j]) {
-            console.log(date_da_occupare[i] == risultati[j]);
-            dateOccupate = dateOccupate + 1;
-            console.log(
-              "La casa è già stata prenotata per il giorno " +
-                ControlloListaDate[i]
-            );
-          } else {
-            continue;
-          }
-        }
-        console.log("Date già occupate: " + dateOccupate);
-      }
-
-      console.log(dateOccupate);
-
-      if (dateOccupate != 0) {
-        console.log("false");
-      } else if (dateOccupate == 0) {
-        console.log(
-          "La casa è disponibile in tutte le date fra check-in e check-out"
-        );
-        console.log("true");
-      }
-    });
-  }
-
   function generateDateList(from, to) {
     var getDate = function (date) {
       var m = date.getMonth(),
@@ -347,83 +274,129 @@ module.exports = function (app) {
     var days = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
     var giorni = parseInt(days); //calcolo dei giorni che intercorrono fra check-in e check-out
 
-    var checkDateOccupate = controllaDate(
+    var sql =
+      "SELECT data_soggiorno FROM gestioneAffitti.data WHERE ref_casa_o = " +
+      req.session.id_casa +
+      "";
+
+    var ControlloListaDate = generateDateList(
       req.body.data_check_in_p,
-      req.body.data_check_out_p,
-      req.session.id_casa
+      req.body.data_check_out_p
+    );
+    console.log(
+      "Si procede al controllo della disponibilità della casa fra la data del Check-In e la data del Check-Out specificate dall'Utente...."
     );
 
-    console.log("Questo è il risultato: " + checkDateOccupate);
+    con.query(sql, function (err, results) {
+      if (err) {
+        console.log(err);
+      }
+      var dateOccupate = 0; //contatore
+      console.log("Date già occupate per la casa: ");
+      console.log(results);
 
-    if (
-      req.body.data_check_in_p != "" &&
-      req.body.data_check_out_p != "" &&
-      check_out > check_in &&
-      check_in > prima_data &&
-      check_out < ultima_data &&
-      giorni <= 30 &&
-      numero_ospiti <= req.session.capienza_max &&
-      checkDateOccupate == true
-    ) {
-      console.log("Data check-in:" + req.body.data_check_in_p);
-      console.log("Data check-out:" + req.body.data_check_out_p);
+      var risultati = [];
+      var date_da_occupare = [];
+      for (
+        var x = 0, y = 0;
+        x < results.length, y < ControlloListaDate.length;
+        x++, y++
+      ) {
+        risultati.push(new Date(results[x].data_soggiorno).getTime() + 7200000); //le date provenienti dalle due var sono in formato diverso e la loro conversione genera dei Number con una discrepanza di 7200000, che viene eliminata con la somma.
+        date_da_occupare.push(new Date(ControlloListaDate[y]).getTime());
+      }
 
-      console.log("Prima data disponibilità:" + req.session.prima_data);
+      for (var i = 0; i < date_da_occupare.length; i++) {
+        for (var j = 0; j < risultati.length; j++) {
+          if (date_da_occupare[i] == risultati[j]) {
+            console.log(date_da_occupare[i] == risultati[j]);
+            dateOccupate = dateOccupate + 1; //il contatore viene incrementato ogni volta che viene idividuata una data fra check-in e check-out che coincida con una data già presente nella table DATA
+            console.log(
+              "La casa è già stata prenotata per il giorno " +
+                ControlloListaDate[i]
+            );
+          } else {
+            continue;
+          }
+        }
+        console.log("Date già occupate: " + dateOccupate);
+      }
 
-      console.log("Ultima data disponibilità:" + req.session.ultima_data);
-      console.log("Calcolo prezzi e tasse...");
+      if (
+        req.body.data_check_in_p != "" &&
+        req.body.data_check_out_p != "" &&
+        check_out > check_in &&
+        check_in > prima_data &&
+        check_out < ultima_data &&
+        giorni <= 30 &&
+        numero_ospiti <= req.session.capienza_max &&
+        dateOccupate == 0
+      ) {
+        console.log("Data check-in:" + req.body.data_check_in_p);
+        console.log("Data check-out:" + req.body.data_check_out_p);
+        console.log(
+          "La casa è disponibile in tutte le date fra check-in e check-out"
+        );
+        console.log("Prima data disponibilità:" + req.session.prima_data);
 
-      console.log("Tariffa giornaliera:" + tariffa + " euro");
+        console.log("Ultima data disponibilità:" + req.session.ultima_data);
+        console.log("Calcolo prezzi e tasse...");
 
-      var prezzo = giorni * tariffa;
-      console.log("Soggiorno: " + giorni + " giorni");
-      console.log("Prezzo: " + prezzo + " euro");
+        console.log("Tariffa giornaliera:" + tariffa + " euro");
 
-      if (req.body.viaggio_lavoro_p == true || req.body.disabilita_p == true) {
-        tasse = tasse / 2;
-      } //agevolazioni per viaggiatori lavoratori e/o disabili
-      var totale = prezzo + tasse;
-      console.log("Tasse di soggiorno: " + tasse + " euro");
-      console.log("Totale: " + totale + " euro");
+        var prezzo = giorni * tariffa;
+        console.log("Soggiorno: " + giorni + " giorni");
+        console.log("Prezzo: " + prezzo + " euro");
 
-      var ListaDate = generateDateList(
-        req.body.data_check_in_p,
-        req.body.data_check_out_p
-      );
-      req.session.ListaDate = ListaDate;
+        if (
+          req.body.viaggio_lavoro_p == true ||
+          req.body.disabilita_p == true
+        ) {
+          tasse = tasse / 2;
+        } //agevolazioni per viaggiatori lavoratori e/o disabili
+        var totale = prezzo + tasse;
+        console.log("Tasse di soggiorno: " + tasse + " euro");
+        console.log("Totale: " + totale + " euro");
 
-      req.session.check_in_p = req.body.data_check_in_p;
-      req.session.check_out_p = req.body.data_check_out_p;
-      req.session.animali_p = req.body.animali_p;
-      req.session.disabilita_p = req.body.disabilita_p;
-      req.session.viaggio_lavoro_p = req.body.viaggio_lavoro_p;
-      req.session.prezzo_p = prezzo;
-      req.session.tasse_p = tasse;
-      req.session.totale_p = totale;
-      req.session.numero_ospiti_adulti_p = ospiti_adulti;
-      req.session.numero_ospiti_bambini_p = ospiti_bambini;
-      res.render("SchermataPrezzo.html", {
-        nome_cliente_p: req.session.nomeC,
-        cognome_cliente_p: req.session.cognomeC,
-        numero_ospiti_p: numero_ospiti,
-        check_in_p: req.body.data_check_in_p,
-        check_out_p: req.body.data_check_out_p,
-        giorni_p: giorni,
-        prezzo_p: prezzo,
-        tasse_p: tasse,
-        totale_p: totale,
-      });
-    } else {
-      console.log(err);
-      res.sendFile(
-        path.join(
-          __dirname,
-          "../Sistema_Alberghi/views",
-          "NotificaPrenotazioneFallita.html"
-        )
-      );
-      return;
-    }
+        var ListaDate = generateDateList(
+          req.body.data_check_in_p,
+          req.body.data_check_out_p
+        );
+        req.session.ListaDate = ListaDate;
+
+        req.session.check_in_p = req.body.data_check_in_p;
+        req.session.check_out_p = req.body.data_check_out_p;
+        req.session.animali_p = req.body.animali_p;
+        req.session.disabilita_p = req.body.disabilita_p;
+        req.session.viaggio_lavoro_p = req.body.viaggio_lavoro_p;
+        req.session.prezzo_p = prezzo;
+        req.session.tasse_p = tasse;
+        req.session.totale_p = totale;
+        req.session.numero_ospiti_adulti_p = ospiti_adulti;
+        req.session.numero_ospiti_bambini_p = ospiti_bambini;
+        res.render("SchermataPrezzo.html", {
+          nome_cliente_p: req.session.nomeC,
+          cognome_cliente_p: req.session.cognomeC,
+          numero_ospiti_p: numero_ospiti,
+          check_in_p: req.body.data_check_in_p,
+          check_out_p: req.body.data_check_out_p,
+          giorni_p: giorni,
+          prezzo_p: prezzo,
+          tasse_p: tasse,
+          totale_p: totale,
+        });
+      } else {
+        console.log(err);
+        res.sendFile(
+          path.join(
+            __dirname,
+            "../Sistema_Alberghi/views",
+            "NotificaPrenotazioneFallita.html"
+          )
+        );
+        return;
+      }
+    });
   });
   function occupaDate(req, ref_prenotazione) {
     console.log("Lista date occupate dal Cliente: ");
