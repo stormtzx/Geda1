@@ -7,34 +7,37 @@
 <link rel="stylesheet" type="text/css" href="css/FoglioDiStile.css">
 <meta name=”description” content=””/>
 <meta name=”keywords” content=””/>
+<!--  Fonte per le icone->    https://ionicons.com/  -->
+<!--  Fonte per le immagini (copyright free)->  https://www.pexels.com/  --> 
+
 </head>
 
 
 
   <!--Inizio header-->
 <header>
-
-
+ 
 
   <!--menu di navigazione-->
 <nav>     
   <ul>
-    <li><input class="barraDiRicerca" type="search" placeholder="Cerca sul sito"><button class="bottoneRicerca" type="submit">Cerca</button></li>
+    <div class="barraDiRicerca"> <li><input type="search" placeholder="Cerca nel sito"><button class="bottoneRicerca" type="submit">Cerca</button></li></div> 
     
-    <li><a href="#">Home</a></li>
-    <li><a href="#">Entra nel sito<span style="font-size:8px">&nabla;</span></a>
+    <li><a href="./SchermataPrincipale.html"><ion-icon name="home"></ion-icon> Home</a></li> 
+    <li><a href="#"><ion-icon name="log-in"></ion-icon>Entra nel sito<span style="font-size:8px">&nabla;</span></a>
       <ul> 
         <li style="border-bottom:1px solid #CCC"><a href="./SchermataAccesso.html">Accedi</a></li>
         <li><a href="./SchermataIscrizione.html">Registrati</a></li>
       </ul>
     </li>
-    <li><a href="#">Dove siamo</a></li>
-    <li><a href="#">Servizi</a></li>
-    <li><a href="#">Camere e tariffe</a></li>
-    <li><a href="#">Contatti</a></li>
-    <li><a href="#">Mappa</a></li>
-  </nav>
+    <li><a href="./Dove_siamo.html"><ion-icon name="locate"></ion-icon> Dove siamo</a></li>
+     <li><a href="#"><ion-icon name="cafe"></ion-icon> Servizi</a></li>
+    <li><a href="#"><ion-icon name="bed"></ion-icon> Camere e tariffe</a></li>
+    <li><a href="#"><ion-icon name="mail"></ion-icon> Contatti</a></li>
+    <li><a href="#"><ion-icon name="map"></ion-icon> Mappa</a></li>
   </ul>
+  </nav>
+  
    <!--Fine menu di navigazione-->
  
    <!-- --
@@ -48,17 +51,22 @@
 
 <body>
 
-  <div class="contenutoHome">
+
+   
+
+  <div id="contenutoHome">
      <!--Inizio parte centrale della home -->
  
    <div class="menu">
-     <div class="boxMenu">
+     <div class="boxMenu"></div>  <!--NB:E' corretto che sia chiuso,boxMenu serve solo a disegnare il riquadro,il contenuto non deve essere figlio altrimenti eredita l'opacita-->
        <div  class="contenutoBoxMenu">
 <h2>Cerca una struttura e prenota una stanza</h2>
 
+<div clss="cercaCittà">
   <form  action="/ricerca" method="POST">
-  <input class="testo_nero" type="text" name="citta_r" placeholder="cerca città"/>
- 
+  <input type="text" name="citta_r" placeholder="cerca città"/>
+</div>
+
   <br/>     
         <div class="testo_nero">
             <label for="check_in_r">Check In:</label>
@@ -77,22 +85,24 @@
 
 </form>
 
-<br />
+<br /><br>
 <a href="./SchermataAccesso.html">Accedi</a>
 <p>
+  <a  href="./SchermataRecuperoPassword.html">Ti sei dimenticato della password?</a>
+</p>
+
+<p>
   Non hai un account?
-  <a  href="./views/SchermataRecuperoPassword.html">Ti sei dimenticato della password?</a>
-  <div>
-  <a  href="./views/SchermataIscrizione.html">Registrati</a>
-</div>
+  <a  href="./SchermataIscrizione.html">Registrati</a>
+ 
 </p>
 
 
 
 </div>
   </div>
-</div>
-</div>
+
+
  
 
      <!--Fine parte centrale della home -->
@@ -115,8 +125,82 @@
   
   
   </script>
-
         <!--Fine Script test per SlideShow -->
+
+<!--Inizio parte 2 home-->
+
+
+<div class="home2">
+  <div class="box">
+
+
+
+  <div id="box1">
+    <img src="img/home2/foto1.jpeg" alt="Home2_foto1" height="600" width="auto" >
+
+    <div class="descrizione">
+<h1>Test1</h1>
+<p>prova 1 prova 1 prova 1 prova 1 prova 1 prova 1 prova 1 prova 1 prova 1 prova 1 prova 1 prova 1 prova 1 prova 1  prova 1 prova 1 prova 1 prova 1 prova 1 prova 1 prova 1 prova 1 prova 1 prova 1 prova 1 prova 1 prova 1 prova 1  </p>
+
+    </div>
+
+</div>
+
+
+
+
+<div id="box2">
+
+
+  <img  src="img/home2/foto2.jpeg" alt="Home2_foto2" height="600" width="auto" >
+  
+  <div class="descrizione">
+  <h1 >Test2</h1>
+  <p>prova 2 prova 2 prova 2 prova 2 prova 2 prova 2 prova 2  </p>
+
+  
+
+   </div>
+</div>
+
+
+
+<div class="box">
+
+    <div id="box3">
+
+
+    
+  <img src="img/home2/foto3.jpeg" alt="Home2_foto3"  height="600" width="auto" >
+
+  <div class="descrizione"> 
+  <h1 >Test3</h1>
+<p>prova 3 prova 3 prova 3 prova 3 prova 3 prova 3 prova 3 </p>
+
+    </div>
+</div>
+
+
+
+<div id="box4">
+
+   
+  <img src="img/home2/foto4.jpeg" alt="Home2_foto4" height="600" width="auto" >
+  
+  <div class="descrizione">
+  <h1 >Test4</h1>
+  <p>prova 4 prova 4 prova 4 prova 4 prova 4 prova 4 prova 4 </p>
+    </div>
+</div>
+
+
+
+      </div>
+    </div> 
+   </div>
+  </div>
+
+<!--fine parte 2 home-->
 
  <!--Inizio footer-->
    
@@ -166,9 +250,8 @@
     </footer>
      <!--Fine footer-->
 
-
- <!-- Bootstrap JS -->
- <script src="js/bootstrap.min.js"></script>
+ 
+ <script src="https://unpkg.com/ionicons@5.1.2/dist/ionicons.js"></script>
 
 
 </body>

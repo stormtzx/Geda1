@@ -3,7 +3,7 @@
 <html lang=”it”>
 <head>
 <meta charset=”utf-8″>
-<title>Pannello login</title>
+<title>Pannello login proprietario</title>
 <link rel="stylesheet" type="text/css" href="css/FoglioDiStile.css">
 <meta name=”description” content=””/>
 <meta name=”keywords” content=””/>
@@ -42,8 +42,11 @@
   <body>
     
 
-<div class="modulo">
-  <h1 class="testo_centrale">ACCEDI</h1>
+    <div class="contenutoPaginaImmissioneDati">
+      <h1>ACCEDI</h1>
+ 
+      <div class="modulo">
+ 
     <form  action="/accessoProprietario" method="POST">
       <label for="email_loginP">E-Mail</label>
       <input class="testo_nero" type="email" name="email_loginP" id="" />
@@ -54,14 +57,20 @@
       <button class="button2" type="submit">Accedi</button>
       <br />
     </form>
+
+
+   
+    <p class="testo_centrale" >Non hai un account? <a  href="SchermataIscrizione.html">Registrati</a></p>
+    <br />
+    <p class="testo_centrale"><a   href="forgotten_password.html">Password dimenticata</a></p>
+
+
   </div>
 
  
-   
-  <p class="testo_centrale" >Non hai un account? <a  href="SchermataIscrizione.html">Registrati</a></p>
-      <br />
-      <p class="testo_centrale"><a   href="forgotten_password.html">Password dimenticata</a></p>
-    
+
+    </div>
+
  
     <!--Inizio footer-->
    
@@ -112,8 +121,8 @@
      <!--Fine footer-->
 
 
- <!-- Bootstrap JS -->
- <script src="js/bootstrap.min.js"></script>
+     <script src="https://unpkg.com/ionicons@5.1.2/dist/ionicons.js"></script>
+
 
 
 </body>

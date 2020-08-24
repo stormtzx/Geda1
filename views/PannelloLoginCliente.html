@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" type="text/css" href="css/FoglioDiStile.css">
-    <title>Pannello Login</title>
+    <title>Pannello Login cliente</title>
   </head>
   <!--Inizio header-->
 <header>
@@ -34,8 +34,14 @@
      <!--Fine header-->
 
   <body>
-    <div class="modulo">
-    <h1 class="testo_centrale">ACCEDI</h1>
+
+
+    <div class="contenutoPaginaImmissioneDati">
+      <h1>ACCEDI</h1>
+
+
+      <div class="modulo">
+   
     <form action="/accessoCliente" method="POST">
       <label for="email_loginC">E-Mail</label>
       <input class="testo_nero" type="email" name="email_loginC" id="" />
@@ -45,12 +51,22 @@
       <br />
       <button class="button2" type="submit">Accedi</button>
     </form>
-    </div> 
 
-    
+
+
     <p class="testo_centrale">Non hai un account? <a href="SchermataIscrizione.html">Registrati</a></p>
     <br />
     <p class="testo_centrale"><a href="forgotten_password.html">Password dimenticata</a></p>
+
+
+    </div> 
+
+
+    </div> 
+
+
+
+ 
 
     <!--Inizio footer-->
    
@@ -101,8 +117,8 @@
      <!--Fine footer-->
 
 
- <!-- Bootstrap JS -->
- <script src="js/bootstrap.min.js"></script>
+     <script src="https://unpkg.com/ionicons@5.1.2/dist/ionicons.js"></script>
+
 
 
   </body>

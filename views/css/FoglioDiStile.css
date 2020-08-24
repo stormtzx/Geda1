@@ -4,42 +4,159 @@ html,body {
     min-height: 100%;
     margin:0;
     padding:0;
-    background-color: rgba(107, 112, 114, 0.612);
+    background-color: rgb(249, 249, 249);
     font-family: 'Roboto', sans-serif;
-    color:black;
-  overflow-y: scroll;
-  overflow-x: scroll;
-    
+       
     
 }
 
+#contenutoHome {
 
-.contenutoHome  {
-  margin-left: 25px;
-  margin-right: 25px;
+  margin-top: -55px;
 
 
- }
+}
+
+
+
+.contenutoConferma {
  
 
-* {  /*La pagina principale (nel body) è con ogni carattere bianco*/
+  margin-top: -25px;
+  background:lightgrey;
+  height:480px;
+  width:100%;
+  margin-bottom:-80px; 
+ 
+ }
+
+
+ .contenutoConferma h1 {
+
+color:green;
+text-align:center;
+padding-top: 20px;
+font-size: xx-large;
+margin-bottom: 7%
+
+ }
+
+ .contenutoConferma p {
+
+  
+  text-align:center;
+   
+  
+   }
+
+ .contenutoConferma img {
+
+  align-content:center;
+  display:block;
+margin: 0px auto ;
+
+}
+
+
+.contenutoErrore {
+ 
+  text-align:center;
+  margin-top: -25px;
+  background:lightgrey;
+  height:500px;
+  width:100%;
+  margin-bottom:-150px; 
+  
+ 
+ }
+
+
+ .contenutoErrore h1 {
+
+color:red;
+text-align:center;
+padding-top: 15px;
+font-size: xx-large;
+ 
+
+ }
+
+  
+
+ .contenutoErrore h3 {
+
+  color:red;
+  text-align:center;
+  padding-top: 15px;
+  font-size: x-large;
+ 
+  
+   }
+
+   .contenutoErrore p {
+
+    font-size: x-large;
+color:black;
+   } 
+
+   .contenutoErrore  p a {
+text-decoration:underline;
+color:gray;
+   } 
+   
+ .contenutoErrore img {
+
+  align-content:center;
+  display:block;
+margin: 0px auto ;
+
+}
+
+.contenutoErrore .modulo {
+ 
+  padding-top:10px;
+  
+  
+   }
+
+ 
+
+/*.contenutoConfermaIscrizioneCliente {
+  margin-top: -25px;
+  background:lightgrey;
+  height:480px;
+  width:100%;
+  margin-bottom:-80px; 
+
+}
+.contenutoConfermaIscrizioneCliente img  {
+
+  align-content:center;
+  display:block;
+margin: 0px auto ;
+}*/
+ 
+
+* {  /*Il body è con ogni carattere bianco*/
     color: rgb(255, 255, 255)
 }
 
 header {
-  color:black;
-opacity:0.8;
-    border: none;
-    position: relative;
+  color:white;
+  opacity:0.9;
+  border: none;
+  position: relative;
 	padding: 32px;
-	height: 150px;
-background-color: #292c2f;
+	height: 100px;
+  background-color: #292c2f;
   box-shadow: 6px 6px 8px black;
 }
 
-header .logoHeader {
+.logoHeader {
+
   position: relative;
-  bottom:60px;
+  top: -20px;
+  left: 0px;
 }
 
 .testo_nero{
@@ -50,9 +167,7 @@ header .logoHeader {
     text-align: center;
 }
 
-.spazio_vuoto_grande {
- white-space: 300px;
-}
+ 
 
 .benvenuto {
 font-family:'Georgia';
@@ -61,84 +176,34 @@ font-weight: bold;
 font-size:60px;
 text-align:center;
 
-}
-
-.barraDiRicerca {
-  
-display:inline;
-border-radius:6px;
-color:black;
- 
-border-color:orange;
-box-shadow: #000000;
-color: black;
-  
- 
 
 }
 
-.barraDiRicerca .bottoneRicerca {
- 
-  border-color:orange;
-  box-shadow: #000000;
-  color: black;
-  text-decoration: none;
-  width: 3px;
-   
-}
-
-.menu {
-  
-  background-image: url("/Users/Daniele/Desktop/Sistema_alberghi/views/img/Slide/room.jpg");
-  text-align:right;
-   height: 1000px;
-  width:auto;
-   
-}
-
-
-.menu .boxMenu {
-  align-content:right;
-  width: 30%;
-  height:30%;
-  background-color: #292c2f;
-	box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
-  box-sizing: border-box;
-  opacity: 0.6;
-}
-
-.contenutoBoxMenu {
-  opacity: 100%;
-
-}
-
- 
-
- /*regole di stile per la barra di navigazione*/
+/*regole di stile per la barra di navigazione*/
 nav {
-  position: relative;
-  top: 1px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: inline-block;
-  border: 1px solid black;
-  background-color: gray;
-  border-radius: 6px;
-   
- 
+  position: absolute;
+  top: 0px;
+  right: 0px;
+   display: inline-block;
+  /*border: 1px solid black;*/
+  background-color: auto;
+
+  
   /*possibilità di animazione-> animation: slideIN 1s ease-out; */
 }
  
 nav ul {
   position: relative;
+  color:white;
   display: flex;
   flex: 1 1 auto;
   margin: 0;
-  padding: 0 30px;
+  padding: 0 20px;
   list-style-type: none;
+  
 }
 nav ul li:not(:last-child) {
-  margin-right: 40px;
+  margin-right: 10px;
 }
 
 nav ul li {
@@ -195,13 +260,177 @@ nav ul li:hover ul li a {
   color: black;
 }
  
-/*regole di stile per lo slideshow */
+nav .barraDiRicerca {
+  
+  position:relative;
+  display:inline;
+  border-radius:6px;
+  color:black;
+  margin-right:5px; 
+  box-shadow: #000000;
+  color: black;
+   
+  }
+  
+  nav .bottoneRicerca {
+    
+    position:relative;
+    margin-right:5px; 
+    margin-left:5px; 
+    border-color:orange;
+    box-shadow: #000000;
+    color: black;
+    text-decoration: none;
+    width: 80px;
+     
+  }
 
-#slideshow {
+
+  /*Regole di stile per il menu chekIn/checkOut*/
+
+.menu {
+  
+  background-image: url("/Users/Daniele/Desktop/Sistema_alberghi/views/img/Slide/room.jpg");
+  position:relative;
+  top: 55px;
+   height: 900px;
+  width:auto;
+   
+}
 
 
+.menu .boxMenu {
+  position:absolute;
+  top:100px;
+  right:100px;
+  width: 600px;
+  height:650px;
+  background-color: #292c2f;
+	box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
+  box-sizing: border-box;
+  opacity: 0.7;
+}
+
+.contenutoBoxMenu {
+  opacity: 100%;
+  box-sizing: border-box;
+  position:absolute;
+  top:100px;
+  right:80px;
+  width: 600px;
+  height:650px;
+  
+}
+
+ 
+.contenutoBoxMenu input {
+  
+position:relative;
+border-radius:6px;
+width:300px;
+height:35px;
+margin-left:50px;
+margin-top:60px;
+margin-bottom:20px;
+font-size:16px;
 
 }
+
+.contenutoBoxMenu button {
+  
+  position:relative;
+  margin-top:25px;
+  left:180px;
+  width:100px;
+
+}
+.contenutoBoxMenu .cercaCittà input {
+  position:relative;
+  width:600px;
+
+}
+
+/*da qui in poi le regole di stile per la parte secondaria della home*/
+ 
+
+ .contenutoHome .home2 {
+  
+  position:relative;
+  margin-top:55px;
+   border:5px solid black;
+   background: lightgray;
+  
+}
+
+.home2 #box {
+  display:inline-block;
+   text-align:right;
+   
+}
+
+.home2 #box1  {
+display:inline-block;
+width:40%;
+padding-right:50px;
+padding-left: 30px;
+padding-top: 30px;
+padding-bottom:30px;
+border-right:1px solid black;
+}
+
+.home2 #box2  {
+  display:inline-block;
+  width:40%;
+  padding-right:30px;
+  padding-left: 30px;
+  padding-top: 30px;
+  padding-bottom:30px;
+}
+
+.home2 #box3   {
+  display:inline-block;
+  width:40%;
+  padding-right:50px;
+  padding-left: 30px;
+  padding-top: 30px;
+  padding-bottom:30px;
+  border-right:1px solid black;
+  border-top:1px solid black;
+  text-align:right;
+
+}
+ 
+
+.home2 #box4    {
+  display:inline-block;
+  width:40%;
+  padding-right:20px;
+  padding-left: 30px;
+  padding-top: 30px;
+  padding-bottom:30px;
+  border-top:1px solid black;
+
+  }
+
+  .home2 .descrizione {
+  text-align:right;  
+  width: auto;
+  float:right;
+  padding-right:10px;
+  padding-left:20px;
+  }  
+  .home2 .descrizione p  {
+
+    color:black;
+  }
+
+  .home2 .descrizione h1  {
+
+    color:black;
+  }
+ 
+/*regole di stile per lo slideshow */
+
 
 
 /*regole di stile per il footer*/
@@ -209,7 +438,9 @@ nav ul li:hover ul li a {
 footer{
 	position: relative;
   bottom: 0;
-  color:white
+   
+  color:white;
+  
 }
 .colonne-footer{
 	background-color: #292c2f;
@@ -354,43 +585,279 @@ footer{
 }
 
 
- /* Stile dei moduli per l'immissione dei dati */
+ /*Stile per il riquadro della mappa della pagina "Dove siamo"*/
+
+#paginaMappa  {
+
+ align-content: center;
+  background-color:lightgray;
+  margin-bottom:-80px;
+  
+}
+
+#paginaMappa h1 {
+text-align:center;
+margin-top:0px;
+padding-top:25px;
+
+color:black;
+
+}
+
+#paginaMappa p {
+  text-align:center;
+  margin-top:0px;
+  color:black;
+  
+  }
+
+#mappa {
+
+display: inline-block;
+position:relative;
+margin:100px 35px 50px 250px;
+border: solid 5px black;
+
+}
+
+ 
 
 
-.modulo {
 
-margin-left:7%;
+ /*Stile per i contenuti delle varie pagine circa 3 macrocategorie)*/
+
+
+ .contenutoPannelli {
+
+
+  color:black;
+  background-color:lightgray;
+  margin-top:0px;
+  margin-bottom:-80px;
+  padding-bottom:25px;
+  padding-top:35px;
+  align-content:right;
+ 
+ }
+
+ #btnPannello {
+  
+  height:40px;
+  width:100px;
+  color:black;
+  border-color: solid black; 
+  background-color: orange;
+ } 
+ 
+ .contenutoPannelli .modulo  {
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: black;
+  margin-left:25%;
+  margin-right:-5%;
+   background-color: rgb(85, 85, 85);
+   width: 600px;
+  height:120%;
+  border: medium solid black;
+  font-family:'Roboto', sans-serif; ;
+  color:black;
+  border-radius: 10px;
+  box-shadow: 0 0.6px 0.6px rgba(128, 128, 128, 0.109),
+    0 2px 2px rgba(128, 128, 128, 0.155),
+    0 3.1px 3.1px rgba(128, 128, 128, 0.195),
+    0 5.4px 5.4px rgba(128, 128, 128, 0.241),
+    0 14px 14px rgba(128, 128, 128, 0.35);
+  
+ }
+
+
+.contenutoPannelli h1 {
+
+  color:black;
+  padding-top:15px;
+  font-family:'Georgia';
+  text-shadow:  1px 1px 3px black;
+  font-weight: bold;
+  font-size:30px;
+  text-align:center;
+
+}
+
+.contenutoPannelli form {
+
+margin-bottom:25px;
+margin-left:-100px;
+}
+
+.contenutoPannelli input {
+
+  padding:15px auto 25px 0px;
+}
+
+ 
+ .contenutoPaginaVisualizzaDati {
+
+  color:black;
+ background-color:lightgray;
+ margin-top:0px;
+ margin-bottom:-80px;
+ padding-bottom:25px;
+ padding-top:35px;
+
+
+
+}
+
+.contenutoPaginaVisualizzaDati h1 {
+
+  color:black;
+  padding-top:15px;
+  font-family:'Georgia';
+  text-shadow:  1px 1px 3px black;
+  font-weight: bold;
+  font-size:36px;
+  text-align:center;
+
+}
+
+.contenutoPaginaVisualizzaDati .modulo {
+
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: black;
+  
+  margin-left:22%;
+  margin-right:-5%;
+  background-color: rgb(85, 85, 85);
+  
+  padding: 2%;
+  width: 50%;
+  height:60%;
+  
+  border: medium solid black;
+  font-family:'Roboto', sans-serif; ;
+  color:black;
+  border-radius: 10px;
+  box-shadow: 0 0.6px 0.6px rgba(128, 128, 128, 0.109),
+    0 2px 2px rgba(128, 128, 128, 0.155),
+    0 3.1px 3.1px rgba(128, 128, 128, 0.195),
+    0 5.4px 5.4px rgba(128, 128, 128, 0.241),
+    0 14px 14px rgba(128, 128, 128, 0.35);
+  
+  }
+  
+
+
+.contenutoPaginaImmissioneDati {
+
+   color:black;
+  background-color:lightgray;
+  margin-top:-30px;
+   padding-bottom:80px;
+   margin-bottom:-80px;
+ }
+
+.contenutoPaginaImmissioneDati h1 {
+
+  color:black;
+  padding-top:15px;
+  font-family:'Georgia';
+  text-shadow: 1px 1px 3px black;
+  font-weight: bold;
+  font-size:30px;
+  text-align:center;
+
+}
+
+.contenutoPaginaImmissioneDati p {
+  text-align:center;
+}
+
+.contenutoPaginaImmissioneDati input {
+  padding-right:30px;
+  margin-right:30px;
+  font-size:18px;
+  
+  
+}
+.contenutoPaginaImmissioneDati label {
+  padding-right:30px;
+
+  
+}
+
+ .boxTrasparente {
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: black;
+  
+  margin-left:22%;
+  margin-right:-5%;
+  background-color: rgb(85, 85, 85);
+  opacity:0.6;
+  padding: 2%;
+  width: 50%;
+  height:60%;
+  
+ 
+  font-family:'Roboto', sans-serif; ;
+  color:black;
+  border-radius: 10px;
+
+}
+
+.contenutoPaginaImmissioneDati .modulo {
+
+
+display: flex;
+flex-direction: column;
+align-items: center;
+color: black;
+
+margin-left:22%;
 margin-right:-5%;
-margin-top:10%;
-margin-bottom:20%;
-background-color: rgb(69, 67, 56);
+background-color: rgb(85, 85, 85);
+
 padding: 2%;
-width: 80%;
+width: 50%;
+height:60%;
+margin-bottom:-30px;
 border: medium solid black;
 font-family:'Roboto', sans-serif; ;
 color:black;
-border-radius:6px;
+border-radius: 10px;
+box-shadow: 0 0.6px 0.6px rgba(128, 128, 128, 0.109),
+  0 2px 2px rgba(128, 128, 128, 0.155),
+  0 3.1px 3.1px rgba(128, 128, 128, 0.195),
+  0 5.4px 5.4px rgba(128, 128, 128, 0.241),
+  0 14px 14px rgba(128, 128, 128, 0.35);
 
 }
 
-.bloccoModulo {
+.modulo .h1 {
 
-    background-color: rgba(75, 101, 97, 0.694);
-    border: thin dashed rgba(75, 101, 97, 0.694);
-    padding: 2%;
-    color:black;
-    border-radius:6px;
+  margin: 0 0 24px 0;
 
 }
 
-.modulo form {
+ 
+
+.contenutoPaginaImmissioneDati .modulo form {
  
     margin-top:5%;
     padding-left:20%;
+    color:black;
 }
 
 .modulo label {
-    
+  color:black;
+
     margin-top: 5%;
     margin-left: -10%;
     padding-right: 3%;
@@ -399,7 +866,8 @@ border-radius:6px;
 
 
 .modulo input {
-    
+  color:black;
+
     margin-top: 5%;
     margin-bottom: 3%;
     
@@ -408,7 +876,16 @@ border-radius:6px;
 .bottoneIscrizione {
 
     width:100%;
+    margin: 18px 0 9px 0;
+}
 
+
+ 
+
+.btnLogout:hover, .btnLogout:visited {
+  color: gray;
+  background-color: orange;
+  text-decoration: none;
 }
 
   a:link, a:visited {
