@@ -306,38 +306,37 @@ module.exports = function (app) {
       "Si procede al controllo della disponibilità della casa fra la data del Check-In e la data del Check-Out specificate dall'Utente...."
     );
 
-    con.query(sql, function (err, results) {
-      if (err) {
-        console.log(err);
-      }
+    con.query(sql, function (results) {
       var dateOccupate = 0; //contatore
-      console.log("Date già occupate per la casa: ");
-      console.log(results);
-      console.log(convertiData(results[0].data_soggiorno));
-      console.log(typeof convertiData(results[0].data_soggiorno));
+      if (results != undefined) {
+        console.log("Date già occupate per la casa: ");
+        console.log(results);
+        console.log(convertiData(results[0].data_soggiorno));
+        console.log(typeof convertiData(results[0].data_soggiorno));
 
-      var risultati = [];
-      var date_da_occupare = [];
-      for (var x = 0; x < results.length; x++) {
-        risultati.push(
-          new Date(convertiData(results[x].data_soggiorno)).getTime()
-        );
-      }
-      for (y = 0; y < ControlloListaDate.length; y++) {
-        date_da_occupare.push(new Date(ControlloListaDate[y]).getTime());
-      }
+        var risultati = [];
+        var date_da_occupare = [];
+        for (var x = 0; x < results.length; x++) {
+          risultati.push(
+            new Date(convertiData(results[x].data_soggiorno)).getTime()
+          );
+        }
+        for (y = 0; y < ControlloListaDate.length; y++) {
+          date_da_occupare.push(new Date(ControlloListaDate[y]).getTime());
+        }
 
-      for (var i = 0; i < date_da_occupare.length; i++) {
-        for (var j = 0; j < risultati.length; j++) {
-          if (date_da_occupare[i] == risultati[j]) {
-            console.log(date_da_occupare[i] == risultati[j]);
-            dateOccupate = dateOccupate + 1; //il contatore viene incrementato ogni volta che viene idividuata una data fra check-in e check-out che coincida con una data già presente nella table DATA
-            console.log(
-              "La casa è già stata prenotata per il giorno " +
-                ControlloListaDate[i]
-            );
-          } else {
-            continue;
+        for (var i = 0; i < date_da_occupare.length; i++) {
+          for (var j = 0; j < risultati.length; j++) {
+            if (date_da_occupare[i] == risultati[j]) {
+              console.log(date_da_occupare[i] == risultati[j]);
+              dateOccupate = dateOccupate + 1; //il contatore viene incrementato ogni volta che viene idividuata una data fra check-in e check-out che coincida con una data già presente nella table DATA
+              console.log(
+                "La casa è già stata prenotata per il giorno " +
+                  ControlloListaDate[i]
+              );
+            } else {
+              continue;
+            }
           }
         }
         console.log("Date già occupate: " + dateOccupate);
