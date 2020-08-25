@@ -38,6 +38,7 @@ tables.crea_tableUtenteProprietario();
 tables.crea_tableCasa();
 tables.crea_tablePrenotazione();
 tables.crea_tableData();
+tables.crea_tableRencensione();
 
 app.use(
   session({
@@ -49,4 +50,4 @@ app.use(
 );
 const action = require("./action")(app);
 const action2 = require("./action2")(app);
-checkForUsers("users", getAllUsers);
+const action3 = require("./action3")(app);
