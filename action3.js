@@ -236,7 +236,7 @@ module.exports = function (app) {
     con.query(sql, function (err, results) {
       if (err) {
         throw err;
-      } else if (results[0].id_recensione != null) {
+      } else if (results.length > 0) {
         console.log(
           "Recensioni relative alla casa " + req.session.nome_casa + ": "
         );
@@ -244,6 +244,96 @@ module.exports = function (app) {
         res.render("SchermataRecensioniCasa.html", {
           leggiRecensioni: results,
         });
+      } else {
+        console.log("Nessuna recensione per la casa " + req.session.nome_casa);
+        res.sendFile(
+          path.join(
+            __dirname,
+            "../Sistema_Alberghi/views",
+            "QualcosaStorto.html"
+          )
+        );
+      }
+    });
+  });
+
+  app.get("/visualizzaRecensioniCliente", function (req, res) {
+    var sql =
+      "SELECT * FROM gestioneAffitti.recensione WHERE email_recensore = " +
+      req.session.emailC +
+      "";
+
+    con.query(sql, function (err, results) {
+      if (err) {
+        throw err;
+      } else if (results[0].id_recensione != null) {
+        console.log(
+          "Recensioni di " +
+            req.session.nomeC +
+            " " +
+            req.session.cognomeC +
+            ": "
+        );
+        console.log(results);
+        res.render("SchermataRecensioniCliente.html", {
+          leggiRecensioniCliente: results,
+        });
+      } else {
+        res.sendFile(
+          path.join(
+            __dirname,
+            "../Sistema_Alberghi/views",
+            "QualcosaStorto.html"
+          )
+        );
+      }
+    });
+  });
+
+  app.get("/visualizzaCaseProprietario", function (req, res) {
+    var sql =
+      "SELECT * FROM gestioneAffitti.casa WHERE proprietario  = '" +
+      req.session.emailP +
+      "'";
+
+    con.query(sql, function (err, results) {
+      if (err) throw err;
+      if (results[0].proprietario != "") {
+        console.log("Case di " + req.session.emailP + ": ");
+        console.log(results);
+        res.render("SchermataListaCaseProprietario.html", {
+          ListaCaseProprietario: results,
+          nome_proprietario: req.session.nomeP,
+          cognome_proprietario: req.session.cognomeP,
+        });
+      } else {
+        console.log("L'Utente non ha ancora aggiunto nessuna casa!");
+        res.sendFile(
+          path.join(
+            __dirname,
+            "../Sistema_Alberghi/views",
+            "QualcosaStorto.html"
+          )
+        );
+      }
+    });
+  });
+
+  app.get("/gestioneCasa", function (req, res) {
+    var id = req.param("id");
+
+    var sql =
+      "SELECT * FROM gestioneAffitti.casa WHERE gestioneAffitti.casa.id_casa = " +
+      id +
+      "";
+    con.query(sql, function (err, results) {
+      if (err) throw err;
+      if (results.length == 1) {
+        console.log(results);
+        req.session.id_casa = results[0].id_casa;
+        req.session.nome_casa = results[0].nome_casa;
+
+        res.render("SchermataGestioneCasa.html", { gestioneCasa: results });
       } else {
         res.sendFile(
           path.join(

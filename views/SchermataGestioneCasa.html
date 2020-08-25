@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gestione Casa</title>
+  </head>
+  <body>
+    <h1>Informazioni casa</h1>
+    <p>Codice Casa:</p>
+    <p><%= gestioneCasa[0].id_casa %></p>
+    <br />
+    <p>Nome Casa:</p>
+    <p><%= gestioneCasa[0].nome_casa %></p>
+    <br />
+    <p>Indirizzo:</p>
+    <p><%= gestioneCasa[0].indirizzo %></p>
+    <p><%= gestioneCasa[0].citta %></p>
+    <br />
+
+    <br />
+    <p>B&B:</p>
+    <p><%= gestioneCasa[0].beb %></p>
+    <br />
+    <p>Codice:</p>
+    <p><%= gestioneCasa[0].casa_vacanza %></p>
+    <br />
+    <p>Numero Camere:</p>
+    <p><%= gestioneCasa[0].numero_camere %></p>
+    <br />
+    <p>Numero Bagni:</p>
+    <p><%= gestioneCasa[0].numero_bagno %></p>
+    <br />
+    <p>Cucina:</p>
+    <p><%= gestioneCasa[0].cucina %></p>
+    <br />
+    <p>Servizi Disabili:</p>
+    <p><%= gestioneCasa[0].servizi_disabili %></p>
+    <br />
+    <p>Faciatoio:</p>
+    <p><%= gestioneCasa[0].fasciatoio %></p>
+    <br />
+    <p>Perimetro Casa:</p>
+    <p><%= gestioneCasa[0].perimetro_casa %></p>
+    <br />
+    <p>Tariffa Giornaliera:</p>
+    <p><%= gestioneCasa[0].tariffa_giornaliera %></p>
+    <br />
+    <p>Ammontare Tasse:</p>
+    <p><%= gestioneCasa[0].ammontare_tasse %></p>
+    <br />
+    <p>Massimo numero di ospiti:</p>
+    <p><%= gestioneCasa[0].capienza_max %></p>
+    <br />
+    <p>Animali Ammessi:</p>
+    <p><%= gestioneCasa[0].animali_ammessi %></p>
+    <br />
+    <p>Segnalatori Fumo:</p>
+    <p><%= gestioneCasa[0].segnalatori_fumo %></p>
+    <br />
+<form action="/visualizzaRecensioni" method="GET">
+  <p>Qualche dubbio? Leggi le <button type="submit">recensioni</button>!</p></button>
+</form>
+
+  </body>
+</html>

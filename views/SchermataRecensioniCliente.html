@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recensioni Cliente</title>
+</head>
+<body>
+    <h1>Recensioni di</h1>
+    <h2><%= leggiRecensioniCliente[0].nome_recensore %></h2>
+    <br />
+    <% for(var i=0; i<leggiRecensioni.length; i++){ %>
+    <p>Nome Ospite: </p>
+    <h3><%= leggiRecensioni[i].ref_nome_casa_r %></h3>
+    <br>
+    <p>Stelle: </p>
+    <h3><%= leggiRecensioni[i].stelle %></h3>
+    <br>
+    <p>Commento: </p>
+    <h3><%= leggiRecensioni[i].commento %></h3>
+    <% } %>
+</body>
+</html>
