@@ -53,7 +53,7 @@ function crea_tableData() {
 
 function crea_tableRencensione() {
   var sql =
-    "CREATE TABLE IF NOT EXISTS recensione(id_recensione int auto_increment, ref_casa_r int references casa(id_casa), ref_nome_casa_r VARCHAR(50) references casa(nome_casa), ref_prenotazione_r int references prenotazione(id_prenotazione), nome_recensore varchar(50) references utenteCliente(nomeC), cognome_recensore varchar(50) references utenteCliente(cognomeC), email_recensore VARCHAR(50) references utenteCliente(emailC), stelle int(5) not null, commento TEXT, primary key(id_recensione))";
+    "CREATE TABLE IF NOT EXISTS recensione(id_recensione int auto_increment, ref_casa_r int references casa(id_casa), ref_nome_casa_r VARCHAR(50) references casa(nome_casa), ref_prenotazione_r int references prenotazione(id_prenotazione), nome_recensore varchar(50) references utenteCliente(nomeC), cognome_recensore varchar(50) references utenteCliente(cognomeC), email_recensore VARCHAR(50) references utenteCliente(emailC), email_proprietario VARCHAR(50) references utenteProprietario(emailP), stelle int(5) not null, commento TEXT, data_rece date not null, primary key(id_recensione))";
   con.query(sql, function (err, result) {
     if (err) throw err;
     console.log("Table RECENSIONE creata");
