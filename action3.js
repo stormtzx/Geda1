@@ -226,4 +226,33 @@ module.exports = function (app) {
       });
     }
   });
+
+  app.get("/visualizzaRecensioni", function (req, res) {
+    var sql =
+      "SELECT * FROM gestioneAffitti.recensione WHERE ref_casa_r = " +
+      req.session.id_casa +
+      "";
+
+    con.query(sql, function (err, results) {
+      if (err) {
+        throw err;
+      } else if (results[0].id_recensione != null) {
+        console.log(
+          "Recensioni relative alla casa " + req.session.nome_casa + ": "
+        );
+        console.log(results);
+        res.render("SchermataRecensioniCasa.html", {
+          leggiRecensioni: results,
+        });
+      } else {
+        res.sendFile(
+          path.join(
+            __dirname,
+            "../Sistema_Alberghi/views",
+            "QualcosaStorto.html"
+          )
+        );
+      }
+    });
+  });
 };
