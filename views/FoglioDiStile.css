@@ -1,0 +1,1233 @@
+
+ /*Impostazioni generali per la pagina*/
+html,body {
+    min-height: 100%;
+    margin:0;
+    padding:0;
+    background-color: rgb(249, 249, 249);
+    font-family: 'Roboto', sans-serif;
+       
+    
+}
+
+#contenutoHome {
+
+  margin-top: -55px;
+
+}
+
+
+.contenutoConferma {
+ 
+
+  margin-top: -25px;
+  background:lightgrey;
+  height:480px;
+  width:100%;
+  margin-bottom:-80px; 
+ 
+ }
+
+
+ .contenutoConferma h1 {
+
+color:green;
+text-align:center;
+padding-top: 20px;
+font-size: xx-large;
+margin-bottom: 7%
+
+ }
+
+ .contenutoConferma p {
+
+  
+  text-align:center;
+   
+  
+   }
+
+ .contenutoConferma img {
+
+  align-content:center;
+  display:block;
+margin: 0px auto ;
+
+}
+
+
+.contenutoErrore {
+ 
+  text-align:center;
+  margin-top: -25px;
+  background:lightgrey;
+  height:500px;
+  width:100%;
+  margin-bottom:-150px; 
+  
+ 
+ }
+
+
+ .contenutoErrore h1 {
+
+color:red;
+text-align:center;
+padding-top: 15px;
+font-size: xx-large;
+ 
+
+ }
+
+  
+
+ .contenutoErrore h3 {
+
+  color:red;
+  text-align:center;
+  padding-top: 15px;
+  font-size: x-large;
+ 
+  
+   }
+
+   .contenutoErrore p {
+
+    font-size: x-large;
+color:black;
+   } 
+
+   .contenutoErrore  p a {
+text-decoration:underline;
+color:gray;
+   } 
+   
+ .contenutoErrore img {
+
+  align-content:center;
+  display:block;
+margin: 0px auto ;
+
+}
+
+.contenutoErrore .modulo {
+ 
+  padding-top:10px;
+  
+  
+   }
+
+ 
+
+/*.contenutoConfermaIscrizioneCliente {
+  margin-top: -25px;
+  background:lightgrey;
+  height:480px;
+  width:100%;
+  margin-bottom:-80px; 
+
+}
+.contenutoConfermaIscrizioneCliente img  {
+
+  align-content:center;
+  display:block;
+margin: 0px auto ;
+}*/
+ 
+
+* {  /*Il body è con ogni carattere bianco*/
+    color: rgb(255, 255, 255)
+}
+
+header {
+  color:white;
+  opacity:0.9;
+  border: none;
+  position: relative;
+	padding: 32px;
+	height: 100px;
+  background-color: #292c2f;
+  box-shadow: 6px 6px 8px black;
+}
+
+.logoHeader {
+
+  position: relative;
+  top: -20px;
+  left: 0px;
+}
+
+.testo_nero{
+    color: rgb(0, 0, 0)
+}
+
+.testo_centrale {
+    text-align: center;
+}
+
+ 
+
+.benvenuto {
+font-family:'Georgia';
+text-shadow:  1px 1px 3px black;
+font-weight: bold;
+font-size:60px;
+text-align:center;
+
+
+}
+
+/*regole di stile per la barra di navigazione*/
+nav {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+   display: inline-block;
+  /*border: 1px solid black;*/
+  background-color: auto;
+
+  
+  /*possibilità di animazione-> animation: slideIN 1s ease-out; */
+}
+ 
+nav ul {
+  position: relative;
+  color:white;
+  display: flex;
+  flex: 1 1 auto;
+  margin: 0;
+  padding: 0 20px;
+  list-style-type: none;
+  
+}
+nav ul li:not(:last-child) {
+  margin-right: 10px;
+}
+
+nav ul li {
+  border: 2px solid transparent;
+  border-radius: 5px;
+  padding: 10px;
+  transition: background 0.2s;
+}
+nav ul li a {
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: color 0.3s;
+
+}
+nav ul li ul {
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  display: block;
+  margin: 12px -12px;
+  width: inherit;
+  padding: 0;
+  background: lightgray;
+  border: 2px 1px 1px solid #000000;
+  border-right: 1px solid #000000;
+  border-bottom: 1px solid #000000;
+  border-radius: 5px;
+  transition: opacity 0.2s, visibility 0.2s;
+}
+nav ul li ul li {
+  margin: -2px 0 0 -2px;
+  width: calc(100% - 20px);
+  line-height: 1.7;
+}
+nav ul li ul li a {
+  color: rgb(0, 0, 0);
+}
+nav ul li:hover {
+  background: orange;
+  border: 2px solid orange;
+  border-right: 2px solid orange;
+  border-bottom: 2px solid orange;
+}
+nav ul li:hover a {
+  color: gray;
+}
+nav ul li:hover ul {
+  visibility: visible;
+  opacity: 1;
+  box-shadow: 0px 2px 2px 2px orange;
+}
+nav ul li:hover ul li a {
+  color: black;
+}
+ 
+nav .barraDiRicerca {
+  
+  position:relative;
+  display:inline;
+  border-radius:6px;
+  color:black;
+  margin-right:5px; 
+  box-shadow: #000000;
+  color: black;
+   
+  }
+  
+  nav .bottoneRicerca {
+    
+    position:relative;
+    margin-right:5px; 
+    margin-left:5px; 
+    border-color:orange;
+    box-shadow: #000000;
+    color: black;
+    text-decoration: none;
+    width: 80px;
+     
+  }
+
+
+  /*Regole di stile per il menu chekIn/checkOut*/
+
+.menu {
+  
+  background-image: url("/Users/Daniele/Desktop/Sistema_alberghi/views/img/Slide/room.jpg");
+  position:relative;
+  top: 55px;
+   height: 900px;
+  width:auto;
+   
+}
+
+
+.menu .boxMenu {
+  position:absolute;
+  top:100px;
+  right:100px;
+  width: 600px;
+  height:650px;
+  background-color: #292c2f;
+	box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
+  box-sizing: border-box;
+  opacity: 0.7;
+}
+
+.contenutoBoxMenu {
+  opacity: 100%;
+  box-sizing: border-box;
+  position:absolute;
+  top:100px;
+  right:80px;
+  width: 600px;
+  height:650px;
+  
+}
+
+ 
+.contenutoBoxMenu input {
+  
+position:relative;
+border-radius:6px;
+width:300px;
+height:35px;
+margin-left:50px;
+margin-top:60px;
+margin-bottom:20px;
+font-size:16px;
+
+}
+
+.contenutoBoxMenu button {
+  
+  position:relative;
+  margin-top:25px;
+  left:180px;
+  width:100px;
+
+}
+.contenutoBoxMenu .cercaCittà input {
+  position:relative;
+  width:600px;
+
+}
+
+/*da qui in poi le regole di stile per la parte secondaria della home*/
+ 
+
+  .home2 {
+  
+  position:relative;
+  margin-top:55px;
+  padding-top:25px;
+  margin-left:0px;
+   border-top:5px solid black;
+   background: lightgray;
+  margin-bottom:-80px;
+}
+
+
+hr { 
+
+  height:25px;
+background-color:black;
+border:5px solid black;
+
+}
+
+
+.home2 #bloccoBox {
+
+  display:inline-block;
+   text-align:right;
+    
+}
+
+.home2 #box1  {
+display:inline-block;
+width:40%;
+padding-right:50px;
+padding-left: 20px;
+padding-top: 30px;
+padding-bottom:30px;
+border-right:1px solid black;
+margin-left:40px;
+
+}
+ 
+
+.home2 #box2  {
+  display:inline-block;
+  width:40%;
+  padding-right:30px;
+  padding-left: 30px;
+  padding-top: 30px;
+  padding-bottom:30px;
+}
+
+.home2 #box3   {
+  display:inline-block;
+  width:40%;
+  padding-right:50px;
+  padding-left: 20px;
+  padding-top: 30px;
+  padding-bottom:30px;
+  border-right:1px solid black;
+  border-top:1px solid black;
+  text-align:right;
+  margin-left:40px;
+
+
+}
+
+
+ 
+
+.home2 #box4    {
+  display:inline-block;
+  width:40%;
+  padding-right:20px;
+  padding-left: 30px;
+  padding-top: 30px;
+  padding-bottom:30px;
+  border-top:1px solid black;
+  margin-left:-5px;
+
+  }
+
+  .home2 .descrizione {
+  text-align:right;  
+  width: auto;
+  float:right;
+  padding-right:10px;
+  padding-left:20px;
+  }  
+  .home2 .descrizione p  {
+
+    color:black;
+  }
+
+  .home2 .descrizione h1  {
+
+    color:black;
+  }
+ 
+/*regole di stile per lo slideshow */
+
+
+
+/*regole di stile per il footer*/
+ 
+footer{
+	position: relative;
+  bottom: 0;
+   
+  color:white;
+  
+}
+.colonne-footer{
+	background-color: #292c2f;
+	box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
+	box-sizing: border-box;
+	width: 100%;
+	text-align: left;
+	font: bold 16px sans-serif;
+	padding: 55px 50px;
+	margin-top: 80px;
+ 
+}
+
+.colonne-footer .colonna-sinistra,
+.colonne-footer .colonna-centrale,
+.colonne-footer .colonna-destra{
+	display: inline-block;
+	vertical-align: top;
+}
+
+.colonne-footer .colonna-sinistra{
+	width: 30%;
+}
+
+.colonne-footer h3{
+	color:  #ffffff;
+	font: normal 36px 'Cookie', cursive;
+	margin: 0;
+}
+
+.colonne-footer h3 span{
+	color:  rgba(138, 125, 125, 0.947);
+}
+
+
+.colonne-footer .footer-links{
+	color:  #ffffff;
+	margin: 20px 0 12px;
+  padding: 0;
+   
+}
+
+.colonne-footer .footer-links a{
+	display:inline-block;
+	line-height: 1.8;
+	text-decoration: none;
+  color:  inherit;
+  
+  
+}
+
+.colonne-footer .footer-GEDAName{
+	color:  #8f9296;
+	font-size: 14px;
+	font-weight: normal;
+	margin: 0;
+}
+
+
+.colonne-footer .colonna-centrale{
+	width: 30%;
+}
+
+.colonne-footer .colonna-centrale i{
+	background-color:  #33383b;
+	color: #ffffff;
+	font-size: 25px;
+	width: 38px;
+	height: 38px;
+	border-radius: 50%;
+	text-align: center;
+	line-height: 42px;
+	margin: 10px 15px;
+	vertical-align: middle;
+}
+
+.colonne-footer .colonna-centrale i.contatti{
+	font-size: 17px;
+	line-height: 38px;
+}
+
+.colonne-footer .colonna-centrale p{
+	display: inline-block;
+	color: #ffffff;
+	vertical-align: middle;
+	margin:0;
+}
+
+.colonne-footer .colonna-centrale p span{
+	display:block;
+	font-weight: normal;
+	font-size:14px;
+	line-height:2;
+}
+
+.colonne-footer .colonna-centrale p a{
+	color:  rgba(135, 132, 132, 0.947);
+	text-decoration: none;;
+}
+
+.colonne-footer .colonna-destra{
+  width: 33%;
+   
+}
+
+.colonne-footer .footer-infoSuDiNoi{
+	line-height: 20px;
+	color:  #92999f;
+	font-size: 13px;
+	font-weight: normal;
+	margin: 0;
+}
+
+.colonne-footer .footer-infoSuDiNoi span{
+	display: block;
+	color:  #ffffff;
+	font-size: 14px;
+	font-weight: bold;
+	margin-bottom: 20px;
+}
+
+.colonne-footer .icone-social{
+  margin-top: 25px;
+  margin-left:200px;
+}
+
+.colonne-footer .icone-social a{
+	display: block;
+	width: 35px;
+	height: 35px;
+	cursor: pointer;
+	background-color:  #33383b;
+	border-radius: 2px;
+
+	font-size: 20px;
+	color: #ffffff;
+	text-align: center;
+	line-height: 35px;
+
+	margin-right: 3px;
+	margin-bottom: 5px;
+}
+
+
+ /*Stile per il riquadro della mappa della pagina "Dove siamo"*/
+
+#paginaMappa  {
+
+ align-content: center;
+  background-color:lightgray;
+  margin-bottom:-80px;
+  
+}
+
+#paginaMappa h1 {
+text-align:center;
+margin-top:0px;
+padding-top:25px;
+
+color:black;
+
+}
+
+#paginaMappa p {
+  text-align:center;
+  margin-top:0px;
+  color:black;
+  
+  }
+
+#mappa {
+
+display: inline-block;
+position:relative;
+margin:100px 35px 50px 250px;
+border: solid 5px black;
+
+}
+
+ 
+/*Regole di stile per la pagina dei contatti*/
+
+#paginaContatti {
+margin-top:-23px;
+margin-bottom:-80px;
+background:lightgray;
+height:450px;
+margin-left:0px;
+padding-left:150px;
+
+}
+
+#paginaContatti h1 {
+
+padding-top:25px;
+color:black;
+text-align:center;
+font-size:32px;
+font-weight: bold;
+font-family:'Georgia';
+text-shadow: 1px 1px 3px black;
+padding-right:50px;
+
+}
+
+#paginaContatti ion-icon {
+ 
+   color:black;
+  font-size:42px;
+  padding-top:1px;
+  
+
+}
+
+#contattiSocial {
+
+  display:block;
+  padding-left:25px;
+  padding-right:25px;
+  margin-left:200px;
+  margin-top:25px;
+ 
+
+}
+
+#contattiSocial ion-icon {
+  color:black;
+  font-size:42px;
+  padding-right:25px;
+  padding-left:140px;
+ 
+}
+
+#paginaContatti ul {
+  margin-left:100px;
+  
+}
+
+
+#paginaContatti ul li {
+
+   color:black;
+  font-size:24px;
+text-align:left;
+letter-spacing:1px;
+padding-left:3px;
+padding-top:5px;
+padding-bottom:5px;
+
+}
+#paginaContatti ul li a {
+
+  color:gray;
+ font-size:24px;
+text-align:left;
+letter-spacing:1px;
+padding-left:3px;
+padding-top:5px;
+padding-bottom:5px;
+
+}
+
+#paginaContatti a {
+
+  color:black;
+  font-size:16px;
+text-align:left;
+letter-spacing:1px;
+padding-left:1px;
+padding-top:5px;
+padding-bottom:5px;
+
+}
+
+#indirizzo  {
+
+padding-bottom:25px;
+
+}
+
+
+ /*Stile per i contenuti delle varie pagine circa 3 macrocategorie)*/
+
+
+ .contenutoPannelli {
+
+
+  color:black;
+  background-color:lightgray;
+  margin-top:0px;
+  margin-bottom:-80px;
+  padding-bottom:25px;
+  padding-top:35px;
+  align-content:right;
+ 
+ }
+
+ #btnPannello {
+  
+  height:40px;
+  width:100px;
+  color:black;
+  border-color: solid black; 
+  background-color: orange;
+ } 
+ 
+ .contenutoPannelli .modulo  {
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: black;
+  margin-left:25%;
+  margin-right:-5%;
+   background-color: rgb(85, 85, 85);
+   width: 600px;
+  height:120%;
+  border: medium solid black;
+  font-family:'Roboto', sans-serif; ;
+  color:black;
+  border-radius: 10px;
+  box-shadow: 0 0.6px 0.6px rgba(128, 128, 128, 0.109),
+    0 2px 2px rgba(128, 128, 128, 0.155),
+    0 3.1px 3.1px rgba(128, 128, 128, 0.195),
+    0 5.4px 5.4px rgba(128, 128, 128, 0.241),
+    0 14px 14px rgba(128, 128, 128, 0.35);
+  
+ }
+
+
+.contenutoPannelli h1 {
+
+  color:black;
+  padding-top:15px;
+  font-family:'Georgia';
+  text-shadow:  1px 1px 3px black;
+  font-weight: bold;
+  font-size:30px;
+  text-align:center;
+
+}
+
+.contenutoPannelli form {
+
+margin-bottom:25px;
+margin-left:-100px;
+}
+
+.contenutoPannelli input {
+
+  padding:15px auto 25px 0px;
+}
+
+ 
+ .contenutoPaginaVisualizzaDati {
+
+  color:black;
+ background-color:lightgray;
+ margin-top:0px;
+ margin-bottom:-80px;
+ padding-bottom:25px;
+ padding-top:35px;
+
+
+
+}
+
+.contenutoPaginaVisualizzaDati h1 {
+
+  color:black;
+  padding-top:15px;
+  font-family:'Georgia';
+  text-shadow:  1px 1px 3px black;
+  font-weight: bold;
+  font-size:36px;
+  text-align:center;
+
+}
+
+.contenutoPaginaVisualizzaDati .modulo {
+
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: black;
+  
+  margin-left:22%;
+  margin-right:-5%;
+  background-color: rgb(85, 85, 85);
+  
+  padding: 2%;
+  width: 50%;
+  height:60%;
+  
+  border: medium solid black;
+  font-family:'Roboto', sans-serif; ;
+  color:black;
+  border-radius: 10px;
+  box-shadow: 0 0.6px 0.6px rgba(128, 128, 128, 0.109),
+    0 2px 2px rgba(128, 128, 128, 0.155),
+    0 3.1px 3.1px rgba(128, 128, 128, 0.195),
+    0 5.4px 5.4px rgba(128, 128, 128, 0.241),
+    0 14px 14px rgba(128, 128, 128, 0.35);
+  
+  }
+  
+
+
+.contenutoPaginaImmissioneDati {
+
+   color:black;
+  background-color:lightgray;
+  margin-top:-30px;
+   padding-bottom:80px;
+   margin-bottom:-80px;
+ }
+
+.contenutoPaginaImmissioneDati h1 {
+
+  color:black;
+  padding-top:15px;
+  font-family:'Georgia';
+  text-shadow: 1px 1px 3px black;
+  font-weight: bold;
+  font-size:30px;
+  text-align:center;
+
+}
+
+.contenutoPaginaImmissioneDati p {
+  text-align:center;
+}
+
+.contenutoPaginaImmissioneDati input {
+  padding-right:30px;
+  margin-right:30px;
+  font-size:18px;
+  
+  
+}
+.contenutoPaginaImmissioneDati label {
+  padding-right:30px;
+
+  
+}
+
+ .boxTrasparente {
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: black;
+  
+  margin-left:22%;
+  margin-right:-5%;
+  background-color: rgb(85, 85, 85);
+  opacity:0.6;
+  padding: 2%;
+  width: 50%;
+  height:60%;
+  
+ 
+  font-family:'Roboto', sans-serif; ;
+  color:black;
+  border-radius: 10px;
+
+}
+
+.contenutoPaginaImmissioneDati .modulo {
+
+
+display: flex;
+flex-direction: column;
+align-items: center;
+color: black;
+
+margin-left:22%;
+margin-right:-5%;
+background-color: rgb(85, 85, 85);
+
+padding: 2%;
+width: 50%;
+height:60%;
+margin-bottom:-30px;
+border: medium solid black;
+font-family:'Roboto', sans-serif; ;
+color:black;
+border-radius: 10px;
+box-shadow: 0 0.6px 0.6px rgba(128, 128, 128, 0.109),
+  0 2px 2px rgba(128, 128, 128, 0.155),
+  0 3.1px 3.1px rgba(128, 128, 128, 0.195),
+  0 5.4px 5.4px rgba(128, 128, 128, 0.241),
+  0 14px 14px rgba(128, 128, 128, 0.35);
+
+}
+
+.modulo .h1 {
+
+  margin: 0 0 24px 0;
+
+}
+
+ 
+
+.contenutoPaginaImmissioneDati .modulo form {
+ 
+    margin-top:5%;
+    padding-left:20%;
+    color:black;
+}
+
+.modulo label {
+  color:black;
+
+    margin-top: 5%;
+    margin-left: -10%;
+    padding-right: 3%;
+}
+
+
+
+.modulo input {
+  color:black;
+
+    margin-top: 5%;
+    margin-bottom: 3%;
+    
+}
+
+.bottoneIscrizione {
+
+    width:100%;
+    margin: 18px 0 9px 0;
+}
+
+
+ 
+
+.btnLogout:hover, .btnLogout:visited {
+  color: gray;
+  background-color: orange;
+  text-decoration: none;
+}
+
+  a:link, a:visited {
+    text-decoration: none;
+    color: black;
+    text-align: center;
+  }
+
+  /*immagini*/
+
+  .hero-image1 {
+    background-image: url(https://images.wallpaperscraft.com/image/tourist_cliff_sky_rock_freedom_113926_2560x1080.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    float: left;
+    height: 750px;
+    width: 50%;
+    text-align: center;
+  }
+
+  .hero-text1 {
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    color: white;
+    text-decoration: none;
+  }
+
+  .hero-image2 {
+    background-image: url(https://c1.wallpaperflare.com/preview/661/326/378/black-business-desk-diary.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    float: right;
+    height: 750px;
+    width: 50%;
+    text-align: center; 
+  }
+
+  .hero-text2 {
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    color: white;
+    text-decoration: none;
+  }
+
+  .hero-image3 {
+    background-image: url(https://images.pexels.com/photos/2577274/pexels-photo-2577274.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260);
+    background-size: cover;
+    background-repeat: no-repeat;
+    float: left;
+    height: 750px;
+    width: 50%;
+    text-align: center;
+  }
+
+  .hero-image4 {
+    background-image: url(https://images.pexels.com/photos/7357/startup-photos.jpg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260);
+    background-size: cover;
+    background-repeat: no-repeat;
+    float: left;
+    height: 750px;
+    width: 50%;
+    text-align: center;
+  }
+
+  /*bottoni link*/
+ 
+
+.button1 {
+  background-color: lightcyan;
+  border: solid black;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: block;
+  font-size: 8px;
+  cursor: pointer;
+  border-radius: 4px;
+  width: 250px;
+  margin-top: 45%;
+  margin-left: 28%;
+  margin-right: 22%;
+ 
+}
+
+.button1:hover {
+  color: gray;
+  background-color: orange;
+  text-decoration: none;
+}
+
+.button3 {
+  background-color: lightcyan;
+  border: solid black;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: block;
+  font-size: 8px;
+  cursor: pointer;
+  border-radius: 4px;
+  width: 250px;
+  margin-top: 45%;
+  margin-left: 33.5%;
+  margin-right: 22%;
+ 
+}
+
+.button3:hover {
+  color: gray;
+  background-color: orange;
+  text-decoration: none;
+}
+
+.button2 {
+  background-color: transparent;
+  border: solid black;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: block;
+  font-size: 10px;
+  cursor: pointer;
+  border-radius: 4px;
+  height: 30px;
+  width: 60px;
+  margin-left: 1%;
+  margin-right: 1%;
+ 
+}
+
+.button2:hover, .button1:visited {
+  color: gray;
+  background-color: orange;
+  text-decoration: none;
+}
+
+.top {
+margin: 20px 20px 0px 20px;
+padding: 10px;
+border: 5px solid #ccc;
+background: #665;
+height: 100px; /* ie5win fudge begins */
+voice-family: "\"}\"";
+voice-family:inherit;
+height: 70px;
+  }
+  
+
+
+
+ 
+
+/*  
+Il checkbox va nascosto in ogni caso ed il menu comparirà quando esso verrà selezionato tramite click sull’etichetta */
+input[type=checkbox]{display:none}
+
+/* La tilde alt126 permette di selezionare tutti gli elementi B presenti in A; 
+qui sta a significare che dà visibilità al menu quando il checkbox viene selezionato. */
+input[type=checkbox]:checked ~ #menu{display:block}
+
+
+/* MEDIA QUERIES */
+/* rendo il menù responsivo per adattarlo ai dispositivi più piccoli, fino ad una risoluzione massima di 768px */
+@media only screen and (max-width: 768px) {
+  
+#menu{
+    border-radius:0;
+    text-align:center;
+    display:none}
+  
+/* rendo gli elementi dei menu elementi di blocco */  
+ul li{display:block}
+  
+/* imposto la larghezza massima per gli elementi dei menu e i links */  
+#menu li .hidden li,#menu li .hidden li a, ul li,ul li a{
+    padding-right:0;
+    padding-left:0;
+    width:100%;
+    border-right:none
+}
+  
+/* mostro il sottomenu solo al passaggio del mouse */   
+#menu li .hidden li{
+    display:none}
+#menu li:hover .hidden li{display:block}  
+
+/* resetto la posizione degli elementi del menu. static valore di default. Gli elementi sono mostrati in ordine, come appaiono nel flusso del documento */  
+#menu li{position:static}  
+  
+/* resetto la posizione del sottomenu e lo mostro */  
+#menu li .hidden{position: static;visibility:visible}
+  
+/* nessuna animazione al passaggio del mouse */  
+#menu li:hover .hidden{margin:0} 
+  
+/* colore di sfondo agli elementi del menu e del sottomenu */
+#menu li{background-color:#3E3E3E}
+#menu li .hidden li{background-color:rgb(62, 61, 61)}  
+  
+/* mostro il pulsante del menu nella versione mobile*/
+.showMenu{display:block}  
+
+
+
+/* media per il footer */
+.colonne-footer{
+  font: bold 14px sans-serif;
+
+}
+
+.colonne-footer .colonna-sinistra,
+.colonne-footer .colonna-centrale ,
+.colonne-footer .colonna-destra{
+  display: block;
+  width: 100%;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.colonne-footer .colonna-centrale i{
+  margin-left: 0;
+}
+  
+}
