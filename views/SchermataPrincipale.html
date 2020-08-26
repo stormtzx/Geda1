@@ -22,7 +22,7 @@
  <nav>     
   
   <ul>
-    <div class="barraDiRicerca"> <li><input type="search" placeholder="Cerca nel sito"><button class="bottoneRicerca" type="submit">Cerca</button></li></div> 
+    <div class="barraDiRicerca"> <li><input class="testo_nero" type="search" placeholder="Cerca nel sito"><button class="bottoneRicerca" type="submit">Cerca</button></li></div> 
     
     <li><a href="./SchermataPrincipale.html"><ion-icon name="home"></ion-icon> Home</a></li> 
     <li><a href="#"><ion-icon name="log-in"></ion-icon>Entra nel sito<span style="font-size:8px">&nabla;</span></a>
@@ -32,11 +32,10 @@
       </ul>
     </li>
     <li><a href="./Dove_siamo.html"><ion-icon name="locate"></ion-icon> Dove siamo</a></li>
-     <li><a href="#"><ion-icon name="cafe"></ion-icon> Servizi</a></li>
-    <li><a href="#"><ion-icon name="bed"></ion-icon> Camere e tariffe</a></li>
+    <li><a href="./PannelloPrenotazione.html"><ion-icon name="bed"></ion-icon> Prenota</a></li>
+     <li><a href="./SchermataRecensioniCasa.html"><ion-icon name="star-outline"></ion-icon> Recensioni</a></li>
     <li><a href="./Contatti.html"><ion-icon name="mail"></ion-icon> Contatti</a></li>
   </ul>
-
   </nav>
   
    <!--Fine menu di navigazione-->
@@ -62,7 +61,7 @@
 
 <div class="cercaCittà">
   <form  action="/ricerca" method="POST">
-  <input type="text" name="citta_r" placeholder="cerca città"/>
+  <input class="testo_nero" type="text" name="citta_r" placeholder="cerca città"/>
 </div>
 
   <br/>     
@@ -271,7 +270,7 @@ slideShow();
     </footer>
      <!--Fine footer-->
 
- 
+
  <script src="https://unpkg.com/ionicons@5.1.2/dist/ionicons.js"></script>
 
 

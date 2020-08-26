@@ -1206,7 +1206,9 @@ height: 70px;
 
 /*  
 Il checkbox va nascosto in ogni caso ed il menu comparirà quando esso verrà selezionato tramite click sull’etichetta */
-input[type=checkbox]{display:none}
+input[type=checkbox].hidden{
+  opacity: 0;
+}
 
 /* La tilde alt126 permette di selezionare tutti gli elementi B presenti in A; 
 qui sta a significare che dà visibilità al menu quando il checkbox viene selezionato. */
