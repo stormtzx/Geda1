@@ -800,7 +800,7 @@ padding-bottom:25px;
  .contenutoPannelli {
 
 
-  color:black;
+  color: black;
   background-color:lightgray;
   margin-top:0px;
   padding-top:35px;
@@ -819,6 +819,7 @@ padding-bottom:25px;
   color:black;
   border-color: solid black; 
   background-color: orange;
+  border-radius: 6px;
  } 
  
  .contenutoPannelli .modulo  {
@@ -835,7 +836,7 @@ padding-bottom:25px;
   height:120%;
   border: medium solid black;
   font-family:'Roboto', sans-serif; ;
-  color:black;
+  color: black;
   border-radius: 10px;
   box-shadow: 0 0.6px 0.6px rgba(128, 128, 128, 0.109),
     0 4px 4px rgba(128, 128, 128, 0.155),
@@ -848,9 +849,9 @@ padding-bottom:25px;
 
 .contenutoPannelli h1 {
 
-  color:black;
+  color: orangered;
   padding-top:15px;
-  font-family:'Georgia';
+  font-family:'Verdana';
   text-shadow:  1px 1px 3px black;
   font-weight: bold;
   font-size:30px;
@@ -890,9 +891,9 @@ margin-left:-280px;
 
 .contenutoPaginaVisualizzaDati h1 {
 
-  color:black;
+  color:orangered;
   padding-top:15px;
-  font-family:'Georgia';
+  font-family:'Verdana';
   text-shadow:  1px 1px 3px black;
   font-weight: bold;
   font-size:36px;
@@ -942,11 +943,11 @@ margin-left:-280px;
 
 .contenutoPaginaImmissioneDati h1 {
 
-  color:black;
+  color:orangered;
   padding-top:15px;
   padding-right:22%;
   margin-right:55px;
-  font-family:'Georgia';
+  font-family:'Verdana';
   text-shadow: 1px 1px 3px black;
   font-weight: bold;
   font-size:30px;
@@ -1018,7 +1019,7 @@ box-shadow: 0 0.6px 0.6px rgba(128, 128, 128, 0.109),
 }
 
 .modulo label {
-  color:black;
+  color:yellow;
 
     margin-top: 5%;
     margin-left: -10%;
