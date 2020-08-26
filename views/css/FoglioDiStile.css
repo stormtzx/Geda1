@@ -296,15 +296,12 @@ nav .barraDiRicerca {
    
 }
 
-#slideShow {
-
-  
+#slide {
   position:relative;
   top: 0px;
-  width: 100%;
+  width: 2000px;
    height: 900px;
-  width:auto;
-}
+ }
 
 
   .boxMenu {
@@ -354,7 +351,7 @@ font-size:16px;
 }
 .contenutoBoxMenu .cercaCittà input {
   position:relative;
-  width:600px;
+  width:400px;
 
 }
 
