@@ -3,7 +3,7 @@
 <html lang=”it”>
 <head>
 <meta charset=”utf-8″>
-<link rel="icon" href="/Icone(ion-icon)/bed.svg" />
+<link rel="icon" type="image/png" sizes="32x32" href="BEB_favicon_logo/android-chrome-192x192.png">
 <title> GEDA B&B</title>
 <link rel="stylesheet" type="text/css" href="css/FoglioDiStile.css">
 <meta name=”description” content=””/>
@@ -41,11 +41,7 @@
   
    <!--Fine menu di navigazione-->
  
-   <!-- --
-   <div class="logoHeader" >
-    <img src="img/B&B_LOGO.jpg" alt="B&B Logo" height="180" width="180">    
-   </div>
-  !-- -->
+   
   <h1 class="benvenuto">BENVENUTO IN GEDA</h1>  
 </header>  
      <!--Fine header-->
@@ -115,20 +111,27 @@ var immagini = ["img/Slide/room.jpg",
 "img/Slide/room3.jpeg"];
   
 var i = 0;  
-var time = 5000;
+var timer = 3000;
 
 
 function slideShow() {
 
+document.getElementById('slide').className += "fadeOut";
+
 //La funzione sposta in avanti l'indice dell'array per passare alla foto successiva
 
-document.getElementById('slide').src = immagini[i];
+setTimeout(function() {
+        document.getElementById('slide').src = immagini[i];
+        document.getElementById('slide').className = "";
+    },500);
 
-i++;
+    i++;
+
+//document.getElementById('slide').src = immagini[i];
 
 if(i == immagini.length) {i = 0;}
 
-setTimeout("slideShow()", time);
+setTimeout("slideShow()", timer);
  
 }
 slideShow();
