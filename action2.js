@@ -314,17 +314,15 @@ module.exports = function (app) {
       req.body.data_check_out_p
     );
 
-    console.log(ControlloListaDate[0]);
-    console.log(typeof ControlloListaDate[0]);
     console.log(
       "Si procede al controllo della disponibilità della casa fra la data del Check-In e la data del Check-Out specificate dall'Utente...."
     );
 
-    con.query(sql, function (results) {
+    con.query(sql, function (err, results) {
       var dateOccupate = 0; //contatore
-      if (results != undefined) {
+      if (err) throw err;
+      if (results.length > 0) {
         console.log("Date già occupate per la casa: ");
-        console.log(results);
 
         var risultati = [];
         var date_da_occupare = [];
@@ -333,6 +331,9 @@ module.exports = function (app) {
             new Date(convertiData(results[x].data_soggiorno)).getTime()
           );
         }
+
+        console.log(risultati);
+
         for (y = 0; y < ControlloListaDate.length; y++) {
           date_da_occupare.push(new Date(ControlloListaDate[y]).getTime());
         }

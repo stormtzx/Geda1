@@ -9,6 +9,7 @@ app.engine("html", require("ejs").renderFile);
 app.set("view engine", "html");
 const port = 3000;
 const bodyParser = require("body-parser");
+var nodemailer = require("nodemailer");
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static("."));
 app.use(express.static(path.join(__dirname, "views")));
@@ -39,6 +40,7 @@ tables.crea_tableUtenteProprietario();
 tables.crea_tableCasa();
 tables.crea_tablePrenotazione();
 tables.crea_tableData();
+tables.crea_tableRencensione();
 
 app.use(
   session({
@@ -50,4 +52,4 @@ app.use(
 );
 const action = require("./action")(app);
 const action2 = require("./action2")(app);
-checkForUsers("users", getAllUsers);
+const action3 = require("./action3")(app);

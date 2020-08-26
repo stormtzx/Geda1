@@ -3,7 +3,8 @@
 <html lang=”it”>
 <head>
 <meta charset=”utf-8″>
-<title>GEDA B&B</title>
+<link rel="icon" href="/Icone(ion-icon)/bed.svg" />
+<title> GEDA B&B</title>
 <link rel="stylesheet" type="text/css" href="css/FoglioDiStile.css">
 <meta name=”description” content=””/>
 <meta name=”keywords” content=””/>
@@ -13,13 +14,13 @@
 </head>
 
 
-
   <!--Inizio header-->
 <header>
- 
+  
 
-  <!--menu di navigazione-->
-<nav>     
+ <!--menu di navigazione-->
+ <nav>     
+  
   <ul>
     <div class="barraDiRicerca"> <li><input type="search" placeholder="Cerca nel sito"><button class="bottoneRicerca" type="submit">Cerca</button></li></div> 
     
@@ -33,9 +34,9 @@
     <li><a href="./Dove_siamo.html"><ion-icon name="locate"></ion-icon> Dove siamo</a></li>
      <li><a href="#"><ion-icon name="cafe"></ion-icon> Servizi</a></li>
     <li><a href="#"><ion-icon name="bed"></ion-icon> Camere e tariffe</a></li>
-    <li><a href="#"><ion-icon name="mail"></ion-icon> Contatti</a></li>
-    <li><a href="#"><ion-icon name="map"></ion-icon> Mappa</a></li>
+    <li><a href="./Contatti.html"><ion-icon name="mail"></ion-icon> Contatti</a></li>
   </ul>
+
   </nav>
   
    <!--Fine menu di navigazione-->
@@ -51,24 +52,25 @@
 
 <body>
 
-
-   
-
   <div id="contenutoHome">
      <!--Inizio parte centrale della home -->
- 
-   <div class="menu">
+   <div id="menu">
+
+  <img id="slide" >  
+
+
      <div class="boxMenu"></div>  <!--NB:E' corretto che sia chiuso,boxMenu serve solo a disegnare il riquadro,il contenuto non deve essere figlio altrimenti eredita l'opacita-->
        <div  class="contenutoBoxMenu">
 <h2>Cerca una struttura e prenota una stanza</h2>
 
-<div clss="cercaCittà">
+
+<div class="cercaCittà">
   <form  action="/ricerca" method="POST">
   <input type="text" name="citta_r" placeholder="cerca città"/>
 </div>
 
   <br/>     
-        <div class="testo_nero">
+  <div class="testo_nero">
             <label for="check_in_r">Check In:</label>
             <input type="date" class="testo_nero" id="data-in" name="check_in_r" placeholder="gg/mm/aaaa" /> 
             <i class="icon_calendar"></i>
@@ -102,36 +104,52 @@
 </div>
   </div>
 
+ 
+      
+     <!--Inizio script per lo  SlideShow  -->
+
+<script type="text/javascript">
+
+var immagini = ["img/Slide/room.jpg",
+"img/Slide/room2.jpeg",
+"img/Slide/room3.jpeg"];
+  
+var i = 0;  
+var time = 5000;
+
+
+function slideShow() {
+
+//La funzione sposta in avanti l'indice dell'array per passare alla foto successiva
+
+document.getElementById('slide').src = immagini[i];
+
+i++;
+
+if(i == immagini.length) {i = 0;}
+
+setTimeout("slideShow()", time);
+ 
+}
+slideShow();
 
  
 
-     <!--Fine parte centrale della home -->
-      
-     <!--Inizio SlideShow (id per il contenitore da riscrivere) --
-
-<div id="slideshow"> 
-   
- <img src="img/Slide/fotoTest.jpg" alt="Foto_stanza" height=800  width=1440  > 
-
-</div>
-
-    !--Fine SlideShow -->
-
-
-        <!--Script test per SlideShow -->
-<script>
-
-  document.getElementById(slideshow);
-  
-  
   </script>
-        <!--Fine Script test per SlideShow -->
+        <!--Fine Script  per SlideShow -->
+
+
 
 <!--Inizio parte 2 home-->
 
 
+ 
+
+
+
 <div class="home2">
-  <div class="box">
+  
+  <div class="bloccoBox">
 
 
 
@@ -165,7 +183,7 @@
 
 
 
-<div class="box">
+<div class="bloccoBox">
 
     <div id="box3">
 

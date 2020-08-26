@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="/visualizzaPrenotazioneCasa" method="GET">
+        <% for(var i=0; i<ListaPrenotazioniProprietario.length; i++){ %>
+        <a
+            href="visualizzaPrenotazioneCasa?id=<%= ListaPrenotazioniProprietario[i].id_prenotazione %>"><%= ListaPrenotazioniProprietario[i].id_prenotazione %></a>
+        <h3><%= ListaPrenotazioniProprietario[i].ref_nome_casa %></h3>
+        <p>Cliente:</p>
+        <h3><%= ListaPrenotazioniProprietario[i].nome_cliente %></h3>
+        <h3><%= ListaPrenotazioniProprietario[i].cognome_cliente %></h3>
+        <h3><%= ListaPrenotazioniProprietario[i].email_cliente %></h3>
+        <p>Data emissione:</p>
+        <h3><%= ListaPrenotazioniProprietario[i].data_emissione %></h3>
+        <h3>Check-In: </h3>
+        <h3><%= ListaPrenotazioniProprietario[i].check_in %></h3>
+        <h3>Check-Out: </h3>
+        <h3><%= ListaPrenotazioniProprietario[i].check_out %></h3>
+        <% } %>
+    </form>
+</body>
+</html>

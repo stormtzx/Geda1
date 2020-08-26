@@ -3,7 +3,7 @@
 <html lang="”it”">
   <head>
     <meta charset="”utf-8″" />
-    <title>Riepilogo prenotazione</title>
+    <title>Riepilogo Prenotazione</title>
     <link rel="stylesheet" type="text/css" href="css/FoglioDiStile.css" />
     <meta name="”description”" content="””" />
     <meta name="”keywords”" content="””" />
@@ -28,38 +28,38 @@
         </div>
 
         <li>
-          <a href="./SchermataPrincipale.html"
-            ><ion-icon name="home"></ion-icon> Home</a
-          >
+          <a href="./SchermataPrincipale.html">
+            <ion-icon name="home"></ion-icon> Home
+          </a>
         </li>
         <li>
-          <a href="#"
-            ><ion-icon name="log-in"></ion-icon>Entra nel sito<span
-              style="font-size: 8px;"
+          <a href="#">
+            <ion-icon name="log-in"></ion-icon>Entra nel sito<span
+              style="font-size: 8px"
               >&nabla;</span
-            ></a
-          >
+            >
+          </a>
           <ul>
-            <li style="border-bottom: 1px solid #ccc;">
+            <li style="border-bottom: 1px solid #ccc">
               <a href="./SchermataAccesso.html">Accedi</a>
             </li>
             <li><a href="./SchermataIscrizione.html">Registrati</a></li>
           </ul>
         </li>
         <li>
-          <a href="#"><ion-icon name="locate"></ion-icon> Dove siamo</a>
+          <a href="#"> <ion-icon name="locate"></ion-icon> Dove siamo </a>
         </li>
         <li>
-          <a href="#"><ion-icon name="cafe"></ion-icon> Servizi</a>
+          <a href="#"> <ion-icon name="cafe"></ion-icon> Servizi </a>
         </li>
         <li>
-          <a href="#"><ion-icon name="bed"></ion-icon> Camere e tariffe</a>
+          <a href="#"> <ion-icon name="bed"></ion-icon> Camere e tariffe </a>
         </li>
         <li>
-          <a href="#"><ion-icon name="mail"></ion-icon> Contatti</a>
+          <a href="#"> <ion-icon name="mail"></ion-icon> Contatti </a>
         </li>
         <li>
-          <a href="#"><ion-icon name="map"></ion-icon> Mappa</a>
+          <a href="#"> <ion-icon name="map"></ion-icon> Mappa </a>
         </li>
       </ul>
     </nav>
@@ -72,73 +72,65 @@
    </div>
   !-- -->
   </header>
+
   <body>
     <div class="contenutoPaginaVisualizzaDati">
       <h1>Informazioni Prenotazione</h1>
       <p>Codice Prenotazione:</p>
-      <p><%= visualizzaPrenotazione[0].id_prenotazione %></p>
+      <p><%= verificaPrenotazione[0].id_prenotazione %></p>
       <br />
       <p>Codice Casa:</p>
-      <p><%= visualizzaPrenotazione[0].ref_casa %></p>
+      <p><%= verificaPrenotazione[0].ref_casa %></p>
       <br />
       <p>E-mail Proprietario:</p>
-      <p><%= visualizzaPrenotazione[0].ref_proprietario %></p>
+      <p><%= verificaPrenotazione[0].ref_proprietario %></p>
 
       <br />
       <p>Nome della Casa:</p>
-      <p><%= visualizzaPrenotazione[0].ref_nome_casa %></p>
+      <p><%= verificaPrenotazione[0].ref_nome_casa %></p>
       <br />
       <p>Nome del Richiedente:</p>
-      <p><%= visualizzaPrenotazione[0].nome_cliente %></p>
+      <p><%= verificaPrenotazione[0].nome_cliente %></p>
       <br />
       <p>Cognome del Richiedente:</p>
-      <p><%= visualizzaPrenotazione[0].cognome_cliente %></p>
+      <p><%= verificaPrenotazione[0].cognome_cliente %></p>
       <br />
       <p>E-mail del Richiedente:</p>
-      <p><%= visualizzaPrenotazione[0].email_cliente %></p>
+      <p><%= verificaPrenotazione[0].email_cliente %></p>
       <br />
       <p>Numero Ospiti Adulti:</p>
-      <p><%= visualizzaPrenotazione[0].numero_ospiti_adulti %></p>
+      <p><%= verificaPrenotazione[0].numero_ospiti_adulti %></p>
       <br />
       <p>Numero Ospiti Bambini:</p>
-      <p><%= visualizzaPrenotazione[0].numero_ospiti_bambini %></p>
+      <p><%= verificaPrenotazione[0].numero_ospiti_bambini %></p>
       <br />
       <p>Data Emissione della Prenotazione:</p>
-      <p><%= visualizzaPrenotazione[0].data_emissione %></p>
+      <p><%= verificaPrenotazione[0].data_emissione %></p>
       <br />
       <p>Data Check-In:</p>
-      <p><%= visualizzaPrenotazione[0].check_in %></p>
+      <p><%= verificaPrenotazione[0].check_in %></p>
       <br />
       <p>Data Check-Out:</p>
-      <p><%= visualizzaPrenotazione[0].check_out %></p>
+      <p><%= verificaPrenotazione[0].check_out %></p>
       <br />
       <p>Presenza di Animali:</p>
-      <p><%= visualizzaPrenotazione[0].animali %></p>
+      <p><%= verificaPrenotazione[0].animali %></p>
       <br />
       <p>Disabilità di uno o più ospiti:</p>
-      <p><%= visualizzaPrenotazione[0].disabilita %></p>
+      <p><%= verificaPrenotazione[0].disabilita %></p>
       <br />
       <p>Viaggio di lavoro?:</p>
-      <p><%= visualizzaPrenotazione[0].viaggio_lavoro%></p>
+      <p><%= verificaPrenotazione[0].viaggio_lavoro%></p>
       <br />
       <p>Prezzo:</p>
-      <p><%= visualizzaPrenotazione[0].prezzo %></p>
+      <p><%= verificaPrenotazione[0].prezzo %></p>
       <br />
       <p>Tasse di Soggiorno:</p>
-      <p><%= visualizzaPrenotazione[0].tasse %></p>
+      <p><%= verificaPrenotazione[0].tasse %></p>
       <br />
       <p>Totale:</p>
-      <p><%= visualizzaPrenotazione[0].prezzo_totale %></p>
+      <p><%= verificaPrenotazione[0].prezzo_totale %></p>
       <br />
-
-      <a href="./PannelloModificaPrenotazione.html">Modifica Prenotazione</a>
-
-      <p>
-        Hai alloggiato qui?
-        <a href="./PannelloRecensione.html"
-          >Lascia una recensione per questa Casa!</a
-        >
-      </p>
     </div>
 
     <!--Inizio footer-->
@@ -147,7 +139,9 @@
       <div class="colonne-footer">
         <div class="colonna-sinistra">
           <div class="footer-GEDAName">
-            <strong><h4>Note legali</h4></strong>
+            <strong>
+              <h4>Note legali</h4>
+            </strong>
             <small>&copy;GEDA GROUP</small>
           </div>
           <p>Documentazione</p>
@@ -155,7 +149,9 @@
 
         <div class="colonna-centrale">
           <div class="contatti">
-            <strong><h4>Contattaci:</h4></strong>
+            <strong>
+              <h4>Contattaci:</h4>
+            </strong>
             <p><a href="mail@esempio.it">mail@esempio.it</a></p>
           </div>
 

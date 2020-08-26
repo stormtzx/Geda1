@@ -197,14 +197,15 @@ module.exports = function (app) {
     console.log(req.body);
 
     var sql =
-      "SELECT * FROM gestioneAffitti.utenteProprietario WHERE gestioneAffitti.utenteProprietario.emailP = '" +
+      "SELECT * FROM gestioneAffitti.utenteProprietario WHERE emailP = '" +
       req.body.email_loginP +
-      "' AND gestioneAffitti.utenteProprietario.passwordP = '" +
+      "' AND passwordP = '" +
       req.body.password_loginP +
       "' ";
 
     con.query(sql, function (err, results) {
-      if ((results.length = 1)) {
+      if (err) throw err;
+      if (results.length == 1) {
         console.log(results);
         req.session.emailP = results[0].emailP;
         console.log(
