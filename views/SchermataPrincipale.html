@@ -16,9 +16,11 @@
 
   <!--Inizio header-->
 <header>
- 
+  
+
  <!--menu di navigazione-->
  <nav>     
+  
   <ul>
     <div class="barraDiRicerca"> <li><input type="search" placeholder="Cerca nel sito"><button class="bottoneRicerca" type="submit">Cerca</button></li></div> 
     
@@ -34,6 +36,7 @@
     <li><a href="#"><ion-icon name="bed"></ion-icon> Camere e tariffe</a></li>
     <li><a href="./Contatti.html"><ion-icon name="mail"></ion-icon> Contatti</a></li>
   </ul>
+
   </nav>
   
    <!--Fine menu di navigazione-->
@@ -47,26 +50,27 @@
 </header>  
      <!--Fine header-->
 
-<body onload="slideShow()">
+<body>
 
   <div id="contenutoHome">
      <!--Inizio parte centrale della home -->
- 
    <div id="menu">
 
-  <img src="/Users/Daniele/Desktop/Sistema_Alberghi/views/img/Slide/room.jpg" id="slideShow" >  
+  <img id="slide" >  
+
 
      <div class="boxMenu"></div>  <!--NB:E' corretto che sia chiuso,boxMenu serve solo a disegnare il riquadro,il contenuto non deve essere figlio altrimenti eredita l'opacita-->
        <div  class="contenutoBoxMenu">
 <h2>Cerca una struttura e prenota una stanza</h2>
 
-<div clss="cercaCittà">
+
+<div class="cercaCittà">
   <form  action="/ricerca" method="POST">
   <input type="text" name="citta_r" placeholder="cerca città"/>
 </div>
 
   <br/>     
-        <div class="testo_nero">
+  <div class="testo_nero">
             <label for="check_in_r">Check In:</label>
             <input type="date" class="testo_nero" id="data-in" name="check_in_r" placeholder="gg/mm/aaaa" /> 
             <i class="icon_calendar"></i>
@@ -104,40 +108,32 @@
       
      <!--Inizio script per lo  SlideShow  -->
 
-<script>
+<script type="text/javascript">
 
-  let slideshow = new Array();
-
-slideshow = document.getElementById("slideshow");
-
-  slideshow[0] = "/Users/Daniele/Desktop/Sistema_Alberghi/views/img/Slide/room.jpg";
-  slideshow[1] = "/Users/Daniele/Desktop/Sistema_Alberghi/views/img/Slide/room2.jpg";
-  slideshow[2] = "/Users/Daniele/Desktop/Sistema_Alberghi/views/img/Slide/room3.jpeg";
-
+var immagini = ["img/Slide/room.jpg",
+"img/Slide/room2.jpeg",
+"img/Slide/room3.jpeg"];
+  
+var i = 0;  
+var time = 5000;
 
 
+function slideShow() {
 
-//La funzione aumenta l'indice dell'array per passare alla foto successiva
+//La funzione sposta in avanti l'indice dell'array per passare alla foto successiva
 
-let t = 0;
+document.getElementById('slide').src = immagini[i];
 
-function contatoreSlideshow() {
+i++;
 
-if(t > 2) {
+if(i == immagini.length) {i = 0;}
 
-t = -1;
+setTimeout("slideShow()", time);
+ 
 }
+slideShow();
 
-t++;
-
-document.getElementById("slideShow").src=slideshow[t];
-
-}
-
-//setInterval richiama la funzione ogni 5 secondi per far si che si passi alla prossima foto richiamando l'aumento dell'indice di slideshow
-
-window.setInterval(contatoreSlideshow(),3000);
-
+ 
 
   </script>
         <!--Fine Script  per SlideShow -->
