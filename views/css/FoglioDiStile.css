@@ -299,10 +299,22 @@ nav .barraDiRicerca {
 #slide {
   position:relative;
   top: 0px;
-  width: 2000px;
-   height: 900px;
+  width: 100%;
+   height: 100%;
+   -webkit-transition: all 0.5s ease-out;
+   -moz-transition: left 0.5s ease-out;
+   -o-transition: left 0.5s ease-out;
+   transition: left 0.5s ease-out;
+   transition:opacity 0.5s;
+
+
  }
 
+ #slide.fadeOut {
+
+  opacity:0;
+
+ }
 
   .boxMenu {
   position:absolute;
