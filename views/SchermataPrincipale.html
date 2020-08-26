@@ -3,7 +3,8 @@
 <html lang=”it”>
 <head>
 <meta charset=”utf-8″>
-<title>GEDA B&B</title>
+<link rel="icon" href="/Icone(ion-icon)/bed.svg" />
+<title> GEDA B&B</title>
 <link rel="stylesheet" type="text/css" href="css/FoglioDiStile.css">
 <meta name=”description” content=””/>
 <meta name=”keywords” content=””/>
@@ -13,15 +14,13 @@
 </head>
 
 
-
   <!--Inizio header-->
 <header>
  
-
-  <!--menu di navigazione-->
-<nav>     
+ <!--menu di navigazione-->
+ <nav>     
   <ul>
-    <div class="barraDiRicerca"> <li><input class="testo_nero" type="search" placeholder="Cerca nel sito"><button class="bottoneRicerca" type="submit">Cerca</button></li></div> 
+    <div class="barraDiRicerca"> <li><input type="search" placeholder="Cerca nel sito"><button class="bottoneRicerca" type="submit">Cerca</button></li></div> 
     
     <li><a href="./SchermataPrincipale.html"><ion-icon name="home"></ion-icon> Home</a></li> 
     <li><a href="#"><ion-icon name="log-in"></ion-icon>Entra nel sito<span style="font-size:8px">&nabla;</span></a>
@@ -33,8 +32,7 @@
     <li><a href="./Dove_siamo.html"><ion-icon name="locate"></ion-icon> Dove siamo</a></li>
      <li><a href="#"><ion-icon name="cafe"></ion-icon> Servizi</a></li>
     <li><a href="#"><ion-icon name="bed"></ion-icon> Camere e tariffe</a></li>
-    <li><a href="#"><ion-icon name="mail"></ion-icon> Contatti</a></li>
-    <li><a href="#"><ion-icon name="map"></ion-icon> Mappa</a></li>
+    <li><a href="./Contatti.html"><ion-icon name="mail"></ion-icon> Contatti</a></li>
   </ul>
   </nav>
   
@@ -49,15 +47,15 @@
 </header>  
      <!--Fine header-->
 
-<body>
-
-
-   
+<body onload="slideShow()">
 
   <div id="contenutoHome">
      <!--Inizio parte centrale della home -->
  
-   <div class="menu">
+   <div id="menu">
+
+  <img src="/Users/Daniele/Desktop/Sistema_Alberghi/views/img/Slide/room.jpg" id="slideShow" >  
+
      <div class="boxMenu"></div>  <!--NB:E' corretto che sia chiuso,boxMenu serve solo a disegnare il riquadro,il contenuto non deve essere figlio altrimenti eredita l'opacita-->
        <div  class="contenutoBoxMenu">
 <h2>Cerca una struttura e prenota una stanza</h2>
@@ -102,36 +100,60 @@
 </div>
   </div>
 
-
  
-
-     <!--Fine parte centrale della home -->
       
-     <!--Inizio SlideShow (id per il contenitore da riscrivere) --
+     <!--Inizio script per lo  SlideShow  -->
 
-<div id="slideshow"> 
-   
- <img src="img/Slide/fotoTest.jpg" alt="Foto_stanza" height=800  width=1440  > 
-
-</div>
-
-    !--Fine SlideShow -->
-
-
-        <!--Script test per SlideShow -->
 <script>
 
-  document.getElementById(slideshow);
-  
-  
+  let slideshow = new Array();
+
+slideshow = document.getElementById("slideshow");
+
+  slideshow[0] = "/Users/Daniele/Desktop/Sistema_Alberghi/views/img/Slide/room.jpg";
+  slideshow[1] = "/Users/Daniele/Desktop/Sistema_Alberghi/views/img/Slide/room2.jpg";
+  slideshow[2] = "/Users/Daniele/Desktop/Sistema_Alberghi/views/img/Slide/room3.jpeg";
+
+
+
+
+//La funzione aumenta l'indice dell'array per passare alla foto successiva
+
+let t = 0;
+
+function contatoreSlideshow() {
+
+if(t > 2) {
+
+t = -1;
+}
+
+t++;
+
+document.getElementById("slideShow").src=slideshow[t];
+
+}
+
+//setInterval richiama la funzione ogni 5 secondi per far si che si passi alla prossima foto richiamando l'aumento dell'indice di slideshow
+
+window.setInterval(contatoreSlideshow(),3000);
+
+
   </script>
-        <!--Fine Script test per SlideShow -->
+        <!--Fine Script  per SlideShow -->
+
+
 
 <!--Inizio parte 2 home-->
 
 
+ 
+
+
+
 <div class="home2">
-  <div class="box">
+  
+  <div class="bloccoBox">
 
 
 
@@ -165,7 +187,7 @@
 
 
 
-<div class="box">
+<div class="bloccoBox">
 
     <div id="box3">
 
