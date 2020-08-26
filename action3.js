@@ -345,4 +345,88 @@ module.exports = function (app) {
       }
     });
   });
+  app.get("/visualizzaListaPrenotazioniProprietario", function (req, res, err) {
+    var sql =
+      "SELECT * FROM gestioneAffitti.prenotazione WHERE ref_proprietario = '" +
+      req.session.emailP +
+      "'";
+
+    con.query(sql, function (err, results) {
+      if (err) throw err;
+      if (results[0].id_prenotazione != null) {
+        console.log("Prenotazioni ricevute dal Proprietario: ");
+        console.log(results);
+        res.render("SchermataListaPrenotazioniProprietario.html", {
+          ListaPrenotazioniProprietario: results,
+        });
+      } else {
+        console.log("Nessuna prenotazione disponibile!");
+        res.sendFile(
+          path.join(
+            __dirname,
+            "../Sistema_Alberghi/views",
+            "QualcosaStorto.html"
+          )
+        );
+      }
+    });
+  });
+  app.get("/visualizzaPrenotazioneCasa", function (req, res) {
+    var id = req.param("id");
+
+    var sql =
+      "SELECT * FROM gestioneAffitti.prenotazione WHERE id_prenotazione = " +
+      id +
+      "";
+    con.query(sql, function (err, results) {
+      if (err) {
+        throw err;
+      } else if (results.length == 1) {
+        console.log("Dati prenotazione: ");
+        console.log(results);
+
+        res.render("SchermataPrenotazioneCasa.html", {
+          verificaPrenotazione: results,
+        });
+      } else {
+        res.sendFile(
+          path.join(
+            __dirname,
+            "../Sistema_Alberghi/views",
+            "QualcosaStorto.html"
+          )
+        );
+      }
+    });
+  });
+  app.get("/visualizzaListaPrenotazioniCasa", function (req, res, err) {
+    var sql =
+      "SELECT * FROM gestioneAffitti.prenotazione WHERE ref_casa = '" +
+      req.session.id_casa +
+      "'";
+
+    con.query(sql, function (err, results) {
+      if (err) throw err;
+      if (results[0].id_prenotazione != null) {
+        console.log(
+          "Prenotazioni ricevute dal Proprietario per la casa " +
+            req.session.nome_casa +
+            ": "
+        );
+        console.log(results);
+        res.render("SchermataListaPrenotazioniCasa.html", {
+          ListaPrenotazioniCasa: results,
+        });
+      } else {
+        console.log("Nessuna prenotazione disponibile!");
+        res.sendFile(
+          path.join(
+            __dirname,
+            "../Sistema_Alberghi/views",
+            "QualcosaStorto.html"
+          )
+        );
+      }
+    });
+  });
 };
