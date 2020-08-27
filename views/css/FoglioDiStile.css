@@ -146,7 +146,7 @@ header {
   position: relative;
 	padding: 32px;
 	height: 100px;
-  width: 1850px;
+  width: 1460px;
   background-color: #292c2f;
   box-shadow: 6px 6px 8px black;
   
@@ -170,8 +170,9 @@ header {
  
 
 .benvenuto {
-font-family:'Georgia';
-text-shadow:  1px 1px 3px black;
+font-family:'Calibri';
+color: white;
+text-shadow:  1px 1px 3px orange;
 font-weight: bold;
 font-size:60px;
 text-align:center;
