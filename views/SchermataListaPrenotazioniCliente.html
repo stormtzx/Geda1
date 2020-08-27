@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Schermata Prenotazioni Cliente</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/android-chrome-192x192.png">
     <link rel="stylesheet" type="text/css" href="css/FoglioDiStile.css">
     <meta name=”description” content=””/>
     <meta name=”keywords” content=””/>
@@ -32,19 +33,27 @@
         </li>
         <li><a href="./Dove_siamo.html"><ion-icon name="locate"></ion-icon> Dove siamo</a></li>
         <li><a href="./PannelloPrenotazione.html"><ion-icon name="bed"></ion-icon> Prenota</a></li>
-         <li><a href="./SchermataRecensioniCasa.html"><ion-icon name="star-outline"></ion-icon> Recensioni</a></li>
+        <li><a href="./SchermataRecensioniCasa.html"><ion-icon name="star-outline"></ion-icon> Recensioni</a></li>
         <li><a href="./Contatti.html"><ion-icon name="mail"></ion-icon> Contatti</a></li>
       </ul>
       </nav>
-      
-       <!--Fine menu di navigazione-->
      
-       
-      <h1 class="benvenuto">BENVENUTO IN GEDA</h1>  
-    </header>  
-         <!--Fine header-->
+    
+   <!-- Fine menu di navigazione-->
+
+
+</header>  
+     <!--Fine header-->
     
   <body>
+
+    <div class="contenutoPaginaVisualizzaDati">
+
+
+    <div class="modulo">
+
+      <h1>Lista prenotazioni</h1>
+
     <form action="/visualizzaPrenotazioneCliente" method="GET" >
     <% for(var i=0; i<ListaPrenotazioniCliente.length; i++){ %>
     <a href="visualizzaPrenotazioneCliente?id=<%= ListaPrenotazioniCliente[i].id_prenotazione %>"><%= ListaPrenotazioniCliente[i].id_prenotazione %></a>
@@ -59,6 +68,10 @@
     <h3><%= ListaPrenotazioniCliente[i].check_out %></h3>
     <% } %>
     </form>
+  </div>
+</div>
+
+    
 <!--Inizio footer-->
    
 <footer>
