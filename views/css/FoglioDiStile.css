@@ -140,17 +140,13 @@ margin: 0px auto ;
 }
 
 header {
-  color:white;
+  color:gray;
   opacity:0.9;
   border: none;
   position: relative;
 	padding: 32px;
 	height: 100px;
-<<<<<<< HEAD
   width: 1460px;
-=======
-  width: auto;
->>>>>>> 15e3b106dcef325be612b4ff3ddf9e6b96a6c59e
   background-color: #292c2f;
   box-shadow: 6px 6px 8px black;
   
