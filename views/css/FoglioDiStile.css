@@ -152,12 +152,7 @@ header {
   
 }
 
-.logoHeader {
 
-  position: relative;
-  top: -20px;
-  left: 0px;
-}
 
 .testo_nero{
     color: rgb(0, 0, 0)
@@ -633,6 +628,14 @@ footer{
  
 }
 
+#logoFooter {
+	display: inline-block;
+  position: relative;
+  top: -20px;
+  left: 0px;
+  border-radius: 6px;
+}
+
 .colonne-footer .colonna-sinistra,
 .colonne-footer .colonna-centrale,
 .colonne-footer .colonna-destra{
@@ -680,7 +683,9 @@ footer{
 
 
 .colonne-footer .colonna-centrale{
-	width: 30%;
+  width: 30%;
+  margin-left:4%;
+  
 }
 
 .colonne-footer .colonna-centrale i{
@@ -722,7 +727,7 @@ footer{
 
 .colonne-footer .colonna-destra{
   width: 33%;
-   
+    
 }
 
 .colonne-footer .footer-infoSuDiNoi{
