@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Pannello recensione</title>
     <link rel="stylesheet" type="text/css" href="css/FoglioDiStile.css">
     <meta name=”description” content=””/>
     <meta name=”keywords” content=””/>
@@ -44,6 +44,12 @@
  
    
   <body>
+
+    
+    <div class="contenutoPannelli"  style="margin-right:-5px; padding-top:8%; " >
+
+      <div class="modulo"style="margin-bottom:180px;">
+
     <form action="/recensione" method="POST">
       <label for="stelle_r"
         >Quanto hai gradito il tuo soggiorno nella CASA?</label
@@ -55,27 +61,32 @@
       <input type="text" name="commento_r" id="" />
       <!--ALLARGATE IL CAMPO QUA-->
       <br />
-      <button type="submit">
+      <button id="btnPannello" type="submit" style="margin-left:50%;">
         Invia Recensione!
       </button>
     </form>
+  </div>
+</div>
 
 
-<!--Inizio footer-->
+ <!--Inizio footer-->
    
-<footer>
+ <footer>
        
   <div class="colonne-footer">    
   
     <div class="colonna-sinistra">
         
       <div class="footer-GEDAName">
-      <strong><h4>Note legali</h4></strong>
         <small>&copy;GEDA GROUP</small>
       </div>
-        <p>Documentazione</p>
+     <br>
+      <!--logo footer-->
+
+        <img id="logoFooter" src="img/B&B_LOGO.jpg" alt="B&B LOGO" width="200px" height="200px">
+
       </div>
-  
+
   
     <div class="colonna-centrale">
       <div class="contatti">
@@ -91,9 +102,10 @@
         <br>
         <p> Via Esempio n1 </p>
       </span>
+      <strong><h4>Note legali</h4></strong>
       </div>
     </div>
-   
+
   
         <div class="colonna-destra">
           <div class="icone-social">
@@ -109,7 +121,7 @@
     </footer>
      <!--Fine footer-->
 
- 
+
  <script src="https://unpkg.com/ionicons@5.1.2/dist/ionicons.js"></script>
 
 

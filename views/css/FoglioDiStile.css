@@ -146,16 +146,13 @@ header {
   position: relative;
 	padding: 32px;
 	height: 100px;
+  width: auto;
   background-color: #292c2f;
   box-shadow: 6px 6px 8px black;
+  
 }
 
-.logoHeader {
 
-  position: relative;
-  top: -20px;
-  left: 0px;
-}
 
 .testo_nero{
     color: rgb(0, 0, 0)
@@ -173,7 +170,8 @@ text-shadow:  1px 1px 3px black;
 font-weight: bold;
 font-size:60px;
 text-align:center;
-
+width:auto;
+height:auto;
 
 }
 
@@ -185,7 +183,7 @@ nav {
    display: inline-block;
   /*border: 1px solid black;*/
   background-color: auto;
-
+  
   
   /*possibilità di animazione-> animation: slideIN 1s ease-out; */
 }
@@ -196,7 +194,7 @@ nav ul {
   display: flex;
   flex: 1 1 auto;
   margin: 0;
-  padding: 0 20px;
+  padding-right: 20px;
   list-style-type: none;
   
 }
@@ -288,10 +286,9 @@ nav .barraDiRicerca {
 
 #menu {
   
-   
   position:relative;
   top: 55px;
-   height: 900px;
+  height: 900;
   width:auto;
    
 }
@@ -318,10 +315,10 @@ nav .barraDiRicerca {
 
   .boxMenu {
   position:absolute;
-  top:100px;
-  right:100px;
-  width: 600px;
-  height:650px;
+  top:10%;
+  right:8%;
+  width: 35%;
+  height:80%;
   background-color: #292c2f;
 	box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
   box-sizing: border-box;
@@ -332,20 +329,26 @@ nav .barraDiRicerca {
   opacity: 100%;
   box-sizing: border-box;
   position:absolute;
-  top:100px;
-  right:80px;
-  width: 600px;
-  height:650px;
+  top:12%;
+  right:5%;
+  width: 35%;
+  height:80%;
   
 }
 
- 
+.contenutoBoxMenu h2 {
+
+margin-left: -5%;
+
+} 
+
+
 .contenutoBoxMenu input {
   
 position:relative;
 border-radius:6px;
-width:300px;
-height:35px;
+width: 35%;
+height:80%;
 margin-left:50px;
 margin-top:60px;
 margin-bottom:20px;
@@ -354,16 +357,36 @@ font-size:16px;
 }
 
 .contenutoBoxMenu button {
-  
+  background-color: black;
+  border: solid 0.5px black;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: block;
+  font-size: 10px;
+  cursor: pointer;
+  border-radius: 4px;
   position:relative;
-  margin-top:25px;
-  left:180px;
-  width:100px;
+  margin-top:5%;
+  left:15%;
+  width: 35%;
+  height: 5%;
 
 }
+
+
+.contenutoBoxMenu button:hover {
+
+color:orange;
+
+}
+
+
+
 .contenutoBoxMenu .cercaCittà input {
   position:relative;
-  width:400px;
+  width: 35%;
+  height:80%;
 
 }
 
@@ -373,9 +396,8 @@ font-size:16px;
   .home2 {
   
   position:relative;
-  margin-top:55px;
-  padding-top:25px;
-  padding-bottom:25px;
+  margin-top:auto;
+   padding-bottom:25px;
   padding-left:100px;
     border-top:5px solid black;
    background: lightgray;
@@ -394,7 +416,7 @@ border:5px solid black;
 
 .home2 #bloccoBox {
 
-  display:inline-block;
+   display:inline-block;
    text-align:right;
  
     
@@ -405,6 +427,7 @@ border:5px solid black;
 .home2 #box1  {
 display:inline-block;
 width:40%;
+height:auto;
 padding-right:50px;
 padding-left: 20px;
 padding-top: 30px;
@@ -418,11 +441,29 @@ margin-left:-10px;
 #box1 img {
    
   border:1px solid black;
-  margin-left:-35px;
+  margin-left: -15%; 
+  
+ 
+}
+
+#box1 h1 {
+
+position:absolute;
+top:0%;
+left:33%;
 
 }
 
- 
+#box1 p {
+  
+  position:absolute;
+top:-65px;
+left:22%;
+padding:10%;
+width: 15%;
+font-size:14px;
+
+}
 
 
 .home2 #box2  {
@@ -437,9 +478,29 @@ margin-left:-10px;
 #box2 img {
    
   border:1px solid black;
-  margin-left:-55px;
+  margin-left:-15%;
 
 }
+
+#box2 h1 {
+  
+  position:absolute;
+  top:0%;
+  right:15%;
+  
+  
+  }
+  
+  #box2 p {
+    
+    position:absolute;
+    top:-65px;
+    left:68%;
+    padding:10%;
+    width: 15%;
+    font-size:14px;
+  
+  }
 
 .home2 #box3   {
   display:inline-block;
@@ -459,10 +520,29 @@ margin-left:-10px;
 #box3 img {
    
   border:1px solid black;
-  margin-right:250px;
-
+  margin-right: 45%; 
+  margin-left:-5%;
+ 
 }
  
+#box3 h1 {
+
+  position:absolute;
+  top:49%;
+  left:35%;
+  
+  }
+  
+  #box3 p {
+    
+    position:absolute;
+    top:43%;
+    left:23%;
+    padding:10%;
+    width: 12%;
+    font-size:14px;
+  
+  }
 
 .home2 #box4    {
   display:inline-block;
@@ -480,9 +560,31 @@ margin-left:-10px;
 #box4 img {
    
   border:1px solid black;
-  margin-left:25px;
+  margin-left:1%;
+
 
 }
+
+#box4 h1 {
+
+  position:absolute;
+  top:49%;
+  right:14%;
+  
+  }
+  
+  #box4 p {
+    
+     
+    position:absolute;
+    top:44%;
+    left:68%;
+    padding:10%;
+    width: 12%;
+    font-size:14px;
+
+  }
+
 
   .home2 .descrizione {
   text-align:right;  
@@ -524,6 +626,14 @@ footer{
 	padding: 55px 50px;
 	margin-top: 80px;
  
+}
+
+#logoFooter {
+	display: inline-block;
+  position: relative;
+  top: -20px;
+  left: 0px;
+  border-radius: 6px;
 }
 
 .colonne-footer .colonna-sinistra,
@@ -573,7 +683,9 @@ footer{
 
 
 .colonne-footer .colonna-centrale{
-	width: 30%;
+  width: 30%;
+  margin-left:4%;
+  
 }
 
 .colonne-footer .colonna-centrale i{
@@ -615,7 +727,7 @@ footer{
 
 .colonne-footer .colonna-destra{
   width: 33%;
-   
+    
 }
 
 .colonne-footer .footer-infoSuDiNoi{
@@ -800,7 +912,7 @@ padding-bottom:25px;
  .contenutoPannelli {
 
 
-  color:black;
+  color: black;
   background-color:lightgray;
   margin-top:0px;
   padding-top:35px;
@@ -819,6 +931,7 @@ padding-bottom:25px;
   color:black;
   border-color: solid black; 
   background-color: orange;
+  border-radius: 6px;
  } 
  
  .contenutoPannelli .modulo  {
@@ -835,7 +948,7 @@ padding-bottom:25px;
   height:120%;
   border: medium solid black;
   font-family:'Roboto', sans-serif; ;
-  color:black;
+  color: black;
   border-radius: 10px;
   box-shadow: 0 0.6px 0.6px rgba(128, 128, 128, 0.109),
     0 4px 4px rgba(128, 128, 128, 0.155),
@@ -848,9 +961,9 @@ padding-bottom:25px;
 
 .contenutoPannelli h1 {
 
-  color:black;
+  color: orangered;
   padding-top:15px;
-  font-family:'Georgia';
+  font-family:'Verdana';
   text-shadow:  1px 1px 3px black;
   font-weight: bold;
   font-size:30px;
@@ -890,9 +1003,9 @@ margin-left:-280px;
 
 .contenutoPaginaVisualizzaDati h1 {
 
-  color:black;
+  color:orangered;
   padding-top:15px;
-  font-family:'Georgia';
+  font-family:'Verdana';
   text-shadow:  1px 1px 3px black;
   font-weight: bold;
   font-size:36px;
@@ -927,8 +1040,32 @@ margin-left:-280px;
     0 14px 14px rgba(128, 128, 128, 0.35);
   
   }
-  
 
+  .contenutoPaginaVisualizzaDati p a {
+
+    text-decoration:underline;
+color:gray;
+
+  }
+
+  .contenutoPaginaVisualizzaDati p a:hover {
+ 
+color:orange;
+cursor: pointer;
+
+  }
+
+
+
+  .contenutoPaginaVisualizzaDati form p a:hover {
+
+ 
+color:orange;
+cursor: pointer;
+
+  }
+
+ 
 
 .contenutoPaginaImmissioneDati {
 
@@ -942,11 +1079,11 @@ margin-left:-280px;
 
 .contenutoPaginaImmissioneDati h1 {
 
-  color:black;
+  color:orangered;
   padding-top:15px;
   padding-right:22%;
   margin-right:55px;
-  font-family:'Georgia';
+  font-family:'Verdana';
   text-shadow: 1px 1px 3px black;
   font-weight: bold;
   font-size:30px;
@@ -1018,7 +1155,7 @@ box-shadow: 0 0.6px 0.6px rgba(128, 128, 128, 0.109),
 }
 
 .modulo label {
-  color:black;
+  color:yellow;
 
     margin-top: 5%;
     margin-left: -10%;

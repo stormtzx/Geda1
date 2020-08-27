@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Gestione Casa</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/android-chrome-192x192.png">
     <link rel="stylesheet" type="text/css" href="css/FoglioDiStile.css">
     <meta name=”description” content=””/>
     <meta name=”keywords” content=””/>
@@ -32,19 +33,24 @@
         </li>
         <li><a href="./Dove_siamo.html"><ion-icon name="locate"></ion-icon> Dove siamo</a></li>
         <li><a href="./PannelloPrenotazione.html"><ion-icon name="bed"></ion-icon> Prenota</a></li>
-         <li><a href="./SchermataRecensioniCasa.html"><ion-icon name="star-outline"></ion-icon> Recensioni</a></li>
+        <li><a href="./SchermataRecensioniCasa.html"><ion-icon name="star-outline"></ion-icon> Recensioni</a></li>
         <li><a href="./Contatti.html"><ion-icon name="mail"></ion-icon> Contatti</a></li>
       </ul>
       </nav>
-      
-       <!--Fine menu di navigazione-->
      
-       
-      <h1 class="benvenuto">BENVENUTO IN GEDA</h1>  
-    </header>  
-         <!--Fine header-->
     
+   <!-- Fine menu di navigazione-->
+
+
+</header>  
+     <!--Fine header-->
   <body>
+
+    <div class="contenutoPaginaVisualizzaDati" >
+
+      <div class="modulo" >
+
+
     <h1>Informazioni casa</h1>
     <p>Codice Casa:</p>
     <p><%= gestioneCasa[0].id_casa %></p>
@@ -97,11 +103,18 @@
     <p>Segnalatori Fumo:</p>
     <p><%= gestioneCasa[0].segnalatori_fumo %></p>
     <br />
-<form action="/visualizzaRecensioni" method="GET">
+    <p>Qualche dubbio? Leggi le <a action="/visualizzaRecensioni" method="GET">recensioni</a>!</p>
+  
+    <!--Codice scritto precedentemente (decommentare se l'action e il metod non funzionano con il tag <a> 
+       <form action="/visualizzaRecensioni" method="GET">
   <p>Qualche dubbio? Leggi le <button type="submit">recensioni</button>!</p></button>
-</form>
+      -->
 
-  <!--Inizio footer-->
+ </div>
+</div>
+
+
+ <!--Inizio footer-->
    
  <footer>
        
@@ -110,12 +123,15 @@
     <div class="colonna-sinistra">
         
       <div class="footer-GEDAName">
-      <strong><h4>Note legali</h4></strong>
         <small>&copy;GEDA GROUP</small>
       </div>
-        <p>Documentazione</p>
+     <br>
+      <!--logo footer-->
+
+        <img id="logoFooter" src="img/B&B_LOGO.jpg" alt="B&B LOGO" width="200px" height="200px">
+
       </div>
-  
+
   
     <div class="colonna-centrale">
       <div class="contatti">
@@ -131,9 +147,10 @@
         <br>
         <p> Via Esempio n1 </p>
       </span>
+      <strong><h4>Note legali</h4></strong>
       </div>
     </div>
-   
+
   
         <div class="colonna-destra">
           <div class="icone-social">
@@ -149,7 +166,7 @@
     </footer>
      <!--Fine footer-->
 
- 
+
  <script src="https://unpkg.com/ionicons@5.1.2/dist/ionicons.js"></script>
 
 

@@ -39,12 +39,15 @@
       
        <!--Fine menu di navigazione-->
      
-       
-      <h1 class="benvenuto">BENVENUTO IN GEDA</h1>  
     </header>  
          <!--Fine header-->
     
   <body>
+
+    <div class="contenutoPaginaVisualizzaDati" >
+
+      <div class="modulo" style="margin-bottom:10%;">
+
     <h1>Lista Case di </h1>
     <h3><%= nome_proprietario %></h3>
     <h3><%= cognome_proprietario %></h3>
@@ -56,21 +59,31 @@
     <h3><%= ListaCaseProprietario[i].citta %></h3>
     <% } %>
   </form>
-<!--Inizio footer-->
+</div>
+</div >
+
+
+
+
+
+ <!--Inizio footer-->
    
-<footer>
+ <footer>
        
   <div class="colonne-footer">    
   
     <div class="colonna-sinistra">
         
       <div class="footer-GEDAName">
-      <strong><h4>Note legali</h4></strong>
         <small>&copy;GEDA GROUP</small>
       </div>
-        <p>Documentazione</p>
+     <br>
+      <!--logo footer-->
+
+        <img id="logoFooter" src="img/B&B_LOGO.jpg" alt="B&B LOGO" width="200px" height="200px">
+
       </div>
-  
+
   
     <div class="colonna-centrale">
       <div class="contatti">
@@ -86,9 +99,10 @@
         <br>
         <p> Via Esempio n1 </p>
       </span>
+      <strong><h4>Note legali</h4></strong>
       </div>
     </div>
-   
+
   
         <div class="colonna-destra">
           <div class="icone-social">
@@ -104,7 +118,7 @@
     </footer>
      <!--Fine footer-->
 
- 
+
  <script src="https://unpkg.com/ionicons@5.1.2/dist/ionicons.js"></script>
 
 

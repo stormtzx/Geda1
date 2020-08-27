@@ -43,7 +43,8 @@
       <h1 class="benvenuto">BENVENUTO IN GEDA</h1>  
     </header>  
          <!--Fine header-->
-    
+    <div class="contenutoPaginaVisualizzaDati">
+      <div class="modulo">
   <body>
     <h1>Recensioni relative alla casa</h1>
     <h2><%= leggiRecensioni[0].ref_nome_casa_r %></h2>
@@ -58,7 +59,12 @@
     <p>Commento: </p>
     <h3><%= leggiRecensioni[i].commento %></h3>
     <% } %>
-  <!--Inizio footer-->
+  </div>
+  </div>
+  
+  
+   
+ <!--Inizio footer-->
    
  <footer>
        
@@ -67,12 +73,15 @@
     <div class="colonna-sinistra">
         
       <div class="footer-GEDAName">
-      <strong><h4>Note legali</h4></strong>
         <small>&copy;GEDA GROUP</small>
       </div>
-        <p>Documentazione</p>
+     <br>
+      <!--logo footer-->
+
+        <img id="logoFooter" src="img/B&B_LOGO.jpg" alt="B&B LOGO" width="200px" height="200px">
+
       </div>
-  
+
   
     <div class="colonna-centrale">
       <div class="contatti">
@@ -88,9 +97,10 @@
         <br>
         <p> Via Esempio n1 </p>
       </span>
+      <strong><h4>Note legali</h4></strong>
       </div>
     </div>
-   
+
   
         <div class="colonna-destra">
           <div class="icone-social">
@@ -106,7 +116,7 @@
     </footer>
      <!--Fine footer-->
 
- 
+
  <script src="https://unpkg.com/ionicons@5.1.2/dist/ionicons.js"></script>
 
 

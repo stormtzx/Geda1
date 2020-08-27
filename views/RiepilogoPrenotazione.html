@@ -43,6 +43,8 @@
   </header>
   <body>
     <div class="contenutoPaginaVisualizzaDati">
+      <div class="modulo">
+
       <h1>Informazioni Prenotazione</h1>
       <p>Codice Prenotazione:</p>
       <p><%= visualizzaPrenotazione[0].id_prenotazione %></p>
@@ -100,81 +102,68 @@
       <p><%= visualizzaPrenotazione[0].prezzo_totale %></p>
       <br />
 
-      <a href="./PannelloModificaPrenotazione.html">Modifica Prenotazione</a>
+     <p> <a href="./PannelloModificaPrenotazione.html">Modifica Prenotazione</a></p>
 
-      <p>
-        Hai alloggiato qui?
-        <a href="./PannelloRecensione.html"
-          >Lascia una recensione per questa Casa!</a
-        >
-      </p>
+      <p>Hai alloggiato qui?<a href="./PannelloRecensione.html">Lascia una recensione per questa Casa!</a>  </p>
+    </div>
+  </div>
+
+  
+ <!--Inizio footer-->
+   
+ <footer>
+       
+  <div class="colonne-footer">    
+  
+    <div class="colonna-sinistra">
+        
+      <div class="footer-GEDAName">
+        <small>&copy;GEDA GROUP</small>
+      </div>
+     <br>
+      <!--logo footer-->
+
+        <img id="logoFooter" src="img/B&B_LOGO.jpg" alt="B&B LOGO" width="200px" height="200px">
+
+      </div>
+
+  
+    <div class="colonna-centrale">
+      <div class="contatti">
+        <strong><h4>Contattaci:</h4></strong>
+        <p> <a href="mail@esempio.it">mail@esempio.it</a> </p>
+      </div>
+  
+     <div class="footer-infoSuDiNoi">
+       <span>
+        <p> 091 123456789 </p> 
+        <br><br>
+        <p>Dove trovarci:</p>
+        <br>
+        <p> Via Esempio n1 </p>
+      </span>
+      <strong><h4>Note legali</h4></strong>
+      </div>
     </div>
 
-    <!--Inizio footer-->
-
-    <footer>
-      <div class="colonne-footer">
-        <div class="colonna-sinistra">
-          <div class="footer-GEDAName">
-            <strong><h4>Note legali</h4></strong>
-            <small>&copy;GEDA GROUP</small>
-          </div>
-          <p>Documentazione</p>
-        </div>
-
-        <div class="colonna-centrale">
-          <div class="contatti">
-            <strong><h4>Contattaci:</h4></strong>
-            <p><a href="mail@esempio.it">mail@esempio.it</a></p>
-          </div>
-
-          <div class="footer-infoSuDiNoi">
-            <span>
-              <p>091 123456789</p>
-              <br /><br />
-              <p>Dove trovarci:</p>
-              <br />
-              <p>Via Esempio n1</p>
-            </span>
-          </div>
-        </div>
-
+  
         <div class="colonna-destra">
           <div class="icone-social">
-            <h4>Seguici</h4>
-            <a href="#"
-              ><i>
-                <img
-                  src="img/Logo_FB.png"
-                  alt="Facebook"
-                  height="30"
-                  width="30"
-                /> </i
-            ></a>
-            <a href="#"
-              ><i
-                ><img
-                  src="img/Logo_IG.png"
-                  alt="Instagram"
-                  height="30"
-                  width="30"
-                /> </i
-            ></a>
-            <a href="#"
-              ><i
-                ><img
-                  src="img/Logo_whatsapp.png"
-                  alt="Whatsapp"
-                  height="30"
-                  width="30"
-                /> </i
-            ></a>
-          </div>
+          <h4>Seguici</h4>
+          <a href="#"><i> <img src="img/Logo_FB.png" alt="Facebook" height="30" width="30" >  </i></a> 
+          <a href="#"><i><img src="img/Logo_IG.png" alt="Instagram" height="30" width="30">   </i></a>
+          <a href="#"><i><img src="img/Logo_whatsapp.png" alt="Whatsapp" height="30" width="30">   </i></a>
+        </div> 
         </div>
-      </div>
+     
+      </div> 
+       
     </footer>
-    <!--Fine footer-->
+     <!--Fine footer-->
 
-    <script src="https://unpkg.com/ionicons@5.1.2/dist/ionicons.js"></script>
-  </body>
+
+ <script src="https://unpkg.com/ionicons@5.1.2/dist/ionicons.js"></script>
+
+
+</body>
 </html>
