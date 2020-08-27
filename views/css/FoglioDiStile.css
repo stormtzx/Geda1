@@ -140,13 +140,13 @@ margin: 0px auto ;
 }
 
 header {
-  color:gray;
+  color:white;
   opacity:0.9;
   border: none;
   position: relative;
 	padding: 32px;
 	height: 100px;
-  width: 1460px;
+  width: auto;
   background-color: #292c2f;
   box-shadow: 6px 6px 8px black;
   
@@ -170,9 +170,8 @@ header {
  
 
 .benvenuto {
-font-family:'Calibri';
-color: white;
-text-shadow:  1px 1px 3px orange;
+font-family:'Georgia';
+text-shadow:  1px 1px 3px black;
 font-weight: bold;
 font-size:60px;
 text-align:center;
@@ -342,7 +341,13 @@ nav .barraDiRicerca {
   
 }
 
- 
+.contenutoBoxMenu h2 {
+
+margin-left: -5%;
+
+} 
+
+
 .contenutoBoxMenu input {
   
 position:relative;
@@ -357,14 +362,32 @@ font-size:16px;
 }
 
 .contenutoBoxMenu button {
-  
+  background-color: black;
+  border: solid 0.5px black;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: block;
+  font-size: 10px;
+  cursor: pointer;
+  border-radius: 4px;
   position:relative;
   margin-top:5%;
   left:15%;
   width: 35%;
-  height:80%;
+  height: 5%;
 
 }
+
+
+.contenutoBoxMenu button:hover {
+
+color:orange;
+
+}
+
+
+
 .contenutoBoxMenu .cercaCittà input {
   position:relative;
   width: 35%;
@@ -378,9 +401,8 @@ font-size:16px;
   .home2 {
   
   position:relative;
-  margin-top:55px;
-  padding-top:25px;
-  padding-bottom:25px;
+  margin-top:auto;
+   padding-bottom:25px;
   padding-left:100px;
     border-top:5px solid black;
    background: lightgray;
@@ -399,7 +421,7 @@ border:5px solid black;
 
 .home2 #bloccoBox {
 
-  display:inline-block;
+   display:inline-block;
    text-align:right;
  
     
@@ -424,11 +446,29 @@ margin-left:-10px;
 #box1 img {
    
   border:1px solid black;
-  margin-left:-35px;
+  margin-left: -15%; 
+  
+ 
+}
+
+#box1 h1 {
+
+position:absolute;
+top:0%;
+left:33%;
 
 }
 
- 
+#box1 p {
+  
+  position:absolute;
+top:-65px;
+left:22%;
+padding:10%;
+width: 15%;
+font-size:14px;
+
+}
 
 
 .home2 #box2  {
@@ -443,9 +483,29 @@ margin-left:-10px;
 #box2 img {
    
   border:1px solid black;
-  margin-left:-55px;
+  margin-left:-15%;
 
 }
+
+#box2 h1 {
+  
+  position:absolute;
+  top:0%;
+  right:15%;
+  
+  
+  }
+  
+  #box2 p {
+    
+    position:absolute;
+    top:-65px;
+    left:68%;
+    padding:10%;
+    width: 15%;
+    font-size:14px;
+  
+  }
 
 .home2 #box3   {
   display:inline-block;
@@ -465,10 +525,29 @@ margin-left:-10px;
 #box3 img {
    
   border:1px solid black;
-  margin-right:250px;
-
+  margin-right: 45%; 
+  margin-left:-5%;
+ 
 }
  
+#box3 h1 {
+
+  position:absolute;
+  top:49%;
+  left:35%;
+  
+  }
+  
+  #box3 p {
+    
+    position:absolute;
+    top:43%;
+    left:23%;
+    padding:10%;
+    width: 12%;
+    font-size:14px;
+  
+  }
 
 .home2 #box4    {
   display:inline-block;
@@ -486,9 +565,31 @@ margin-left:-10px;
 #box4 img {
    
   border:1px solid black;
-  margin-left:25px;
+  margin-left:1%;
+
 
 }
+
+#box4 h1 {
+
+  position:absolute;
+  top:49%;
+  right:14%;
+  
+  }
+  
+  #box4 p {
+    
+     
+    position:absolute;
+    top:44%;
+    left:68%;
+    padding:10%;
+    width: 12%;
+    font-size:14px;
+
+  }
+
 
   .home2 .descrizione {
   text-align:right;  
