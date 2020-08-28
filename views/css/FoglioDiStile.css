@@ -1189,7 +1189,7 @@ box-shadow: 0 0.6px 0.6px rgba(128, 128, 128, 0.109),
     float: left;
     height: 900px;
     width: 50%;
-    text-align: center;
+    text-align: center; 
   }
 
   .hero-text1 {
@@ -1232,7 +1232,7 @@ box-shadow: 0 0.6px 0.6px rgba(128, 128, 128, 0.109),
     background-image: url(https://images.pexels.com/photos/7357/startup-photos.jpg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260);
     background-size: cover;
     background-repeat: no-repeat;
-    float: left;
+    float: right;
     height: 900px;
     width: 50%;
     text-align: center;
