@@ -390,54 +390,41 @@ color:orange;
 
 }
 
-/*da qui in poi le regole di stile per la parte secondaria della home*/
  
 
-  .home2 {
+/*da qui in poi le regole di stile per la parte secondaria della home*/
+ 
+.home2 {
   
   position:relative;
-  margin-top:auto;
-   padding-bottom:25px;
-  padding-left:100px;
-    border-top:5px solid black;
+   padding-top:25px;
+  margin-left:0px;
+   border-top:5px solid black;
    background: lightgray;
   margin-bottom:-80px;
- }
-
-
-hr { 
-
-  height:25px;
-background-color:black;
-border:5px solid black;
-
 }
 
+
+ 
 
 .home2 #bloccoBox {
 
-   display:inline-block;
+  display:inline-block;
    text-align:right;
- 
     
 }
-
-
 
 .home2 #box1  {
 display:inline-block;
 width:40%;
-height:auto;
 padding-right:50px;
 padding-left: 20px;
 padding-top: 30px;
 padding-bottom:30px;
 border-right:1px solid black;
-margin-left:-10px;
+margin-left:40px;
 
 }
-
-
 #box1 img {
    
   border:1px solid black;
@@ -448,29 +435,23 @@ margin-left:-10px;
 
 #box1 h1 {
 
-position:absolute;
-top:0%;
-left:33%;
+position:relative;
+ 
 
 }
 
 #box1 p {
   
-  position:absolute;
-top:-65px;
-left:22%;
-padding:10%;
-width: 15%;
-font-size:14px;
+  position:relative;
+ 
 
 }
-
 
 .home2 #box2  {
   display:inline-block;
   width:40%;
   padding-right:30px;
-  padding-left: 100px;
+  padding-left: 30px;
   padding-top: 30px;
   padding-bottom:30px;
 }
@@ -478,41 +459,36 @@ font-size:14px;
 #box2 img {
    
   border:1px solid black;
-  margin-left:-15%;
-
+  margin-left: -15%; 
+  
+ 
 }
 
 #box2 h1 {
+
+position:relative;
+ 
+
+}
+
+#box2 p {
   
-  position:absolute;
-  top:0%;
-  right:15%;
-  
-  
-  }
-  
-  #box2 p {
-    
-    position:absolute;
-    top:-65px;
-    left:68%;
-    padding:10%;
-    width: 15%;
-    font-size:14px;
-  
-  }
+  position:relative;
+ 
+
+}
 
 .home2 #box3   {
   display:inline-block;
   width:40%;
-  padding-right:100px;
-  padding-left: -100px;
+  padding-right:50px;
+  padding-left: 20px;
   padding-top: 30px;
   padding-bottom:30px;
   border-right:1px solid black;
-  text-align:right;
-  margin-left:-40px;
   border-top:1px solid black;
+  text-align:right;
+  margin-left:40px;
 
 
 }
@@ -520,71 +496,62 @@ font-size:14px;
 #box3 img {
    
   border:1px solid black;
-  margin-right: 45%; 
-  margin-left:-5%;
+  margin-left: -15%; 
+  
  
 }
- 
+
 #box3 h1 {
 
-  position:absolute;
-  top:49%;
-  left:35%;
+position:relative;
+ 
+
+}
+
+#box3 p {
   
-  }
-  
-  #box3 p {
-    
-    position:absolute;
-    top:43%;
-    left:23%;
-    padding:10%;
-    width: 12%;
-    font-size:14px;
-  
-  }
+  position:relative;
+ 
+
+}
+
+ 
 
 .home2 #box4    {
   display:inline-block;
   width:40%;
   padding-right:20px;
-  padding-left: 20px;
+  padding-left: 30px;
   padding-top: 30px;
   padding-bottom:30px;
   border-top:1px solid black;
   margin-left:-5px;
- 
+
   }
 
-  
-#box4 img {
+  #box4 img {
    
-  border:1px solid black;
-  margin-left:1%;
-
-
-}
-
-#box4 h1 {
-
-  position:absolute;
-  top:49%;
-  right:14%;
+    border:1px solid black;
+    margin-left: -15%; 
+    
+   
+  }
+  
+  #box4 h1 {
+  
+  position:relative;
+   
   
   }
   
   #box4 p {
     
-     
-    position:absolute;
-    top:44%;
-    left:68%;
-    padding:10%;
-    width: 12%;
-    font-size:14px;
-
+    position:relative;
+   
+  
   }
-
+  
+   
 
   .home2 .descrizione {
   text-align:right;  
@@ -1220,7 +1187,7 @@ box-shadow: 0 0.6px 0.6px rgba(128, 128, 128, 0.109),
     background-size: cover;
     background-repeat: no-repeat;
     float: left;
-    height: 750px;
+    height: 900px;
     width: 50%;
     text-align: center;
   }
@@ -1238,7 +1205,7 @@ box-shadow: 0 0.6px 0.6px rgba(128, 128, 128, 0.109),
     background-size: cover;
     background-repeat: no-repeat;
     float: right;
-    height: 750px;
+    height: 900px;
     width: 50%;
     text-align: center; 
   }
@@ -1256,7 +1223,7 @@ box-shadow: 0 0.6px 0.6px rgba(128, 128, 128, 0.109),
     background-size: cover;
     background-repeat: no-repeat;
     float: left;
-    height: 750px;
+    height: 900px;
     width: 50%;
     text-align: center;
   }
@@ -1266,7 +1233,7 @@ box-shadow: 0 0.6px 0.6px rgba(128, 128, 128, 0.109),
     background-size: cover;
     background-repeat: no-repeat;
     float: left;
-    height: 750px;
+    height: 900px;
     width: 50%;
     text-align: center;
   }
