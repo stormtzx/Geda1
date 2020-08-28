@@ -60,6 +60,15 @@ function crea_tableRencensione() {
   });
 }
 
+function crea_tableFoto() {
+  var sql =
+    "CREATE TABLE IF NOT EXISTS foto(fotoid int(5) NOT NULL AUTO_INCREMENT, ref_casa VARCHAR(50) reference casa(id_casa), image varchar(255) NOT NULL, mob_no int(11) NOT NULL, PRIMARY KEY (id))";
+  con.query(sql, function (err, result) {
+    if (err) throw err;
+    console.log("Table RECENSIONE creata");
+  });
+}
+
 module.exports = {
   crea_tableUtenteCliente,
   crea_tableUtenteProprietario,
@@ -67,4 +76,5 @@ module.exports = {
   crea_tablePrenotazione,
   crea_tableData,
   crea_tableRencensione,
+  crea_tableFoto,
 };
