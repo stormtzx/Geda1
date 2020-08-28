@@ -799,7 +799,8 @@ color:black;
 
 display: inline-block;
 position:relative;
-margin:100px 35px 50px 250px;
+/*margin:100px 35px 50px 300px;*/
+margin: 2% 0% 10% 25%;
 border: solid 5px black;
 
 }
@@ -1076,6 +1077,25 @@ cursor: pointer;
    margin-bottom:-80px;
    padding-left:280px;
   }
+
+
+/*   QUi di seguito il codice per personalizzare l'input validation con delle icone
+
+input:required:invalid,
+input:focus:invalid
+{
+background-image: url(/images/form_validation.png);
+background-position: right bottom;
+background-repeat: no-repeat;
+}
+input:required:valid
+{
+background-image: url(/images/form_validation.png);
+background-position: right top;
+background-repeat: no-repeat;
+}
+
+*/
 
 .contenutoPaginaImmissioneDati h1 {
 
