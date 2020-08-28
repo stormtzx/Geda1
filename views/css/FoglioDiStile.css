@@ -1187,7 +1187,7 @@ box-shadow: 0 0.6px 0.6px rgba(128, 128, 128, 0.109),
     background-size: cover;
     background-repeat: no-repeat;
     float: left;
-    height: 900px;
+    height: 750px;
     width: 50%;
     text-align: center; 
   }
@@ -1205,7 +1205,7 @@ box-shadow: 0 0.6px 0.6px rgba(128, 128, 128, 0.109),
     background-size: cover;
     background-repeat: no-repeat;
     float: right;
-    height: 900px;
+    height: 750px;
     width: 50%;
     text-align: center; 
   }
@@ -1223,8 +1223,9 @@ box-shadow: 0 0.6px 0.6px rgba(128, 128, 128, 0.109),
     background-size: cover;
     background-repeat: no-repeat;
     float: left;
-    height: 900px;
+    height: 750px;
     width: 50%;
+    max-zoom: 100%;
     text-align: center;
   }
 
@@ -1233,10 +1234,11 @@ box-shadow: 0 0.6px 0.6px rgba(128, 128, 128, 0.109),
     background-size: cover;
     background-repeat: no-repeat;
     float: right;
-    height: 900px;
+    height: 750px;
     width: 50%;
     text-align: center;
   }
+
 
   /*bottoni link*/
  
@@ -1342,6 +1344,14 @@ input[type=checkbox]:checked ~ #menu{display:block}
 /* MEDIA QUERIES */
 /* rendo il menù responsivo per adattarlo ai dispositivi più piccoli, fino ad una risoluzione massima di 768px */
 @media only screen and (max-width: 768px) {
+
+.hero-image1, .hero-image2, .hero-image3, .hero-image4 {
+  object-fit: cover;
+  max-width: 50%;
+  max-height: 750px;
+  max-zoom: 100%;
+  min-zoom: 100%;
+}
   
 #menu{
     border-radius:0;
