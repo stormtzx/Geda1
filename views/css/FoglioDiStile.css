@@ -397,40 +397,28 @@ color:orange;
 .home2 {
   
   position:relative;
-   padding-top:25px;
-  margin-left:0px;
+  display:block;
+ padding-bottom:10%;
+   padding-left:0%;
    border-top:5px solid black;
    background: lightgray;
-  margin-bottom:-80px;
+  margin-bottom:-5%;
 }
-
 
  
 
-.home2 #bloccoBox {
-
-  display:inline-block;
-   text-align:right;
-    
-}
-
-.home2 #box1  {
-display:inline-block;
-width:40%;
-padding-right:50px;
-padding-left: 20px;
-padding-top: 30px;
-padding-bottom:30px;
-border-right:1px solid black;
-margin-left:40px;
-
+ #box1  {
+padding-top:5%;
+padding-left:5%;
+padding-bottom:3%; 
+ 
 }
 #box1 img {
-   
-  border:1px solid black;
-  margin-left: -15%; 
   
- 
+  border:1px solid black;
+  width: 25%;
+  height: 30%;
+
 }
 
 #box1 h1 {
@@ -444,23 +432,21 @@ position:relative;
   
   position:relative;
  
-
 }
 
-.home2 #box2  {
-  display:inline-block;
-  width:40%;
-  padding-right:30px;
-  padding-left: 30px;
-  padding-top: 30px;
-  padding-bottom:30px;
+ #box2  {
+  padding-top: 3%;
+
+  padding-left: 72%;
+  padding-bottom:3%; 
+  
 }
 
 #box2 img {
-   
-  border:1px solid black;
-  margin-left: -15%; 
   
+   border:1px solid black;
+   width: 85%;
+   height: 90%;
  
 }
 
@@ -478,26 +464,20 @@ position:relative;
 
 }
 
-.home2 #box3   {
-  display:inline-block;
-  width:40%;
-  padding-right:50px;
-  padding-left: 20px;
-  padding-top: 30px;
-  padding-bottom:30px;
-  border-right:1px solid black;
-  border-top:1px solid black;
-  text-align:right;
-  margin-left:40px;
-
-
+  #box3   {
+    padding-top:5%;
+    padding-left:5%;
+    padding-bottom:3%; 
+  
 }
 
 #box3 img {
    
   border:1px solid black;
-  margin-left: -15%; 
-  
+  width: 25%;
+  height: 30%;
+
+   
  
 }
 
@@ -517,24 +497,18 @@ position:relative;
 
  
 
-.home2 #box4    {
-  display:inline-block;
-  width:40%;
-  padding-right:20px;
-  padding-left: 30px;
-  padding-top: 30px;
-  padding-bottom:30px;
-  border-top:1px solid black;
-  margin-left:-5px;
-
+  #box4    {
+    padding-left: 72%;
+    padding-top: 3%;
+ 
   }
 
   #box4 img {
    
     border:1px solid black;
-    margin-left: -15%; 
-    
-   
+    width: 85%;
+    height: 90%;
+  
   }
   
   #box4 h1 {
@@ -552,7 +526,7 @@ position:relative;
   }
   
    
-
+/*
   .home2 .descrizione {
   text-align:right;  
   width: auto;
@@ -570,6 +544,8 @@ position:relative;
     color:black;
   }
  
+*/
+
 /*regole di stile per lo slideshow */
 
 
