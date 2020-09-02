@@ -10,11 +10,7 @@ html,body {
     
 }
 
-#contenutoHome {
-
-  margin-top: -55px;
-
-}
+ 
 
 
 .contenutoConferma {
@@ -144,8 +140,7 @@ header {
   opacity:0.9;
   border: none;
   position: relative;
-	padding: 32px;
-	height: 100px;
+ 	height: 15%;
   width: auto;
   background-color: #292c2f;
   box-shadow: 6px 6px 8px black;
@@ -164,23 +159,21 @@ header {
 
  
 
-.benvenuto {
+#benvenuto {
 font-family:'Georgia';
 text-shadow:  1px 1px 3px black;
 font-weight: bold;
-font-size:60px;
+font-size:200%;
 text-align:center;
 width:auto;
 height:auto;
-
+padding-bottom:1%; 
 }
 
 /*regole di stile per la barra di navigazione*/
 nav {
-  position: absolute;
-  top: 0px;
-  right: 0px;
-   display: inline-block;
+  position: relative;
+    display: inline-block;
   /*border: 1px solid black;*/
   background-color: auto;
   
@@ -194,7 +187,7 @@ nav ul {
   display: flex;
   flex: 1 1 auto;
   margin: 0;
-  padding-right: 20px;
+  padding-right: -1%;
   list-style-type: none;
   
 }
@@ -284,19 +277,17 @@ nav .barraDiRicerca {
 
   /*Regole di stile per il menu chekIn/checkOut*/
 
-#menu {
+#menu { /* ovvero  ciò che contiene slideshow e menu prenotazione checkin e checkout */
   
   position:relative;
-  top: 55px;
-  height: 900;
-  width:auto;
+   height: 100%;
+  width:100%;
    
 }
 
 #slide {
   position:relative;
-  top: 0px;
-  width: 100%;
+   width: 100%;
    height: 100%;
    -webkit-transition: all 0.5s ease-out;
    -moz-transition: left 0.5s ease-out;
@@ -342,6 +333,11 @@ margin-left: -5%;
 
 } 
 
+.contenutoBoxMenu form {
+
+  padding-top:5%;
+  padding-bottom:5%;
+}
 
 .contenutoBoxMenu input {
   
@@ -349,12 +345,12 @@ position:relative;
 border-radius:6px;
 width: 35%;
 height:80%;
-margin-left:50px;
-margin-top:60px;
-margin-bottom:20px;
+padding-left:5%;
 font-size:16px;
 
 }
+
+
 
 .contenutoBoxMenu button {
   background-color: black;
