@@ -16,11 +16,9 @@ html,body {
 .contenutoConferma {
  
 
-  margin-top: -25px;
-  background:lightgrey;
-  height:480px;
-  width:100%;
-  margin-bottom:-80px; 
+   background:lightgrey;
+  padding-top: 5%;
+  PADDING-bottom:5%;
  
  }
 
@@ -29,9 +27,8 @@ html,body {
 
 color:green;
 text-align:center;
-padding-top: 20px;
 font-size: xx-large;
-margin-bottom: 7%
+PADDING-bottom: 7%
 
  }
 
@@ -140,11 +137,11 @@ header {
   opacity:0.9;
   border: none;
   position: relative;
- 	height: 15%;
-  width: auto;
+ 	height: 60%;
+  width: 100%;
   background-color: #292c2f;
   box-shadow: 6px 6px 8px black;
-  
+   
 }
 
 
@@ -163,7 +160,7 @@ header {
 font-family:'Georgia';
 text-shadow:  1px 1px 3px black;
 font-weight: bold;
-font-size:200%;
+font-size:300%;
 text-align:center;
 width:auto;
 height:auto;
@@ -176,7 +173,8 @@ nav {
     display: inline-block;
   /*border: 1px solid black;*/
   background-color: auto;
-  
+  padding-bottom:2%;
+  padding-left:15%;
   
   /*possibilità di animazione-> animation: slideIN 1s ease-out; */
 }
@@ -498,7 +496,6 @@ padding-bottom:35%;
 footer{
 	position: relative;
   bottom: 0;
-   
   color:white;
   
 }
@@ -509,17 +506,21 @@ footer{
 	width: 100%;
 	text-align: left;
 	font: bold 16px sans-serif;
-	padding: 55px 50px;
-	margin-top: 80px;
- 
+	padding: 2% 2%;
+  
 }
 
 #logoFooter {
 	display: inline-block;
   position: relative;
-  top: -20px;
-  left: 0px;
-  border-radius: 6px;
+  top: -5%;
+   border-radius: 6px;
+}
+
+#logoFooter {
+width: 55%;
+HEIGHT:50%;
+
 }
 
 .colonne-footer .colonna-sinistra,
@@ -546,7 +547,7 @@ footer{
 
 .colonne-footer .footer-links{
 	color:  #ffffff;
-	margin: 20px 0 12px;
+	margin: 5% 0 3%;
   padding: 0;
    
 }
@@ -569,6 +570,7 @@ footer{
 
 
 .colonne-footer .colonna-centrale{
+  
   width: 30%;
   margin-left:4%;
   
@@ -578,12 +580,12 @@ footer{
 	background-color:  #33383b;
 	color: #ffffff;
 	font-size: 25px;
-	width: 38px;
-	height: 38px;
+	width: 15%;
+	height: 20%;
 	border-radius: 50%;
 	text-align: center;
-	line-height: 42px;
-	margin: 10px 15px;
+	line-height: 5%;
+	margin: 3% 4%;
 	vertical-align: middle;
 }
 
@@ -629,18 +631,18 @@ footer{
 	color:  #ffffff;
 	font-size: 14px;
 	font-weight: bold;
-	margin-bottom: 20px;
+	margin-bottom: 5%;
 }
 
 .colonne-footer .icone-social{
-  margin-top: 25px;
-  margin-left:200px;
+  margin-top: 5%;
+  margin-left:40%;
 }
 
 .colonne-footer .icone-social a{
 	display: block;
-	width: 35px;
-	height: 35px;
+	width: 3%;
+	height: 3%;
 	cursor: pointer;
 	background-color:  #33383b;
 	border-radius: 2px;
