@@ -103,7 +103,12 @@
     <p>Segnalatori Fumo:</p>
     <p><%= gestioneCasa[0].segnalatori_fumo %></p>
     <br />
-    <p>Qualche dubbio? Leggi le <a action="/visualizzaRecensioni" method="GET">recensioni</a>!</p>
+    <form action="/visualizzaRecensioni" method="GET">
+    <p>Qualche dubbio? Leggi le
+      <button id="btnPannello" type="submit" style="height: 5%; width: auto; margin-left: 8%">
+        Recensioni
+      </button> !
+    </p> </form>
   
     <!--Codice scritto precedentemente (decommentare se l'action e il metod non funzionano con il tag <a> 
        <form action="/visualizzaRecensioni" method="GET">
