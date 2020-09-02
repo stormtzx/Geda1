@@ -285,16 +285,21 @@ nav .barraDiRicerca {
    
 }
 
+/*regole di stile per lo slideshow */
+
 #slide {
   position:relative;
    width: 100%;
    height: 100%;
+   margin-top:-2%;
+   margin-bottom:-2%;
+
    -webkit-transition: all 0.5s ease-out;
    -moz-transition: left 0.5s ease-out;
    -o-transition: left 0.5s ease-out;
    transition: left 0.5s ease-out;
    transition:opacity 0.5s;
-
+  
 
  }
 
@@ -324,14 +329,16 @@ nav .barraDiRicerca {
   right:5%;
   width: 35%;
   height:80%;
-  
-}
+ }
 
 .contenutoBoxMenu h2 {
 
 margin-left: -5%;
+padding-right:5%;
 
 } 
+
+
 
 .contenutoBoxMenu form {
 
@@ -406,7 +413,7 @@ color:orange;
  #box1  {
 padding-top:5%;
 padding-left:5%;
-padding-bottom:3%; 
+padding-bottom:35%; 
  
 }
 #box1 img {
@@ -417,77 +424,50 @@ padding-bottom:3%;
 
 }
 
-#box1 h1 {
-
-position:relative;
  
+.descrizioneDestra {
 
-}
-
-#box1 p {
-  
   position:relative;
+  padding-left:33%;
+  margin-top:-35%; 
+}
+
+.descrizioneSinistra {
+
+  position: relative;
+  padding-right:35%;
+  text-align: right;
+  padding-bottom:25%;
  
 }
+ 
+
 
  #box2  {
   padding-top: 3%;
-
   padding-left: 72%;
   padding-bottom:3%; 
-  
-}
+ }
 
 #box2 img {
   
    border:1px solid black;
    width: 85%;
-   height: 90%;
+   height: auto;
  
 }
-
-#box2 h1 {
-
-position:relative;
  
-
-}
-
-#box2 p {
-  
-  position:relative;
- 
-
-}
-
   #box3   {
     padding-top:5%;
     padding-left:5%;
-    padding-bottom:3%; 
-  
+    padding-bottom:35%;   
 }
 
 #box3 img {
    
   border:1px solid black;
   width: 25%;
-  height: 30%;
-
-   
- 
-}
-
-#box3 h1 {
-
-position:relative;
- 
-
-}
-
-#box3 p {
-  
-  position:relative;
- 
+  height: 60%;
 
 }
 
@@ -506,43 +486,10 @@ position:relative;
     height: 90%;
   
   }
-  
-  #box4 h1 {
-  
-  position:relative;
    
   
-  }
-  
-  #box4 p {
-    
-    position:relative;
-   
-  
-  }
-  
-   
-/*
-  .home2 .descrizione {
-  text-align:right;  
-  width: auto;
-  float:right;
-  padding-right:10px;
-  padding-left:20px;
-  }  
-  .home2 .descrizione p  {
-
-    color:black;
-  }
-
-  .home2 .descrizione h1  {
-
-    color:black;
-  }
  
-*/
 
-/*regole di stile per lo slideshow */
 
 
 
