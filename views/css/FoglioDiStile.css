@@ -10,21 +10,15 @@ html,body {
     
 }
 
-#contenutoHome {
-
-  margin-top: -55px;
-
-}
+ 
 
 
 .contenutoConferma {
  
 
-  margin-top: -25px;
-  background:lightgrey;
-  height:480px;
-  width:100%;
-  margin-bottom:-80px; 
+   background:lightgrey;
+  padding-top: 5%;
+  PADDING-bottom:5%;
  
  }
 
@@ -33,9 +27,8 @@ html,body {
 
 color:green;
 text-align:center;
-padding-top: 20px;
 font-size: xx-large;
-margin-bottom: 7%
+PADDING-bottom: 7%
 
  }
 
@@ -144,12 +137,11 @@ header {
   opacity:0.9;
   border: none;
   position: relative;
-	padding: 32px;
-	height: 100px;
-  width: auto;
+ 	height: 60%;
+  width: 100%;
   background-color: #292c2f;
   box-shadow: 6px 6px 8px black;
-  
+   
 }
 
 
@@ -164,26 +156,25 @@ header {
 
  
 
-.benvenuto {
+#benvenuto {
 font-family:'Georgia';
 text-shadow:  1px 1px 3px black;
 font-weight: bold;
-font-size:60px;
+font-size:300%;
 text-align:center;
 width:auto;
 height:auto;
-
+padding-bottom:1%; 
 }
 
 /*regole di stile per la barra di navigazione*/
 nav {
-  position: absolute;
-  top: 0px;
-  right: 0px;
-   display: inline-block;
+  position: relative;
+    display: inline-block;
   /*border: 1px solid black;*/
   background-color: auto;
-  
+  padding-bottom:2%;
+  padding-left:15%;
   
   /*possibilità di animazione-> animation: slideIN 1s ease-out; */
 }
@@ -194,7 +185,7 @@ nav ul {
   display: flex;
   flex: 1 1 auto;
   margin: 0;
-  padding-right: 20px;
+  padding-right: -1%;
   list-style-type: none;
   
 }
@@ -284,26 +275,29 @@ nav .barraDiRicerca {
 
   /*Regole di stile per il menu chekIn/checkOut*/
 
-#menu {
+#menu { /* ovvero  ciò che contiene slideshow e menu prenotazione checkin e checkout */
   
   position:relative;
-  top: 55px;
-  height: 900;
-  width:auto;
+   height: 100%;
+  width:100%;
    
 }
 
+/*regole di stile per lo slideshow */
+
 #slide {
   position:relative;
-  top: 0px;
-  width: 100%;
+   width: 100%;
    height: 100%;
+   margin-top:-2%;
+   margin-bottom:-2%;
+
    -webkit-transition: all 0.5s ease-out;
    -moz-transition: left 0.5s ease-out;
    -o-transition: left 0.5s ease-out;
    transition: left 0.5s ease-out;
    transition:opacity 0.5s;
-
+  
 
  }
 
@@ -333,15 +327,22 @@ nav .barraDiRicerca {
   right:5%;
   width: 35%;
   height:80%;
-  
-}
+ }
 
 .contenutoBoxMenu h2 {
 
 margin-left: -5%;
+padding-right:5%;
 
 } 
 
+
+
+.contenutoBoxMenu form {
+
+  padding-top:5%;
+  padding-bottom:5%;
+}
 
 .contenutoBoxMenu input {
   
@@ -349,12 +350,12 @@ position:relative;
 border-radius:6px;
 width: 35%;
 height:80%;
-margin-left:50px;
-margin-top:60px;
-margin-bottom:20px;
+padding-left:5%;
 font-size:16px;
 
 }
+
+
 
 .contenutoBoxMenu button {
   background-color: black;
@@ -397,180 +398,96 @@ color:orange;
 .home2 {
   
   position:relative;
-   padding-top:25px;
-  margin-left:0px;
+  display:block;
+ padding-bottom:10%;
+   padding-left:0%;
    border-top:5px solid black;
    background: lightgray;
-  margin-bottom:-80px;
+  margin-bottom:-5%;
 }
-
 
  
 
-.home2 #bloccoBox {
-
-  display:inline-block;
-   text-align:right;
-    
-}
-
-.home2 #box1  {
-display:inline-block;
-width:40%;
-padding-right:50px;
-padding-left: 20px;
-padding-top: 30px;
-padding-bottom:30px;
-border-right:1px solid black;
-margin-left:40px;
-
+ #box1  {
+padding-top:5%;
+padding-left:5%;
+padding-bottom:35%; 
+ 
 }
 #box1 img {
-   
+  
   border:1px solid black;
-  margin-left: -15%; 
-  
- 
-}
-
-#box1 h1 {
-
-position:relative;
- 
+  width: 25%;
+  height: 30%;
 
 }
 
-#box1 p {
-  
+ 
+.descrizioneDestra {
+
   position:relative;
+  padding-left:33%;
+  margin-top:-35%; 
+}
+
+.descrizioneSinistra {
+
+  position: relative;
+  padding-right:35%;
+  text-align: right;
+  padding-bottom:25%;
+ 
+}
  
 
-}
 
-.home2 #box2  {
-  display:inline-block;
-  width:40%;
-  padding-right:30px;
-  padding-left: 30px;
-  padding-top: 30px;
-  padding-bottom:30px;
-}
+ #box2  {
+  padding-top: 3%;
+  padding-left: 72%;
+  padding-bottom:3%; 
+ }
 
 #box2 img {
-   
-  border:1px solid black;
-  margin-left: -15%; 
   
+   border:1px solid black;
+   width: 85%;
+   height: auto;
  
 }
-
-#box2 h1 {
-
-position:relative;
  
-
-}
-
-#box2 p {
-  
-  position:relative;
- 
-
-}
-
-.home2 #box3   {
-  display:inline-block;
-  width:40%;
-  padding-right:50px;
-  padding-left: 20px;
-  padding-top: 30px;
-  padding-bottom:30px;
-  border-right:1px solid black;
-  border-top:1px solid black;
-  text-align:right;
-  margin-left:40px;
-
-
+  #box3   {
+    padding-top:5%;
+    padding-left:5%;
+    padding-bottom:35%;   
 }
 
 #box3 img {
    
   border:1px solid black;
-  margin-left: -15%; 
-  
- 
-}
-
-#box3 h1 {
-
-position:relative;
- 
-
-}
-
-#box3 p {
-  
-  position:relative;
- 
+  width: 25%;
+  height: 60%;
 
 }
 
  
 
-.home2 #box4    {
-  display:inline-block;
-  width:40%;
-  padding-right:20px;
-  padding-left: 30px;
-  padding-top: 30px;
-  padding-bottom:30px;
-  border-top:1px solid black;
-  margin-left:-5px;
-
+  #box4    {
+    padding-left: 72%;
+    padding-top: 3%;
+ 
   }
 
   #box4 img {
    
     border:1px solid black;
-    margin-left: -15%; 
-    
-   
+    width: 85%;
+    height: 90%;
+  
   }
-  
-  #box4 h1 {
-  
-  position:relative;
    
   
-  }
-  
-  #box4 p {
-    
-    position:relative;
-   
-  
-  }
-  
-   
-
-  .home2 .descrizione {
-  text-align:right;  
-  width: auto;
-  float:right;
-  padding-right:10px;
-  padding-left:20px;
-  }  
-  .home2 .descrizione p  {
-
-    color:black;
-  }
-
-  .home2 .descrizione h1  {
-
-    color:black;
-  }
  
-/*regole di stile per lo slideshow */
+
 
 
 
@@ -579,7 +496,6 @@ position:relative;
 footer{
 	position: relative;
   bottom: 0;
-   
   color:white;
   
 }
@@ -590,17 +506,21 @@ footer{
 	width: 100%;
 	text-align: left;
 	font: bold 16px sans-serif;
-	padding: 55px 50px;
-	margin-top: 80px;
- 
+	padding: 2% 2%;
+  
 }
 
 #logoFooter {
 	display: inline-block;
   position: relative;
-  top: -20px;
-  left: 0px;
-  border-radius: 6px;
+  top: -5%;
+   border-radius: 6px;
+}
+
+#logoFooter {
+width: 55%;
+HEIGHT:40%;
+
 }
 
 .colonne-footer .colonna-sinistra,
@@ -627,7 +547,7 @@ footer{
 
 .colonne-footer .footer-links{
 	color:  #ffffff;
-	margin: 20px 0 12px;
+	margin: 5% 0 3%;
   padding: 0;
    
 }
@@ -650,6 +570,7 @@ footer{
 
 
 .colonne-footer .colonna-centrale{
+  
   width: 30%;
   margin-left:4%;
   
@@ -659,12 +580,12 @@ footer{
 	background-color:  #33383b;
 	color: #ffffff;
 	font-size: 25px;
-	width: 38px;
-	height: 38px;
+	width: 15%;
+	height: 20%;
 	border-radius: 50%;
 	text-align: center;
-	line-height: 42px;
-	margin: 10px 15px;
+	line-height: 5%;
+	margin: 3% 4%;
 	vertical-align: middle;
 }
 
@@ -710,18 +631,18 @@ footer{
 	color:  #ffffff;
 	font-size: 14px;
 	font-weight: bold;
-	margin-bottom: 20px;
+	margin-bottom: 5%;
 }
 
 .colonne-footer .icone-social{
-  margin-top: 25px;
-  margin-left:200px;
+  margin-top: 5%;
+  margin-left:40%;
 }
 
 .colonne-footer .icone-social a{
 	display: block;
-	width: 35px;
-	height: 35px;
+	width: 3%;
+	height: 3%;
 	cursor: pointer;
 	background-color:  #33383b;
 	border-radius: 2px;
@@ -1039,11 +960,11 @@ cursor: pointer;
 
    color:black;
   background-color:lightgray;
-  margin-top:-20px;
-   padding-bottom:100px;
-   margin-bottom:-80px;
-   padding-left:280px;
-  }
+    padding-bottom:10%;
+    padding-left:20%;
+    padding-top:5%;
+
+   }
 
 
 /*   QUi di seguito il codice per personalizzare l'input validation con delle icone
@@ -1112,8 +1033,8 @@ background-color: rgb(85, 85, 85);
 padding-left: 0%;
 width: 30%;
 height:60%;
-margin-bottom:-30px;
-padding-bottom:30px;
+margin-bottom:-5%;
+padding-bottom:3%;
 border: medium solid black;
 font-family:'Roboto', sans-serif; ;
 color:black;
@@ -1131,7 +1052,7 @@ box-shadow: 0 0.6px 0.6px rgba(128, 128, 128, 0.109),
   margin: 0 0 24px 0;
 
 }
-
+ 
  
 
 .contenutoPaginaImmissioneDati .modulo form {
@@ -1162,7 +1083,7 @@ box-shadow: 0 0.6px 0.6px rgba(128, 128, 128, 0.109),
 .bottoneIscrizione {
 
     width:100%;
-    margin: 18px 0px 50px 0px;
+    margin: 3% 0% 5% 0%;
     padding-left:50%;
 }
 
