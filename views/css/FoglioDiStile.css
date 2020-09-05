@@ -1800,6 +1800,43 @@ HEIGHT:40%;
 
 }
 
+.contenutoPaginaImmissioneDati h1 {
+  font-size: 12px;
+}
+
+.modulo {
+  font-size: 7px;
+}
+
+.modulo input {
+  font-size: 7px;
+}
+
+.contenutoPaginaVisualizzaDati h1 {
+  font-size: 12px;
+}
+
+.contenutoPannelli h1 {
+  font-size: 12px;
+}
+
+.contenutoPannelli form {
+  font-size: 7px;
+}
+
+.contenutoPannelli label {
+  font-size: 3px;
+}
+
+.contenutoPannelli input {
+  font-size: 5px;
+  margin-right: 2px;
+}
+
+.contenutoPannelli button {
+  font-size: 5px;
+  width: 10px
+}
 
 
 }
@@ -2251,6 +2288,49 @@ HEIGHT:40%;
 
 }
 
+.contenutoPaginaImmissioneDati h1 {
+  font-size: 12px;
+}
+
+.modulo {
+  font-size: 7px;
+}
+
+.modulo input {
+  font-size: 7px;
+}
+
+
+.contenutoPaginaVisualizzaDati h1 {
+  font-size: 12px;
+}
+
+.contenutoPannelli {
+  width: fit-content;
+}
+
+.contenutoPannelli h1 {
+  font-size: 12px;
+}
+
+.contenutoPannelli form {
+  font-size: 5px;
+}
+
+.contenutoPannelli label {
+  font-size: 3px;
+}
+
+.contenutoPannelli input {
+  font-size: 5px;
+  margin-right: 2px;
+}
+
+.contenutoPannelli button {
+  font-size: 5px;
+  width: 10px
+}
+
 
 
 
@@ -2649,6 +2729,45 @@ HEIGHT:40%;
   height:15px;
    width:15px;
 
+}
+
+.contenutoPaginaImmissioneDati h1 {
+  font-size: 12px;
+}
+
+.modulo {
+  font-size: 7px;
+}
+
+.modulo input {
+  font-size: 7px;
+}
+
+
+.contenutoPaginaVisualizzaDati h1 {
+  font-size: 12px;
+}
+
+.contenutoPannelli h1 {
+  font-size: 12px;
+}
+
+.contenutoPannelli form {
+  font-size: 3px;
+}
+
+.contenutoPannelli label {
+  font-size: 3px;
+}
+
+.contenutoPannelli input {
+  font-size: 3px;
+  margin-right: 2px;
+}
+
+.contenutoPannelli button {
+  font-size: 5px;
+  width: 10px
 }
 
 
