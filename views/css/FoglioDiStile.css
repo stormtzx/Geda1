@@ -1751,6 +1751,12 @@ HEIGHT:40%;
 	margin-bottom: 5px;
 }
 
+.colonne-footer .icone-social img {
+
+  height:25px;
+   width:25px;
+
+}
 
 
 
@@ -2145,6 +2151,12 @@ HEIGHT:40%;
 	margin-bottom: 5px;
 }
 
+.colonne-footer .icone-social img {
+
+  height:20px;
+   width:20px;
+
+}
 
 
 
@@ -2488,6 +2500,13 @@ HEIGHT:40%;
 	line-height: 22px;
 	margin-right: 3px;
 	margin-bottom: 5px;
+}
+
+.colonne-footer .icone-social img {
+
+  height:15px;
+   width:15px;
+
 }
 
 
