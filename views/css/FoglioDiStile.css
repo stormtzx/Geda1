@@ -157,10 +157,8 @@ header {
 font-family:'Georgia';
 text-shadow:  1px 1px 3px black;
 font-weight: bold;
-font-size:300%;
+font-size:36px;
 text-align:center;
-width:auto;
-height:auto;
 padding-bottom:1%; 
 }
 
@@ -1310,6 +1308,58 @@ smartphone (min-width: 480px) --- tablet (max-width:768px) --- desktop (max-widt
 
 @media screen and (max-width: 990px) {
 
+  
+#benvenuto {
+  font-family:'Georgia';
+  text-shadow:  1px 1px 3px black;
+  font-weight: bold;
+  font-size:26px;
+  text-align:center;
+  padding-bottom:1%; 
+  }
+  
+  /*regole di stile per la barra di navigazione*/
+  nav {
+    
+    position: relative;
+      display: inline-block;
+    /*border: 1px solid black;*/
+    background-color: auto;
+    padding-bottom:2%;
+    padding-left:30%;
+    
+    /*possibilità di animazione-> animation: slideIN 1s ease-out; */
+  }
+   
+  nav ul {
+    position: relative;
+    color:white;
+    display: flex;
+    flex: 1 1 auto;
+    margin: 0;
+    padding-right: -1%;
+    list-style-type: none;
+    
+  }
+  nav ul li:not(:last-child) {
+    margin-right: 10px;
+  }
+  
+  nav ul li {
+    border: 2px solid transparent;
+    border-radius: 5px;
+    padding: 10px;
+    transition: background 0.2s;
+  }
+  nav ul li a {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: color 0.3s;
+    
+  
+  }
+
   .hero-image1 { 
 
     height: 750px;
@@ -1374,19 +1424,8 @@ smartphone (min-width: 480px) --- tablet (max-width:768px) --- desktop (max-widt
     font: 8px;
   } 
 
-  .colonne-footer h3{
-    color:  #ffffff;
-    font: normal 26px 'Cookie';
-    margin: 0;
-  }
 
-  .colonne-footer p{
-    color:  #ffffff;
-    font: normal 26px 'Cookie';
-    margin: 0;
-  }
-
-
+  
   #slide {
     position:relative;
      width: 100%;
@@ -1400,26 +1439,6 @@ smartphone (min-width: 480px) --- tablet (max-width:768px) --- desktop (max-widt
     position: relative;
    
 }
-
-header {
-  color:white;
-  opacity:0.9;
-  border: none;
-  position: relative;
-  background-color: #292c2f;
-  box-shadow: 6px 6px 8px black;
-   
-}
-
-#benvenuto {
-  font-family:'Georgia';
-  text-shadow:  1px 1px 3px black;
-  font-weight: bold;
-  font-size:200%;
-  text-align:center;
-  padding-bottom:1%; 
-  }
-
 
 
  .contenutoBoxMenu p {
@@ -1474,11 +1493,228 @@ header {
 }
 
 
+footer{
+	position: relative;
+  bottom: 0;
+  color:white;
+  
+}
+.colonne-footer{
+	background-color: #292c2f;
+	box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
+	box-sizing: border-box;
+	width: 100%;
+	text-align: left;
+	font: bold 12px sans-serif;
+	padding: 2% 2%;
+  
+}
+
+#logoFooter {
+	display: inline-block;
+  position: relative;
+  top: -5%;
+   border-radius: 6px;
+}
+
+#logoFooter {
+width: 55%;
+HEIGHT:40%;
+
+}
+
+.colonne-footer .colonna-sinistra,
+.colonne-footer .colonna-centrale,
+.colonne-footer .colonna-destra{
+	display: inline-block;
+	vertical-align: top;
+}
+
+.colonne-footer .colonna-sinistra{
+	width: 30%;
+}
+
+.colonne-footer h3{
+	color:  #ffffff;
+	font: normal 30px 'Cookie', cursive;
+	margin: 0;
+}
+
+.colonne-footer h3 span{
+	color:  rgba(138, 125, 125, 0.947);
+}
+
+
+.colonne-footer .footer-links{
+	color:  #ffffff;
+	margin: 5% 0 3%;
+  padding: 0;
+   
+}
+
+.colonne-footer .footer-links a{
+	display:inline-block;
+	line-height: 1.8;
+	text-decoration: none;
+  color:  inherit;
+  
+  
+}
+
+.colonne-footer .footer-GEDAName{
+	color:  #8f9296;
+	font-size: 10px;
+	font-weight: normal;
+	margin: 0;
+}
+
+
+.colonne-footer .colonna-centrale{
+  
+  width: 30%;
+  margin-left:4%;
+  
+}
+
+.colonne-footer .colonna-centrale i{
+	background-color:  #33383b;
+	color: #ffffff;
+	font-size: 20px;
+	width: 15%;
+	height: 20%;
+	border-radius: 50%;
+	text-align: center;
+	line-height: 5%;
+	margin: 3% 4%;
+	vertical-align: middle;
+}
+
+.colonne-footer .colonna-centrale i.contatti{
+	font-size: 12px;
+	line-height: 30px;
+}
+
+.colonne-footer .colonna-centrale p{
+	display: inline-block;
+	color: #ffffff;
+	vertical-align: middle;
+	margin:0;
+}
+
+.colonne-footer .colonna-centrale p span{
+	display:block;
+	font-weight: normal;
+	font-size:10px;
+	line-height:2;
+}
+
+.colonne-footer .colonna-centrale p a{
+	color:  rgba(135, 132, 132, 0.947);
+	text-decoration: none;;
+}
+
+.colonne-footer .colonna-destra{
+  width: 33%;
+    
+}
+
+.colonne-footer .footer-infoSuDiNoi{
+	line-height: 20px;
+	color:  #92999f;
+	font-size: 7px;
+	font-weight: normal;
+	margin: 0;
+}
+
+.colonne-footer .footer-infoSuDiNoi span{
+	display: block;
+	color:  #ffffff;
+	font-size: 10px;
+	font-weight: bold;
+	margin-bottom: 5%;
+}
+
+.colonne-footer .icone-social{
+  margin-top: 5%;
+  margin-left:40%;
+}
+
+.colonne-footer .icone-social a{
+	display: block;
+	width: 3%;
+	height: 3%;
+	cursor: pointer;
+	background-color:  #33383b;
+	border-radius: 2px;
+	font-size: 16px;
+	color: #ffffff;
+	text-align: center;
+	line-height: 30px;
+	margin-right: 3px;
+	margin-bottom: 5px;
+}
+
+
+
+
 }
 
 
 @media screen and (max-width:768px)  {
   
+
+  #benvenuto {
+    font-family:'Georgia';
+    text-shadow:  1px 1px 3px black;
+    font-weight: bold;
+    font-size:18px;
+    text-align:center;
+    padding-bottom:1%; 
+    }
+    
+    /*regole di stile per la barra di navigazione*/
+    nav {
+      
+      position: relative;
+        display: inline-block;
+      /*border: 1px solid black;*/
+      background-color: auto;
+      padding-bottom:2%;
+      padding-left:30%;
+      
+      /*possibilità di animazione-> animation: slideIN 1s ease-out; */
+    }
+     
+    nav ul {
+      position: relative;
+      color:white;
+      display: flex;
+      flex: 1 1 auto;
+      margin: 0;
+      padding-right: -1%;
+      list-style-type: none;
+      
+    }
+    nav ul li:not(:last-child) {
+      margin-right: 10px;
+    }
+    
+    nav ul li {
+      border: 2px solid transparent;
+      border-radius: 5px;
+      padding: 10px;
+      transition: background 0.2s;
+    }
+    nav ul li a {
+      color: rgb(0, 0, 0);
+      text-decoration: none;
+      text-transform: uppercase;
+      transition: color 0.3s;
+      
+    
+    }
+  
+
   .hero-image1 { 
 
     height: 560px;
@@ -1556,8 +1792,174 @@ header {
   }
   
 
+  
+
+footer{
+	position: relative;
+  bottom: 0;
+  color:white;
+  
+}
+.colonne-footer{
+	background-color: #292c2f;
+	box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
+	box-sizing: border-box;
+	width: 100%;
+	text-align: left;
+	font: bold 8px sans-serif;
+	padding: 2% 2%;
+  
 }
 
+#logoFooter {
+	display: inline-block;
+  position: relative;
+  top: -5%;
+   border-radius: 6px;
+}
+
+#logoFooter {
+width: 55%;
+HEIGHT:40%;
+
+}
+
+.colonne-footer .colonna-sinistra,
+.colonne-footer .colonna-centrale,
+.colonne-footer .colonna-destra{
+	display: inline-block;
+	vertical-align: top;
+}
+
+.colonne-footer .colonna-sinistra{
+	width: 30%;
+}
+
+.colonne-footer h3{
+	color:  #ffffff;
+	font: normal 26px 'Cookie', cursive;
+	margin: 0;
+}
+
+.colonne-footer h3 span{
+	color:  rgba(138, 125, 125, 0.947);
+}
+
+
+.colonne-footer .footer-links{
+	color:  #ffffff;
+	margin: 5% 0 3%;
+  padding: 0;
+   
+}
+
+.colonne-footer .footer-links a{
+	display:inline-block;
+	line-height: 1.8;
+	text-decoration: none;
+  color:  inherit;
+  
+  
+}
+
+.colonne-footer .footer-GEDAName{
+	color:  #8f9296;
+	font-size: 6px;
+	font-weight: normal;
+	margin: 0;
+}
+
+
+.colonne-footer .colonna-centrale{
+  
+  width: 30%;
+  margin-left:4%;
+  
+}
+
+.colonne-footer .colonna-centrale i{
+	background-color:  #33383b;
+	color: #ffffff;
+	font-size: 16px;
+	width: 15%;
+	height: 20%;
+	border-radius: 50%;
+	text-align: center;
+	line-height: 5%;
+	margin: 3% 4%;
+	vertical-align: middle;
+}
+
+.colonne-footer .colonna-centrale i.contatti{
+	font-size: 8px;
+	line-height: 26px;
+}
+
+.colonne-footer .colonna-centrale p{
+	display: inline-block;
+	color: #ffffff;
+	vertical-align: middle;
+	margin:0;
+}
+
+.colonne-footer .colonna-centrale p span{
+	display:block;
+	font-weight: normal;
+	font-size:6px;
+	line-height:2;
+}
+
+.colonne-footer .colonna-centrale p a{
+	color:  rgba(135, 132, 132, 0.947);
+	text-decoration: none;;
+}
+
+.colonne-footer .colonna-destra{
+  width: 33%;
+    
+}
+
+.colonne-footer .footer-infoSuDiNoi{
+	line-height: 16px;
+	color:  #92999f;
+	font-size: 5px;
+	font-weight: normal;
+	margin: 0;
+}
+
+.colonne-footer .footer-infoSuDiNoi span{
+	display: block;
+	color:  #ffffff;
+	font-size: 6px;
+	font-weight: bold;
+	margin-bottom: 5%;
+}
+
+.colonne-footer .icone-social{
+  margin-top: 5%;
+  margin-left:40%;
+}
+
+.colonne-footer .icone-social a{
+	display: block;
+	width: 3%;
+	height: 3%;
+	cursor: pointer;
+	background-color:  #33383b;
+	border-radius: 2px;
+	font-size: 12px;
+	color: #ffffff;
+	text-align: center;
+	line-height: 26px;
+	margin-right: 3px;
+	margin-bottom: 5px;
+}
+
+
+
+
+
+}
 
 
 @media screen and (max-width:480px)  {
@@ -1642,6 +2044,170 @@ header {
   
   }
   
+  
+
+footer{
+	position: relative;
+  bottom: 0;
+  color:white;
+  
+}
+.colonne-footer{
+	background-color: #292c2f;
+	box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
+	box-sizing: border-box;
+	width: 100%;
+	text-align: left;
+	font: bold 4px sans-serif;
+	padding: 2% 2%;
+  
+}
+
+#logoFooter {
+	display: inline-block;
+  position: relative;
+  top: -5%;
+   border-radius: 6px;
+}
+
+#logoFooter {
+width: 55%;
+HEIGHT:40%;
+
+}
+
+.colonne-footer .colonna-sinistra,
+.colonne-footer .colonna-centrale,
+.colonne-footer .colonna-destra{
+	display: inline-block;
+	vertical-align: top;
+}
+
+.colonne-footer .colonna-sinistra{
+	width: 30%;
+}
+
+.colonne-footer h3{
+	color:  #ffffff;
+	font: normal 20px 'Cookie', cursive;
+	margin: 0;
+}
+
+.colonne-footer h3 span{
+	color:  rgba(138, 125, 125, 0.947);
+}
+
+
+.colonne-footer .footer-links{
+	color:  #ffffff;
+	margin: 5% 0 3%;
+  padding: 0;
+   
+}
+
+.colonne-footer .footer-links a{
+	display:inline-block;
+	line-height: 1.8;
+	text-decoration: none;
+  color:  inherit;
+  
+  
+}
+
+.colonne-footer .footer-GEDAName{
+	color:  #8f9296;
+	font-size: 3px;
+	font-weight: normal;
+	margin: 0;
+}
+
+
+.colonne-footer .colonna-centrale{
+  
+  width: 30%;
+  margin-left:4%;
+  
+}
+
+.colonne-footer .colonna-centrale i{
+	background-color:  #33383b;
+	color: #ffffff;
+	font-size: 12px;
+	width: 15%;
+	height: 20%;
+	border-radius: 50%;
+	text-align: center;
+	line-height: 5%;
+	margin: 3% 4%;
+	vertical-align: middle;
+}
+
+.colonne-footer .colonna-centrale i.contatti{
+	font-size: 4px;
+	line-height: 20px;
+}
+
+.colonne-footer .colonna-centrale p{
+	display: inline-block;
+	color: #ffffff;
+	vertical-align: middle;
+	margin:0;
+}
+
+.colonne-footer .colonna-centrale p span{
+	display:block;
+	font-weight: normal;
+	font-size:3px;
+	line-height:2;
+}
+
+.colonne-footer .colonna-centrale p a{
+	color:  rgba(135, 132, 132, 0.947);
+	text-decoration: none;;
+}
+
+.colonne-footer .colonna-destra{
+  width: 33%;
+    
+}
+
+.colonne-footer .footer-infoSuDiNoi{
+	line-height: 16px;
+	color:  #92999f;
+	font-size: 3px;
+	font-weight: normal;
+	margin: 0;
+}
+
+.colonne-footer .footer-infoSuDiNoi span{
+	display: block;
+	color:  #ffffff;
+	font-size: 3px;
+	font-weight: bold;
+	margin-bottom: 5%;
+}
+
+.colonne-footer .icone-social{
+  margin-top: 5%;
+  margin-left:40%;
+}
+
+.colonne-footer .icone-social a{
+	display: block;
+	width: 3%;
+	height: 3%;
+	cursor: pointer;
+	background-color:  #33383b;
+	border-radius: 2px;
+	font-size: 8px;
+	color: #ffffff;
+	text-align: center;
+	line-height: 22px;
+	margin-right: 3px;
+	margin-bottom: 5px;
+}
+
+
 
 }
 
