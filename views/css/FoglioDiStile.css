@@ -276,8 +276,7 @@ nav .barraDiRicerca {
 #menu { /* ovvero  ciò che contiene slideshow e menu prenotazione checkin e checkout */
   
   position:relative;
-   height: 100%;
-  width:100%;
+   
    
 }
 
@@ -297,6 +296,9 @@ nav .barraDiRicerca {
   
 
  }
+
+
+
 
  #slide.fadeOut {
 
@@ -403,31 +405,56 @@ color:orange;
    border-top:5px solid black;
    background: lightgray;
   margin-bottom:-5%;
+
 }
 
  
 
  #box1  {
-padding-top:5%;
+padding-top:2%;
 padding-left:5%;
-padding-bottom:35%; 
+padding-bottom:30%; 
  
 }
+
+ 
+
 #box1 img {
   
   border:1px solid black;
   width: 25%;
-  height: 30%;
-
+  height: 20%;
+ 
 }
 
- 
+/*
+@keyframes example {
+
+  0% { left:0px; top:0px;}
+  50% { left:50px; top:50px;}
+  100% { left:100px; top:100px;}
+  
+}
+
+*/
+
 .descrizioneDestra {
 
   position:relative;
   padding-left:33%;
-  margin-top:-35%; 
+  margin-top:-30%; 
+  animation-name: example;
+  animation-duration: 2s;
+ 
 }
+
+.descrizioneDestra:hover {
+zoom:1.2;
+}
+
+.descrizioneSinistra:hover {
+  zoom:1.2;
+  }
 
 .descrizioneSinistra {
 
@@ -435,15 +462,45 @@ padding-bottom:35%;
   padding-right:35%;
   text-align: right;
   padding-bottom:25%;
+  margin-top:-35%; 
  
 }
  
+.descrizioneSinistra p {
+  
+  color:black;
+
+
+ 
+}
+
+.descrizioneDestra p {
+  
+  color:black;
+ 
+}
+
+
+.descrizioneSinistra h1 {
+  
+  color:black;
+  text-shadow:  1px 1px 3px 3px rgb(0, 0, 0);
+  animation: slideIN 1s ease-out; 
+}
+
+.descrizioneDestra h1 {
+  
+  color:black;
+  text-shadow:  1px 1px 3px 3px rgb(0, 0, 0);
+  animation: bounceInRight 2s ease-out; 
+
+}
 
 
  #box2  {
   padding-top: 3%;
   padding-left: 72%;
-  padding-bottom:3%; 
+  padding-bottom:5%; 
  }
 
 #box2 img {
@@ -451,13 +508,16 @@ padding-bottom:35%;
    border:1px solid black;
    width: 85%;
    height: auto;
+  
  
 }
+
+
  
   #box3   {
-    padding-top:5%;
+    padding-top:3%;
     padding-left:5%;
-    padding-bottom:35%;   
+    padding-bottom:30%;   
 }
 
 #box3 img {
@@ -467,7 +527,7 @@ padding-bottom:35%;
   height: 60%;
 
 }
-
+ 
  
 
   #box4    {
@@ -484,10 +544,7 @@ padding-bottom:35%;
   
   }
    
-  
  
-
-
 
 
 /*regole di stile per il footer*/
@@ -1244,36 +1301,75 @@ height: 70px;
 
  
 
-/*  
-Il checkbox va nascosto in ogni caso ed il menu comparirà quando esso verrà selezionato tramite click sull’etichetta */
-input[type=checkbox].hidden{
-  opacity: 0;
-}
-
-/* La tilde alt126 permette di selezionare tutti gli elementi B presenti in A; 
-qui sta a significare che dà visibilità al menu quando il checkbox viene selezionato. */
-input[type=checkbox]:checked ~ #menu{display:block}
 
 
 /* MEDIA QUERIES */
 /* rendo il menù responsivo per adattarlo ai dispositivi più piccoli, fino ad una risoluzione massima di 768px */
-@media only screen and (max-width: 768px) {
 
-.hero-image1, .hero-image2, .hero-image3, .hero-image4 {
-  object-fit: cover;
-  max-width: 50%;
-  max-height: 750px;
-  max-zoom: 100%;
-  min-zoom: 100%;
-}
-  
+ 
+@media screen and (max-width: 990px) {
+
+  #slide {
+    position:relative;
+     width: 100%;
+     height: 100%;
+     margin-top:-3%;
+     margin-bottom:-2%;
+
+} 
+
 #menu{
-    border-radius:0;
-    text-align:center;
-    display:none}
+    position: relative;
+   
+}
+
+header {
+  color:white;
+  opacity:0.9;
+  border: none;
+  position: relative;
+  background-color: #292c2f;
+  box-shadow: 6px 6px 8px black;
+   
+}
+
+#benvenuto {
+  font-family:'Georgia';
+  text-shadow:  1px 1px 3px black;
+  font-weight: bold;
+  font-size:200%;
+  text-align:center;
+   
+  padding-bottom:1%; 
+  }
+
+.boxMenu {
+    
+  position:absolute;
+  top:10%;
+  right:8%;
+  width: 17%;
+  height:40%;
+  background-color: #292c2f;
+	box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
+  box-sizing: border-box;
+  opacity: 0.6;
+}
+
+.contenutoBoxMenu {
+  opacity: 100%;
+  box-sizing: border-box;
+  position:absolute;
+  top:12%;
+  right:5%;
+  width: 17%;
+  height:40%;
+ 
+ }
+
+ 
   
-/* rendo gli elementi dei menu elementi di blocco */  
-ul li{display:block}
+ 
   
 /* imposto la larghezza massima per gli elementi dei menu e i links */  
 #menu li .hidden li,#menu li .hidden li a, ul li,ul li a{
@@ -1282,30 +1378,103 @@ ul li{display:block}
     width:100%;
     border-right:none
 }
-  
-/* mostro il sottomenu solo al passaggio del mouse */   
-#menu li .hidden li{
-    display:none}
-#menu li:hover .hidden li{display:block}  
-
-/* resetto la posizione degli elementi del menu. static valore di default. Gli elementi sono mostrati in ordine, come appaiono nel flusso del documento */  
-#menu li{position:static}  
-  
-/* resetto la posizione del sottomenu e lo mostro */  
-#menu li .hidden{position: static;visibility:visible}
-  
-/* nessuna animazione al passaggio del mouse */  
-#menu li:hover .hidden{margin:0} 
-  
-/* colore di sfondo agli elementi del menu e del sottomenu */
-#menu li{background-color:#3E3E3E}
-#menu li .hidden li{background-color:rgb(62, 61, 61)}  
-  
-/* mostro il pulsante del menu nella versione mobile*/
-.showMenu{display:block}  
+ 
 
 
-
+  
+  /*regole di stile per la barra di navigazione*/
+  nav ul {
+    position: relative;
+    color:white;
+    display: flex;
+    flex: 1 1 auto;
+    margin: 0;
+    padding-right: -1%;
+    list-style-type: none;
+    
+  }
+  nav ul li:not(:last-child) {
+    margin-right: 5px;
+  }
+  
+  nav ul li {
+    border: 1px solid transparent;
+    border-radius: 2px;
+    padding: 5px;
+    transition: background 0.2s;
+  }
+  nav ul li a {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: color 0.3s;
+  
+  }
+  nav ul li ul {
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    display: block;
+    margin: 6px -6px;
+    width: inherit;
+    padding: 0;
+    background: lightgray;
+    border: 2px 1px 1px solid #000000;
+    border-right: 1px solid #000000;
+    border-bottom: 1px solid #000000;
+    border-radius: 5px;
+    transition: opacity 0.2s, visibility 0.2s;
+  }
+  nav ul li ul li {
+    margin: -1px 0 0 -1px;
+    width: calc(100% - 10px);
+    line-height: 1.7;
+  }
+  nav ul li ul li a {
+    color: rgb(0, 0, 0);
+  }
+  nav ul li:hover {
+    background: orange;
+    border: 1px solid orange;
+    border-right: 2px solid orange;
+    border-bottom: 2px solid orange;
+  }
+  nav ul li:hover a {
+    color: gray;
+  }
+  nav ul li:hover ul {
+    visibility: visible;
+    opacity: 1;
+    box-shadow: 0px 2px 2px 2px orange;
+  }
+  nav ul li:hover ul li a {
+    color: black;
+  }
+   
+  nav .barraDiRicerca {
+    
+    position:relative;
+    display:inline;
+    border-radius:6px;
+    color:black;
+    margin-right:2px; 
+    box-shadow: #000000;
+    color: black;
+     
+    }
+    
+    nav .bottoneRicerca {
+      
+      position:relative;
+      margin-right:2px; 
+      margin-left:2px; 
+      border-color:orange;
+      box-shadow: #000000;
+      color: black;
+      text-decoration: none;
+      width: 40px;
+       
+    }
 /* media per il footer */
 .colonne-footer{
   font: bold 14px sans-serif;
@@ -1321,8 +1490,5 @@ ul li{display:block}
   text-align: center;
 }
 
-.colonne-footer .colonna-centrale i{
-  margin-left: 0;
 }
-  
-}
+
