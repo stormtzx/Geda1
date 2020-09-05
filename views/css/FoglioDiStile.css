@@ -1408,22 +1408,22 @@ smartphone (min-width: 480px) --- tablet (max-width:768px) --- desktop (max-widt
 
   .hero-text1 {
 
-    font: 8px;
+    font-size: 12px;
   } 
   
   .hero-text2 {
 
-    font: 8px;
+    font-size: 12px;
   } 
   
   .hero-text3 {
 
-    font: 8px;
+    font-size: 12px;
   } 
   
   .hero-text4 {
 
-    font: 8px;
+    font-size: 12px;
   } 
 
 
@@ -1443,24 +1443,66 @@ smartphone (min-width: 480px) --- tablet (max-width:768px) --- desktop (max-widt
 }
 
 
- .contenutoBoxMenu p {
+.boxMenu {
+    
+  position:absolute;
+  top:10%;
+  right:8%;
+  width: 35%;
+  height:80%;
+  background-color: #292c2f;
+	box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
+  box-sizing: border-box;
+  opacity: 0.6;
+}
 
-  font-size:12px;
+
+.contenutoBoxMenu p {
+
+  font-size:8px;
 
  }
 
  .contenutoBoxMenu a {
-  font-size:12px;
+  font-size:7px;
+  margin-bottom: 7px;
+  margin-top: 3px;
 
 }
 
 .contenutoBoxMenu h1 {
 
-  font-size:20px;
+  font-size:12px;
 
 
 }
+
+.contenutoBoxMenu h2 {
+  font-size: 10px;
+}
+
+.contenutoBoxMenu form {
+  font-size: 7px;
+}
+
+.contenutoBoxMenu label {
+  font-size: 7px;
+}
+
+.contenutoBoxMenu input {
+  font-size: 7px;
+}
+
+.contenutoBoxMenu button {
+  font-size: 7px;
+
+}
+
+.contenutoBoxMenu .cercaCittà {
+  margin-bottom: 3px;
+}
  
+
 .descrizioneSinistra p {
   
   color:black;
@@ -1861,6 +1903,57 @@ HEIGHT:40%;
     float: left;
   }
 
+
+
+
+  .contenutoBoxMenu p {
+
+    font-size:6px;
+  
+   }
+  
+   .contenutoBoxMenu a {
+    font-size:7px;
+    margin-bottom: 7px;
+    margin-top: 3px;
+  
+  }
+  
+  .contenutoBoxMenu h1 {
+  
+    font-size:12px;
+  
+  
+  }
+  
+  .contenutoBoxMenu h2 {
+    font-size: 8px;
+  }
+  
+  .contenutoBoxMenu form {
+    font-size: 5px;
+  }
+  
+  .contenutoBoxMenu label {
+    font-size: 5px;
+  }
+  
+  .contenutoBoxMenu input {
+    font-size: 7px;
+  }
+  
+  .contenutoBoxMenu button {
+    font-size: 5px;
+  
+  }
+  
+  .contenutoBoxMenu .cercaCittà {
+    margin-bottom: 1px;
+  }
+  
+
+
+
   .descrizioneSinistra p {
   
     color:black;
@@ -2211,6 +2304,55 @@ HEIGHT:40%;
     float: left;
 
   }
+
+
+
+  .contenutoBoxMenu p {
+
+    font-size:1px;
+    margin-top: 1px;
+  
+   }
+  
+   .contenutoBoxMenu a {
+    font-size:5px;
+    margin-bottom: 7px;
+    margin-top: 3px;
+  
+  }
+  
+  .contenutoBoxMenu h1 {
+  
+    font-size:12px;
+  
+  
+  }
+  
+  .contenutoBoxMenu h2 {
+    font-size: 6px;
+  }
+  
+  .contenutoBoxMenu form {
+    font-size: 4px;
+  }
+  
+  .contenutoBoxMenu label {
+    font-size: 4px;
+  }
+  
+  .contenutoBoxMenu input {
+    font-size: 6px;
+  }
+  
+  .contenutoBoxMenu button {
+    font-size: 4px;
+  
+  }
+  
+  .contenutoBoxMenu .cercaCittà {
+    margin-bottom: 1px;
+  }
+  
 
 
   .descrizioneSinistra p {
