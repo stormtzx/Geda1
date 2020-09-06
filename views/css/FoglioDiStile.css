@@ -1322,10 +1322,17 @@ smartphone (min-width: 480px) --- tablet (max-width:768px) --- desktop (max-widt
 
 .contenutoBoxMenu h2 {
   font-size: 10px;
+
+  margin-left: -5%;
+padding-right:5%;
 }
 
 .contenutoBoxMenu form {
   font-size: 7px;
+
+  
+  padding-top:5%;
+  padding-bottom:5%;
 }
 
 .contenutoBoxMenu label {
@@ -1334,10 +1341,34 @@ smartphone (min-width: 480px) --- tablet (max-width:768px) --- desktop (max-widt
 
 .contenutoBoxMenu input {
   font-size: 7px;
+
+  position:relative;
+  border-radius:6px;
+  width: 35%;
+  height:80%;
+  padding-left:5%;
+  font-size:16px;
+  
+
 }
 
 .contenutoBoxMenu button {
   font-size: 7px;
+
+  background-color: black;
+  border: solid 0.5px black;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: block;
+  font-size: 10px;
+  cursor: pointer;
+  border-radius: 4px;
+  position:relative;
+  margin-top:5%;
+  left:15%;
+  width: 35%;
+  height: 5%;
 
 }
 
@@ -1383,8 +1414,8 @@ smartphone (min-width: 480px) --- tablet (max-width:768px) --- desktop (max-widt
  
 
   background:lightgrey;
- padding-top: 5%;
- PADDING-bottom:5%;
+ padding-top: 8%;
+ PADDING-bottom:20%;
 
 }
 
@@ -1400,11 +1431,9 @@ PADDING-bottom: 7%
 
 .contenutoConferma p {
 
- 
  text-align:center;
-  
  
-  }
+}
 
 .contenutoConferma img {
    align-content:center;
@@ -1412,7 +1441,7 @@ PADDING-bottom: 7%
 margin: 0 auto ;
 height:140px;
 width:140px;
-
+ 
  
 }
 
@@ -1422,7 +1451,7 @@ width:140px;
  text-align:center;
   background:lightgrey;
   padding-top: 3%;
- PADDING-bottom:5%;
+  PADDING-bottom:20%;
   
 
 }
@@ -1645,14 +1674,47 @@ HEIGHT:40%;
 
 .modulo {
   font-size: 10px;
-}
+ }
 
 .modulo input {
   font-size: 10px;
 }
 
+.contenutoPannelli {
+
+
+  color: black;
+  background-color:lightgray;
+   padding-top:5%;
+   padding-bottom:50%;
+   padding-right: 50%;
+   
+  
+ }
+ 
+ .contenutoPannelli .modulo  {
+ 
+     background-color: rgb(85, 85, 85);
+     margin-left:45%;
+     padding-bottom:2%;
+     padding-top:2%;
+     padding-left:3%;
+     padding-right: 3%;
+    width: 80%;
+   height:120%;
+ 
+ }
+
+
 .contenutoPannelli h1 {
   font-size: 12px;
+
+  padding-top:15px;
+  font-family:'Verdana';
+  text-shadow:  1px 1px 3px black;
+  font-weight: bold;
+   text-align:center;
+  padding-left:4%;
 }
 
 .contenutoPannelli form {
@@ -1660,7 +1722,7 @@ HEIGHT:40%;
 }
 
 .contenutoPannelli label {
-  font-size: 6px;
+  font-size: 9px;
 }
 
 .contenutoPannelli input {
@@ -1676,6 +1738,8 @@ HEIGHT:40%;
 
 }
 
+
+/*Qui di seguito il css con media query per gli schermi con dimensione tipica dei tablet*/
 
 @media screen and (max-width:768px)  {
   
@@ -1865,9 +1929,9 @@ HEIGHT:40%;
  
 
   background:lightgrey;
- padding-top: 5%;
- PADDING-bottom:5%;
-
+  padding-top: 12%;
+  PADDING-bottom:50%;
+ 
 }
 
 
@@ -1875,7 +1939,7 @@ HEIGHT:40%;
 
 color:green;
 text-align:center;
-font-size: large;
+font-size: x-large;
 PADDING-bottom: 7%
 
 }
@@ -1892,8 +1956,8 @@ PADDING-bottom: 7%
    align-content:center;
  display:block;
 margin: 0 auto ;
-height:100px;
-width:100px;
+height:130px;
+width:130px;
 
  
 }
@@ -1903,9 +1967,8 @@ width:100px;
 
  text-align:center;
   background:lightgrey;
-  padding-top: 3%;
- PADDING-bottom:5%;
-  
+  padding-top: 12%;
+ PADDING-bottom:50%;
 
 }
 
@@ -2301,8 +2364,8 @@ HEIGHT:40%;
  
 
     background:lightgrey;
-   padding-top: 5%;
-   PADDING-bottom:5%;
+   padding-top: 15%;
+   PADDING-bottom:75%;
   
   }
   
@@ -2338,8 +2401,8 @@ HEIGHT:40%;
   
    text-align:center;
     background:lightgrey;
-    padding-top: 3%;
-   PADDING-bottom:5%;
+    padding-top: 15%;
+    PADDING-bottom:75%;
     
   
   }
