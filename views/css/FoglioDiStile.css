@@ -11,8 +11,6 @@ html,body {
 }
 
  
-
-
 .contenutoConferma {
  
 
@@ -109,22 +107,6 @@ margin: 0 auto ;
   
    }
 
- 
-
-/*.contenutoConfermaIscrizioneCliente {
-  margin-top: -25px;
-  background:lightgrey;
-  height:480px;
-  width:100%;
-  margin-bottom:-80px; 
-
-}
-.contenutoConfermaIscrizioneCliente img  {
-
-  align-content:center;
-  display:block;
-margin: 0px auto ;
-}*/
  
 
 * {  /*Il body è con ogni carattere bianco*/
@@ -705,9 +687,17 @@ HEIGHT:40%;
 	color: #ffffff;
 	text-align: center;
 	line-height: 35px;
-
+ 
 	margin-right: 3px;
 	margin-bottom: 5px;
+}
+
+
+.colonne-footer .icone-social img {
+
+height: 30px;
+width:30px;
+
 }
 
 
@@ -849,7 +839,9 @@ padding-bottom:25px;
 }
 
 
- /*Stile per i contenuti delle varie pagine circa 3 macrocategorie)*/
+ /*Stile per i contenuti delle varie pagine di tipo: iscrizione,accesso e visualizzazione dati.
+ Tutti questi si troveranno all'interno della classe "contenutopannelli" e spesso dentro il div
+ "modulo"*/
 
 
  .contenutoPannelli {
@@ -864,16 +856,6 @@ padding-bottom:25px;
   
  }
 
- #btnPannello {
-  
-  width:80%;
-    color:black;
-  border-color: solid black; 
-  background-color: orange;
-  border-radius: 6px;
- } 
-
-  
  
  .contenutoPannelli .modulo  {
 
@@ -885,7 +867,8 @@ padding-bottom:25px;
      margin-left:35%;
      padding-bottom:2%;
      padding-top:2%;
-
+     padding-left:3%;
+     padding-right: 3%;
     width: 30%;
    height:120%;
   border: medium solid black;
@@ -908,117 +891,45 @@ padding-bottom:25px;
   font-family:'Verdana';
   text-shadow:  1px 1px 3px black;
   font-weight: bold;
-  font-size:30px;
-  text-align:center;
+   text-align:center;
+  padding-left:4%;
 
 }
  
+.contenutoPannelli h2 {
 
- 
-
-
- input #ckbox {
-
-  padding-top:5px;
-  width:10px;
-  height:10px;
-
-}
- 
- .contenutoPaginaVisualizzaDati {
-
-  color:black;
- background-color:lightgray;
- 
- padding-bottom:5%;
- padding-top:5%;
-
-
-
-}
-
-.contenutoPaginaVisualizzaDati h1 {
-
-  color:orangered;
-  padding-top:15px;
-  font-family:'Verdana';
-  text-shadow:  1px 1px 3px black;
-  font-weight: bold;
-  font-size:36px;
-  text-align:center;
-
-}
-
-.contenutoPaginaVisualizzaDati .modulo {
-
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  color: black;
-  margin-left:22%;
-  margin-right:-5%;
-  background-color: rgb(85, 85, 85);
-  padding-bottom:2%;
-   width: 50%;
-  height:60%;
-  border: medium solid black;
-  font-family:'Roboto', sans-serif; ;
-  color:black;
-  border-radius: 10px;
-  box-shadow: 0 0.6px 0.6px rgba(128, 128, 128, 0.109),
-    0 2px 2px rgba(128, 128, 128, 0.155),
-    0 3.1px 3.1px rgba(128, 128, 128, 0.195),
-    0 5.4px 5.4px rgba(128, 128, 128, 0.241),
-    0 14px 14px rgba(128, 128, 128, 0.35);
   
-  }
+  padding-left:3%;
+  padding-right:3%;
 
-  .contenutoPaginaVisualizzaDati p a {
+}
+.contenutoPannelli h3 {
 
-    text-decoration:underline;
-color:gray;
+  padding-left:3%;
+  padding-right:3%;
 
-  }
-
-  .contenutoPaginaVisualizzaDati p a:hover {
- 
-color:orange;
-cursor: pointer;
-
-  }
+}
 
 
+.contenutoPannelli input {
 
-  .contenutoPaginaVisualizzaDati form p a:hover {
+  margin-top:5%;
+  margin-bottom:5%;
+}
 
  
-color:orange;
-cursor: pointer;
+#btnPannello {
+  
+  width:80%;
+    color:black;
+  border-color: solid black; 
+  background-color: orange;
+  border-radius: 6px;
+  margin-left:6%;
+ } 
 
-  }
+  
 
- 
-
-.contenutoPaginaImmissioneDati {
-
-   color:black;
-  background-color:lightgray;
-    padding-bottom:10%;
-    padding-left:20%;
-    padding-top:5%;
-
-   }
-
-   .contenutoPaginaImmissioneDati button {
-    
-    margin-top:5%;
-    margin-left:25%;
-    margin-bottom:5%;
-    padding-right:25%;
-   
-
-   }
 
 /*   QUi di seguito il codice per personalizzare l'input validation con delle icone
 
@@ -1038,77 +949,7 @@ background-repeat: no-repeat;
 
 */
 
-.contenutoPaginaImmissioneDati h1 {
-
-  color:orangered;
-   padding-right:22%;
-  margin-right:5%;
-  font-family:'Verdana';
-  text-shadow: 1px 1px 3px black;
-  font-weight: bold;
-  font-size:30px;
-  text-align:center;
-
-}
-
-.contenutoPaginaImmissioneDati p {
-  text-align:center;
-}
-
-.contenutoPaginaImmissioneDati input {
-  padding-right:5%;
-  margin-right:5%;
-  font-size:18px;
-  
-  
-}
- 
-  
-
-.contenutoPaginaImmissioneDati .modulo {
-
-
-display: flex;
-flex-direction: column;
-align-items: center;
-color: black;
-
-margin-left:22%;
-margin-right:-5%;
-background-color: rgb(85, 85, 85);
-
-padding-left: 0%;
-width: 30%;
-height:60%;
-margin-bottom:-5%;
-padding-bottom:3%;
-border: medium solid black;
-font-family:'Roboto', sans-serif; ;
-color:black;
-border-radius: 10px;
-box-shadow: 0 0.6px 0.6px rgba(128, 128, 128, 0.109),
-  0 2px 2px rgba(128, 128, 128, 0.155),
-  0 3.1px 3.1px rgba(128, 128, 128, 0.195),
-  0 5.4px 5.4px rgba(128, 128, 128, 0.241),
-  0 14px 14px rgba(128, 128, 128, 0.35);
-
-}
-
-.modulo .h1 {
-
-  margin: 0 0 24px 0;
-
-}
- 
- 
-
-.contenutoPaginaImmissioneDati .modulo form {
- 
-    margin-top:5%;
-    padding-left:10%;
-    color:black;
-}
-
+/*
 .modulo label {
   color:yellow;
 
@@ -1135,6 +976,8 @@ box-shadow: 0 0.6px 0.6px rgba(128, 128, 128, 0.109),
 }
 
  
+*/
+
 
 .btnLogout:hover, .btnLogout:visited {
   color: gray;
@@ -1536,8 +1379,6 @@ smartphone (min-width: 480px) --- tablet (max-width:768px) --- desktop (max-widt
 
 }
 
-
-
 .contenutoConferma {
  
 
@@ -1800,20 +1641,14 @@ HEIGHT:40%;
 
 }
 
-.contenutoPaginaImmissioneDati h1 {
-  font-size: 12px;
-}
+ 
 
 .modulo {
-  font-size: 7px;
+  font-size: 10px;
 }
 
 .modulo input {
-  font-size: 7px;
-}
-
-.contenutoPaginaVisualizzaDati h1 {
-  font-size: 12px;
+  font-size: 10px;
 }
 
 .contenutoPannelli h1 {
@@ -1821,20 +1656,20 @@ HEIGHT:40%;
 }
 
 .contenutoPannelli form {
-  font-size: 7px;
+  font-size: 8px;
 }
 
 .contenutoPannelli label {
-  font-size: 3px;
+  font-size: 6px;
 }
 
 .contenutoPannelli input {
-  font-size: 5px;
+  font-size: 8px;
   margin-right: 2px;
 }
 
 .contenutoPannelli button {
-  font-size: 5px;
+  font-size: 8px;
   width: 10px
 }
 
@@ -2288,10 +2123,7 @@ HEIGHT:40%;
 
 }
 
-.contenutoPaginaImmissioneDati h1 {
-  font-size: 12px;
-}
-
+ 
 .modulo {
   font-size: 7px;
 }
@@ -2299,12 +2131,7 @@ HEIGHT:40%;
 .modulo input {
   font-size: 7px;
 }
-
-
-.contenutoPaginaVisualizzaDati h1 {
-  font-size: 12px;
-}
-
+ 
 .contenutoPannelli {
   width: fit-content;
 }
@@ -2731,9 +2558,7 @@ HEIGHT:40%;
 
 }
 
-.contenutoPaginaImmissioneDati h1 {
-  font-size: 12px;
-}
+ 
 
 .modulo {
   font-size: 7px;
@@ -2743,10 +2568,12 @@ HEIGHT:40%;
   font-size: 7px;
 }
 
+.contenutoPannelli {
+  width: fit-content;
 
-.contenutoPaginaVisualizzaDati h1 {
-  font-size: 12px;
+
 }
+
 
 .contenutoPannelli h1 {
   font-size: 12px;
