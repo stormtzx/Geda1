@@ -119,11 +119,9 @@ header {
   color:white;
   opacity:0.9;
   border: none;
-  position: relative;
-   background-color: #292c2f;
+    background-color: #292c2f;
   box-shadow: 6px 6px 8px black;
-   
-}
+ }
 
 
 
@@ -146,70 +144,60 @@ text-align:center;
 padding-bottom:1%; 
 }
 
+
 /*regole di stile per la barra di navigazione*/
-
-#containerNav {
-
-  position: relative;
- /*border: 1px solid black;*/
-background-color: auto;
-padding-left:15%;
-padding-right:5%;
-
-
-
-}
-
 nav {
-  
   position: relative;
+  top: 1px;
+    margin-left:20%;
+    padding-right:2%;
     display: inline-block;
-   background-color: auto;
-  padding-bottom:2%;
-  padding-left:30%;
-  font-size:70%;
+  border: 1px solid black;
+  font-size:80%;
+  padding-top:-2%;
   
   /*possibilità di animazione-> animation: slideIN 1s ease-out; */
 }
  
 nav ul {
   position: relative;
-  color:white;
   display: flex;
   flex: 1 1 auto;
-  margin: 0;
-  padding-left: 5%;
+  padding-top:2%;
+   margin-right:-2%;
   list-style-type: none;
-  
 }
+
+nav ion-icon {
+
+  padding-right:1%;
+}
+
 nav ul li:not(:last-child) {
-  margin-right: 10px;
+  margin-right: 40px;
 }
 
 nav ul li {
   border: 2px solid transparent;
   border-radius: 5px;
-  padding-top: 1%;
-  padding-right:2%;
+  padding-top: 10px;
   padding-left:2%;
-  transition: background 0.4s;
+  padding-right:2%;
+   transition: background 0.4s;
 }
 nav ul li a {
   color: rgb(0, 0, 0);
   text-decoration: none;
   text-transform: uppercase;
-  transition: color 0.3s;
-  padding-right:2%;
-  padding-left:2%;
+  transition: color 0.4s;
 
-  
 }
 nav ul li ul {
   visibility: hidden;
   opacity: 0;
   position: absolute;
   display: block;
-  margin: 1% -1%;
+  margin: 12px -12px;
   width: inherit;
   padding: 0;
   background: lightgray;
@@ -220,8 +208,8 @@ nav ul li ul {
   transition: opacity 0.2s, visibility 0.2s;
 }
 nav ul li ul li {
-  margin: -1.6% 0 0 -1.6%;
-  width: calc(100% - 19%);
+  margin: -2px 0 0 -2px;
+  width: calc(100% - 20px);
   line-height: 1.7;
 }
 nav ul li ul li a {
@@ -245,32 +233,6 @@ nav ul li:hover ul li a {
   color: black;
 }
  
-nav .barraDiRicerca {
-  
-  position:relative;
-  display:inline;
-  border-radius:6px;
-  color:black;
-  margin-right:1%; 
-  box-shadow: #000000;
-  color: black;
-   
-  }
-  
-  nav .bottoneRicerca {
-    
-    position:relative;
-    margin-right:1%; 
-    margin-left:1%; 
-    border-color:orange;
-    box-shadow: #000000;
-    color: black;
-    text-decoration: none;
-    width: 80px;
-     
-  }
-
-
   /*Regole di stile per il menu chekIn/checkOut*/
 
 #menu { /* ovvero  ciò che contiene slideshow e menu prenotazione checkin e checkout */
@@ -1167,49 +1129,88 @@ smartphone (min-width: 480px) --- tablet (max-width:768px) --- desktop (max-widt
   text-align:center;
   padding-bottom:1%; 
   }
-  
-  /*regole di stile per la barra di navigazione*/
+
   nav {
-    
     position: relative;
+    top: 1px;
+      margin-left:10%;
+      padding-right:4%;
       display: inline-block;
-    /*border: 1px solid black;*/
-    background-color: auto;
-    padding-bottom:2%;
-    padding-left:30%;
+    border: 1px solid black;
+    font-size:70%;
+    padding-top:-2%;
     
     /*possibilità di animazione-> animation: slideIN 1s ease-out; */
   }
    
   nav ul {
     position: relative;
-    color:white;
     display: flex;
     flex: 1 1 auto;
-    margin: 0;
-    padding-right: -1%;
+    padding-top:2%;
+     margin-right:-2%;
     list-style-type: none;
-    
   }
   nav ul li:not(:last-child) {
-    margin-right: 10px;
+    margin-right: 40px;
   }
   
   nav ul li {
     border: 2px solid transparent;
     border-radius: 5px;
-    padding: 10px;
-    transition: background 0.2s;
+    padding-top: 10px;
+     transition: background 0.4s;
   }
   nav ul li a {
     color: rgb(0, 0, 0);
     text-decoration: none;
     text-transform: uppercase;
-    transition: color 0.3s;
-    
+    transition: color 0.4s;
   
   }
-
+  nav ul li ul {
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    display: block;
+    margin: 12px -12px;
+    width: inherit;
+    padding: 0;
+    background: lightgray;
+    border: 2px 1px 1px solid #000000;
+    border-right: 1px solid #000000;
+    border-bottom: 1px solid #000000;
+    border-radius: 5px;
+    transition: opacity 0.2s, visibility 0.2s;
+  }
+  nav ul li ul li {
+    margin: -2px 0 0 -2px;
+    width: calc(100% - 20px);
+    line-height: 1.7;
+  }
+  nav ul li ul li a {
+    color: rgb(0, 0, 0);
+  }
+  nav ul li:hover {
+    background: orange;
+    border: 2px solid orange;
+    border-right: 2px solid orange;
+    border-bottom: 2px solid orange;
+  }
+  nav ul li:hover a {
+    color: gray;
+  }
+  nav ul li:hover ul {
+    visibility: visible;
+    opacity: 1;
+    box-shadow: 0px 2px 2px 2px orange;
+  }
+  nav ul li:hover ul li a {
+    color: black;
+  }
+ 
+  
+  
   .hero-image1 { 
 
     height: 750px;
