@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Recensioni Cliente</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/android-chrome-192x192.png">
     <link rel="stylesheet" type="text/css" href="css/FoglioDiStile.css">
     <meta name=”description” content=””/>
     <meta name=”keywords” content=””/>
@@ -46,14 +47,14 @@
 <body>
 
 
-  <div class="contenutoPaginaVisualizzaDati">
+  <div class="contenutoPannelli">
 
     <div class="modulo">
 
     <h1>Recensioni di</h1>
-    <h2><%= leggiRecensioniCliente[0].nome_recensore %></h2>
+    <h2> <%= leggiRecensioniCliente[0].nome_recensore %> </h2>
     <br />
-    <% for(var i=0; i<leggiRecensioni.length; i++){ %>
+    < % for(var i=0; i<leggiRecensioni.length; i++){ %>
     <p>Nome Ospite: </p>
     <h3><%= leggiRecensioni[i].ref_nome_casa_r %></h3>
     <br>
@@ -82,8 +83,7 @@
      <br>
       <!--logo footer-->
 
-        <img id="logoFooter" src="img/B&B_LOGO.jpg" alt="B&B LOGO" width="200px" height="200px">
-
+      <img id="logoFooter" src="img/B&B_LOGO.jpg" alt="B&B LOGO">
       </div>
 
   
@@ -109,10 +109,10 @@
         <div class="colonna-destra">
           <div class="icone-social">
           <h4>Seguici</h4>
-          <a href="#"><i> <img src="img/Logo_FB.png" alt="Facebook" height="30" width="30" >  </i></a> 
-          <a href="#"><i><img src="img/Logo_IG.png" alt="Instagram" height="30" width="30">   </i></a>
-          <a href="#"><i><img src="img/Logo_whatsapp.png" alt="Whatsapp" height="30" width="30">   </i></a>
-        </div> 
+          <a href="#"><i> <img src="img/Logo_FB.png" alt="Facebook" >  </i></a> 
+          <a href="#"><i><img src="img/Logo_IG.png" alt="Instagram">   </i></a>
+          <a href="#"><i><img src="img/Logo_whatsapp.png" alt="Whatsapp"> </i></a>
+            </div> 
         </div>
      
       </div> 
