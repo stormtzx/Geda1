@@ -172,7 +172,7 @@ module.exports = function (app) {
       "' ";
 
     con.query(sql, function (err, results) {
-      if (results.length > 0) {
+      if (results.length == 1) {
         console.log(results);
         req.session.emailC = results[0].emailC;
         req.session.nomeC = results[0].nomeC;
