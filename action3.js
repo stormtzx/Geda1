@@ -303,8 +303,6 @@ module.exports = function (app) {
         console.log(results);
         res.render("SchermataListaCaseProprietario.html", {
           ListaCaseProprietario: results,
-          nome_proprietario: req.session.nomeP,
-          cognome_proprietario: req.session.cognomeP,
         });
       } else {
         console.log("L'Utente non ha ancora aggiunto nessuna casa!");

@@ -180,7 +180,15 @@ module.exports = function (app) {
         console.log(
           req.session.emailC + " ha effettuato l'accesso correttamente."
         );
-        res.render("SchermataProfiloCliente.html", { accessoCliente: results });
+        if (req.session.risultatiRicerca[0].id_casa != null) {
+          res.render("SchermataRicerca.html", {
+            ricercaCase: req.session.risultatiRicerca,
+          });
+        } else {
+          res.render("SchermataProfiloCliente.html", {
+            accessoCliente: results,
+          });
+        }
       } else {
         res.sendFile(
           path.join(

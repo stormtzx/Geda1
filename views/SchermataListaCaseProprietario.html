@@ -48,9 +48,8 @@
 
       <div class="modulo" style="margin-bottom:10%;">
 
-    <h1>Lista Case di </h1>
-    <h3><%= nome_proprietario %></h3>
-    <h3><%= cognome_proprietario %></h3>
+    <h1>Le tue Case</h1>
+  
     <form action="/gestioneCasa" method="GET">
     <% for(var i=0; i<ListaCaseProprietario.length; i++){ %>
     <a href="gestioneCasa?id=<%= ListaCaseProprietario[i].id_casa %>"><%= ListaCaseProprietario[i].id_casa %></a>

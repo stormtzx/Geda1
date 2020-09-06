@@ -155,6 +155,7 @@ module.exports = function (app) {
     con.query(sql, function (err, results) {
       if (results.length > 0) {
         console.log(results);
+        req.session.risultatiRicerca = results;
         res.render("SchermataRicerca.html", { ricercaCase: results });
       } else {
         console.log(err);
