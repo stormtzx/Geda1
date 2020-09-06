@@ -144,46 +144,40 @@ text-align:center;
 padding-bottom:1%; 
 }
 
-
+ 
 /*regole di stile per la barra di navigazione*/
 nav {
+  
   position: relative;
-  top: 1px;
-    margin-left:20%;
-    padding-right:2%;
     display: inline-block;
-  border: 1px solid black;
-  font-size:80%;
-  padding-top:-2%;
+  /*border: 1px solid black;*/
+  background-color: auto;
+  padding-bottom:5%;
+   font-size:80%;
+
   
   /*possibilità di animazione-> animation: slideIN 1s ease-out; */
 }
  
 nav ul {
   position: relative;
+  color:white;
   display: flex;
   flex: 1 1 auto;
-  padding-top:2%;
-   margin-right:-2%;
+  margin: 0;
   list-style-type: none;
+  
 }
-
-nav ion-icon {
-
-  padding-right:1%;
-}
-
 nav ul li:not(:last-child) {
-  margin-right: 40px;
+  margin-right: 10px;
 }
 
 nav ul li {
   border: 2px solid transparent;
   border-radius: 5px;
-  padding-top: 10px;
-  padding-left:2%;
-  padding-right:2%;
-   transition: background 0.4s;
+  padding: 10px;
+  transition: background 0.2s;
+  height:18px;
 }
 nav ul li a {
   color: rgb(0, 0, 0);
@@ -198,7 +192,7 @@ nav ul li ul {
   position: absolute;
   display: block;
   margin: 12px -12px;
-  width: inherit;
+  width: 144px;
   padding: 0;
   background: lightgray;
   border: 2px 1px 1px solid #000000;
@@ -208,8 +202,8 @@ nav ul li ul {
   transition: opacity 0.2s, visibility 0.2s;
 }
 nav ul li ul li {
-  margin: -2px 0 0 -2px;
-  width: calc(100% - 20px);
+  margin: -2px 0 0 -1px;
+  width: calc(100% - 22px);
   line-height: 1.7;
 }
 nav ul li ul li a {
@@ -220,7 +214,7 @@ nav ul li:hover {
   border: 2px solid orange;
   border-right: 2px solid orange;
   border-bottom: 2px solid orange;
-}
+ }
 nav ul li:hover a {
   color: gray;
 }
@@ -233,6 +227,31 @@ nav ul li:hover ul li a {
   color: black;
 }
  
+nav #barraDiRicerca {
+  
+  position:relative;
+  display:inline;
+  border-radius:6px;
+  color:black;
+  margin-right:5px; 
+  box-shadow: #000000;
+  color: black;
+   
+  }
+  
+  nav #bottoneRicerca {
+    
+    position:relative;
+    margin-right:5px; 
+    margin-left:5px; 
+    border-color:orange;
+    box-shadow: #000000;
+    color: black;
+    text-decoration: none;
+    width: 80px;
+     
+  }
+
   /*Regole di stile per il menu chekIn/checkOut*/
 
 #menu { /* ovvero  ciò che contiene slideshow e menu prenotazione checkin e checkout */
@@ -1130,85 +1149,123 @@ smartphone (min-width: 480px) --- tablet (max-width:768px) --- desktop (max-widt
   padding-bottom:1%; 
   }
 
-  nav {
-    position: relative;
-    top: 1px;
-      margin-left:10%;
-      padding-right:4%;
-      display: inline-block;
-    border: 1px solid black;
-    font-size:70%;
-    padding-top:-2%;
-    
-    /*possibilità di animazione-> animation: slideIN 1s ease-out; */
-  }
-   
-  nav ul {
-    position: relative;
-    display: flex;
-    flex: 1 1 auto;
-    padding-top:2%;
-     margin-right:-2%;
-    list-style-type: none;
-  }
-  nav ul li:not(:last-child) {
-    margin-right: 40px;
-  }
   
-  nav ul li {
-    border: 2px solid transparent;
-    border-radius: 5px;
-    padding-top: 10px;
-     transition: background 0.4s;
-  }
-  nav ul li a {
-    color: rgb(0, 0, 0);
-    text-decoration: none;
-    text-transform: uppercase;
-    transition: color 0.4s;
+/*regole di stile per la barra di navigazione*/
+nav {
   
-  }
-  nav ul li ul {
-    visibility: hidden;
-    opacity: 0;
-    position: absolute;
-    display: block;
-    margin: 12px -12px;
-    width: inherit;
-    padding: 0;
-    background: lightgray;
-    border: 2px 1px 1px solid #000000;
-    border-right: 1px solid #000000;
-    border-bottom: 1px solid #000000;
-    border-radius: 5px;
-    transition: opacity 0.2s, visibility 0.2s;
-  }
-  nav ul li ul li {
-    margin: -2px 0 0 -2px;
-    width: calc(100% - 20px);
-    line-height: 1.7;
-  }
-  nav ul li ul li a {
-    color: rgb(0, 0, 0);
-  }
-  nav ul li:hover {
-    background: orange;
-    border: 2px solid orange;
-    border-right: 2px solid orange;
-    border-bottom: 2px solid orange;
-  }
-  nav ul li:hover a {
-    color: gray;
-  }
-  nav ul li:hover ul {
-    visibility: visible;
-    opacity: 1;
-    box-shadow: 0px 2px 2px 2px orange;
-  }
-  nav ul li:hover ul li a {
-    color: black;
-  }
+  position: relative;
+    display: inline-block;
+  /*border: 1px solid black;*/
+  background-color: auto;
+  padding-bottom:5%;
+   font-size:60%;
  
+  
+  /*possibilità di animazione-> animation: slideIN 1s ease-out; */
+}
+ 
+nav ul {
+  position: relative;
+  color:white;
+  display: flex;
+  flex: 1 1 auto;
+  margin: 0;
+  list-style-type: none;
+  
+}
+nav ul li:not(:last-child) {
+  margin-right: 10px;
+}
+
+nav ul li {
+  border: 2px solid transparent;
+  border-radius: 5px;
+   transition: background 0.2s;
+  height:14px;
+   padding-right:-5%;
+}
+nav ul li a {
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: color 0.4s;
+
+}
+nav ul li ul {
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  display: block;
+  margin: 12px -12px;
+  width: 112px;
+  padding: 0;
+  background: lightgray;
+  border: 2px 1px 1px solid #000000;
+  border-right: 1px solid #000000;
+  border-bottom: 1px solid #000000;
+  border-radius: 5px;
+  transition: opacity 0.2s, visibility 0.2s;
+}
+nav ul li ul li {
+  margin: -2px 0 0 -1px;
+  width: calc(100% - 22px);
+  line-height: 1.7;
+}
+nav ul li ul li a {
+  color: rgb(0, 0, 0);
+}
+nav ul li:hover {
+   background: orange;
+  border: 2px solid orange;
+  border-right: 2px solid orange;
+  border-bottom: 2px solid orange;
+ }
+nav ul li:hover a {
+  color: gray;
+}
+nav ul li:hover ul {
+  visibility: visible;
+  opacity: 1;
+  box-shadow: 0px 2px 2px 2px orange;
+}
+nav ul li:hover ul li a {
+  color: black;
+}
+ 
+nav #barraDiRicerca {
+  
+  position:relative;
+  display:inline-block;
+  border-radius:6px;
+  color:black;
+  margin-right:2%;
+   box-shadow: #000000;
+  color: black;
+  font-size:60%;
+  width: 20%;
+   
+  }
+  
+  nav #barraDiRicerca button {
+ 
+    position:relative;
+    margin-right:5px; 
+    margin-left:5px; 
+    border-color:orange;
+    box-shadow: #000000;
+    color: black;
+    text-decoration: none;
+    width: 40%;
+    font-size:60%;
+
+  }
+
+  #barraDiRicerca  input  {
+   font-size:60%;
+    width: 60%;
+
+ 
+  }
   
   
   .hero-image1 { 
@@ -1887,47 +1944,123 @@ HEIGHT:40%;
     padding-bottom:1%; 
     }
     
-    /*regole di stile per la barra di navigazione*/
-    nav {
-      
-      position: relative;
-        display: inline-block;
-      /*border: 1px solid black;*/
-      background-color: auto;
-      padding-bottom:2%;
-      padding-left:30%;
-      
-      /*possibilità di animazione-> animation: slideIN 1s ease-out; */
-    }
-     
-    nav ul {
-      position: relative;
-      color:white;
-      display: flex;
-      flex: 1 1 auto;
-      margin: 0;
-      padding-right: -1%;
-      list-style-type: none;
-      
-    }
-    nav ul li:not(:last-child) {
-      margin-right: 10px;
-    }
     
-    nav ul li {
-      border: 2px solid transparent;
-      border-radius: 5px;
-      padding: 10px;
-      transition: background 0.2s;
-    }
-    nav ul li a {
-      color: rgb(0, 0, 0);
-      text-decoration: none;
-      text-transform: uppercase;
-      transition: color 0.3s;
-      
+/*regole di stile per la barra di navigazione*/
+nav {
+  
+  position: relative;
+    display: inline-block;
+  /*border: 1px solid black;*/
+  background-color: auto;
+  padding-bottom:5%;
+   font-size:50%;
+ 
+  
+  /*possibilità di animazione-> animation: slideIN 1s ease-out; */
+}
+ 
+nav ul {
+  position: relative;
+  color:white;
+  display: flex;
+  flex: 1 1 auto;
+  margin: 0;
+  list-style-type: none;
+  
+}
+nav ul li:not(:last-child) {
+  margin-right: 10px;
+}
+
+nav ul li {
+  border: 2px solid transparent;
+  border-radius: 5px;
+   transition: background 0.2s;
+  height:8px;
+   padding-right:-3%;
+}
+nav ul li a {
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: color 0.4s;
+
+}
+nav ul li ul {
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  display: block;
+  margin: 12px -12px;
+  width: 105px;
+  padding: 0;
+  background: lightgray;
+  border: 2px 1px 1px solid #000000;
+  border-right: 1px solid #000000;
+  border-bottom: 1px solid #000000;
+  border-radius: 5px;
+  transition: opacity 0.2s, visibility 0.2s;
+}
+nav ul li ul li {
+  margin: -2px 0 0 -1px;
+  width: calc(100% - 22px);
+  line-height: 1.7;
+}
+nav ul li ul li a {
+  color: rgb(0, 0, 0);
+}
+nav ul li:hover {
+   background: orange;
+  border: 2px solid orange;
+  border-right: 2px solid orange;
+  border-bottom: 2px solid orange;
+ }
+nav ul li:hover a {
+  color: gray;
+}
+nav ul li:hover ul {
+  visibility: visible;
+  opacity: 1;
+  box-shadow: 0px 2px 2px 2px orange;
+}
+nav ul li:hover ul li a {
+  color: black;
+}
+ 
+nav #barraDiRicerca {
+  
+  position:relative;
+  display:inline-block;
+  border-radius:6px;
+  color:black;
+  margin-right:2%;
+   box-shadow: #000000;
+  color: black;
+  font-size:40%;
     
-    }
+  }
+  
+  nav #barraDiRicerca button {
+ 
+    position:relative;
+    margin-right:5px; 
+    margin-left:5px; 
+    border-color:orange;
+    box-shadow: #000000;
+    color: black;
+    text-decoration: none;
+    width: 40%;
+    font-size:60%;
+
+  }
+
+  #barraDiRicerca  input  {
+   font-size:60%;
+    width: 60%;
+    
+ 
+  }
+  
   
 
   .hero-image1 { 
