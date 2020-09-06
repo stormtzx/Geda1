@@ -120,15 +120,55 @@ module.exports = function (app) {
         "' ) ";
       con.query(sql, function (err, results) {
         console.log("CASA inserita correttamente.");
+        req.session.indirizzo_nc = req.body.indirizzo_nc;
+        req.session.citta_nc = req.body.citta_nc;
         res.sendFile(
           path.join(
             __dirname,
             "../Sistema_Alberghi/views",
-            "ConfermaAggiuntaCasa.html"
+            "SchermataFotoCasa.html"
           )
         );
       });
     }
+  });
+
+  app.post("/caricafoto", upload.single("file"), function (req, res) {
+    //var file = req.body.uploaded_image;
+    //var img_name = req.body.name;
+    var file = __dirname + "../Sistema_Alberghi/upload" + req.file.filename;
+    var sql =
+      "insert into gestioneAffitti.foto(ref_casa_via, ref_casa_citta, image) values ('" +
+      req.session.indirizzo_nc +
+      "', '" +
+      req.session.citta_nc +
+      "', '" +
+      req.file.filename +
+      "' ) ";
+
+    fs.rename(req.file.path, file, function (err) {
+      con.query(sql, function (err, results) {
+        if (err) {
+          console.log("Inserimento Foto non corretto.");
+          res.sendFile(
+            path.join(
+              __dirname,
+              "../Sistema_Alberghi/views",
+              "NotificaNuovaCasaFallita.html"
+            )
+          );
+        } else {
+          console.log("CASA inserita correttamente.");
+          res.sendFile(
+            path.join(
+              __dirname,
+              "../Sistema_Alberghi/views",
+              "ConfermaAggiuntaCasa.html"
+            )
+          );
+        }
+      });
+    });
   });
 
   app.post("/ricerca", function (req, res) {
@@ -185,7 +225,7 @@ module.exports = function (app) {
     var id = req.param("id");
 
     var sql =
-      "SELECT * FROM gestioneAffitti.casa WHERE gestioneAffitti.casa.id_casa = " +
+      "SELECT * FROM gestioneAffitti.casa JOIN gestioneAffitti.foto WHERE gestioneAffitti.casa.indirizzo = gestioneAffitti.foto.ref_casa_via AND gestioneAffitti.casa.citta = gestioneAffitti.foto.ref_casa_citta AND  gestioneAffitti.casa.id_casa = " +
       id +
       "";
     con.query(sql, function (err, results) {
@@ -199,6 +239,7 @@ module.exports = function (app) {
         req.session.ultima_data = results[0].ultima_data;
         req.session.ammontare_tasse = results[0].ammontare_tasse;
         req.session.capienza_max = results[0].capienza_max;
+        req.session.foto = results[0].image;
         if (req.session.emailC) {
           res.render("SchermataCasa.html", { visualizzaCasa: results });
         } else {
@@ -223,58 +264,6 @@ module.exports = function (app) {
       }
     });
   });
-
-  app.get("/image.png", function (req, res) {
-    res.sendFile(path.join(__dirname, "./uploads/image.png"));
-  });
-  function generateDateList(from, to) {
-    var getDate = function (date) {
-      var m = date.getMonth(),
-        d = date.getDate();
-      return (
-        date.getFullYear() +
-        "-" +
-        (m < 10 ? "0" + m : m) +
-        "-" +
-        (d < 10 ? "0" + d : d)
-      );
-    };
-    var fs = from.split("-"),
-      startDate = new Date(fs[0], fs[1], fs[2]),
-      result = [getDate(startDate)],
-      start = startDate.getTime(),
-      ts,
-      end;
-
-    if (typeof to == "undefined") {
-      end = new Date().getTime();
-    } else {
-      ts = to.split("-");
-      end = new Date(ts[0], ts[1], ts[2]).getTime();
-    }
-    while (start < end) {
-      start += 86400000;
-      startDate.setTime(start);
-      result.push(getDate(startDate));
-    }
-    return result;
-  }
-
-  function convertiData(data) {
-    date = new Date(data);
-    year = date.getFullYear();
-    month = date.getMonth() + 1;
-    dt = date.getDate();
-
-    if (dt < 10) {
-      dt = "0" + dt;
-    }
-    if (month < 10) {
-      month = "0" + month;
-    }
-
-    return (year + "-" + month + "-" + dt).toString();
-  }
 
   app.post("/calcoloTasse", function (req, res, err) {
     console.log(req.body);

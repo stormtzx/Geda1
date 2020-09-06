@@ -41,6 +41,7 @@ tables.crea_tableCasa();
 tables.crea_tablePrenotazione();
 tables.crea_tableData();
 tables.crea_tableRencensione();
+tables.crea_tableFoto();
 
 app.use(
   session({
