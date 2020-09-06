@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Recensioni Cliente</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/android-chrome-192x192.png">
     <link rel="stylesheet" type="text/css" href="css/FoglioDiStile.css">
     <meta name=”description” content=””/>
     <meta name=”keywords” content=””/>
@@ -46,14 +47,14 @@
 <body>
 
 
-  <div class="contenutoPaginaVisualizzaDati">
+  <div class="contenutoPannelli">
 
     <div class="modulo">
 
     <h1>Recensioni di</h1>
-    <h2><%= leggiRecensioniCliente[0].nome_recensore %></h2>
+    <h2> <%= leggiRecensioniCliente[0].nome_recensore %> </h2>
     <br />
-    <% for(var i=0; i<leggiRecensioni.length; i++){ %>
+    < % for(var i=0; i<leggiRecensioni.length; i++){ %>
     <p>Nome Ospite: </p>
     <h3><%= leggiRecensioni[i].ref_nome_casa_r %></h3>
     <br>
