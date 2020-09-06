@@ -180,7 +180,7 @@ module.exports = function (app) {
         console.log(
           req.session.emailC + " ha effettuato l'accesso correttamente."
         );
-        if (req.session.risultatiRicerca[0].id_casa != null) {
+        if (req.session.risultatiRicerca) {
           res.render("SchermataRicerca.html", {
             ricercaCase: req.session.risultatiRicerca,
           });
