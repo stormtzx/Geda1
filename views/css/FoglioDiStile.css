@@ -1926,6 +1926,10 @@ HEIGHT:40%;
   width: 10px
 }
 
+.testo_centrale {
+  margin-left: 70%;
+}
+
 
 }
 
@@ -2613,6 +2617,11 @@ HEIGHT:40%;
   width: 10px
 }
 
+.testo_centrale {
+  margin-left: 70%;
+  font-size: 20px;
+}
+
 
 
 
@@ -3173,6 +3182,10 @@ HEIGHT:40%;
 .contenutoPannelli button {
   font-size: 5px;
   width: 10px
+}
+
+.testo_centrale {
+  margin-left: 70%;
 }
 
 
