@@ -31,6 +31,55 @@ var con = mysql.createConnection({
   database: "gestioneAffitti",
 });
 
+function generateDateList(from, to) {
+  var getDate = function (date) {
+    var m = date.getMonth(),
+      d = date.getDate();
+    return (
+      date.getFullYear() +
+      "-" +
+      (m < 10 ? "0" + m : m) +
+      "-" +
+      (d < 10 ? "0" + d : d)
+    );
+  };
+  var fs = from.split("-"),
+    startDate = new Date(fs[0], fs[1], fs[2]),
+    result = [getDate(startDate)],
+    start = startDate.getTime(),
+    ts,
+    end;
+
+  if (typeof to == "undefined") {
+    end = new Date().getTime();
+  } else {
+    ts = to.split("-");
+    end = new Date(ts[0], ts[1], ts[2]).getTime();
+  }
+  while (start < end) {
+    start += 86400000;
+    startDate.setTime(start);
+    result.push(getDate(startDate));
+  }
+  return result;
+}
+
+function convertiData(data) {
+  date = new Date(data);
+  year = date.getFullYear();
+  month = date.getMonth() + 1;
+  dt = date.getDate();
+
+  if (dt < 10) {
+    dt = "0" + dt;
+  }
+  if (month < 10) {
+    month = "0" + month;
+  }
+
+  return (year + "-" + month + "-" + dt).toString();
+}
+
 module.exports = function (app) {
   app.post("/nuovaCasa", function (req, res, err) {
     console.log(req.body);
@@ -226,11 +275,11 @@ module.exports = function (app) {
     var id = req.param("id");
 
     var sql =
-      "SELECT * FROM gestioneAffitti.casa JOIN gestioneAffitti.foto WHERE gestioneAffitti.casa.indirizzo = gestioneAffitti.foto.ref_casa_via AND gestioneAffitti.casa.citta = gestioneAffitti.foto.ref_casa_citta AND  gestioneAffitti.casa.id_casa = " +
+      "SELECT * FROM gestioneAffitti.casa, gestioneAffitti.foto WHERE gestioneAffitti.casa.indirizzo = gestioneAffitti.foto.ref_casa_via AND gestioneAffitti.casa.citta = gestioneAffitti.foto.ref_casa_citta AND  gestioneAffitti.casa.id_casa = " +
       id +
       "";
     con.query(sql, function (err, results) {
-      if ((results.length = 1)) {
+      if (results.length == 1) {
         console.log(results);
         req.session.id_casa = results[0].id_casa;
         req.session.nome_casa = results[0].nome_casa;
