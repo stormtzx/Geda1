@@ -30,6 +30,22 @@ var transporter = nodemailer.createTransport({
   },
 });
 
+function convertiData(data) {
+  date = new Date(data);
+  year = date.getFullYear();
+  month = date.getMonth() + 1;
+  dt = date.getDate();
+
+  if (dt < 10) {
+    dt = "0" + dt;
+  }
+  if (month < 10) {
+    month = "0" + month;
+  }
+
+  return (year + "-" + month + "-" + dt).toString();
+}
+
 module.exports = function (app) {
   app.post("/modificaCliente", function (req, res, err) {
     var sql =
@@ -58,9 +74,7 @@ module.exports = function (app) {
           req.session.emailC = results[0].emailC;
           req.session.nomeC = results[0].nomeC;
           req.session.cognomeC = results[0].cognomeC;
-          console.log(
-            req.session.emailC + " ha effettuato l'accesso correttamente."
-          );
+          console.log(req.session.emailC + " ha modificato i suoi dati.");
           res.render("SchermataProfiloCliente.html", {
             accessoCliente: results,
           });
@@ -74,6 +88,87 @@ module.exports = function (app) {
           );
         }
       });
+    });
+  });
+
+  app.get("/rendiconto", function (req, res) {
+    var sql =
+      "SELECT * FROM gestioneAffitti.prenotazione WHERE email_proprietario_t = '" +
+      req.session.emailP +
+      "' AND data_rendiconto = '" +
+      +"'";
+
+    con.query(sql, function (err, results) {
+      if (results) {
+        console.log("Prenotazioni con rendiconto da effettuare: ");
+        console.log(results);
+        var oggi = new Date().toISOString().slice(0, 19).replace("T", " ");
+        var data_corrente = convertiData(oggi);
+        for (var i = 0; i < results.lenght; i++) {
+          var diffTime = data_corrente - results[i].check_out;
+          var days = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+          var giorni = parseInt(days);
+          if (giorni >= 90) {
+            var mailOptions = {
+              from: "gedasistemabooking@gmail.com",
+              to: indirizzo_ufficio_turismo,
+              subject:
+                "Rendiconto trimestrale di" +
+                req.session.nomeP +
+                " " +
+                req.session.cognomeP,
+              text: "Riepilogo prenotazione: " + results[i],
+            };
+
+            var sql2 =
+              "UPDATE gestioneaffitti.prenotazione set gestioneAffitti.prenotazione.data_rendiconto = '" +
+              data_corrente +
+              "' WHERE gestioneAffitti.prenotazione.id_prenotazione = " +
+              results[i].id_prenotazione +
+              " ";
+            console.log(
+              "Rendiconto per la prenotazione " +
+                results[i].id_prenotazione +
+                " effettuato correttamente presso l'Ufficio del Turismo"
+            );
+            console.log(
+              "Table PRENOTAZIONE aggiornata nella voce 'data_rendiconto'"
+            );
+          } else {
+            continue;
+          }
+          con.query(sql2, function (err) {
+            if (err) {
+              console.log(err);
+              res.sendFile(
+                path.join(
+                  __dirname,
+                  "../Sistema_Alberghi/views",
+                  "QualcosaStorto.html"
+                )
+              );
+            } else {
+              console.log("Nessuna prenotazione da rendicontare!");
+              res.sendFile(
+                path.join(
+                  __dirname,
+                  "../Sistema_Alberghi/views",
+                  "OperazioneRiuscita.html"
+                )
+              );
+            }
+          });
+        }
+      } else {
+        console.log("Nessuna prenotazione da rendicontare");
+        res.sendFile(
+          path.join(
+            __dirname,
+            "../Sistema_Alberghi/views",
+            "OperazioneRiuscita.html"
+          )
+        );
+      }
     });
   });
 };
