@@ -855,8 +855,8 @@ padding-bottom:1%;
      margin-top:5%;
      padding-bottom:2%;
      padding-top:2%;
-     padding-left:3%;
-     padding-right: 3%;
+     padding-left:7%;
+     padding-right: 7%;
     width: 30%;
    height:120%;
   border: medium solid black;
@@ -880,10 +880,14 @@ padding-bottom:1%;
   text-shadow:  1px 1px 3px black;
   font-weight: bold;
    text-align:center;
-  padding-left:7%;
+  padding-left:14%;
 
 }
  
+.contenutoPannelli .modulo h1 {
+ padding-left:0%;
+}
+
 .contenutoPannelli h2 {
 
   
