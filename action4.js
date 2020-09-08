@@ -91,6 +91,50 @@ module.exports = function (app) {
     });
   });
 
+  app.post("/modificaProprietario", function (req, res, err) {
+    var sql =
+      "UPDATE gestioneaffitti.utenteProprietario set gestioneAffitti.utenteProprietario.cognomeP = '" +
+      req.body.cognome_iscrizioneP +
+      "', gestioneAffitti.utenteProprietario.nomeP = '" +
+      req.body.nome_iscrizioneP +
+      "', gestioneAffitti.utenteProprietario.emailP = '" +
+      req.body.email_iscrizioneP +
+      "', gestioneAffitti.utenteProprietario.passwordP = '" +
+      req.body.password_iscrizioneP +
+      "' WHERE gestioneAffitti.utenteProprietario.emailP = '" +
+      req.session.emailP +
+      "' ";
+
+    con.query(sql, function (err, results) {
+      console.log(results);
+      req.session.emailC = req.body.email_iscrizioneC;
+      var sql2 =
+        "SELECT gestioneAffitti.utenteProprietario.nomeP, gestioneAffitti.utenteProprietario.cognomeP, gestioneAffitti.utenteProprietario.emailP FROM gestioneAffitti.utenteProprietario WHERE gestioneAffitti.utenteProprietario.emailP = '" +
+        req.session.emailP +
+        "' ";
+      con.query(sql2, function (err, results) {
+        if (results.length == 1) {
+          console.log(results);
+          req.session.emailC = results[0].emailP;
+          req.session.nomeC = results[0].nomeP;
+          req.session.cognomeC = results[0].cognomeP;
+          console.log(req.session.emailP + " ha modificato i suoi dati.");
+          res.render("SchermataProfiloProprietario.html", {
+            accessoProprietario: results,
+          });
+        } else {
+          res.sendFile(
+            path.join(
+              __dirname,
+              "../Sistema_Alberghi/views",
+              "QualcosaStorto.html"
+            )
+          );
+        }
+      });
+    });
+  });
+
   app.get("/rendiconto", function (req, res) {
     var sql =
       "SELECT * FROM gestioneAffitti.prenotazione WHERE email_proprietario_t = '" +
