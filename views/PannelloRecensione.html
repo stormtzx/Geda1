@@ -7,13 +7,12 @@
     <link rel="stylesheet" type="text/css" href="css/FoglioDiStile.css">
     <meta name=”description” content=””/>
     <meta name=”keywords” content=””/>
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/android-chrome-192x192.png">
+    
     <!--  Fonte per le icone->    https://ionicons.com/  -->
     <!--  Fonte per le immagini (copyright free)->  https://www.pexels.com/  --> 
-    
     </head>
-    
-    
-      <!--Inizio header-->
+    <!--Inizio header-->
     <header>
       
     
@@ -46,22 +45,26 @@
   <body>
 
     
-    <div class="contenutoPannelli"  style="margin-right:-5px; padding-top:8%; " >
+    <div class="contenutoPannelli"  >
+      
+      <h1>PANNELLO RECENSIONE</h1>
 
-      <div class="modulo"style="margin-bottom:180px;">
+      <div class="modulo" >
+
+
 
     <form action="/recensione" method="POST">
       <label for="stelle_r"
         >Quanto hai gradito il tuo soggiorno nella CASA?</label
       >
-      <input type="number" name="stelle_r" id="" required/>
+      <input type="number" name="stelle_r" id="numStelle"   required/>
       <!--PROVATE A INSERIRE UN'ANIMAZIONE A MO' DI STELLINE -1 NUMERO -1 STELLA-->
       <br />
       <label for="commento_r">Lascia un commento sulla tua esperienza!</label>
-      <input type="text" name="commento_r" id=""  />
+      <input type="text" name="commento_r" id="boxCommento"  />
       <!--ALLARGATE IL CAMPO QUA-->
       <br />
-      <button id="btnPannello" type="submit" style="margin-left:50%;">
+      <button id="btnPannello" type="submit" style="margin-left:38%;" >
         Invia Recensione!
       </button>
     </form>
