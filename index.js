@@ -54,3 +54,4 @@ app.use(
 const action = require("./action")(app);
 const action2 = require("./action2")(app);
 const action3 = require("./action3")(app);
+const action4 = require("./action4")(app);
