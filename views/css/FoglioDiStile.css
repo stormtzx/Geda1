@@ -4,8 +4,7 @@ html {
     min-height: 100%;
     margin:0;
     padding:0;
-      background-color: #292c2f;
-
+    background-color: #292c2f;
     font-family: 'Roboto', sans-serif;
        
     
@@ -16,8 +15,8 @@ body {
   margin:0;
   padding:0;
   font-family: 'Roboto', sans-serif;
-        background-color: lightgrey;
-   
+  background-color: lightgrey;
+
   
 }
 
@@ -435,17 +434,10 @@ padding-bottom:30%;
   margin-top:-30%; 
   animation-name: example;
   animation-duration: 2s;
+
+}
  
-}
-
-.descrizioneDestra:hover {
-zoom:1.2;
-}
-
-.descrizioneSinistra:hover {
-  zoom:1.2;
-  }
-
+ 
 .descrizioneSinistra {
 
   position: relative;
@@ -460,15 +452,28 @@ zoom:1.2;
   
   color:black;
 
-
- 
 }
+
+
 
 .descrizioneDestra p {
   
   color:black;
+  
  
 }
+
+ 
+ 
+@keyframes test {
+
+  25% {fill: gray}
+  50% {fill: gray}
+  75% {fill: gray}
+  100% {fill: gray}
+
+}
+     
 
 
 .descrizioneSinistra h1 {
@@ -534,6 +539,29 @@ zoom:1.2;
    
  
 
+  #box1:hover {
+  
+    background-color:gray;
+    transition: all 0.3s ease-in 0.3s
+    }
+   
+    #box2:hover {
+     
+     background-color:gray;
+     transition: all 0.3s ease-in 0.3s
+     }
+   
+     #box3:hover {
+     
+       background-color:gray;
+       transition: all 0.3s ease-in 0.3s
+       }
+   
+       #box4:hover {
+     
+         background-color:gray;
+         transition: all 0.3s ease-in 0.3s
+         }
 
 /*regole di stile per il footer*/
  
@@ -2471,8 +2499,7 @@ width:180px;
 footer{
    
 	position: relative;
-  padding-bottom:5%;
-  color:white;
+   color:white;
   font-size:80%;
 
   
