@@ -151,7 +151,9 @@ text-shadow:  1px 1px 3px black;
 font-weight: bold;
 font-size:36px;
 text-align:center;
-padding-bottom:1%; 
+ padding-bottom:1%;
+ margin-bottom:2%;
+
 }
 
  
@@ -1230,7 +1232,9 @@ smartphone (min-width: 480px) --- tablet (max-width:768px) --- desktop (max-widt
   font-weight: bold;
   font-size:26px;
   text-align:center;
-  padding-bottom:1%; 
+  padding-bottom:1%;
+  margin-bottom:3%;
+ 
   }
 
   header {
@@ -2031,9 +2035,10 @@ width:100px;
     font-family:'Georgia';
     text-shadow:  1px 1px 3px black;
     font-weight: bold;
-    font-size:18px;
+    font-size:22px;
     text-align:center;
-    padding-bottom:1%; 
+    padding-bottom:1%;
+    margin-bottom:3%;
     }
     
     header {
@@ -2052,10 +2057,10 @@ nav {
   position: relative;
     display: inline-block;
    background-color: auto;
-  padding-bottom:10%;
+  padding-bottom:8%;
    font-size:40%;
 margin-right:5%;
- margin-left:-12%;
+ margin-left:-10%;
  color:black;
 
   /*possibilità di animazione-> animation: slideIN 1s ease-out; */
@@ -2136,7 +2141,7 @@ nav ul li:hover ul li a {
   align-content:right;
   text-align:right;
   margin-left:-4.5%;
-
+  
 }
   
   nav .barraDiRicerca button {
@@ -2155,12 +2160,15 @@ nav ul li:hover ul li a {
 
    }
 
+    
+
   .barraDiRicerca  input  {
    font-size:60%;
    width: 50%;    
    margin-left:60%;
   }
-  
+   
+   
   
 
   .hero-image1 { 
@@ -2753,13 +2761,15 @@ width:80px;
 @media screen and (max-width:480px)  {
 
   
+ 
   #benvenuto {
     font-family:'Georgia';
     text-shadow:  1px 1px 3px black;
     font-weight: bold;
     font-size:18px;
     text-align:center;
-    padding-bottom:1%; 
+    padding-bottom:1%;
+    margin-bottom:3.5%;
     }
     
     header {
@@ -2770,33 +2780,25 @@ width:80px;
       box-shadow: 6px 6px 8px black;
       color:black;
 
-
-     }
+      }
     
 /*regole di stile per la barra di navigazione*/
-nav {
-  
-  position: relative;
-    display: inline-block;
-  /*border: 1px solid black;*/
-  background-color: auto;
-  padding-bottom:10%;
-   font-size:40%;
-   color:black;
 
+
+  nav {
   
-  /*possibilità di animazione-> animation: slideIN 1s ease-out; */
-}
+    position: relative;
+      display: inline-block;
+     background-color: auto;
+    padding-bottom:10%;
+     font-size:30%;
+  margin-right:5%;
+   margin-left:-10%;
+   color:black;
+  
+    /*possibilità di animazione-> animation: slideIN 1s ease-out; */
+  }
  
-nav ul {
-  position: relative;
-  color:white;
-  display: flex;
-  flex: 1 1 auto;
-  margin: 0;
-  list-style-type: none;
-  
-}
 nav ul li:not(:last-child) {
   margin-right: 10px;
 }
@@ -2869,7 +2871,15 @@ nav #barraDiRicerca {
     
   }
   
-  nav #barraDiRicerca button {
+.barraDiRicerca  { 
+
+  align-content:right;
+  text-align:right;
+  margin-left:-5.5%;
+  
+}
+  
+  nav .barraDiRicerca button {
  
     position:relative;
     margin-right:5px; 
@@ -2879,19 +2889,19 @@ nav #barraDiRicerca {
     color: black;
     text-decoration: none;
     width: 40%;
-    font-size:60%;
+    margin-left:60%;
+    font-size:40%;
 
-  }
 
-  #barraDiRicerca  input  {
-   font-size:60%;
-    width: 60%;
+   }
+
     
- 
+
+  .barraDiRicerca  input  {
+   font-size:40%;
+   width: 45%;    
+   margin-left:60%;
   }
-  
-
-
   
   .hero-image1 { 
 
