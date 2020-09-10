@@ -318,8 +318,9 @@ module.exports = function (app) {
       "' ";
 
     con.query(sql, function (err, results) {
-      if (err) throw err;
-      if (results.length == 1) {
+      if (err) {
+        console.log(err);
+      } else if (results.length == 1) {
         console.log(results);
         req.session.emailP = results[0].emailP;
         console.log(

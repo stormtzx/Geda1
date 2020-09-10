@@ -253,13 +253,22 @@ module.exports = function (app) {
     }
 
     con.query(sql, function (err, results) {
+      if (err) {
+        res.sendFile(
+          path.join(
+            __dirname,
+            "../Sistema_Alberghi/views",
+            "QualcosaStorto.html"
+          )
+        );
+        console.log(err);
+      }
       if (results.length > 0) {
         console.log(results);
         req.session.risultatiRicerca = results;
         res.render("SchermataRicerca.html", { ricercaCase: results });
-      } else {
-        console.log(err);
-
+      } else if (results.length == 0) {
+        console.log("La ricerca non ha prodotto risultati");
         res.sendFile(
           path.join(
             __dirname,
@@ -273,13 +282,17 @@ module.exports = function (app) {
 
   app.get("/visualizzaCasa", function (req, res) {
     var id = req.param("id");
+    console.log(id);
+    console.log(typeof id);
 
     var sql =
-      "SELECT * FROM gestioneAffitti.casa, gestioneAffitti.foto WHERE gestioneAffitti.casa.indirizzo = gestioneAffitti.foto.ref_casa_via AND gestioneAffitti.casa.citta = gestioneAffitti.foto.ref_casa_citta AND  gestioneAffitti.casa.id_casa = " +
+      "SELECT * FROM gestioneAffitti.casa, gestioneAffitti.foto WHERE gestioneAffitti.casa.indirizzo = gestioneAffitti.foto.ref_casa_via AND gestioneAffitti.casa.citta = gestioneAffitti.foto.ref_casa_citta AND gestioneAffitti.casa.id_casa = " +
       id +
       "";
     con.query(sql, function (err, results) {
-      if (results.length == 1) {
+      if (err) {
+        console.log(err);
+      } else if (results.length == 1) {
         console.log(results);
         req.session.id_casa = results[0].id_casa;
         req.session.nome_casa = results[0].nome_casa;
@@ -292,7 +305,10 @@ module.exports = function (app) {
         req.session.foto = results[0].image;
         if (req.session.emailC) {
           res.render("SchermataCasa.html", { visualizzaCasa: results });
-        } else {
+        } else if (
+          req.session.emailC == undefined ||
+          req.session.emailC == ""
+        ) {
           res.sendFile(
             path.join(
               __dirname,
@@ -359,8 +375,9 @@ module.exports = function (app) {
 
     con.query(sql, function (err, results) {
       var dateOccupate = 0; //contatore
-      if (err) throw err;
-      if (results.length > 0) {
+      if (err) {
+        console.log(err);
+      } else if (results.length > 0) {
         console.log("Date già occupate per la casa: ");
 
         var risultati = [];
@@ -490,7 +507,7 @@ module.exports = function (app) {
 
       con.query(sql, function (err) {
         if (err) {
-          throw err;
+          console.log(err);
         }
       });
       console.log(
