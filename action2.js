@@ -169,13 +169,13 @@ module.exports = function (app) {
         "' ) ";
       con.query(sql, function (err, results) {
         console.log("CASA inserita correttamente.");
-        req.session.indirizzo_nc = req.body.indirizzo_nc;
-        req.session.citta_nc = req.body.citta_nc;
+        req.session.indirizzo = req.body.indirizzo_nc;
+        req.session.citta = req.body.citta_nc;
         res.sendFile(
           path.join(
             __dirname,
             "../Sistema_Alberghi/views",
-            "SchermataFotoCasa.html"
+            "ConfermaAggiuntaCasa.html"
           )
         );
       });
@@ -188,9 +188,9 @@ module.exports = function (app) {
     var file = __dirname + "../Sistema_Alberghi/upload" + req.file.filename;
     var sql =
       "insert into gestioneAffitti.foto(ref_casa_via, ref_casa_citta, image) values ('" +
-      req.session.indirizzo_nc +
+      req.session.indirizzo +
       "', '" +
-      req.session.citta_nc +
+      req.session.citta +
       "', '" +
       req.file.filename +
       "' ) ";
@@ -212,11 +212,38 @@ module.exports = function (app) {
             path.join(
               __dirname,
               "../Sistema_Alberghi/views",
-              "ConfermaAggiuntaCasa.html"
+              "ConfermaAggiuntaFoto.html"
             )
           );
         }
       });
+    });
+  });
+
+  app.get("/visualizzaFotoCasa", function (req, res) {
+    var sql =
+      "SELECT * FROM gestioneAffitti.foto WHERE gestioneAffitti.foto.ref_casa_via = '" +
+      req.session.indirizzo +
+      "' AND gestioneAffitti.foto.ref_casa_citta = '" +
+      req.session.citta +
+      "' ";
+
+    con.query(sql, function (err, results) {
+      if (err) throw err;
+      if (results.length > 0) {
+        console.log("Ecco le foto");
+        console.log(results);
+        res.render("VisualizzaFotoCasa.html", { ListaFotoCasa: results });
+      } else {
+        console.log("L'Utente non ha ancora aggiunto nessuna Foto!");
+        res.sendFile(
+          path.join(
+            __dirname,
+            "../Sistema_Alberghi/views",
+            "QualcosaStorto.html"
+          )
+        );
+      }
     });
   });
 
@@ -289,7 +316,7 @@ module.exports = function (app) {
         req.session.ultima_data = results[0].ultima_data;
         req.session.ammontare_tasse = results[0].ammontare_tasse;
         req.session.capienza_max = results[0].capienza_max;
-        req.session.foto = results[0].image;
+
         if (req.session.emailC) {
           res.render("SchermataCasa.html", { visualizzaCasa: results });
         } else {

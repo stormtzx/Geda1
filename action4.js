@@ -93,7 +93,7 @@ module.exports = function (app) {
 
   app.post("/modificaProprietario", function (req, res, err) {
     var sql =
-      "UPDATE gestioneaffitti.utenteProprietario set gestioneAffitti.utenteProprietario.cognomeP = '" +
+      "UPDATE gestioneAffitti.utenteProprietario set gestioneAffitti.utenteProprietario.cognomeP = '" +
       req.body.cognome_iscrizioneP +
       "', gestioneAffitti.utenteProprietario.nomeP = '" +
       req.body.nome_iscrizioneP +
@@ -107,7 +107,7 @@ module.exports = function (app) {
 
     con.query(sql, function (err, results) {
       console.log(results);
-      req.session.emailC = req.body.email_iscrizioneC;
+      req.session.emailP = req.body.email_iscrizioneP;
       var sql2 =
         "SELECT gestioneAffitti.utenteProprietario.nomeP, gestioneAffitti.utenteProprietario.cognomeP, gestioneAffitti.utenteProprietario.emailP FROM gestioneAffitti.utenteProprietario WHERE gestioneAffitti.utenteProprietario.emailP = '" +
         req.session.emailP +
@@ -115,9 +115,9 @@ module.exports = function (app) {
       con.query(sql2, function (err, results) {
         if (results.length == 1) {
           console.log(results);
-          req.session.emailC = results[0].emailP;
-          req.session.nomeC = results[0].nomeP;
-          req.session.cognomeC = results[0].cognomeP;
+          req.session.emailP = results[0].emailP;
+          req.session.nomeP = results[0].nomeP;
+          req.session.cognomeP = results[0].cognomeP;
           console.log(req.session.emailP + " ha modificato i suoi dati.");
           res.render("SchermataProfiloProprietario.html", {
             accessoProprietario: results,
@@ -133,6 +133,138 @@ module.exports = function (app) {
         }
       });
     });
+  });
+
+  app.post("/modificaCasa", function (req, res, err) {
+    console.log(req.body);
+    if (req.body.beb_nc != undefined) req.body.beb_nc = true;
+    if (req.body.casa_vacanza_nc != undefined) req.body.casa_vacanza_nc = true;
+    if (req.body.fasciatoio_nc != undefined) req.body.fasciatoio_nc = true;
+    if (req.body.segnalatore_fumo_nc != undefined)
+      req.body.segnalatore_fumo_nc = true;
+    if (req.body.servizi_disabili_nc != undefined)
+      req.body.servizi_disabili_nc = true;
+    if (req.body.animali_nc != undefined) req.body.animali_nc = true;
+    if (req.body.cucina_nc != undefined) req.body.cucina_nc = true;
+
+    if (req.body.beb_nc == undefined) req.body.beb_nc = false;
+    if (req.body.casa_vacanza_nc == undefined) req.body.casa_vacanza_nc = false;
+    if (req.body.fasciatoio_nc == undefined) req.body.fasciatoio_nc = false;
+    if (req.body.segnalatore_fumo_nc == undefined)
+      req.body.segnalatore_fumo_nc = false;
+    if (req.body.servizi_disabili_nc == undefined)
+      req.body.servizi_disabili_nc = false;
+    if (req.body.animali_nc == undefined) req.body.animali_nc = false;
+    if (req.body.cucina_nc == undefined) req.body.cucina_nc = false;
+
+    if (req.body.no_last_nc != undefined)
+      req.body.ultima_data_nc = "9999-12-31";
+
+    if (
+      req.body.ultima_data_nc < req.body.prima_data_nc ||
+      req.session.emailP == ""
+    ) {
+      /*   console.log(err);      
+      console.log(req.body.prima_data_nc);
+      console.log(req.body.ultima_data_nc);
+      console.log(req.body.ultima_data_nc < req.body.prima_data_nc);
+      console.log(req.session.emailP);
+      console.log(req.session.emailP == ""); */
+      console.log("Errore: dati inseriti non validi");
+
+      res.sendFile(
+        path.join(
+          __dirname,
+          "../Sistema_Alberghi/views",
+          "NotificaNuovaCasaFallita.html"
+        )
+      );
+      return;
+    } else {
+      var sql =
+        "UPDATE gestioneAffitti.casa set gestioneAffitti.casa.nome_casa = '" +
+        req.body.nome_casa_nc +
+        "', gestioneAffitti.casa.indirizzo = '" +
+        req.body.indirizzo_nc +
+        "', gestioneAffitti.casa.citta = '" +
+        req.body.citta_nc +
+        "', gestioneAffitti.casa.beb = '" +
+        req.body.beb_nc +
+        "', gestioneAffitti.casa.casa_vacanza = '" +
+        req.body.casa_vacanza_nc +
+        "', gestioneAffitti.casa.numero_camere = '" +
+        req.body.camere_nc +
+        "', gestioneAffitti.casa.numero_bagno = '" +
+        req.body.bagni_nc +
+        "', gestioneAffitti.casa.perimetro_casa = '" +
+        req.body.perimetro_nc +
+        "', gestioneAffitti.casa.tariffa_giornaliera = '" +
+        req.body.tariffa_nc +
+        "', gestioneAffitti.casa.capienza_max = '" +
+        req.body.capienza_nc +
+        "', gestioneAffitti.casa.ammontare_tasse = '" +
+        req.body.tasse_nc +
+        "', gestioneAffitti.casa.fasciatoio = '" +
+        req.body.fasciatoio_nc +
+        "', gestioneAffitti.casa.segnalatori_fumo = '" +
+        req.body.segnalatore_fumo_nc +
+        "', gestioneAffitti.casa.servizi_disabili = '" +
+        req.body.servizi_disabili_nc +
+        "', gestioneAffitti.casa.animali_ammessi = '" +
+        req.body.animali_nc +
+        "', gestioneAffitti.casa.cucina = '" +
+        req.body.cucina_nc +
+        "', gestioneAffitti.casa.prima_data = '" +
+        req.body.prima_data_nc +
+        "', gestioneAffitti.casa.ultima_data = '" +
+        req.body.ultima_data_nc +
+        "' WHERE gestioneAffitti.casa.id_casa = '" +
+        req.session.id_casa +
+        "' ";
+
+      con.query(sql, function (err, results) {
+        console.log("Dati modificati correttamente.");
+        req.session.indirizzo = req.body.indirizzo_nc;
+        req.session.citta = req.body.citta_nc;
+
+        if (err) {
+          res.sendFile(
+            path.join(
+              __dirname,
+              "../Sistema_Alberghi/views",
+              "NotificaNuovaCasaFallita.html"
+            )
+          );
+        } else {
+          var sql2 =
+            "SELECT * FROM gestioneAffitti.casa WHERE gestioneAffitti.casa.id_casa = '" +
+            req.session.id_casa +
+            "' ";
+          con.query(sql2, function (err, results) {
+            if (err) throw err;
+            if (results.length == 1) {
+              console.log(results);
+              console.log("Dati modificati correttamente.");
+              req.session.id_casa = results[0].id_casa;
+              req.session.nome_casa = results[0].nome_casa;
+              req.session.indirizzo = results[0].indirizzo;
+              req.session.citta = results[0].citta;
+              res.render("SchermataGestioneCasa.html", {
+                gestioneCasa: results,
+              });
+            } else {
+              res.sendFile(
+                path.join(
+                  __dirname,
+                  "../Sistema_Alberghi/views",
+                  "QualcosaStorto.html"
+                )
+              );
+            }
+          });
+        }
+      });
+    }
   });
 
   app.get("/rendiconto", function (req, res) {

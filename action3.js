@@ -321,15 +321,17 @@ module.exports = function (app) {
     var id = req.param("id");
 
     var sql =
-      "SELECT * FROM gestioneAffitti.casa WHERE gestioneAffitti.casa.id_casa = " +
+      "SELECT * FROM gestioneAffitti.casa WHERE gestioneAffitti.casa.id_casa = '" +
       id +
-      "";
+      "' ";
     con.query(sql, function (err, results) {
       if (err) throw err;
       if (results.length == 1) {
         console.log(results);
         req.session.id_casa = results[0].id_casa;
         req.session.nome_casa = results[0].nome_casa;
+        req.session.indirizzo = results[0].indirizzo;
+        req.session.citta = results[0].citta;
 
         res.render("SchermataGestioneCasa.html", { gestioneCasa: results });
       } else {
