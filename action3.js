@@ -259,14 +259,26 @@ module.exports = function (app) {
 
   app.get("/visualizzaRecensioniCliente", function (req, res) {
     var sql =
-      "SELECT * FROM gestioneAffitti.recensione WHERE email_recensore = " +
+      "SELECT * FROM gestioneAffitti.recensione WHERE email_recensore = '" +
       req.session.emailC +
-      "";
+      "'";
 
     con.query(sql, function (err, results) {
       if (err) {
         throw err;
-      } else if (results[0].id_recensione != null) {
+      } else if (results.length == 0) {
+        console.log("Il cliente non ha scritto nessuna recensione");
+        res.sendFile(
+          path.join(
+            __dirname,
+            "../Sistema_Alberghi/views",
+            "QualcosaStorto.html"
+          )
+        );
+      } else if (results.length > 0) {
+        console.log("Lista recensioni cliente: ");
+        console.log(results);
+
         console.log(
           "Recensioni di " +
             req.session.nomeC +
