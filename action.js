@@ -12,6 +12,7 @@ app.use(express.static("."));
 app.use(express.static(path.join(__dirname, "views")));
 
 var nodemailer = require("nodemailer");
+const { isNullOrUndefined } = require("util");
 
 var con = mysql.createConnection({
   host: "localhost",
@@ -39,6 +40,105 @@ module.exports = function (app) {
         "SchermataPrincipale.html"
       )
     );
+  });
+
+  app.get("/reindirizzamentoAccesso", function (req, res) {
+    if (
+      (req.session.emailC == undefined || req.session.emailC == "") &&
+      (req.session.emailP == undefined || req.session.emailP == "")
+    ) {
+      res.sendFile(
+        path.join(
+          __dirname,
+          "../Sistema_Alberghi/views",
+          "SchermataAccesso.html"
+        )
+      );
+    } else if (
+      req.session.emailC != "" &&
+      (req.session.emailP == undefined || req.session.emailP == "")
+    ) {
+      var sql =
+        "SELECT nomeC, cognomeC, emailC FROM gestioneAffitti.utenteCliente WHERE emailC = '" +
+        req.session.emailC +
+        "'";
+
+      con.query(sql, function (err, results) {
+        if (err) {
+          console.log(err);
+        } else if (results.length == 1) {
+          console.log("Il Cliente visualizza il suo profilo...");
+          console.log(results);
+          res.render("SchermataProfiloCliente.html", {
+            accessoCliente: results,
+          });
+        } else {
+          res.sendFile(
+            path.join(
+              __dirname,
+              "../Sistema_Alberghi/views",
+              "QualcosaStorto.html"
+            )
+          );
+        }
+      });
+    } else if (
+      req.session.emailP != "" &&
+      (req.session.emailC == undefined || req.session.emailC == "")
+    ) {
+      var sql2 =
+        "SELECT nomeP, cognomeP, emailP FROM gestioneAffitti.utenteProprietario WHERE emailP = '" +
+        req.session.emailP +
+        "'";
+
+      con.query(sql2, function (err, results) {
+        if (err) {
+          console.log(err);
+        } else if (results.length == 1) {
+          console.log("Il Proprietario visualizza il suo profilo...");
+          console.log(results);
+          res.render("SchermataProfiloProprietario.html", {
+            accessoProprietario: results,
+          });
+        } else {
+          console.log(results);
+          res.sendFile(
+            path.join(
+              __dirname,
+              "../Sistema_Alberghi/views",
+              "QualcosaStorto.html"
+            )
+          );
+        }
+      });
+    }
+  });
+
+  app.get("/reindirizzamentoIscrizione", function (req, res) {
+    if (
+      (req.session.emailC == undefined || req.session.emailC == "") &&
+      (req.session.emailP == undefined || req.session.emailP == "")
+    ) {
+      res.sendFile(
+        path.join(
+          __dirname,
+          "../Sistema_Alberghi/views",
+          "SchermataIscrizione.html"
+        )
+      );
+    } else if (
+      (req.session.emailC != "" &&
+        (req.session.emailP == undefined || req.session.emailP == "")) ||
+      (req.session.emailP != "" &&
+        (req.session.emailC == undefined || req.session.emailC == ""))
+    ) {
+      console.log(
+        "L'Utente è già iscritto e ha già effettuato l'accesso al suo profilo!"
+      );
+      res.sendFile(
+        path.join(__dirname, "../Sistema_Alberghi/views", "QualcosaStorto.html")
+      );
+    }
   });
 
   app.post("/IscrizioneCliente", function (req, res) {
@@ -81,6 +181,9 @@ module.exports = function (app) {
           return;
         }
         console.log("Iscrizione effettuata correttamente.");
+        req.session.emailC = req.body.email_iscrizioneC;
+        req.session.nomeC = req.body.nome_iscrizioneC;
+        req.session.cognomeC = req.body.cognome_iscrizioneC;
         res.sendFile(
           path.join(
             __dirname,
@@ -141,6 +244,9 @@ module.exports = function (app) {
           return;
         }
         console.log("Iscrizione effettuata correttamente");
+        req.session.emailP = req.body.email_iscrizioneP;
+        req.session.nomeP = req.body.nome_iscrizioneP;
+        req.session.cognomeP = req.body.cognome_iscrizioneP;
         res.sendFile(
           path.join(
             __dirname,
@@ -212,8 +318,9 @@ module.exports = function (app) {
       "' ";
 
     con.query(sql, function (err, results) {
-      if (err) throw err;
-      if (results.length == 1) {
+      if (err) {
+        console.log(err);
+      } else if (results.length == 1) {
         console.log(results);
         req.session.emailP = results[0].emailP;
         console.log(

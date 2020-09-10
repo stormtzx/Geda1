@@ -27,8 +27,19 @@
     <li><a href="./SchermataPrincipale.html"><ion-icon name="home"></ion-icon> Home</a></li> 
     <li><a href="#"><ion-icon name="log-in"></ion-icon>Entra nel sito<span style="font-size:8px">&nabla;</span></a>
       <ul> 
-        <li style="border-bottom:1px solid #CCC"><a href="./SchermataAccesso.html">Accedi</a></li>
-        <li><a href="./SchermataIscrizione.html">Registrati</a></li>
+        <li><form action="/reindirizzamentoAccesso" method="GET">
+          <button id="btnTrasparente" type="submit" style="margin-left:4%">
+            <a style="color: black">Accedi</a>
+          </button>
+        </form>
+       </li>
+        <li>
+          <form action="/reindirizzamentoIscrizione" method="GET">
+            <button id="btnTrasparente" type="submit"style="margin-left:4%;">
+              <a style="color: black">Iscriviti</a>
+            </button>
+          </form>
+        </li>
       </ul>
     </li>
     <li><a href="./Dove_siamo.html"><ion-icon name="locate"></ion-icon> Dove siamo</a></li>
@@ -83,16 +94,24 @@
 </form>
 
 <br /><br>
-<a href="./SchermataAccesso.html">Accedi</a>
+<form action="/reindirizzamentoAccesso" method="GET">
+  <button class="button1" id="btnPannello" type="submit" style="width:100px; margin-left:4%; ">
+    Accedi
+  </button>
+</form> <!--Fate più bello sto bottone-->
 <p>
   <a  href="./SchermataRecuperoPassword.html">Ti sei dimenticato della password?</a>
 </p>
 
 <p>
-  Non hai un account?
-  <a  href="./SchermataIscrizione.html">Registrati</a>
+  Non hai un account?</p>
+  <form action="/reindirizzamentoIscrizione" method="GET">
+    <button class="button1" id="btnPannello" type="submit" style="width:100px; margin-left:4%; ">
+      Iscriviti
+    </button>
+  </form> <!--Fate più bello sto bottone-->
  
-</p>
+
 
 
 
