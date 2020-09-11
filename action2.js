@@ -512,7 +512,7 @@ module.exports = function (app) {
         }
         console.log("Date già occupate: " + dateOccupate);
       }
-
+      //condizioni
       if (
         req.body.data_check_in_p != "" &&
         req.body.data_check_out_p != "" &&
