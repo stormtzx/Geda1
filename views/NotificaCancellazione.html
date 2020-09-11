@@ -1,10 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+
+<html lang="”it”">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" type="text/css" href="css/FoglioDiStile.css" />
-    <title>Schermata Profilo Cliente</title>
+    <meta charset="”utf-8″" />
+    <title>Logout effettuato</title>
     <link
       rel="icon"
       type="image/png"
@@ -82,72 +81,20 @@
         </li>
       </ul>
     </nav>
-
-    <!-- Fine menu di navigazione-->
   </header>
-  <!--Fine header-->
+
+  <!--Fine menu di navigazione-->
 
   <body>
-    <div class="contenutoPannelli">
-      <div class="modulo">
-        <h1 style="color: orange">Riepilogo Dati Personali</h1>
-        <p>Nome:</p>
-        <h3><%= accessoCliente[0].nomeC %></h3>
-        <p>Cognome:</p>
-        <h3><%= accessoCliente[0].cognomeC %></h3>
-        <p>E-Mail:</p>
-        <h4><%= accessoCliente[0].emailC %></h4>
-        <br />
-        <br />
-        <br />
-        <form action="/visualizzaListaPrenotazioniCliente" method="GET">
-          <button
-            id="btnPannello"
-            type="submit"
-            style="width: 200px; margin-left: 0%"
-          >
-            Visualizza le tue Prenotazioni
-          </button>
-        </form>
-        <br />
-        <form action="/visualizzaRecensioniCliente" method="GET">
-          <button
-            id="btnPannello"
-            type="submit"
-            style="width: 200px; margin-left: 0%"
-          >
-            Visualizza le tue Recensioni
-          </button>
-        </form>
+    <div class="contenutoConferma">
+      <h1>Cancellazione Riuscita!</h1>
 
-        <br />
-        <form action="/cancellaCliente" method="POST">
-          <button
-            id="btnPannello"
-            type="submit"
-            style="width: 200px; margin-left: 0%"
-          >
-            Cancella il Profilo
-          </button>
-        </form>
-
-        <br />
-        <form action="/logoutCliente" method="GET">
-          <button
-            id="btnPannello"
-            type="submit"
-            style="width: 200px; margin-left: 0%"
-          >
-            Esci
-          </button>
-        </form>
-
-        <br />
-
-        <a href="./PannelloModificaCliente.html">Modifica Dati</a>
-
-        <p><a href="./SchermataPrincipale.html">Pagina Principale</a></p>
-      </div>
+      <img
+        src="img/SpuntaNera.png"
+        alt="SpuntaDiConferma"
+        height="200"
+        width="200"
+      />
     </div>
 
     <!--Inizio footer-->
