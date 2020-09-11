@@ -218,13 +218,8 @@ module.exports = function (app) {
         req.session.id_casa +
         " ";
 
-<<<<<<< HEAD
-      con.query(sql, function (err, results) {
-        console.log(results);
-=======
       con.query(sql, function (err) {
         console.log("Dati modificati correttamente.");
->>>>>>> 729771b2c0cbc7b6e54cfd39bf72d814d745b3e9
         req.session.indirizzo = req.body.indirizzo_nc;
         req.session.citta = req.body.citta_nc;
 
@@ -239,11 +234,7 @@ module.exports = function (app) {
           console.log(err);
         } else {
           var sql2 =
-<<<<<<< HEAD
-            "SELECT * FROM gestioneAffitti.casa WHERE gestioneAffitti.casa.id_casa = " +
-=======
             "SELECT * FROM gestioneAffitti.casa WHERE id_casa = " +
->>>>>>> 729771b2c0cbc7b6e54cfd39bf72d814d745b3e9
             req.session.id_casa +
             " ";
           con.query(sql2, function (err, results) {
