@@ -243,7 +243,7 @@ module.exports = function (app) {
             "../Sistema_Alberghi/views",
             "NotificaRicercaFallita.html"
           )
-        ); //---SIMONE
+        );
       } else if (results.length > 0) {
         console.log(
           "Recensioni relative alla casa " + req.session.nome_casa + ": "
