@@ -115,7 +115,8 @@ module.exports = function (app) {
 
     req.body.animali_nc = translateBoolean(req.body.animali_nc);
     req.body.cucina_nc = translateBoolean(req.body.cucina_nc);
-    if (req.body.no_last_nc != undefined) {
+    req.body.no_last_nc = translateBoolean(req.body.no_last_nc);
+    if (req.body.no_last_nc == "sì") {
       req.body.ultima_data_nc = "9999-12-31";
     }
 
@@ -367,9 +368,9 @@ module.exports = function (app) {
       } else {
         if (results.length > 0) {
           var sql =
-            "SELECT * FROM gestioneAffitti.casa, gestioneAffitti.foto WHERE gestioneAffitti.casa.indirizzo = gestioneAffitti.foto.ref_casa_via AND gestioneAffitti.casa.citta = gestioneAffitti.foto.ref_casa_citta AND gestioneAffitti.casa.id_casa = " +
+            "SELECT * FROM gestioneAffitti.casa, gestioneAffitti.foto WHERE gestioneAffitti.casa.id_casa = " +
             id +
-            "";
+            " AND gestioneAffitti.casa.id_casa = gestioneAffitti.foto.ref_casa_f";
         } else if (results.length == 0) {
           var sql =
             "SELECT * FROM gestioneAffitti.casa WHERE gestioneAffitti.casa.id_casa = " +
