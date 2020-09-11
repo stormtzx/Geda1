@@ -62,7 +62,7 @@ function crea_tableRencensione() {
 
 function crea_tableFoto() {
   var sql =
-    "CREATE TABLE IF NOT EXISTS foto(id_casa int auto_increment, ref_casa_via VARCHAR(50) references casa(indirizzo), ref_casa_citta VARCHAR(50) references casa(citta), image varchar(255) NOT NULL, PRIMARY KEY (id_casa))";
+    "CREATE TABLE IF NOT EXISTS foto(id_foto int auto_increment, ref_casa_f int references casa(id_casa), image varchar(255) NOT NULL, PRIMARY KEY (id_foto))";
   con.query(sql, function (err, result) {
     if (err) throw err;
     console.log("Table FOTO creata");
