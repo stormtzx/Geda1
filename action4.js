@@ -184,39 +184,39 @@ module.exports = function (app) {
         req.body.indirizzo_nc +
         "', gestioneAffitti.casa.citta = '" +
         req.body.citta_nc +
-        "', gestioneAffitti.casa.beb = '" +
+        "', gestioneAffitti.casa.beb = " +
         req.body.beb_nc +
-        "', gestioneAffitti.casa.casa_vacanza = '" +
+        ", gestioneAffitti.casa.casa_vacanza = " +
         req.body.casa_vacanza_nc +
-        "', gestioneAffitti.casa.numero_camere = '" +
+        ", gestioneAffitti.casa.numero_camere = " +
         req.body.camere_nc +
-        "', gestioneAffitti.casa.numero_bagno = '" +
+        ", gestioneAffitti.casa.numero_bagno = " +
         req.body.bagni_nc +
-        "', gestioneAffitti.casa.perimetro_casa = '" +
+        ", gestioneAffitti.casa.perimetro_casa = " +
         req.body.perimetro_nc +
-        "', gestioneAffitti.casa.tariffa_giornaliera = '" +
+        ", gestioneAffitti.casa.tariffa_giornaliera = " +
         req.body.tariffa_nc +
-        "', gestioneAffitti.casa.capienza_max = '" +
+        ", gestioneAffitti.casa.capienza_max = " +
         req.body.capienza_nc +
-        "', gestioneAffitti.casa.ammontare_tasse = '" +
+        ", gestioneAffitti.casa.ammontare_tasse = " +
         req.body.tasse_nc +
-        "', gestioneAffitti.casa.fasciatoio = '" +
+        ", gestioneAffitti.casa.fasciatoio = " +
         req.body.fasciatoio_nc +
-        "', gestioneAffitti.casa.segnalatori_fumo = '" +
+        ", gestioneAffitti.casa.segnalatori_fumo = " +
         req.body.segnalatore_fumo_nc +
-        "', gestioneAffitti.casa.servizi_disabili = '" +
+        ", gestioneAffitti.casa.servizi_disabili = " +
         req.body.servizi_disabili_nc +
-        "', gestioneAffitti.casa.animali_ammessi = '" +
+        ", gestioneAffitti.casa.animali_ammessi = " +
         req.body.animali_nc +
-        "', gestioneAffitti.casa.cucina = '" +
+        ", gestioneAffitti.casa.cucina = " +
         req.body.cucina_nc +
-        "', gestioneAffitti.casa.prima_data = '" +
+        ", gestioneAffitti.casa.prima_data = '" +
         req.body.prima_data_nc +
         "', gestioneAffitti.casa.ultima_data = '" +
         req.body.ultima_data_nc +
-        "' WHERE gestioneAffitti.casa.id_casa = '" +
+        "' WHERE gestioneAffitti.casa.id_casa = " +
         req.session.id_casa +
-        "' ";
+        " ";
 
       con.query(sql, function (err) {
         console.log("Dati modificati correttamente.");
