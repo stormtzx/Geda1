@@ -135,7 +135,7 @@ module.exports = function (app) {
     });
   });
 
-  app.post("/modificaCasa", function (req, res, err) {
+  app.post("/modificaCasa", function (req, res) {
     console.log(req.body);
     if (req.body.beb_nc != undefined) req.body.beb_nc = true;
     if (req.body.casa_vacanza_nc != undefined) req.body.casa_vacanza_nc = true;
@@ -173,11 +173,7 @@ module.exports = function (app) {
       console.log("Errore: dati inseriti non validi");
 
       res.sendFile(
-        path.join(
-          __dirname,
-          "../Sistema_Alberghi/views",
-          "NotificaNuovaCasaFallita.html"
-        )
+        path.join(__dirname, "../Sistema_Alberghi/views", "QualcosaStorto.html")
       );
       return;
     } else {
@@ -222,8 +218,13 @@ module.exports = function (app) {
         req.session.id_casa +
         " ";
 
+<<<<<<< HEAD
       con.query(sql, function (err, results) {
         console.log(results);
+=======
+      con.query(sql, function (err) {
+        console.log("Dati modificati correttamente.");
+>>>>>>> 729771b2c0cbc7b6e54cfd39bf72d814d745b3e9
         req.session.indirizzo = req.body.indirizzo_nc;
         req.session.citta = req.body.citta_nc;
 
@@ -232,16 +233,23 @@ module.exports = function (app) {
             path.join(
               __dirname,
               "../Sistema_Alberghi/views",
-              "NotificaNuovaCasaFallita.html"
+              "QualcosaStorto.html"
             )
           );
+          console.log(err);
         } else {
           var sql2 =
+<<<<<<< HEAD
             "SELECT * FROM gestioneAffitti.casa WHERE gestioneAffitti.casa.id_casa = " +
+=======
+            "SELECT * FROM gestioneAffitti.casa WHERE id_casa = " +
+>>>>>>> 729771b2c0cbc7b6e54cfd39bf72d814d745b3e9
             req.session.id_casa +
             " ";
           con.query(sql2, function (err, results) {
-            if (err) throw err;
+            if (err) {
+              console.log(err);
+            }
             if (results.length == 1) {
               console.log(results);
               console.log("Dati modificati correttamente.");

@@ -232,14 +232,18 @@ module.exports = function (app) {
     console.log(req.session.id_casa);
     console.log(typeof req.session.id_casa);
 
-    var sql =
-      "SELECT * FROM gestioneAffitti.recensione WHERE ref_casa_r = " +
-      req.session.id_casa +
-      "";
+    var sql = `SELECT * FROM gestioneAffitti.recensione WHERE ref_casa_r = ${req.session.id_casa};`;
 
     con.query(sql, function (err, results) {
       if (err) {
         console.log(err);
+        res.sendFile(
+          path.join(
+            __dirname,
+            "../Sistema_Alberghi/views",
+            "NotificaRicercaFallita.html"
+          )
+        );
       } else if (results.length > 0) {
         console.log(
           "Recensioni relative alla casa " + req.session.nome_casa + ": "
@@ -248,7 +252,7 @@ module.exports = function (app) {
         res.render("SchermataRecensioniCasa.html", {
           leggiRecensioni: results,
         });
-      } else if (results.lenght == 0) {
+      } else if (results.length == 0) {
         console.log("Nessuna recensione per la casa " + req.session.nome_casa);
         res.sendFile(
           path.join(
@@ -338,15 +342,17 @@ module.exports = function (app) {
     var id = req.param("id");
 
     var sql =
-      "SELECT * FROM gestioneAffitti.casa WHERE gestioneAffitti.casa.id_casa = '" +
+      "SELECT * FROM gestioneAffitti.casa WHERE gestioneAffitti.casa.id_casa = " +
       id +
-      "' ";
+      " ";
     con.query(sql, function (err, results) {
       if (err) {
         console.log(err);
       } else if (results.length == 1) {
         console.log(results);
+        console.log(results[0].id_casa);
         req.session.id_casa = results[0].id_casa;
+        console.log(`session: ${req.session.id_casa}`);
         req.session.nome_casa = results[0].nome_casa;
         req.session.indirizzo = results[0].indirizzo;
         req.session.citta = results[0].citta;
@@ -363,7 +369,7 @@ module.exports = function (app) {
       }
     });
   });
-  app.get("/visualizzaListaPrenotazioniProprietario", function (req, res, err) {
+  app.get("/visualizzaListaPrenotazioniProprietario", function (req, res) {
     var sql =
       "SELECT * FROM gestioneAffitti.prenotazione WHERE ref_proprietario = '" +
       req.session.emailP +
@@ -379,7 +385,7 @@ module.exports = function (app) {
           ListaPrenotazioniProprietario: results,
         });
       } else if (results.lenght == 0) {
-        console.log("Nessuna prenotazione disponibile!");
+        console.log("Nessuna prenotazione ricevuta!");
         res.sendFile(
           path.join(
             __dirname,
@@ -420,14 +426,14 @@ module.exports = function (app) {
   });
   app.get("/visualizzaListaPrenotazioniCasa", function (req, res, err) {
     var sql =
-      "SELECT * FROM gestioneAffitti.prenotazione WHERE ref_casa = '" +
+      "SELECT * FROM gestioneAffitti.prenotazione WHERE ref_casa = " +
       req.session.id_casa +
-      "'";
+      "";
 
     con.query(sql, function (err, results) {
       if (err) {
         console.log(err);
-      } else if (results.lenght > 0) {
+      } else if (results.length > 0) {
         console.log(
           "Prenotazioni ricevute dal Proprietario per la casa " +
             req.session.nome_casa +
