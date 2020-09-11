@@ -319,13 +319,13 @@ module.exports = function (app) {
     con.query(sql, function (err, results) {
       if (err) {
         console.log(err);
-      } else if (results[0].proprietario != "") {
+      } else if (results.length > 0) {
         console.log("Case di " + req.session.emailP + ": ");
         console.log(results);
         res.render("SchermataListaCaseProprietario.html", {
           ListaCaseProprietario: results,
         });
-      } else if (results.lenght == 0) {
+      } else if (results.length == 0) {
         console.log("L'Utente non ha ancora aggiunto nessuna casa!");
         res.sendFile(
           path.join(
@@ -378,13 +378,13 @@ module.exports = function (app) {
     con.query(sql, function (err, results) {
       if (err) {
         console.log(err);
-      } else if (results.lenght > 0) {
+      } else if (results.length > 0) {
         console.log("Prenotazioni ricevute dal Proprietario: ");
         console.log(results);
         res.render("SchermataListaPrenotazioniProprietario.html", {
           ListaPrenotazioniProprietario: results,
         });
-      } else if (results.lenght == 0) {
+      } else if (results.length == 0) {
         console.log("Nessuna prenotazione ricevuta!");
         res.sendFile(
           path.join(
@@ -413,7 +413,7 @@ module.exports = function (app) {
         res.render("SchermataPrenotazioneCasa.html", {
           verificaPrenotazione: results,
         });
-      } else if (results.lenght == 0) {
+      } else if (results.length == 0) {
         res.sendFile(
           path.join(
             __dirname,
@@ -443,7 +443,7 @@ module.exports = function (app) {
         res.render("SchermataListaPrenotazioniCasa.html", {
           ListaPrenotazioniCasa: results,
         });
-      } else if (results.lenght == 0) {
+      } else if (results.length == 0) {
         console.log("Nessuna prenotazione disponibile!");
         res.sendFile(
           path.join(

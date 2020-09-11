@@ -120,7 +120,8 @@ module.exports = function (app) {
 
     if (
       req.body.ultima_data_nc < req.body.prima_data_nc ||
-      req.session.emailP == ""
+      req.session.emailP == "" ||
+      req.session.emailC == undefined
     ) {
       /*   console.log(err);      
       console.log(req.body.prima_data_nc);
@@ -180,6 +181,16 @@ module.exports = function (app) {
         req.body.ultima_data_nc +
         "' ) ";
       con.query(sql, function (err, results) {
+        if (err) {
+          res.sendFile(
+            path.join(
+              __dirname,
+              "../Sistema_Alberghi/views",
+              "QualcosaStorto.html"
+            )
+          );
+          console.log(err);
+        }
         console.log("CASA inserita correttamente.");
         req.session.indirizzo = req.body.indirizzo_nc;
         req.session.citta = req.body.citta_nc;

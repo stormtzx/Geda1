@@ -279,7 +279,7 @@ module.exports = function (app) {
         console.log(results);
         var oggi = new Date().toISOString().slice(0, 19).replace("T", " ");
         var data_corrente = convertiData(oggi);
-        for (var i = 0; i < results.lenght; i++) {
+        for (var i = 0; i < results.length; i++) {
           var diffTime = data_corrente - results[i].check_out;
           var days = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
           var giorni = parseInt(days);
