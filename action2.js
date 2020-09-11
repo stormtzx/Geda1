@@ -121,7 +121,7 @@ module.exports = function (app) {
     if (
       req.body.ultima_data_nc < req.body.prima_data_nc ||
       req.session.emailP == "" ||
-      req.session.emailC == undefined
+      req.session.emailP == undefined
     ) {
       /*   console.log(err);      
       console.log(req.body.prima_data_nc);
