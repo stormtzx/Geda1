@@ -197,51 +197,67 @@ module.exports = function (app) {
   app.post("/caricafoto", upload.single("file"), function (req, res) {
     //var file = req.body.uploaded_image;
     //var img_name = req.body.name;
-    var file = __dirname + "../Sistema_Alberghi/upload" + req.file.filename;
-    var sql =
-      "insert into gestioneAffitti.foto(ref_casa_via, ref_casa_citta, image) values ('" +
-      req.session.indirizzo +
-      "', '" +
-      req.session.citta +
-      "', '" +
-      req.file.filename +
-      "' ) ";
+    var sql1 =
+      "SELECT id_casa FROM gestioneAffitti.casa WHERE id_casa >= ALL (SELECT id_casa FROM gestioneAffitti.casa)";
+    con.query(sql1, function (err, results) {
+      if (err || results.length > 1) {
+        console.log("Inserimento Foto non corretto.");
+        res.sendFile(
+          path.join(
+            __dirname,
+            "../Sistema_Alberghi/views",
+            "QualcosaStorto.html"
+          )
+        );
+        console.log(err);
+      } else if (results.length == 1) {
+        req.session.ref_casa_f = results[0].id_casa;
+        var file = __dirname + "../Sistema_Alberghi/upload" + req.file.filename;
+        var sql =
+          "insert into gestioneAffitti.foto(ref_casa_f, image) values (" +
+          req.session.ref_casa_f +
+          ", '" +
+          req.file.filename +
+          "' ) ";
 
-    fs.rename(req.file.path, file, function (err) {
-      con.query(sql, function (err, results) {
-        if (err) {
-          console.log("Inserimento Foto non corretto.");
-          res.sendFile(
-            path.join(
-              __dirname,
-              "../Sistema_Alberghi/views",
-              "NotificaNuovaCasaFallita.html"
-            )
-          );
-        } else {
-          console.log("CASA inserita correttamente.");
-          res.sendFile(
-            path.join(
-              __dirname,
-              "../Sistema_Alberghi/views",
-              "ConfermaAggiuntaFoto.html"
-            )
-          );
-        }
-      });
+        fs.rename(req.file.path, file, function (err) {
+          con.query(sql, function (err, results) {
+            if (err) {
+              console.log("Inserimento Foto non corretto.");
+              res.sendFile(
+                path.join(
+                  __dirname,
+                  "../Sistema_Alberghi/views",
+                  "QualcosaStorto.html"
+                )
+              );
+              console.log(err);
+            } else {
+              console.log("FOTO inserita correttamente.");
+              res.sendFile(
+                path.join(
+                  __dirname,
+                  "../Sistema_Alberghi/views",
+                  "ConfermaAggiuntaFoto.html"
+                )
+              );
+            }
+          });
+        });
+      }
     });
   });
 
   app.get("/visualizzaFotoCasa", function (req, res) {
     var sql =
-      "SELECT * FROM gestioneAffitti.foto WHERE gestioneAffitti.foto.ref_casa_via = '" +
-      req.session.indirizzo +
-      "' AND gestioneAffitti.foto.ref_casa_citta = '" +
-      req.session.citta +
-      "' ";
+      "SELECT * FROM gestioneAffitti.foto WHERE gestioneAffitti.foto.ref_casa_f = " +
+      req.session.id_casa +
+      "";
 
     con.query(sql, function (err, results) {
-      if (err) throw err;
+      if (err) {
+        console.log(err);
+      }
       if (results.length > 0) {
         console.log("Ecco le foto");
         console.log(results);
@@ -252,7 +268,7 @@ module.exports = function (app) {
           path.join(
             __dirname,
             "../Sistema_Alberghi/views",
-            "QualcosaStorto.html"
+            "NotificaRicercaFallita.html"
           )
         );
       }
