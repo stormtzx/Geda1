@@ -31,6 +31,14 @@ var transporter = nodemailer.createTransport({
   },
 });
 
+function translateBoolean(mybool) {
+  if (mybool) {
+    return "sì";
+  } else {
+    return "no";
+  }
+}
+
 function convertiData(data) {
   date = new Date(data);
   year = date.getFullYear();

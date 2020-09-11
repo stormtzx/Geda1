@@ -20,6 +20,14 @@ var con = mysql.createConnection({
   database: "gestioneAffitti",
 });
 
+function translateBoolean(mybool) {
+  if (mybool) {
+    return "sì";
+  } else {
+    return "no";
+  }
+}
+
 var transporter = nodemailer.createTransport({
   host: "smtp.gmail.com",
   port: 465,
@@ -137,25 +145,18 @@ module.exports = function (app) {
 
   app.post("/modificaCasa", function (req, res) {
     console.log(req.body);
-    if (req.body.beb_nc != undefined) req.body.beb_nc = true;
-    if (req.body.casa_vacanza_nc != undefined) req.body.casa_vacanza_nc = true;
-    if (req.body.fasciatoio_nc != undefined) req.body.fasciatoio_nc = true;
-    if (req.body.segnalatore_fumo_nc != undefined)
-      req.body.segnalatore_fumo_nc = true;
-    if (req.body.servizi_disabili_nc != undefined)
-      req.body.servizi_disabili_nc = true;
-    if (req.body.animali_nc != undefined) req.body.animali_nc = true;
-    if (req.body.cucina_nc != undefined) req.body.cucina_nc = true;
+    req.body.beb_nc = translateBoolean(req.body.beb_nc);
+    req.body.casa_vacanza_nc = translateBoolean(req.body.casa_vacanza_nc);
+    req.body.fasciatoio_nc = translateBoolean(req.body.fasciatoio_nc);
+    req.body.segnalatore_fumo_nc = translateBoolean(
+      req.body.segnalatore_fumo_nc
+    );
+    req.body.servizi_disabili_nc = translateBoolean(
+      req.body.servizi_disabili_nc
+    );
 
-    if (req.body.beb_nc == undefined) req.body.beb_nc = false;
-    if (req.body.casa_vacanza_nc == undefined) req.body.casa_vacanza_nc = false;
-    if (req.body.fasciatoio_nc == undefined) req.body.fasciatoio_nc = false;
-    if (req.body.segnalatore_fumo_nc == undefined)
-      req.body.segnalatore_fumo_nc = false;
-    if (req.body.servizi_disabili_nc == undefined)
-      req.body.servizi_disabili_nc = false;
-    if (req.body.animali_nc == undefined) req.body.animali_nc = false;
-    if (req.body.cucina_nc == undefined) req.body.cucina_nc = false;
+    req.body.animali_nc = translateBoolean(req.body.animali_nc);
+    req.body.cucina_nc = translateBoolean(req.body.cucina_nc);
 
     if (req.body.no_last_nc != undefined)
       req.body.ultima_data_nc = "9999-12-31";
@@ -184,11 +185,11 @@ module.exports = function (app) {
         req.body.indirizzo_nc +
         "', gestioneAffitti.casa.citta = '" +
         req.body.citta_nc +
-        "', gestioneAffitti.casa.beb = " +
+        "', gestioneAffitti.casa.beb = '" +
         req.body.beb_nc +
-        ", gestioneAffitti.casa.casa_vacanza = " +
+        "', gestioneAffitti.casa.casa_vacanza = '" +
         req.body.casa_vacanza_nc +
-        ", gestioneAffitti.casa.numero_camere = " +
+        "', gestioneAffitti.casa.numero_camere = " +
         req.body.camere_nc +
         ", gestioneAffitti.casa.numero_bagno = " +
         req.body.bagni_nc +
@@ -200,17 +201,17 @@ module.exports = function (app) {
         req.body.capienza_nc +
         ", gestioneAffitti.casa.ammontare_tasse = " +
         req.body.tasse_nc +
-        ", gestioneAffitti.casa.fasciatoio = " +
+        ", gestioneAffitti.casa.fasciatoio = '" +
         req.body.fasciatoio_nc +
-        ", gestioneAffitti.casa.segnalatori_fumo = " +
+        "', gestioneAffitti.casa.segnalatori_fumo = '" +
         req.body.segnalatore_fumo_nc +
-        ", gestioneAffitti.casa.servizi_disabili = " +
+        "', gestioneAffitti.casa.servizi_disabili = '" +
         req.body.servizi_disabili_nc +
-        ", gestioneAffitti.casa.animali_ammessi = " +
+        "', gestioneAffitti.casa.animali_ammessi = '" +
         req.body.animali_nc +
-        ", gestioneAffitti.casa.cucina = " +
+        "', gestioneAffitti.casa.cucina = '" +
         req.body.cucina_nc +
-        ", gestioneAffitti.casa.prima_data = '" +
+        "', gestioneAffitti.casa.prima_data = '" +
         req.body.prima_data_nc +
         "', gestioneAffitti.casa.ultima_data = '" +
         req.body.ultima_data_nc +

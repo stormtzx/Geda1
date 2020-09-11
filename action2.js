@@ -43,6 +43,14 @@ var transporter = nodemailer.createTransport({
   },
 });
 
+function translateBoolean(mybool) {
+  if (mybool) {
+    return "sì";
+  } else {
+    return "no";
+  }
+}
+
 function generateDateList(from, to) {
   var getDate = function (date) {
     var m = date.getMonth(),
@@ -95,28 +103,21 @@ function convertiData(data) {
 module.exports = function (app) {
   app.post("/nuovaCasa", function (req, res, err) {
     console.log(req.body);
-    if (req.body.beb_nc != undefined) req.body.beb_nc = true;
-    if (req.body.casa_vacanza_nc != undefined) req.body.casa_vacanza_nc = true;
-    if (req.body.fasciatoio_nc != undefined) req.body.fasciatoio_nc = true;
-    if (req.body.segnalatore_fumo_nc != undefined)
-      req.body.segnalatore_fumo_nc = true;
-    if (req.body.servizi_disabili_nc != undefined)
-      req.body.servizi_disabili_nc = true;
-    if (req.body.animali_nc != undefined) req.body.animali_nc = true;
-    if (req.body.cucina_nc != undefined) req.body.cucina_nc = true;
+    req.body.beb_nc = translateBoolean(req.body.beb_nc);
+    req.body.casa_vacanza_nc = translateBoolean(req.body.casa_vacanza_nc);
+    req.body.fasciatoio_nc = translateBoolean(req.body.fasciatoio_nc);
+    req.body.segnalatore_fumo_nc = translateBoolean(
+      req.body.segnalatore_fumo_nc
+    );
+    req.body.servizi_disabili_nc = translateBoolean(
+      req.body.servizi_disabili_nc
+    );
 
-    if (req.body.beb_nc == undefined) req.body.beb_nc = false;
-    if (req.body.casa_vacanza_nc == undefined) req.body.casa_vacanza_nc = false;
-    if (req.body.fasciatoio_nc == undefined) req.body.fasciatoio_nc = false;
-    if (req.body.segnalatore_fumo_nc == undefined)
-      req.body.segnalatore_fumo_nc = false;
-    if (req.body.servizi_disabili_nc == undefined)
-      req.body.servizi_disabili_nc = false;
-    if (req.body.animali_nc == undefined) req.body.animali_nc = false;
-    if (req.body.cucina_nc == undefined) req.body.cucina_nc = false;
-
-    if (req.body.no_last_nc != undefined)
+    req.body.animali_nc = translateBoolean(req.body.animali_nc);
+    req.body.cucina_nc = translateBoolean(req.body.cucina_nc);
+    if (req.body.no_last_nc != undefined) {
       req.body.ultima_data_nc = "9999-12-31";
+    }
 
     if (
       req.body.ultima_data_nc < req.body.prima_data_nc ||
@@ -141,7 +142,7 @@ module.exports = function (app) {
       return;
     } else {
       var sql =
-        "insert into gestioneAffitti.casa(nome_casa, indirizzo, citta, proprietario, beb, casa_vacanza, numero_camere, numero_bagno, perimetro_casa, tariffa_giornaliera, capienza_max, ammontare_tasse, fasciatoio, segnalatori_fumo, servizi_disabili, animali_ammessi, cucina, prima_data, ultima_data) values('" +
+        "insert into gestioneAffitti.casa(nome_casa, indirizzo, citta, proprietario, beb, casa_vacanza, numero_camere, numero_bagno, perimetro_casa, tariffa_giornaliera, capienza_max, ammontare_tasse, fasciatoio, segnalatori_fumo, servizi_disabili, animali_ammessi, cucina, prima_data, ultima_data, descrizione) values('" +
         req.body.nome_casa_nc +
         "', '" +
         req.body.indirizzo_nc +
@@ -149,11 +150,11 @@ module.exports = function (app) {
         req.body.citta_nc +
         "', '" +
         req.session.emailP +
-        "', " +
+        "', '" +
         req.body.beb_nc +
-        ", " +
+        "', '" +
         req.body.casa_vacanza_nc +
-        ", " +
+        "', " +
         req.body.camere_nc +
         ", " +
         req.body.bagni_nc +
@@ -165,20 +166,22 @@ module.exports = function (app) {
         req.body.capienza_nc +
         ", " +
         req.body.tasse_nc +
-        ", " +
-        req.body.fasciatoio_nc +
-        ", " +
-        req.body.segnalatore_fumo_nc +
-        ", " +
-        req.body.servizi_disabili_nc +
-        ", " +
-        req.body.animali_nc +
-        ", " +
-        req.body.cucina_nc +
         ", '" +
+        req.body.fasciatoio_nc +
+        "', '" +
+        req.body.segnalatore_fumo_nc +
+        "', '" +
+        req.body.servizi_disabili_nc +
+        "', '" +
+        req.body.animali_nc +
+        "', '" +
+        req.body.cucina_nc +
+        "', '" +
         req.body.prima_data_nc +
         "', '" +
         req.body.ultima_data_nc +
+        "', '" +
+        req.body.descrizione_nc +
         "' ) ";
       con.query(sql, function (err, results) {
         if (err) {
@@ -384,6 +387,7 @@ module.exports = function (app) {
             req.session.indirizzo = results[0].indirizzo;
             req.session.proprietario = results[0].proprietario;
             req.session.tariffa_giornaliera = results[0].tariffa_giornaliera;
+            req.session.animali_ammessi = results[0].animali;
             req.session.prima_data = results[0].prima_data;
             req.session.ultima_data = results[0].ultima_data;
             req.session.ammontare_tasse = results[0].ammontare_tasse;
@@ -428,19 +432,19 @@ module.exports = function (app) {
     });
   });
 
-  app.post("/calcoloTasse", function (req, res, err) {
+  app.post("/calcoloTasse", function (req, res) {
     console.log(req.body);
-    if (req.body.animali_p != undefined) req.body.animali_p = true;
-    if (req.body.disabilita_p != undefined) req.body.disabilita_p = true;
-    if (req.body.viaggio_lavoro_p != undefined)
-      req.body.viaggio_lavoro_p = true;
+    req.body.animali_p = translateBoolean(req.body.animali_p);
+    req.body.disabilita_p = translateBoolean(req.body.disabilita_p);
+    req.body.viaggio_lavoro_p = translateBoolean(req.body.viaggio_lavoro_p);
+    req.body.segnalatore_fumo_nc = translateBoolean(
+      req.body.segnalatore_fumo_nc
+    );
 
-    if (req.body.animali_p == undefined) req.body.animali_p = false;
-    if (req.body.disabilita_p == undefined) req.body.disabilita_p = false;
-    if (req.body.viaggio_lavoro_p == undefined)
-      req.body.viaggio_lavoro_p = false;
-    if ((req.body.numero_ospiti_bambini_p = 0))
+    if (req.body.numero_ospiti_bambini_p == 0)
       req.body.numero_ospiti_bambini_p = 0;
+
+    console.log("valori checkbox convertiti");
 
     var check_in = new Date(req.body.data_check_in_p).getTime();
     var check_out = new Date(req.body.data_check_out_p).getTime();
@@ -474,7 +478,7 @@ module.exports = function (app) {
       var dateOccupate = 0; //contatore
       if (err) {
         console.log(err);
-      } else if (results.length > 0) {
+      } else if (results.length >= 0) {
         console.log("Date già occupate per la casa: ");
 
         var risultati = [];
@@ -512,9 +516,9 @@ module.exports = function (app) {
         req.body.data_check_in_p != "" &&
         req.body.data_check_out_p != "" &&
         check_out > check_in &&
-        check_in > prima_data &&
-        check_out < ultima_data &&
-        giorni <= 30 &&
+        check_in >= prima_data &&
+        check_out <= ultima_data &&
+        giorni <= 28 &&
         numero_ospiti <= req.session.capienza_max &&
         dateOccupate == 0
       ) {
@@ -535,8 +539,8 @@ module.exports = function (app) {
         console.log("Prezzo: " + prezzo + " euro");
 
         if (
-          req.body.viaggio_lavoro_p == true ||
-          req.body.disabilita_p == true
+          req.body.viaggio_lavoro_p == "sì" ||
+          req.body.disabilita_p == "sì"
         ) {
           tasse = tasse / 2;
         } //agevolazioni per viaggiatori lavoratori e/o disabili
@@ -665,13 +669,13 @@ module.exports = function (app) {
         req.session.check_in_p +
         "', '" +
         req.session.check_out_p +
-        "', " +
+        "', '" +
         req.session.animali_p +
-        ", " +
+        "', '" +
         req.session.disabilita_p +
-        ", " +
+        "', '" +
         req.session.viaggio_lavoro_p +
-        ", " +
+        "', " +
         req.session.prezzo_p +
         ", " +
         req.session.tasse_p +
