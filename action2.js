@@ -7,6 +7,8 @@ var session = require("express-session");
 app.engine("html", require("ejs").renderFile);
 app.set("view engine", "html");
 const fs = require("fs");
+var nodemailer = require("nodemailer");
+const { isNullOrUndefined } = require("util");
 
 const bodyParser = require("body-parser");
 const { Console } = require("console");
@@ -29,6 +31,16 @@ var con = mysql.createConnection({
   user: "root",
   password: "unipa",
   database: "gestioneAffitti",
+});
+
+var transporter = nodemailer.createTransport({
+  host: "smtp.gmail.com",
+  port: 465,
+  secure: true,
+  auth: {
+    user: "gedasistemabooking@gmail.com",
+    pass: "unipa2020",
+  },
 });
 
 function generateDateList(from, to) {
@@ -643,6 +655,117 @@ module.exports = function (app) {
               "ConfermaPrenotazioneEffettuata.html"
             )
           );
+          var mailOptions = {
+            from: "gedasistemabooking@gmail.com",
+            to: req.session.proprietario,
+            subject: "Prenotazione ricevuta",
+            text:
+              "Ciao! Hai appena ricevuto una PRENTOAZIONE fra giorno " +
+              req.session.check_in_p +
+              " e giorno " +
+              req.session.check_out_p +
+              " per la tua casa " +
+              req.session.nome_casa +
+              " (codice identificativo: " +
+              req.session.id_casa +
+              "). Riepilogo dati prenotazione: " +
+              req.session.nome_casa +
+              ", Nome Cliente: " +
+              req.session.nomeC +
+              ", Cognome Cliente " +
+              req.session.cognomeC +
+              ", E-mail Cliente: " +
+              req.session.emailC +
+              ", Ospiti adulti: " +
+              req.session.numero_ospiti_adulti_p +
+              ", Ospiti bambini: " +
+              req.session.numero_ospiti_bambini_p +
+              ", Data prenotazione: " +
+              data_corrente +
+              " , da " +
+              req.session.check_in_p +
+              ", a " +
+              req.session.check_out_p +
+              ", Presenza animali: " +
+              req.session.animali_p +
+              ", Disabilità di uno o più ospiti: " +
+              req.session.disabilita_p +
+              ", Viaggio di lavoro: " +
+              req.session.viaggio_lavoro_p +
+              ", Prezzo " +
+              req.session.prezzo_p +
+              ", Tasse " +
+              req.session.tasse_p +
+              ", Totale " +
+              req.session.totale_p,
+          };
+          transporter.sendMail(mailOptions, (error, info) => {
+            if (error) {
+              return console.log(error);
+            }
+            console.log(
+              "Notifica Prenotazione ricevuta inviata alla e-mail del PROPRIETARIO",
+              info.messageId,
+              info.response
+            );
+          });
+
+          var mailOptions2 = {
+            from: "gedasistemabooking@gmail.com",
+            to: req.session.emailC,
+            subject: "Prenotazione effettuata correttamente",
+            text:
+              "Ciao! Hai appena effettuato una PRENTOAZIONE fra giorno " +
+              req.session.check_in_p +
+              " e giorno " +
+              req.session.check_out_p +
+              " per la casa " +
+              req.session.nome_casa +
+              " (codice identificativo: " +
+              req.session.id_casa +
+              "). Riepilogo dati prenotazione: " +
+              req.session.nome_casa +
+              ", Nome Cliente: " +
+              req.session.nomeC +
+              ", Cognome Cliente " +
+              req.session.cognomeC +
+              ", E-mail Cliente: " +
+              req.session.emailC +
+              ", E-mail Proprietario: " +
+              req.session.proprietario +
+              ", Ospiti adulti: " +
+              req.session.numero_ospiti_adulti_p +
+              ", Ospiti bambini: " +
+              req.session.numero_ospiti_bambini_p +
+              ", Data prenotazione: " +
+              data_corrente +
+              " , da " +
+              req.session.check_in_p +
+              ", a " +
+              req.session.check_out_p +
+              ", Presenza animali: " +
+              req.session.animali_p +
+              ", Disabilità di uno o più ospiti: " +
+              req.session.disabilita_p +
+              ", Viaggio di lavoro: " +
+              req.session.viaggio_lavoro_p +
+              ", Prezzo " +
+              req.session.prezzo_p +
+              ", Tasse " +
+              req.session.tasse_p +
+              ", Totale " +
+              req.session.totale_p,
+          };
+          transporter.sendMail(mailOptions2, (error, info) => {
+            if (error) {
+              return console.log(error);
+            }
+            console.log(
+              "Conferma Prenotazione effettuata inviata alla e-mail del CLIENTE",
+              info.messageId,
+              info.response
+            );
+          });
           var sql2 =
             "SELECT id_prenotazione FROM gestioneAffitti.prenotazione WHERE id_prenotazione >= ALL (SELECT id_prenotazione FROM gestioneAffitti.prenotazione)"; //Viene selezionata la PRENOTAZIONE appena effettuata, il suo identificativo auto-generatosi in sql, e il parametro viene passato nella funziona occupaDate: il riferimento alla prenotazione nelle tuple di DATA consentirà al Cliente che intende cancellare la sua prenotazione di liberare le date precedentemente occupate.
           con.query(sql2, function (err, results) {

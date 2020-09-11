@@ -191,6 +191,21 @@ module.exports = function (app) {
             "ConfermaIscrizioneCliente.html"
           )
         );
+        var mailOptions = {
+          from: "gedasistemabooking@gmail.com",
+          to: req.session.emailC,
+          subject: "Iscrizione in GEDA",
+          text:
+            "Ciao, " +
+            req.session.nomeC +
+            "! La tua iscrizione su GEDA come cliente è andata a buon fine.",
+        };
+        transporter.sendMail(mailOptions, (error, info) => {
+          if (error) {
+            return console.log(error);
+          }
+          console.log("Message %s sent: %s", info.messageId, info.response);
+        });
       });
     } else {
       console.log("Non tutti i campi sono stati compilati.");
@@ -254,6 +269,21 @@ module.exports = function (app) {
             "ConfermaIscrizioneProprietario.html"
           )
         );
+        var mailOptions = {
+          from: "gedasistemabooking@gmail.com",
+          to: req.session.emailP,
+          subject: "Iscrizione in GEDA",
+          text:
+            "Ciao, " +
+            req.session.nomeP +
+            "! La tua iscrizione su GEDA come proprietario è andata a buon fine.",
+        };
+        transporter.sendMail(mailOptions, (error, info) => {
+          if (error) {
+            return console.log(error);
+          }
+          console.log("Message %s sent: %s", info.messageId, info.response);
+        });
       });
     } else {
       console.log("Non tutti i campi sono stati compilati.");
