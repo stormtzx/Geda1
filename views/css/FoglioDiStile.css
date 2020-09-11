@@ -981,19 +981,22 @@ padding-bottom:1%;
   font-size:16px;
   height: 25px;
    width: auto; 
-  
+  outline: none;
  }
 
  #btnTrasparente:hover {
-
+  outline: none;
  cursor: pointer;
- }
- #btnTrasparente:target {
-  background-color:transparent;
-  border-color:transparent;
-  box-shadow:transparent inset; 
+	 border:0px;
 
  }
+
+ #btnTrasparente:active {
+  outline: none;
+ cursor: pointer;
+  border:0px;
+ }
+
 
 #riquadroFotoCasa {
 
