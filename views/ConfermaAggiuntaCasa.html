@@ -45,17 +45,20 @@
             ></a
           >
           <ul>
-            <li style="border-bottom: 1px solid #ccc">
-              <a href="./SchermataAccesso.html">Accedi</a>
+            <li><form action="/reindirizzamentoAccesso" method="GET">
+              <button id="btnTrasparente" type="submit" style="margin-left:4%">
+                <a style="color: black">Accedi</a>
+              </button>
+            </form>
+           </li>
+            <li>
+              <form action="/reindirizzamentoIscrizione" method="GET">
+                <button id="btnTrasparente" type="submit"style="margin-left:4%;">
+                  <a style="color: black">Iscriviti</a>
+                </button>
+              </form>
             </li>
-            <li><a href="./SchermataIscrizione.html">Registrati</a></li>
-          </ul>
-        </li>
-        <li>
-          <a href="./Dove_siamo.html"
-            ><ion-icon name="locate"></ion-icon> Dove siamo</a
-          >
-        </li>
+            </ul>
         <li>
           <a href="./PannelloPrenotazione.html"
             ><ion-icon name="bed"></ion-icon> Prenota</a
