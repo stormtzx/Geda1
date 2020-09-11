@@ -1005,6 +1005,11 @@ width:  400px;
 
 }
 
+.boxRecensione {
+  width: 400px;
+  height: 150px;
+}
+
 
 /*   QUi di seguito il codice per personalizzare l'input validation con delle icone
 
@@ -2008,6 +2013,11 @@ HEIGHT:40%;
    text-align:center;
  }
 
+ .boxRecensione {
+  width: 100px;
+  height: 70px;
+}
+
  
 #btnPannello {
   
@@ -2747,6 +2757,11 @@ HEIGHT:40%;
   font-weight: bold;
    text-align:center;
  }
+
+ .boxRecensione {
+  width: 100px;
+  height: 70px;
+}
 
  
  #btnPannello {
@@ -3494,6 +3509,11 @@ HEIGHT:40%;
   font-weight: bold;
    text-align:center;
  }
+
+ .boxRecensione {
+  width: 100px;
+  height: 70px;
+}
 
  
  #btnPannello {
