@@ -336,58 +336,12 @@ module.exports = function (app) {
   });
 
   app.get("/visualizzaCasa", function (req, res) {
-    var id = req.param("id");
-    console.log(id);
-    console.log(typeof id);
+    var id = parseInt(req.param("id"));
 
-    var sql =
-      "SELECT * FROM gestioneAffitti.casa, gestioneAffitti.foto WHERE gestioneAffitti.casa.indirizzo = gestioneAffitti.foto.ref_casa_via AND gestioneAffitti.casa.citta = gestioneAffitti.foto.ref_casa_citta AND gestioneAffitti.casa.id_casa = " +
-      id +
-      "";
-    con.query(sql, function (err, results) {
+    var sql1 =
+      "SELECT * FROM gestioneAffitti.foto WHERE ref_casa_f = " + id + "";
+    con.query(sql1, function (err, results) {
       if (err) {
-        console.log(err);
-      } else if (results.length == 1) {
-        console.log(results);
-        req.session.id_casa = results[0].id_casa;
-        req.session.nome_casa = results[0].nome_casa;
-        req.session.citta = results[0].citta;
-        req.session.indirizzo = results[0].indirizzo;
-        req.session.proprietario = results[0].proprietario;
-        req.session.tariffa_giornaliera = results[0].tariffa_giornaliera;
-        req.session.prima_data = results[0].prima_data;
-        req.session.ultima_data = results[0].ultima_data;
-        req.session.ammontare_tasse = results[0].ammontare_tasse;
-        req.session.capienza_max = results[0].capienza_max;
-        req.session.results = results;
-        if (req.session.emailC) {
-          var sql2 =
-            "SELECT * FROM gestioneAffitti.foto WHERE gestioneAffitti.foto.ref_casa_via = '" +
-            req.session.indirizzo +
-            "' AND gestioneAffitti.foto.ref_casa_citta = '" +
-            req.session.citta +
-            "' ";
-          con.query(sql2, function (err, results) {
-            res.render("SchermataCasa.html", {
-              visualizzaCasa: req.session.results,
-              ListaFotoCasa: results,
-            });
-          });
-        } else if (
-          req.session.emailC == undefined ||
-          req.session.emailC == ""
-        ) {
-          res.sendFile(
-            path.join(
-              __dirname,
-              "../Sistema_Alberghi/views",
-              "PannelloLoginCliente.html"
-            )
-          );
-        }
-      } else {
-        console.log(err);
-
         res.sendFile(
           path.join(
             __dirname,
@@ -395,6 +349,70 @@ module.exports = function (app) {
             "NotificaRicercaFallita.html"
           )
         );
+        console.log(err);
+      } else {
+        if (results.length > 0) {
+          var sql =
+            "SELECT * FROM gestioneAffitti.casa, gestioneAffitti.foto WHERE gestioneAffitti.casa.indirizzo = gestioneAffitti.foto.ref_casa_via AND gestioneAffitti.casa.citta = gestioneAffitti.foto.ref_casa_citta AND gestioneAffitti.casa.id_casa = " +
+            id +
+            "";
+        } else if (results.length == 0) {
+          var sql =
+            "SELECT * FROM gestioneAffitti.casa WHERE gestioneAffitti.casa.id_casa = " +
+            id +
+            "";
+        }
+        con.query(sql, function (err, results) {
+          if (err) {
+            console.log(err);
+          } else if (results.length == 1) {
+            console.log(results);
+            req.session.id_casa = results[0].id_casa;
+            req.session.nome_casa = results[0].nome_casa;
+            req.session.citta = results[0].citta;
+            req.session.indirizzo = results[0].indirizzo;
+            req.session.proprietario = results[0].proprietario;
+            req.session.tariffa_giornaliera = results[0].tariffa_giornaliera;
+            req.session.prima_data = results[0].prima_data;
+            req.session.ultima_data = results[0].ultima_data;
+            req.session.ammontare_tasse = results[0].ammontare_tasse;
+            req.session.capienza_max = results[0].capienza_max;
+            req.session.results = results;
+            if (req.session.emailC) {
+              var sql2 =
+                "SELECT * FROM gestioneAffitti.foto WHERE gestioneAffitti.foto.ref_casa_f = " +
+                req.session.id_casa +
+                "";
+              con.query(sql2, function (err, results) {
+                res.render("SchermataCasa.html", {
+                  visualizzaCasa: req.session.results,
+                  ListaFotoCasa: results,
+                });
+              });
+            } else if (
+              req.session.emailC == undefined ||
+              req.session.emailC == ""
+            ) {
+              res.sendFile(
+                path.join(
+                  __dirname,
+                  "../Sistema_Alberghi/views",
+                  "PannelloLoginCliente.html"
+                )
+              );
+            }
+          } else {
+            console.log(err);
+
+            res.sendFile(
+              path.join(
+                __dirname,
+                "../Sistema_Alberghi/views",
+                "NotificaRicercaFallita.html"
+              )
+            );
+          }
+        });
       }
     });
   });
