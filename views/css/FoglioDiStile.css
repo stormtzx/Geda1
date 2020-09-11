@@ -1530,6 +1530,14 @@ padding-right:5%;
 
 .contenutoBoxMenu .cercaCittà {
   margin-bottom: 3px;
+  left:15%;
+  width: 35%;
+  height: 5%;
+
+}
+
+.contenutoBoxMenu .button1 {
+  font-size: 7px;
 }
  
 
@@ -2261,6 +2269,14 @@ nav ul li:hover ul li a {
   .contenutoBoxMenu .cercaCittà {
     margin-bottom: 1px;
   }
+
+  .contenutoBoxMenu .button1 {
+    font-size: 3px;
+    left:15%;
+    width: 15%;
+    height: 3%;
+  
+  }
   
 
 
@@ -2973,7 +2989,7 @@ nav #barraDiRicerca {
   }
   
   .contenutoBoxMenu h2 {
-    font-size: 6px;
+    font-size: 4px;
   }
   
   .contenutoBoxMenu form {
@@ -2985,16 +3001,31 @@ nav #barraDiRicerca {
   }
   
   .contenutoBoxMenu input {
-    font-size: 6px;
+    font-size: 4px;
+    height: 3px;
   }
   
   .contenutoBoxMenu button {
     font-size: 4px;
+    height: 5px;
+    margin-bottom: 1%;
   
   }
   
   .contenutoBoxMenu .cercaCittà {
     margin-bottom: 1px;
+  }
+
+  .contenutoBoxMenu .button1 {
+    width: 1px;
+    height: 7px;
+    font-size: 4px;
+    margin-left: 20%;
+    margin-top: 2%;
+  }
+
+  .contenutoBoxMenu .date {
+    font-size: 4px;
   }
   
 
