@@ -380,7 +380,7 @@ module.exports = function (app) {
         con.query(sql, function (err, results) {
           if (err) {
             console.log(err);
-          } else if (results.length == 1) {
+          } else if (results.length > 0) {
             console.log(results);
             req.session.id_casa = results[0].id_casa;
             req.session.nome_casa = results[0].nome_casa;
