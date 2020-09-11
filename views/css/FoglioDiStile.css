@@ -765,7 +765,7 @@ color:black;
 
 display: inline-block;
 position:relative;
-margin: 2% 0% 10% 25%;
+margin: 2% 0% 10% 18%;
 border: solid 5px black;
  
 
@@ -1003,11 +1003,6 @@ padding-bottom:1%;
 height: 400px;
 width:  400px; 
 
-}
-
-.boxDescrizione {
-  width: 400px;
-  height: 150px;
 }
 
 
@@ -2013,11 +2008,6 @@ HEIGHT:40%;
    text-align:center;
  }
 
- .boxDescrizione {
-  width: 100px;
-  height: 70px;
-}
-
  
 #btnPannello {
   
@@ -2758,11 +2748,6 @@ HEIGHT:40%;
    text-align:center;
  }
 
- .boxDescrizione {
-  width: 100px;
-  height: 70px;
-}
-
  
  #btnPannello {
   
@@ -2795,12 +2780,11 @@ width:80px;
 @media screen and (max-width:480px)  {
 
   
- 
   #benvenuto {
     font-family:'Georgia';
     text-shadow:  1px 1px 3px black;
     font-weight: bold;
-    font-size:18px;
+    font-size:32px;
     text-align:center;
     padding-bottom:1%;
     margin-bottom:3.5%;
@@ -2813,6 +2797,8 @@ width:80px;
         background-color: #292c2f;
       box-shadow: 6px 6px 8px black;
       color:black;
+      height:150px;
+      display: list-item;
 
       }
     
@@ -2822,17 +2808,16 @@ width:80px;
   nav {
   
     position: relative;
-      display: inline-block;
-     background-color: auto;
-    padding-bottom:10%;
-     font-size:30%;
-  margin-right:5%;
-   margin-left:-10%;
-   color:black;
+      background-color: auto;
+      font-size:12px;
+     color:black;
+     display: list-item;
+     
+
   
     /*possibilità di animazione-> animation: slideIN 1s ease-out; */
   }
- 
+
 nav ul li:not(:last-child) {
   margin-right: 10px;
 }
@@ -2843,6 +2828,8 @@ nav ul li {
    transition: background 0.2s;
   height:6px;
    padding-right:-3%;
+   display: list-item;
+
 }
 nav ul li a {
   color: rgb(0, 0, 0);
@@ -2851,12 +2838,11 @@ nav ul li a {
   transition: color 0.4s;
 
 }
+
 nav ul li ul {
-  visibility: hidden;
-  opacity: 0;
+   opacity: 0;
   position: absolute;
-  display: block;
-  margin: 12px -12px;
+   margin: 12px -12px;
   width: 105px;
   padding: 0;
   background: lightgray;
@@ -2894,37 +2880,24 @@ nav ul li:hover ul li a {
  
 nav #barraDiRicerca {
   
-  position:relative;
-  display:inline-block;
-  border-radius:6px;
-  color:black;
-  margin-right:2%;
-   box-shadow: #000000;
-  color: black;
-  font-size:40%;
+  font-size:0%;
+  width: 0%; 
+  height:0%;   
     
   }
   
 .barraDiRicerca  { 
-
-  align-content:right;
-  text-align:right;
-  margin-left:-5.5%;
-  
+  font-size:0%;
+  width: 0%; 
+  height:0%;   
+  margin-right:0%;
 }
   
   nav .barraDiRicerca button {
  
-    position:relative;
-    margin-right:5px; 
-    margin-left:5px; 
-    border-color:orange;
-    box-shadow: #000000;
-    color: black;
-    text-decoration: none;
-    width: 40%;
-    margin-left:60%;
-    font-size:40%;
+    font-size:0%;
+    width: 0%; 
+    height:0%;   
 
 
    }
@@ -2932,10 +2905,10 @@ nav #barraDiRicerca {
     
 
   .barraDiRicerca  input  {
-   font-size:40%;
-   width: 45%;    
-   margin-left:60%;
-  }
+   font-size:0%;
+   width: 0%; 
+   height:0%;   
+   }
   
   .hero-image1 { 
 
@@ -2984,16 +2957,67 @@ nav #barraDiRicerca {
   }
 
 
+  
+#slide {
+  position:relative;
+   width: 80%;
+   height: 80%;
+   margin-top:-2%;
+   margin-bottom:-2%;
+   -webkit-transition: all 0.5s ease-out;
+   -moz-transition: left 0.5s ease-out;
+   -o-transition: left 0.5s ease-out;
+   transition: left 0.5s ease-out;
+   transition:opacity 0.5s;
+  
+
+ }
+
+
+
+
+ #slide.fadeOut {
+
+  opacity:0;
+
+ }
+
+  .boxMenu {
+    
+  position:absolute;
+  top:10%;
+  right:40%;
+  width: 80%;
+  height:100%;
+  background-color: #292c2f;
+	box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
+  box-sizing: border-box;
+  opacity: 0.6;
+}
+
+.contenutoBoxMenu {
+  opacity: 100%;
+  position:absolute;
+  top:10%;
+  right:40%;
+  width: 80%;
+  height:100%;
+  box-sizing: border-box;
+  font-size: 18px;
+ 
+ }
+
+
 
   .contenutoBoxMenu p {
 
-    font-size:1px;
+ 
     margin-top: 1px;
   
    }
   
    .contenutoBoxMenu a {
-    font-size:5px;
+   
     margin-bottom: 7px;
     margin-top: 3px;
   
@@ -3001,31 +3025,27 @@ nav #barraDiRicerca {
   
   .contenutoBoxMenu h1 {
   
-    font-size:12px;
-  
+
   
   }
   
   .contenutoBoxMenu h2 {
-    font-size: 4px;
-  }
+
+   }
   
   .contenutoBoxMenu form {
-    font-size: 4px;
-  }
+   }
   
   .contenutoBoxMenu label {
-    font-size: 4px;
-  }
+   }
   
   .contenutoBoxMenu input {
-    font-size: 4px;
-    height: 3px;
+     height: 24px;
+     width: 100px;
   }
   
   .contenutoBoxMenu button {
-    font-size: 4px;
-    height: 5px;
+     height: 20px;
     margin-bottom: 1%;
   
   }
@@ -3035,16 +3055,14 @@ nav #barraDiRicerca {
   }
 
   .contenutoBoxMenu .button1 {
-    width: 1px;
-    height: 7px;
-    font-size: 4px;
-    margin-left: 20%;
+    width: 100px;
+    height: 20px;
+     margin-left: 20%;
     margin-top: 2%;
   }
 
   .contenutoBoxMenu .date {
-    font-size: 4px;
-  }
+   }
   
 
 
@@ -3081,15 +3099,56 @@ nav #barraDiRicerca {
   
   }
   
+  #box1 img {
   
+    border:1px solid black;
+    width: 25%;
+    height: 20%;
+    margin-top:10%;
+   
+  }
+
+  
+#box2 img {
+  
+  border:1px solid black;
+  width: 85%;
+  height: auto;
+  margin-top:10%;
+
+
+}
+
+
+#box3 img {
+   
+  border:1px solid black;
+  width: 25%;
+  height: 60%;
+  margin-top:10%;
+
+}
+
+
+
+#box4 img {
+   
+  
+  border:1px solid black;
+  width: 85%;
+  height: 90%;
+  margin-top:10%;
+
+}
+ 
 
   .contenutoConferma {
  
 
     background:lightgrey;
-   padding-top: 15%;
-   PADDING-bottom:20%;
-  font-size:10px;
+   padding-top: 10%;
+   PADDING-bottom:15%;
+  font-size:18px;
 
   }
   
@@ -3124,9 +3183,9 @@ nav #barraDiRicerca {
   
    text-align:center;
     background:lightgrey;
-    padding-top: 15%;
-   PADDING-bottom:20%;
-   font-size:10px;
+    padding-top: 10%;
+   PADDING-bottom:15%;
+   font-size:18px;
 
   
   }
@@ -3196,7 +3255,7 @@ nav #barraDiRicerca {
    #paginaContatti ion-icon {
     
       color:black;
-     font-size:34px;
+     font-size:28px;
       
    
    }
@@ -3207,23 +3266,23 @@ nav #barraDiRicerca {
      align-content: center;
      padding-left:8%;
       padding-bottom: 12%;
-     margin-left:14%;
+     margin-left:10%;
      
    
    }
    
    #contattiSocial ion-icon {
     color:black;
-    font-size:36px;
-    padding-right:3%;
-    padding-left:6%;
+    font-size:28px;
+    padding-right:5%;
+    padding-left:8%;
     padding-top:3%;
    
     
    }
    
    #paginaContatti ul {
-     margin-left:10%;
+     margin-left:-5%;
      
    }
    
@@ -3301,7 +3360,7 @@ footer{
 	position: relative;
   bottom: 0;
   color:white;
-  font-size:70%;
+  font-size:10px;
 
   
 }
@@ -3309,35 +3368,36 @@ footer{
 	background-color: #292c2f;
 	box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
 	box-sizing: border-box;
-	width: 100%;
-	text-align: left;
-	font: bold 4px sans-serif;
-	padding: 2% 2%;
-  
+ 	text-align: left;
+   
 }
 
 #logoFooter {
 	display: inline-block;
   position: relative;
-  top: -5%;
-   border-radius: 6px;
+    border-radius: 6px;
 }
 
 #logoFooter {
-width: 55%;
-HEIGHT:40%;
+width: 70%;
+HEIGHT:80%;
+padding-left:3%;
 
 }
 
 .colonne-footer .colonna-sinistra,
-.colonne-footer .colonna-centrale,
 .colonne-footer .colonna-destra{
 	display: inline-block;
 	vertical-align: top;
 }
 
+
+
 .colonne-footer .colonna-sinistra{
-	width: 30%;
+  width: 30%;
+  margin-top: 6.5%;
+  margin-left:2%;
+
 }
 
 .colonne-footer h3{
@@ -3369,35 +3429,30 @@ HEIGHT:40%;
 
 .colonne-footer .footer-GEDAName{
 	color:  #8f9296;
-	font-size: 3px;
-	font-weight: normal;
-	margin: 0;
+ 	margin: 0;
 }
 
 
 .colonne-footer .colonna-centrale{
   
-  width: 30%;
-  margin-left:4%;
-  
+  width: 25%;
+   
 }
 
 .colonne-footer .colonna-centrale i{
 	background-color:  #33383b;
 	color: #ffffff;
 	font-size: 12px;
-	width: 15%;
+	width: 0%;
 	height: 20%;
 	border-radius: 50%;
 	text-align: center;
 	line-height: 5%;
-	margin: 3% 4%;
-	vertical-align: middle;
+ 	vertical-align: middle;
 }
 
 .colonne-footer .colonna-centrale i.contatti{
-	font-size: 4px;
-	line-height: 20px;
+ 	line-height: 20px;
 }
 
 .colonne-footer .colonna-centrale p{
@@ -3410,8 +3465,7 @@ HEIGHT:40%;
 .colonne-footer .colonna-centrale p span{
 	display:block;
 	font-weight: normal;
-	font-size:3px;
-	line-height:2;
+ 	line-height:2;
 }
 
 .colonne-footer .colonna-centrale p a{
@@ -3420,23 +3474,28 @@ HEIGHT:40%;
 }
 
 .colonne-footer .colonna-destra{
-  width: 33%;
+  width: 30%;
     
 }
+
+.colonne-footer .colonna-destra h4{
+
+ margin-left:15%;
+    
+}
+
 
 .colonne-footer .footer-infoSuDiNoi{
 	line-height: 16px;
 	color:  #92999f;
-	font-size: 3px;
-	font-weight: normal;
+ 	font-weight: normal;
 	margin: 0;
 }
 
 .colonne-footer .footer-infoSuDiNoi span{
 	display: block;
 	color:  #ffffff;
-	font-size: 3px;
-	font-weight: bold;
+ 	font-weight: bold;
 	margin-bottom: 5%;
 }
 
@@ -3446,36 +3505,32 @@ HEIGHT:40%;
 }
 
 .colonne-footer .icone-social a{
-	display: block;
-	width: 3%;
+ 	width: 3%;
 	height: 3%;
 	cursor: pointer;
 	background-color:  #33383b;
 	border-radius: 2px;
-	font-size: 8px;
-	color: #ffffff;
+ 	color: #ffffff;
 	text-align: center;
-	line-height: 22px;
-	margin-right: 3px;
-	margin-bottom: 5px;
+  line-height: 22px;
+  margin-left:35%;
+  
 }
 
 .colonne-footer .icone-social img {
 
-  height:15px;
-   width:15px;
+  height:25px;
+   width:25px;
+   padding-right:2%;
+   padding-left:2%;
+
+  
 
 }
-
  
 
-.modulo {
-  font-size: 7px;
-}
-
 .modulo input {
-  font-size: 7px;
-}
+ }
 
 .contenutoPannelli {
 
@@ -3484,8 +3539,8 @@ HEIGHT:40%;
   background-color:lightgray;
    padding-top:5%;
    padding-bottom: 20%;
-    font-size:50%;
-     align-content: center;
+      align-content: center;
+      display:block;
 
 
    
@@ -3497,7 +3552,15 @@ HEIGHT:40%;
       padding-bottom:2%;
      padding-top:2%;
     height:120%;
- 
+    width:200px;
+    margin-left:45px;
+     padding-left:10%;
+    padding-right:10%;
+    font-size: 14px;
+    text-align:center;
+align-content: center;
+display:block;
+   
  }
 
 
@@ -3510,11 +3573,6 @@ HEIGHT:40%;
    text-align:center;
  }
 
- .boxDescrizione {
-  width: 100px;
-  height: 70px;
-}
-
  
  #btnPannello {
   
@@ -3524,8 +3582,9 @@ HEIGHT:40%;
 background-color: orange;
 border-radius: 6px;
 margin-top:4%;
-margin-left:20%;
-width:70px;
+ width:70px;
+ align-content: center;
+display:block;
 } 
 
 
