@@ -27,13 +27,13 @@ module.exports = function (app) {
 
     con.query(sql, function (err, results) {
       if (!err) {
-        req.session.emailC = null;
+        req.session.emailC = "";
         console.log(results);
         res.sendFile(
           path.join(
             __dirname,
             "../Sistema_Alberghi/views",
-            "NotificaCancellazioneRiuscita.html"
+            "OperazioneRiuscita.html"
           )
         );
       } else {
@@ -58,7 +58,7 @@ module.exports = function (app) {
     con.query(sql, function (err, results) {
       console.log(results);
       if (!err) {
-        req.session.emailP = null;
+        req.session.emailP = "";
         console.log(results);
         res.sendFile(
           path.join(
@@ -89,7 +89,14 @@ module.exports = function (app) {
 
     con.query(sql, function (err, results) {
       if (!err) {
-        console.log(results);
+        console.log("CASA eliminata correttamente");
+        res.sendFile(
+          path.join(
+            __dirname,
+            "../Sistema_Alberghi/views",
+            "OperazioneRiuscita.html"
+          )
+        );
         var sql2 =
           "SELECT * FROM gestioneAffitti.utenteProprietario WHERE emailP = '" +
           req.session.emailP +
@@ -97,12 +104,15 @@ module.exports = function (app) {
         con.query(sql2, function (err, results) {
           if (err) {
             console.log(err);
-          } else if (results.length == 1) {
-            console.log(results);
-            req.session.emailP = results[0].emailP;
-            console.log(
-              req.session.emailP + " ha effettuato l'accesso correttamente."
+            res.sendFile(
+              path.join(
+                __dirname,
+                "../Sistema_Alberghi/views",
+                "QualcosaStorto.html"
+              )
             );
+          } else if (results.length == 1) {
+            req.session.emailP = results[0].emailP;
             res.render("SchermataProfiloProprietario.html", {
               accessoProprietario: results,
             });
@@ -137,33 +147,16 @@ module.exports = function (app) {
 
     con.query(sql, function (err, results) {
       if (!err) {
-        console.log(results);
-        var sql2 =
-          "SELECT * FROM gestioneAffitti.prenotazione WHERE email_cliente = '" +
-          req.session.emailC +
-          "' ";
-        con.query(sql2, function (err, results) {
-          if (err) {
-            console.log(err);
-          } else if (results.length > 0) {
-            console.log("Prenotazioni effettuate dal Cliente: ");
-            console.log(results);
-            res.render("SchermataListaPrenotazioniCliente.html", {
-              ListaPrenotazioniCliente: results,
-            });
-          } else if (results.length == 0) {
-            console.log("Nessuna prenotazione effettuata dal Cliente!");
-            res.sendFile(
-              path.join(
-                __dirname,
-                "../Sistema_Alberghi/views",
-                "NotificaRicercaFallita.html"
-              )
-            );
-          }
-        });
+        console.log("Prenotazione eliminata correttamente");
+        res.sendFile(
+          path.join(
+            __dirname,
+            "../Sistema_Alberghi/views",
+            "OperazioneRiuscita.html"
+          )
+        );
       } else {
-        console.log(results);
+        console.log(err);
         res.sendFile(
           path.join(
             __dirname,
@@ -188,7 +181,7 @@ module.exports = function (app) {
           "SELECT * FROM gestioneAffitti.casa WHERE gestioneAffitti.casa.id_casa = " +
           req.session.id_casa +
           " ";
-        con.query(sql, function (err, results) {
+        con.query(sql2, function (err, results) {
           if (err) {
             console.log(err);
           } else if (results.length == 1) {
