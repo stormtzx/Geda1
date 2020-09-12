@@ -65,7 +65,7 @@ module.exports = function (app) {
     con.query(sql, function (err, results) {
       if (err) {
         console.log(err);
-      } else if (results[0].id_prenotazione != null) {
+      } else if (results.length > 0) {
         console.log("Prenotazioni effettuate dal Cliente: ");
         console.log(results);
         res.render("SchermataListaPrenotazioniCliente.html", {

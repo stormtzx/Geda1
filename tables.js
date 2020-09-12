@@ -35,7 +35,7 @@ function crea_tableCasa() {
 
 function crea_tablePrenotazione() {
   var sql =
-    "CREATE TABLE IF NOT EXISTS prenotazione(id_prenotazione int auto_increment, ref_casa int, ref_proprietario VARCHAR(50), ref_nome_casa VARCHAR(50), nome_cliente varchar(50), cognome_cliente varchar(50), email_cliente VARCHAR(50), numero_ospiti_adulti int not null, numero_ospiti_bambini int, data_emissione date not null, check_in date not null, check_out date not null, animali VARCHAR(3) not null, disabilita VARCHAR(3) not null, viaggio_lavoro VARCHAR(3) not null, prezzo float not null, tasse float not null, prezzo_totale float not null, data_rendiconto date, primary key(id_prenotazione), FOREIGN KEY(ref_casa, ref_proprietario, ref_nome_casa) references casa(id_casa, proprietario, nome_casa), FOREIGN KEY(nome_cliente, cognome_cliente, email_cliente) references utenteCliente(nomeC, cognomeC, emailC))";
+    "CREATE TABLE IF NOT EXISTS prenotazione(id_prenotazione int auto_increment, ref_casa int not null, ref_proprietario VARCHAR(50) not null, ref_nome_casa VARCHAR(50) references casa(nome_casa) on delete cascade on update cascade, nome_cliente varchar(50) references utenteCliente(nomeC) on delete cascade on update cascade, cognome_cliente varchar(50) references utenteCliente(cognomeC) on delete cascade on update cascade, email_cliente VARCHAR(50) not null, numero_ospiti_adulti int not null, numero_ospiti_bambini int, data_emissione date not null, check_in date not null, check_out date not null, animali VARCHAR(3) not null, disabilita VARCHAR(3) not null, viaggio_lavoro VARCHAR(3) not null, prezzo float not null, tasse float not null, prezzo_totale float not null, data_rendiconto date, PRIMARY KEY(id_prenotazione), FOREIGN KEY (ref_proprietario) references utenteProprietario(emailP) on delete cascade on update cascade, FOREIGN KEY (email_cliente) references utenteCliente(emailC) on delete cascade on update cascade, FOREIGN KEY (ref_casa) references casa(id_casa) on delete cascade on update cascade)";
   con.query(sql, function (err, result) {
     if (err) throw err;
     console.log("Table PRENOTAZIONE creata");
@@ -44,7 +44,7 @@ function crea_tablePrenotazione() {
 
 function crea_tableData() {
   var sql =
-    "CREATE TABLE IF NOT EXISTS data(id_data int auto_increment, data_soggiorno date not null, ref_casa_o int references casa(id_casa) on delete cascade on update cascade, ref_prenotazione int references prenotazione(id_prenotazione) on delete cascade on update cascade, disponibilita boolean, primary key (id_data))";
+    "CREATE TABLE IF NOT EXISTS data(id_data int auto_increment, data_soggiorno date not null, ref_casa_o int not null, ref_prenotazione int not null, disponibilita boolean, primary key (id_data), FOREIGN KEY (ref_casa_o) references casa(id_casa) on delete cascade on update cascade, FOREIGN KEY (ref_prenotazione) references prenotazione(id_prenotazione) on delete cascade on update cascade)";
   con.query(sql, function (err, result) {
     if (err) throw err;
     console.log("Table DATA creata");
@@ -53,7 +53,7 @@ function crea_tableData() {
 
 function crea_tableRencensione() {
   var sql =
-    "CREATE TABLE IF NOT EXISTS recensione(id_recensione int auto_increment, ref_casa_r int references casa(id_casa) on delete cascade on update cascade, ref_nome_casa_r VARCHAR(50) references casa(nome_casa) on delete cascade on update cascade, ref_prenotazione_r int references prenotazione(id_prenotazione) on delete cascade on update cascade, nome_recensore varchar(50) references utenteCliente(nomeC) on delete cascade on update cascade, cognome_recensore varchar(50) references utenteCliente(cognomeC) on delete cascade on update cascade, email_recensore VARCHAR(50) references utenteCliente(emailC) on delete cascade on update cascade, email_proprietario VARCHAR(50) references utenteProprietario(emailP) on delete cascade on update cascade, stelle int(5) not null, commento TEXT, data_rece date not null, primary key(id_recensione))";
+    "CREATE TABLE IF NOT EXISTS recensione(id_recensione int auto_increment, ref_casa_r int not null, ref_nome_casa_r VARCHAR(50) references casa(nome_casa) on delete cascade on update cascade, ref_prenotazione_r int not null, nome_recensore varchar(50) references utenteCliente(nomeC) on delete cascade on update cascade, cognome_recensore varchar(50) references utenteCliente(cognomeC) on delete cascade on update cascade, email_recensore VARCHAR(50) not null, email_proprietario VARCHAR(50) not null, stelle int(5) not null, commento TEXT, data_rece date not null, primary key(id_recensione), FOREIGN KEY (ref_casa_r) references casa(id_casa) on delete cascade on update cascade, FOREIGN KEY (ref_prenotazione_r) references prenotazione(id_prenotazione) on delete cascade on update cascade, FOREIGN KEY (email_recensore) references utenteCliente(emailC) on delete cascade on update cascade, FOREIGN KEY (email_proprietario) references utenteProprietario(emailP) on delete cascade on update cascade)";
   con.query(sql, function (err, result) {
     if (err) throw err;
     console.log("Table RECENSIONE creata");
@@ -62,7 +62,7 @@ function crea_tableRencensione() {
 
 function crea_tableFoto() {
   var sql =
-    "CREATE TABLE IF NOT EXISTS foto(id_foto int auto_increment, ref_casa_f int references casa(id_casa) on delete cascade on update cascade, image varchar(255) NOT NULL, PRIMARY KEY (id_foto))";
+    "CREATE TABLE IF NOT EXISTS foto(id_foto int auto_increment, ref_casa_f int not null, image varchar(255) NOT NULL, PRIMARY KEY (id_foto), FOREIGN KEY (ref_casa_f) references casa(id_casa) on delete cascade on update cascade)";
   con.query(sql, function (err, result) {
     if (err) throw err;
     console.log("Table FOTO creata");
