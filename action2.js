@@ -562,6 +562,7 @@ module.exports = function (app) {
         req.session.totale_p = totale;
         req.session.numero_ospiti_adulti_p = ospiti_adulti;
         req.session.numero_ospiti_bambini_p = ospiti_bambini;
+
         res.render("SchermataPrezzo.html", {
           nome_cliente_p: req.session.nomeC,
           cognome_cliente_p: req.session.cognomeC,
@@ -572,6 +573,44 @@ module.exports = function (app) {
           prezzo_p: prezzo,
           tasse_p: tasse,
           totale_p: totale,
+        });
+      } else if (
+        req.body.data_check_in_p != "" &&
+        req.body.data_check_out_p != "" &&
+        check_out > check_in &&
+        check_in >= prima_data &&
+        check_out <= ultima_data &&
+        giorni <= 28 &&
+        numero_ospiti <= req.session.capienza_max &&
+        dateOccupate > 0
+      ) {
+        var sql2 =
+          "SELECT data_soggiorno FROM gestioneAffitti.data WHERE ref_casa_o = " +
+          req.session.id_casa +
+          "";
+        con.query(sql2, function (err, results) {
+          if (err) {
+            console.log(err);
+            res.sendFile(
+              path.join(
+                __dirname,
+                "../Sistema_Alberghi/views",
+                "NotificaPrenotazioneFallita.html"
+              )
+            );
+          } else {
+            console.log("Lista date già occupate: ");
+            console.log(results);
+            for (var i = 0; i < results.length; i++) {
+              results[i].data_soggiorno = convertiData(
+                results[i].data_soggiorno
+              );
+            }
+            res.render("NotificaDateOccupate.html", {
+              casa_o: req.session.nome_casa,
+              data_o: results,
+            });
+          }
         });
       } else {
         console.log(err);

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Casa Occupata</title>
+</head>
+<body>
+    <h1>La casa è già stata occupata nei giorni da specificati</h1>
+    <h2>Ecco una lista delle date in cui la casa</h2>
+    <h2><%= casa_o[0].nome_casa %></h2>
+    <h2>risulta già prenotata:</h2>
+    <% for(var i=0; i<data_o.length; i++){ %>
+    <h3><%= data_o[i].data_soggiorno %></h3>    
+    <% } %>
+    <p> Torna al <a href="/views/PannelloPrenotazione.html"> Pannello Prenotazione</a> per ricompilarlo! </p>
+</body>
+</html>

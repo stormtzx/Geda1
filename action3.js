@@ -68,6 +68,11 @@ module.exports = function (app) {
       } else if (results.length > 0) {
         console.log("Prenotazioni effettuate dal Cliente: ");
         console.log(results);
+        for (var i = 0; i < results.length; i++) {
+          results[i].check_in = convertiData(results[i].check_in);
+          results[i].check_out = convertiData(results[i].check_out);
+          results[i].data_emissione = convertiData(results[i].data_emissione);
+        }
         res.render("SchermataListaPrenotazioniCliente.html", {
           ListaPrenotazioniCliente: results,
         });
@@ -105,7 +110,9 @@ module.exports = function (app) {
         ).getTime();
         req.session.email_proprietario_r = results[0].ref_proprietario;
 
-        console.log(req.session.id_prenotazione);
+        results[0].check_in = convertiData(results[0].check_in);
+        results[0].check_out = convertiData(results[0].check_out);
+        results[0].data_emissione = convertiData(results[0].data_emissione);
 
         res.render("RiepilogoPrenotazione.html", {
           visualizzaPrenotazione: results,
@@ -365,6 +372,9 @@ module.exports = function (app) {
         req.session.indirizzo = results[0].indirizzo;
         req.session.citta = results[0].citta;
 
+        results[0].prima_data = convertiData(results[0].prima_data);
+        results[0].ultima_data = convertiData(results[0].ultima_data);
+
         res.render("SchermataGestioneCasa.html", { gestioneCasa: results });
       } else {
         res.sendFile(
@@ -389,6 +399,11 @@ module.exports = function (app) {
       } else if (results.length > 0) {
         console.log("Prenotazioni ricevute dal Proprietario: ");
         console.log(results);
+        for (var i = 0; i < results.length; i++) {
+          results[i].check_in = convertiData(results[i].check_in);
+          results[i].check_out = convertiData(results[i].check_out);
+          results[i].data_emissione = convertiData(results[i].data_emissione);
+        }
         res.render("SchermataListaPrenotazioniProprietario.html", {
           ListaPrenotazioniProprietario: results,
         });
@@ -417,6 +432,11 @@ module.exports = function (app) {
       } else if (results.length == 1) {
         console.log("Dati prenotazione: ");
         console.log(results);
+
+        results[0].check_in = convertiData(results[0].check_in);
+        results[0].check_out = convertiData(results[0].check_out);
+        results[0].data_emissione = convertiData(results[0].data_emissione);
+        results[0].data_rendiconto = convertiData(results[0].data_rendiconto);
 
         res.render("SchermataPrenotazioneCasa.html", {
           verificaPrenotazione: results,
@@ -448,6 +468,11 @@ module.exports = function (app) {
             ": "
         );
         console.log(results);
+        for (var i = 0; i < results.length; i++) {
+          results[i].check_in = convertiData(results[i].check_in);
+          results[i].check_out = convertiData(results[i].check_out);
+          results[i].data_emissione = convertiData(results[i].data_emissione);
+        }
         res.render("SchermataListaPrenotazioniCasa.html", {
           ListaPrenotazioniCasa: results,
         });
