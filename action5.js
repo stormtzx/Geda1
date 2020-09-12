@@ -51,7 +51,7 @@ module.exports = function (app) {
 
   app.post("/cancellaProprietario", function (req, res, err) {
     var sql =
-      "DELETE FROM gestioneAffitti.Proprietario WHERE gestioneAffitti.utenteProprietario.emailP = '" +
+      "DELETE FROM gestioneAffitti.utenteProprietario WHERE gestioneAffitti.utenteProprietario.emailP = '" +
       req.session.emailP +
       "' ";
 
