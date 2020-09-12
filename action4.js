@@ -215,7 +215,7 @@ module.exports = function (app) {
         req.body.prima_data_nc +
         "', gestioneAffitti.casa.ultima_data = '" +
         req.body.ultima_data_nc +
-        "', '" +
+        "', gestioneAffitti.casa.descrizione = '" +
         req.body.descrizione_nc +
         "' WHERE gestioneAffitti.casa.id_casa = " +
         req.session.id_casa +
