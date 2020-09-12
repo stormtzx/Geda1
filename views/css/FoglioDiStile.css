@@ -942,7 +942,8 @@ padding-left:14%;
 .contenutoPannelli  p {
 
   color:black;
-  padding-left:14%;
+  text-align:center;
+  display: block;
 
 
 }
