@@ -742,9 +742,11 @@ width:30px;
 
 #paginaMappa  {
 
-align-content: center;
-background-color:lightgray;
- padding-top:1%;
+  text-align:center;
+  align-content:center;
+  display: block;background-color:lightgray;
+ padding: top 3%;
+ padding-bottom:5%;
 }
 
 #paginaMappa h1 {
@@ -757,20 +759,33 @@ color:black;
 
 #paginaMappa p {
 text-align:center;
+align-content:center;
+display: block;
  color:black;
 
 }
 
 #mappa {
 
-display: inline-block;
+  text-align:center;
+  align-content:center;
+  display: block;
 position:relative;
-margin: 2% 0% 10% 18%;
-border: solid 5px black;
+ border: solid 5px black;
+ width:800px;
+ height:660px;
+ margin-left:20%;
+ margin-right:20%;
+ }
 
-
+iframe {
+   text-align:center;
+  align-content:center;
+  display: block;
+ 
+ width:800px;
+  height:660px;
 }
-
 
 
 /*Regole di stile per la pagina dei contatti*/
@@ -1768,10 +1783,11 @@ padding-bottom:1%;
 
 #paginaMappa  {
 
-align-content: center;
- background-color:lightgray;
-  padding-top:1%;
-  font-size:70%;
+  text-align:center;
+  align-content:center;
+  display: block;background-color:lightgray;
+ padding: top 3%;
+ padding-bottom:5%;
 }
 
 #paginaMappa h1 {
@@ -1783,22 +1799,35 @@ color:black;
 }
 
 #paginaMappa p {
- text-align:center;
-  color:black;
+text-align:center;
+align-content:center;
+display: block;
+ color:black;
 
- 
- }
+}
 
 #mappa {
 
-display: inline-block;
+  text-align:center;
+  align-content:center;
+  display: block;
 position:relative;
-margin: 2% 0% 10% 18%;
-border: solid 5px black;
-width:60%;
-height: 40%;
+ border: solid 5px black;
+ width:600px;
+ height:460px;
+ margin-left:18%;
+ margin-right:18%;
+ }
 
+iframe {
+   text-align:center;
+  align-content:center;
+  display: block;
+ 
+  width:600px;
+  height:460px;
 }
+
 
 footer{
 position: relative;
@@ -2079,7 +2108,7 @@ position: relative;
   display: inline-block;
  background-color: auto;
 padding-bottom:8%;
- font-size:40%;
+ font-size:60%;
 margin-right:5%;
 margin-left:-10%;
 color:black;
@@ -2510,13 +2539,13 @@ padding-bottom:1%;
 }
 
 
-
 #paginaMappa  {
 
-align-content: center;
- background-color:lightgray;
-  padding-top:1%;
-  font-size:60%;
+  text-align:center;
+  align-content:center;
+  display: block;background-color:lightgray;
+ padding: top 3%;
+ padding-bottom:5%;
 }
 
 #paginaMappa h1 {
@@ -2528,22 +2557,33 @@ color:black;
 }
 
 #paginaMappa p {
- text-align:center;
-  color:black;
+text-align:center;
+align-content:center;
+display: block;
+ color:black;
 
- 
- }
+}
 
 #mappa {
 
-display: inline-block;
+  text-align:center;
+  align-content:center;
+  display: block;
 position:relative;
-margin: 2% 0% 10% 18%;
-border: solid 5px black;
-width:50%;
-height:25%; 
-}
+ border: solid 5px black;
+ width:400px;
+ height:260px;
+ margin-left:16%;
+ margin-right:16%;
+ }
 
+iframe {
+   text-align:center;
+  align-content:center;
+  display: block;
+  width:400px;
+  height:260px;
+}
 
 footer{
  
@@ -3362,13 +3402,13 @@ width:160px;
  
  }
  
-
 #paginaMappa  {
 
-align-content: center;
- background-color:lightgray;
-  padding-top:1%;
-  font-size:60%;
+  text-align:center;
+  align-content:center;
+  display: block;background-color:lightgray;
+ padding: top 3%;
+ padding-bottom:5%;
 }
 
 #paginaMappa h1 {
@@ -3380,22 +3420,33 @@ color:black;
 }
 
 #paginaMappa p {
- text-align:center;
-  color:black;
+text-align:center;
+align-content:center;
+display: block;
+ color:black;
 
- 
- }
+}
 
 #mappa {
 
-display: inline-block;
+  text-align:center;
+  align-content:center;
+  display: block;
 position:relative;
-margin: 2% 0% 10% 18%;
-border: solid 5px black;
-width:50%;
-height:25%; 
-}
+ border: solid 5px black;
+ width:200px;
+ height:160px;
+ margin-left:14%;
+ margin-right:14%;
+ }
 
+iframe {
+   text-align:center;
+  align-content:center;
+  display: block;
+  width:200px;
+  height:160px;
+}
 
 footer{
 position: relative;
