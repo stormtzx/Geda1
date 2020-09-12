@@ -26,7 +26,7 @@ function crea_tableUtenteProprietario() {
 
 function crea_tableCasa() {
   var sql =
-    "CREATE TABLE IF NOT EXISTS casa(id_casa INT AUTO_INCREMENT, nome_casa VARCHAR(50) NOT NULL, indirizzo VARCHAR(100) not null, citta VARCHAR(100) not null, proprietario VARCHAR(50) references utenteProprietario(emailP) on delete cascade on update cascade, beb VARCHAR (3) not null, casa_vacanza VARCHAR (3) not null, numero_camere int, numero_bagno int, perimetro_casa float not null, tariffa_giornaliera float not null, ammontare_tasse float not null, capienza_max int not null, fasciatoio VARCHAR (3), segnalatori_fumo VARCHAR (3), servizi_disabili VARCHAR (3), animali_ammessi VARCHAR (3), cucina VARCHAR (3), prima_data date not null, ultima_data date not null, descrizione TEXT, PRIMARY KEY(id_casa))";
+    "CREATE TABLE IF NOT EXISTS casa(id_casa INT AUTO_INCREMENT, nome_casa VARCHAR(50) NOT NULL, indirizzo VARCHAR(100) not null, citta VARCHAR(100) not null, proprietario VARCHAR(50), beb VARCHAR (3) not null, casa_vacanza VARCHAR (3) not null, numero_camere int, numero_bagno int, perimetro_casa float not null, tariffa_giornaliera float not null, ammontare_tasse float not null, capienza_max int not null, fasciatoio VARCHAR (3), segnalatori_fumo VARCHAR (3), servizi_disabili VARCHAR (3), animali_ammessi VARCHAR (3), cucina VARCHAR (3), prima_data date not null, ultima_data date not null, descrizione TEXT, PRIMARY KEY(id_casa), FOREIGN KEY (proprietario) references utenteProprietario(emailP) on delete cascade on update cascade)";
   con.query(sql, function (err, result) {
     if (err) throw err;
     console.log("Table CASA creata");

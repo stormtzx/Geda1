@@ -51,7 +51,7 @@ module.exports = function (app) {
 
   app.post("/cancellaProprietario", function (req, res, err) {
     var sql =
-      "DELETE FROM gestioneAffitti.utenteProprietario WHERE gestioneAffitti.utenteProprietario.emailP = '" +
+      "DELETE FROM gestioneAffitti.utenteProprietario WHERE emailP = '" +
       req.session.emailP +
       "' ";
 
@@ -64,7 +64,7 @@ module.exports = function (app) {
           path.join(
             __dirname,
             "../Sistema_Alberghi/views",
-            "NotificaCancellazioneRiuscita.html"
+            "OperazioneRiuscita.html"
           )
         );
       } else {
@@ -76,6 +76,7 @@ module.exports = function (app) {
             "QualcosaStorto.html"
           )
         );
+        console.log(err);
       }
     });
   });
