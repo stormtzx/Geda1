@@ -115,8 +115,7 @@ module.exports = function (app) {
 
     req.body.animali_nc = translateBoolean(req.body.animali_nc);
     req.body.cucina_nc = translateBoolean(req.body.cucina_nc);
-    req.body.no_last_nc = translateBoolean(req.body.no_last_nc);
-    if (req.body.no_last_nc == "sì") {
+    if (req.body.no_last_nc != undefined) {
       req.body.ultima_data_nc = "9999-12-31";
     }
 
@@ -125,13 +124,13 @@ module.exports = function (app) {
       req.session.emailP == "" ||
       req.session.emailP == undefined
     ) {
-      /*   console.log(err);      
       console.log(req.body.prima_data_nc);
       console.log(req.body.ultima_data_nc);
       console.log(req.body.ultima_data_nc < req.body.prima_data_nc);
       console.log(req.session.emailP);
-      console.log(req.session.emailP == ""); */
+      console.log(req.session.emailP == "");
       console.log("Errore: dati inseriti non validi");
+      console.log(err);
 
       res.sendFile(
         path.join(
