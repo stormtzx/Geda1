@@ -954,7 +954,6 @@ padding-right:3%;
 
 }
 
-
 .contenutoPannelli input {
 
 margin-top:5%;
@@ -2852,7 +2851,7 @@ height: 12px;
       background-color: #292c2f;
     box-shadow: 6px 6px 8px black;
     color:black;
-    height:150px;
+    height:130px;
     display: list-item;
 
     }
@@ -3006,8 +3005,8 @@ padding:0px 0px 0px 0px;
 
 .hero-image1 { 
 
-  height: 300px;
-  width: 400px;
+  height: 400px;
+  width: 360px;
    text-align: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -3016,8 +3015,8 @@ padding:0px 0px 0px 0px;
 
 .hero-image2 { 
   
-  height: 300px;
-  width: 400px;
+  height: 400px;
+  width: 360px;
    text-align: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -3027,8 +3026,8 @@ padding:0px 0px 0px 0px;
 
 .hero-image3 { 
 
-  height: 300px;
-  width: 400px;
+  height: 400px;
+  width: 360px;
   text-align: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -3038,8 +3037,9 @@ padding:0px 0px 0px 0px;
 
 
 .hero-image4 { 
-  height: 300px;
-  width: 400px;
+
+  height: 400px;
+  width: 360px;
   text-align: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -3049,7 +3049,8 @@ padding:0px 0px 0px 0px;
 
 .hero-text1 {
   text-align: center;
-  
+  left:50%;
+right:50%;
   color: white;
   text-decoration: none;
 }
@@ -3057,7 +3058,9 @@ padding:0px 0px 0px 0px;
 
 .hero-text2 {
   text-align: center;
-  
+margin-right:15%;
+  left:50%;
+  right:50%;
   color: white;
   text-decoration: none;
 }
@@ -3066,7 +3069,8 @@ padding:0px 0px 0px 0px;
 
 .hero-text3 {
   text-align: center;
- 
+  top: 50%;
+  left: 50%;
   color: white;
   text-decoration: none;
 }
@@ -3083,6 +3087,7 @@ padding:0px 0px 0px 0px;
 
 
 #slide {
+margin-top:0px;
 position:relative;
   -webkit-transition: all 0.5s ease-out;
  -moz-transition: left 0.5s ease-out;
@@ -3189,6 +3194,7 @@ font-size:0px;
   margin-top:20px;
    height: 24px;
   width: 200px;
+font-size:14px;
 
 }
 
@@ -3210,7 +3216,7 @@ font-size:0px;
   }
 
  .descrizioneDestra {
- 
+
   }
 
 
@@ -3218,11 +3224,13 @@ font-size:0px;
 
   color:#000000;
   font-size:14px;
+
 }
 
 .descrizioneDestra p {
    color:black;
   font-size:14px;
+
 }
 
 
@@ -3230,7 +3238,7 @@ font-size:0px;
    color:black;
   text-shadow:  1px 1px 3px 3px rgb(0, 0, 0);
   font-size:14px;
-  
+ 
 
  }
 
@@ -3238,6 +3246,7 @@ font-size:0px;
    color:black;
   text-shadow:  1px 1px 3px 3px rgb(0, 0, 0);
   font-size:14px;
+
  
 
 }
@@ -3247,8 +3256,8 @@ font-size:0px;
   border:1px solid black;
   width: 27%;
   height: 25%;
-  margin-top:5%;
- 
+  margin-top:20px;
+ margin-bottom:-5%;
 }
 
 
@@ -3257,8 +3266,8 @@ font-size:0px;
 border:1px solid black;
 width: 85%;
 height: auto;
-margin-top:5%;
-
+margin-top:20px;
+margin-bottom:-5%;
 
 }
 
@@ -3268,7 +3277,8 @@ margin-top:5%;
 border:1px solid black;
 width: 27%;
 height: 65%;
-margin-top:5%;
+margin-top:20px;
+margin-bottom:-20px:
 
 }
 
@@ -3533,8 +3543,8 @@ position: relative;
 }
 
 #logoFooter {
-width: 70%;
-HEIGHT:80%;
+width: 60%;
+HEIGHT:70%;
 padding-left:3%;
 
 }
@@ -3548,9 +3558,9 @@ vertical-align: top;
 
 
 .colonne-footer .colonna-sinistra{
-width: 30%;
+width: 32%;
 margin-top: 6.5%;
-margin-left:2%;
+margin-left:0%;
 
 }
 
@@ -3683,12 +3693,11 @@ height:25px;
 }
 
 
-.modulo input {
-}
+
 
 .contenutoPannelli {
 
-
+font-size:16px;
 color: black;
 background-color:lightgray;
  padding-top:5%;
@@ -3727,6 +3736,16 @@ font-weight: bold;
  text-align:center;
 }
 
+
+.contenutoPannelli input {
+ height:25px;
+ width:200px;
+ font-size:16px;
+
+}
+
+
+
 .boxDescrizione {
 width: 100px;
 height: 70px;
@@ -3735,17 +3754,15 @@ height: 70px;
 
 #btnPannello {
 
-font-size:80%;
 color:black;
 border-color: solid black; 
 background-color: orange;
 border-radius: 6px;
 margin-top:4%;
-width:70px;
+width:90px;
 align-content: center;
 display:block;
 } 
 
 
 }
-
