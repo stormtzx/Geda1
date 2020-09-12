@@ -223,4 +223,116 @@ module.exports = function (app) {
       }
     });
   });
+
+  app.post("/tornaIndietroProprietario", function (req, res, err) {
+    var sql =
+      "SELECT * FROM gestioneAffitti.casa WHERE gestioneAffitti.casa.id_casa = " +
+      req.session.id_casa +
+      " ";
+    con.query(sql, function (err, results) {
+      if (err) {
+        console.log(err);
+      } else if (results.length == 1) {
+        console.log(results);
+        console.log(results[0].id_casa);
+        req.session.id_casa = results[0].id_casa;
+        console.log(`session: ${req.session.id_casa}`);
+        req.session.nome_casa = results[0].nome_casa;
+        req.session.indirizzo = results[0].indirizzo;
+        req.session.citta = results[0].citta;
+
+        res.render("SchermataGestioneCasa.html", { gestioneCasa: results });
+      } else {
+        res.sendFile(
+          path.join(
+            __dirname,
+            "../Sistema_Alberghi/views",
+            "QualcosaStorto.html"
+          )
+        );
+      }
+    });
+  });
+
+  app.get("/visualizzaFotoCasaC", function (req, res) {
+    var sql =
+      "SELECT * FROM gestioneAffitti.foto WHERE gestioneAffitti.foto.ref_casa_f = " +
+      req.session.id_casa +
+      "";
+
+    con.query(sql, function (err, results) {
+      if (err) {
+        console.log(err);
+      }
+      if (results.length > 0) {
+        console.log("Ecco le foto");
+        console.log(results);
+        res.render("VisualizzaFotoCasaCliente.html", {
+          ListaFotoCasa: results,
+        });
+      } else {
+        console.log("L'Utente non ha ancora aggiunto nessuna Foto!");
+        res.sendFile(
+          path.join(
+            __dirname,
+            "../Sistema_Alberghi/views",
+            "NotificaRicercaFallita.html"
+          )
+        );
+      }
+    });
+  });
+
+  app.post("/tornaIndietroCliente", function (req, res, err) {
+    var sql =
+      "SELECT * FROM gestioneAffitti.casa WHERE gestioneAffitti.casa.id_casa = " +
+      req.session.id_casa +
+      "";
+
+    con.query(sql, function (err, results) {
+      if (err) {
+        console.log(err);
+      } else if (results.length > 0) {
+        console.log(results);
+        req.session.id_casa = results[0].id_casa;
+        req.session.nome_casa = results[0].nome_casa;
+        req.session.citta = results[0].citta;
+        req.session.indirizzo = results[0].indirizzo;
+        req.session.proprietario = results[0].proprietario;
+        req.session.tariffa_giornaliera = results[0].tariffa_giornaliera;
+        req.session.animali_ammessi = results[0].animali;
+        req.session.prima_data = results[0].prima_data;
+        req.session.ultima_data = results[0].ultima_data;
+        req.session.ammontare_tasse = results[0].ammontare_tasse;
+        req.session.capienza_max = results[0].capienza_max;
+        req.session.results = results;
+        if (req.session.emailC) {
+          res.render("SchermataCasa.html", {
+            visualizzaCasa: req.session.results,
+          });
+        } else if (
+          req.session.emailC == undefined ||
+          req.session.emailC == ""
+        ) {
+          res.sendFile(
+            path.join(
+              __dirname,
+              "../Sistema_Alberghi/views",
+              "PannelloLoginCliente.html"
+            )
+          );
+        }
+      } else {
+        console.log(err);
+
+        res.sendFile(
+          path.join(
+            __dirname,
+            "../Sistema_Alberghi/views",
+            "NotificaRicercaFallita.html"
+          )
+        );
+      }
+    });
+  });
 };

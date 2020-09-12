@@ -141,12 +141,9 @@
     <p><%= visualizzaCasa[0].descrizione %></p>
     <br />
     
-    <% for(var i=0; i<ListaFotoCasa.length; i++){ %>
-    <img
-            alt=""
-            src="http://localhost:3000/upload/<%=ListaFotoCasa[i].image%>"
-          />
-    <% } %>
+    <form action="/visualizzaFotoCasaC" method="GET">
+      <button id="btnPannello" type="submit" style="width:200px; margin-left:0%;"  >Vedi le Foto</button> </form>
+  <br>
     
     
     </form>
