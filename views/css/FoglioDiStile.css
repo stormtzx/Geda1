@@ -2951,11 +2951,24 @@ padding:0px 0px 0px 0px;
 font-size: 0px;
 width: 0px;
 height: 0px;  
+border:transparent;
+background:transparent;
+color:transparent;
+}
+.bottoneRicerca li input .testo_nero {
+
+  width: 0px;
+  height: 0px;  
+  border:transparent;
+  background:transparent;
+  color:transparent;
 
 }
 
 .barraDiRicerca {
-
+  color:transparent;
+  border:transparent;
+  background:transparent;
   background-color:#292c2f;
   margin:0px 0px 0px 0px;
 padding:0px 0px 0px 0px;
@@ -2993,31 +3006,29 @@ padding:0px 0px 0px 0px;
 
 .hero-image1 { 
 
-  height: 460px;
-  width: 50%;
-  text-align: center;
+  height: 300px;
+  width: 400px;
+   text-align: center;
   background-size: cover;
   background-repeat: no-repeat;
-  float: left;
-
+ 
 }
 
 .hero-image2 { 
   
-  height: 460px;
-  width: 50%;
-  text-align: center;
+  height: 300px;
+  width: 400px;
+   text-align: center;
   background-size: cover;
   background-repeat: no-repeat;
-  float: left;
-
+ 
 }
 
 
 .hero-image3 { 
 
-  height: 460px;
-  width: 50%;
+  height: 300px;
+  width: 400px;
   text-align: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -3027,14 +3038,46 @@ padding:0px 0px 0px 0px;
 
 
 .hero-image4 { 
-
-  height: 460px;
-  width: 50%;
+  height: 300px;
+  width: 400px;
   text-align: center;
   background-size: cover;
   background-repeat: no-repeat;
   float: left;
 
+}
+
+.hero-text1 {
+  text-align: center;
+  
+  color: white;
+  text-decoration: none;
+}
+
+
+.hero-text2 {
+  text-align: center;
+  
+  color: white;
+  text-decoration: none;
+}
+
+
+
+.hero-text3 {
+  text-align: center;
+ 
+  color: white;
+  text-decoration: none;
+}
+
+
+
+.hero-text4 {
+  text-align: center;
+  
+  color: white;
+  text-decoration: none;
 }
 
 
@@ -3076,7 +3119,7 @@ margin-top:-5%;
 .contenutoBoxMenu {
 position:absolute;
 top:10%;
-right:10%;
+right:7%;
 width: 50%;
 height:90%;
 opacity: 100%;
