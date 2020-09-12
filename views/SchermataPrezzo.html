@@ -90,8 +90,24 @@
     <h2>Totale:</h2>
     <p><%= totale_p %></p>
     <br />
-
+    
+    <h2>Inserisci Dati Carta di Credito</h2>
     <form action="/prenota" method="POST">
+      <label for="nome_intestatario">Nome Intestatario</label>
+      <input class="testo_nero" type="text" name="nome_intestatario" id="" required />
+      <br />
+      <label for="cognome_intestatario">Cognome Intestatario</label>
+      <input class="testo_nero" type="text" name="cognome_intestatario" id="" required />
+      <br />
+      <label for="num_carta">Numero Carta</label>
+      <input class="testo_nero" type="text" name="num_carta" id="" required />
+      <br />
+      <label for="data_scadenza">Data Scadenza Carta</label>
+      <input class="testo_nero" type="date" name="data_scadenza" id="" required />
+      <br />
+      <label for="cvv_code">CVV</label>
+      <input class="testo_nero" type="text" name="cvv_code" id="" required />
+      <br />
       <button id="btnPannello" type="submit" style="margin-left:0%;">Conferma Prenotazione</button>
     </form>
 

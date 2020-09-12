@@ -997,6 +997,11 @@ padding-bottom:1%;
   border:0px;
  }
 
+ .boxDescrizione {
+   width: 400px;
+   height: 150px;
+ }
+
 
 #riquadroFotoCasa {
 
@@ -2008,6 +2013,11 @@ HEIGHT:40%;
    text-align:center;
  }
 
+ .boxDescrizione {
+  width: 100px;
+  height: 70px;
+}
+
  
 #btnPannello {
   
@@ -2747,6 +2757,11 @@ HEIGHT:40%;
   font-weight: bold;
    text-align:center;
  }
+
+ .boxDescrizione {
+  width: 100px;
+  height: 70px;
+}
 
  
  #btnPannello {
@@ -3572,6 +3587,11 @@ display:block;
   font-weight: bold;
    text-align:center;
  }
+
+ .boxDescrizione {
+  width: 100px;
+  height: 70px;
+}
 
  
  #btnPannello {
