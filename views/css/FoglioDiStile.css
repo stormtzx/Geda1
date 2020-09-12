@@ -3434,9 +3434,9 @@ display: block;
   display: block;
 position:relative;
  border: solid 5px black;
- width:200px;
- height:160px;
- margin-left:14%;
+ width:250px;
+  height:300px;
+ margin-left:15%;
  margin-right:14%;
  }
 
@@ -3444,9 +3444,9 @@ iframe {
    text-align:center;
   align-content:center;
   display: block;
-  width:200px;
-  height:160px;
-}
+  width:250px;
+  height:300px;
+ }
 
 footer{
 position: relative;
