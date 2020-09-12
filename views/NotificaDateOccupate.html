@@ -7,9 +7,8 @@
 </head>
 <body>
     <h1>La casa è già stata occupata nei giorni da specificati</h1>
-    <h2>Ecco una lista delle date in cui la casa</h2>
-    <h2><%= casa_o[0].nome_casa %></h2>
-    <h2>risulta già prenotata:</h2>
+    <h2>Ecco una lista delle date in cui la casa risulta già prenotata:</h2>
+    <br>
     <% for(var i=0; i<data_o.length; i++){ %>
     <h3><%= data_o[i].data_soggiorno %></h3>    
     <% } %>
