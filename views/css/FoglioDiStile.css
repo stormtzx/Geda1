@@ -3041,11 +3041,7 @@ padding:0px 0px 0px 0px;
 
 #slide {
 position:relative;
- width: 80%;
- height: 80%;
- margin-top:-2%;
- margin-bottom:-2%;
- -webkit-transition: all 0.5s ease-out;
+  -webkit-transition: all 0.5s ease-out;
  -moz-transition: left 0.5s ease-out;
  -o-transition: left 0.5s ease-out;
  transition: left 0.5s ease-out;
@@ -3067,33 +3063,33 @@ opacity:0;
   
 position:absolute;
 top:10%;
-right:40%;
-width: 80%;
-height:100%;
+right:20%;
+width: 50%;
+height:90%;
 background-color: #292c2f;
 box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
 box-sizing: border-box;
 opacity: 0.6;
+margin-top:-5%;
 }
 
 .contenutoBoxMenu {
-opacity: 100%;
 position:absolute;
 top:10%;
-right:40%;
-width: 80%;
-height:100%;
+right:20%;
+width: 50%;
+height:90%;
+opacity: 100%;
 box-sizing: border-box;
-font-size: 18px;
-
+font-size: 14px;
+margin-top:-20%;
 }
 
 
 
 .contenutoBoxMenu p {
 
-
-  margin-top: 1px;
+font-size:0px;
 
  }
 
@@ -3106,85 +3102,104 @@ font-size: 18px;
 
 .contenutoBoxMenu h1 {
 
+  margin-bottom:0px;
+  font-size: 14px;
 
 
 }
 
 .contenutoBoxMenu h2 {
+  font-size: 12px;
+  margin-top:5%;
 
  }
 
 .contenutoBoxMenu form {
- }
+  font-size: 14px;
+ 
+}
 
 .contenutoBoxMenu label {
- }
+  font-size: 14px;
+ 
+
+}
 
 .contenutoBoxMenu input {
    height: 24px;
    width: 100px;
+   margin-top: -25%;
+
 }
 
-.contenutoBoxMenu button {
+.contenutoBoxMenu .button {
    height: 20px;
-  margin-bottom: 1%;
+  padding-top:5px; 
+  padding-bottom:50px;
 
 }
 
 .contenutoBoxMenu .cercaCittà {
-  margin-bottom: 1px;
+  margin-top:10px;
+   height: 24px;
+  width: 200px;
 }
 
 .contenutoBoxMenu .button1 {
-  width: 100px;
-  height: 20px;
-   margin-left: 20%;
-  margin-top: 2%;
+  width: 0px;
+  height: 0px;
+   margin-left: 0px;
+  margin-top: 0px;
 }
+
+
+
 
 .contenutoBoxMenu .date {
  }
 
+ .descrizioneSinistra {
+ 
+  }
+
+ .descrizioneDestra {
+ 
+  }
 
 
 .descrizioneSinistra p {
 
-  color:black;
-  font-size:8px;
-
- 
+  color:#000000;
+  font-size:14px;
 }
 
 .descrizioneDestra p {
-  
-  color:black;
-  font-size:8px;
-
+   color:black;
+  font-size:14px;
 }
 
 
 .descrizioneSinistra h1 {
-  
-  color:black;
+   color:black;
   text-shadow:  1px 1px 3px 3px rgb(0, 0, 0);
-  font-size:10px;
+  font-size:14px;
+  
 
  }
 
 .descrizioneDestra h1 {
-  
-  color:black;
+   color:black;
   text-shadow:  1px 1px 3px 3px rgb(0, 0, 0);
-  font-size:10px;
-
+  font-size:14px;
+ 
 
 }
 
 #box1 img {
 
   border:1px solid black;
-  width: 25%;
-  height: 20%;
+  width: 27%;
+  height: 25%;
   margin-top:5%;
  
 }
@@ -3204,8 +3219,8 @@ margin-top:5%;
 #box3 img {
  
 border:1px solid black;
-width: 25%;
-height: 60%;
+width: 27%;
+height: 65%;
 margin-top:5%;
 
 }
