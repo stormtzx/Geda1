@@ -891,7 +891,10 @@ background-color:lightgray;
   padding-bottom:10%;
  padding-right: 10%;
  padding-top:5%;
-
+ align-items: center;
+ align-content: center;
+ text-align: center;
+ display: block;
 
 }
 
@@ -933,6 +936,14 @@ text-shadow:  1px 1px 3px black;
 font-weight: bold;
  text-align:center;
 padding-left:14%;
+
+}
+
+.contenutoPannelli  p {
+
+  color:black;
+  padding-left:14%;
+
 
 }
 
