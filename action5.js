@@ -328,4 +328,69 @@ module.exports = function (app) {
       }
     });
   });
+
+  app.post("/cancellaRecensione", function (req, res, err) {
+    var id = req.param("id");
+
+    var sql =
+      "DELETE FROM gestioneAffitti.recensione WHERE gestioneAffitti.recensione.id_recensione = " +
+      id +
+      " ";
+
+    con.query(sql, function (err, results) {
+      if (!err) {
+        console.log(results);
+        var sql2 =
+          "SELECT * FROM gestioneAffitti.recensione WHERE email_recensore = '" +
+          req.session.emailC +
+          "'";
+        con.query(sql2, function (err, results) {
+          if (err) {
+            console.log(err);
+          } else if (results.length == 0) {
+            console.log("Il cliente non ha scritto nessuna recensione");
+            res.sendFile(
+              path.join(
+                __dirname,
+                "../Sistema_Alberghi/views",
+                "NotificaRicercaFallita.html"
+              )
+            );
+          } else if (results.length > 0) {
+            console.log("Lista recensioni cliente: ");
+            console.log(results);
+
+            console.log(
+              "Recensioni di " +
+                req.session.nomeC +
+                " " +
+                req.session.cognomeC +
+                ": "
+            );
+            console.log(results);
+            res.render("SchermataRecensioniCliente.html", {
+              leggiRecensioniCliente: results,
+            });
+          } else {
+            res.sendFile(
+              path.join(
+                __dirname,
+                "../Sistema_Alberghi/views",
+                "QualcosaStorto.html"
+              )
+            );
+          }
+        });
+      } else {
+        console.log(results);
+        res.sendFile(
+          path.join(
+            __dirname,
+            "../Sistema_Alberghi/views",
+            "QualcosaStorto.html"
+          )
+        );
+      }
+    });
+  });
 };
