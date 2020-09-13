@@ -330,7 +330,7 @@ module.exports = function (app) {
   });
 
   app.post("/cancellaRecensione", function (req, res, err) {
-    var id = req.param("id");
+    var id = parseInt(req.param("id"));
 
     var sql =
       "DELETE FROM gestioneAffitti.recensione WHERE gestioneAffitti.recensione.id_recensione = " +
@@ -339,7 +339,7 @@ module.exports = function (app) {
 
     con.query(sql, function (err, results) {
       if (!err) {
-        console.log(results);
+        console.log("Recensione eliminata correttamente");
         var sql2 =
           "SELECT * FROM gestioneAffitti.recensione WHERE email_recensore = '" +
           req.session.emailC +
@@ -347,19 +347,25 @@ module.exports = function (app) {
         con.query(sql2, function (err, results) {
           if (err) {
             console.log(err);
-          } else if (results.length == 0) {
-            console.log("Il cliente non ha scritto nessuna recensione");
             res.sendFile(
               path.join(
                 __dirname,
                 "../Sistema_Alberghi/views",
-                "NotificaRicercaFallita.html"
+                "QualcosaStorto.html"
+              )
+            );
+          } else if (results.length == 0) {
+            console.log(
+              "Il cliente non ha scritto nessuna recensione. Viene ricondotto alla SchermataPrincipale..."
+            );
+            res.sendFile(
+              path.join(
+                __dirname,
+                "../Sistema_Alberghi/views",
+                "SchermataPrincipale.html"
               )
             );
           } else if (results.length > 0) {
-            console.log("Lista recensioni cliente: ");
-            console.log(results);
-
             console.log(
               "Recensioni di " +
                 req.session.nomeC +
