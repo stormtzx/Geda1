@@ -329,7 +329,7 @@ module.exports = function (app) {
     });
   });
 
-  app.post("/cancellaRecensione", function (req, res, err) {
+  app.get("/cancellaRecensione", function (req, res, err) {
     var id = parseInt(req.param("id"));
 
     var sql =
