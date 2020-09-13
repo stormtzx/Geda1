@@ -63,6 +63,7 @@
     <h1>Recensioni di</h1>
     <h2> <%= leggiRecensioniCliente[0].nome_recensore %> </h2>
     <br />
+    <form action="/cancellaRecensione" method="GET">
     < % for(var i=0; i<leggiRecensioni.length; i++){ %>
     <p>Nome Ospite: </p>
     <h3><%= leggiRecensioni[i].ref_nome_casa_r %></h3>
@@ -74,6 +75,7 @@
     <h3><%= leggiRecensioni[i].commento %></h3>
     <a href="cancellaRecensione?id=<%= leggiRecensioni[i].id_recensione %>">Cancella Recensione</a>
     <% } %>
+    </form>
 
   </div>
 </div>
