@@ -1,7 +1,13 @@
+
+
+
 {
   "name": "alberghi",
   "version": "1.0.0",
   "main": "index.js",
+  "engines": {
+    "node": "12.x"
+  },
   "scripts": {
     "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -31,4 +37,6 @@
   },
   "homepage": "https://github.com/gianca98/Sistema_Alberghi#readme",
   "description": ""
+
+   
 }
