@@ -7,7 +7,7 @@ const fs = require("fs");
 var session = require("express-session");
 app.engine("html", require("ejs").renderFile);
 app.set("view engine", "html");
-const port = 3000;
+const port = process.env.PORT;
 const bodyParser = require("body-parser");
 var nodemailer = require("nodemailer");
 app.use(express.urlencoded({ extended: false }));
