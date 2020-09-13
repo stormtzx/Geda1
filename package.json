@@ -12,6 +12,7 @@
 
   
   "scripts": {
+    "start": "node index.js",
     "web": "npm start",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
