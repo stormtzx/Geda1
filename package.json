@@ -8,6 +8,10 @@
   "engines": {
     "node": "12.x"
   },
+
+    "engines": {
+      "npm": "6.x"
+    },
   "scripts": {
     "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
