@@ -4,16 +4,15 @@
   "name": "alberghi",
   "version": "1.0.0",
   "main": "index.js",
-"scripts": { "start" :"node server.js","test":"echo \"Error: no test specified\" && exit 1"},
+ 
   "engines": {
-    "node": "12.x"
+    "node": "12.x",
+    "npm": "6.x"
   },
 
-    "engines": {
-      "npm": "6.x"
-    },
+  
   "scripts": {
-    "start": "node index.js",
+    "web": "npm start",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "geda",
