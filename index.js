@@ -13,9 +13,10 @@ var nodemailer = require("nodemailer");
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static("."));
 app.use(express.static(path.join(__dirname, "views")));
-app.listen(3000, function () {
+app.listen(process.env.PORT, function () {
   console.log("Example app listening on port 3000!");
 });
+ 
 
 var con = mysql.createConnection({
   host: "localhost",
