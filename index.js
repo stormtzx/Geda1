@@ -12,7 +12,7 @@ var nodemailer = require("nodemailer");
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static("."));
 app.use(express.static(path.join(__dirname, "views")));
-const PORT = process.env.PORT || 3000;
+var PORT = process.env.PORT || 8000;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}.`);
 });
