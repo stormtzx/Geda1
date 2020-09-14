@@ -7,14 +7,14 @@ const fs = require("fs");
 var session = require("express-session");
 app.engine("html", require("ejs").renderFile);
 app.set("view engine", "html");
-const port = process.env.PORT;
 const bodyParser = require("body-parser");
 var nodemailer = require("nodemailer");
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static("."));
 app.use(express.static(path.join(__dirname, "views")));
-app.listen(process.env.PORT, function () {
-  console.log("Example app listening on port 3000!");
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}.`);
 });
  
 
